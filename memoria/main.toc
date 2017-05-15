@@ -7,9 +7,9 @@
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}}{1}{chapter.7}
 \contentsline {chapter}{\numberline {2}Contextualitzaci\IeC {\'o}}{3}{chapter.8}
 \contentsline {section}{\numberline {2.1}Justificaci\IeC {\'o} de la tem\IeC {\`a}tica}{3}{section.9}
-\contentsline {section}{\numberline {2.2}Definici\IeC {\'o} \IeC {\`a}rea d'estudi}{3}{section.10}
-\contentsline {subsection}{\numberline {2.2.1}Stakeholders}{3}{subsection.11}
-\contentsline {section}{\numberline {2.3}Estat de l'art}{3}{section.12}
+\contentsline {section}{\numberline {2.2}Definici\IeC {\'o} de l'\IeC {\`a}rea d'estudi}{3}{section.10}
+\contentsline {subsection}{\numberline {2.2.1}Identificaci\IeC {\'o} dels stakeholders}{4}{subsection.11}
+\contentsline {section}{\numberline {2.3}Estat de l'art}{4}{section.12}
 \contentsline {subsection}{\numberline {2.3.1}Projecte SUPERSEDE}{4}{subsection.13}
 \contentsline {chapter}{\numberline {3}Objectius}{5}{chapter.14}
 \contentsline {section}{\numberline {3.1}Objectiu general}{5}{section.15}

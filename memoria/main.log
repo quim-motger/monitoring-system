@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.5.4)  10 MAY 2017 13:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.5.4)  15 MAY 2017 16:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1751,12 +1751,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--160
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 184.
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
@@ -1772,7 +1767,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 207.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 204.
  (./main.toc
 1: section
 [9])
@@ -1805,6 +1800,21 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 Cap\'{\i }tol 1.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
 )
 1: section
 [1
@@ -1821,11 +1831,26 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
 Cap\'{\i }tol 2.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 11.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 26.
-)
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
 1: section
-[3] [4]
+[3]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 40.
+) [4]
 \openout2 = `Chapters/Objectius.aux'.
 
  (./Chapters/Objectius.tex
@@ -1961,10 +1986,10 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 1: section
 [29]
 
-LaTeX Warning: Empty bibliography on input line 301.
+LaTeX Warning: Empty bibliography on input line 298.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
 (./main.aux (./Chapters/Introduccio.aux) (./Chapters/Contextualitzacio.aux)
 (./Chapters/Objectius.aux) (./Chapters/GestioIDesenvolupament.aux)
 (./Chapters/EinesDesenvolupament.aux) (./Chapters/AnalisiRequisits.aux)
@@ -1972,19 +1997,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
 (./Chapters/ReconfiguracioMonitors.aux) (./Chapters/DissenyDashboard.aux)
 (./Chapters/ValidacioSistema.aux) (./Chapters/TreballFutur.aux)
 (./Chapters/Conclusions.aux) (./Appendices/AppendixA.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 302.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 302.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F8C25E71BC7FE1AAEA67B787A4F68299;10295.
+(rerunfilecheck)             Checksum: C86FFE05267DC64828BEDBE8BE40F859;10427.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29028 strings out of 493304
- 591663 string characters out of 6139872
+ 29029 strings out of 493304
+ 591684 string characters out of 6139872
  722970 words of memory out of 5000000
- 31936 multiletter control sequences out of 15000+600000
+ 31937 multiletter control sequences out of 15000+600000
  42425 words of font info for 71 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  52i,20n,77p,10402b,2209s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1994,7 +2019,7 @@ f-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pa
 latino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (43 pages, 202008 bytes).
+Output written on main.pdf (43 pages, 206416 bytes).
 PDF statistics:
  611 PDF objects out of 1000 (max. 8388607)
  552 compressed objects within 6 object streams
