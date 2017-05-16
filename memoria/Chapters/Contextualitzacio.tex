@@ -1,44 +1,35 @@
-% Chapter Template
+\chapter{Contextualització}
 
-\chapter{Contextualització} % Main chapter title
+\label{Contextualitzacio}
 
-\label{Contextualitzacio} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\section{Presentació i justificació de la temàtica}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
+En les darreres dècades els sistemes software han evolucionat fins al punt d’esdevenir elements clau i imprescindibles de les activitats primàries de qualsevol empresa, organització o institució. La gestió de la informació, els protocols i controls de seguretat, els processos de negoci, etc., són els reptes als quals els CIO de moltes empreses s’han d’enfrontar. Aquests reptes i els seus resultats depenen, en gran mesura, del comportament dels sistemes software que entren en joc dins aquestes activitats. Adicionalment, la quantitat de productes software exposats com a serveis o aplicacions mòbils ha incrementat dràsticament. Fet que deriva en el sorgiment d'una gran varietat de contexts i entorns d'execució entre els grans volums d'usuaris que aquests sistemes poden tenir. \\
 
-\section{Justificació de la temàtica}
+És per aquest motiu que eventualment ha anat prenent força un concepte basat en l’estudi i control de qualitat dels sistemes software: el monitoratge. Com a part de la vida professional d’un enginyer de software, la supervisió i control dels components i sistemes amb els què treballa és un concepte clau amb el qual, d’una forma o altra, ha d’estar familiaritzat. Però el problema que plantegem aquí va més enllà: després del repte de monitorar els sistemes, ens hem de plantejar com dissenyar, gestionar i adaptar aquest monitoratge.\\
 
-És un fet innegable que en les darreres dècades els sistemes software han evolucionat fins al punt d’esdevenir elements clau i imprescindibles de les activitats primàries de qualsevol empresa, organització o institució. La gestió de la informació, els protocols i controls de seguretat, els processos de negoci, etc., són els reptes als quals els CIO de moltes empreses s’han d’enfrontar. Aquests reptes i els seus resultats depenen, en gran mesura, del comportament dels sistemes software que entren en joc dins aquestes activitats. 
-El comportament d’aquests sistemes, per tant, és clau. És per aquest motiu que eventualment ha anat prenent força un concepte basat en l’estudi i control de qualitat dels sistemes software: el monitoratge.\\
+Els reptes que aquestes tasques plantegen i que aquest projecte treballa són diversos. Entre d'altres, cal valorar el disseny i les característiques tècniques dels monitors, la seva configuració i la capacitat d'adaptabilitat. En relació amb aquest últim aspecte, també cal valorar com s'emmagatzemen i es gestionen els detalls relacionats amb la configuració dels monitors, i establir interaccions de la manera més genèrica possible per facilitar l'extensibilitat.\\
 
-Com a part de la vida professional d’un enginyer de software, la supervisió i control dels components i sistemes amb els què treballa és un concepte clau amb el qual, d’una forma o altra, ha d’estar familiaritzat. Però el problema que plantegem aquí va més enllà: després del repte de monitorar els sistemes, ens hem de plantejar com dissenyar, gestionar i adaptar aquest monitoratge.\\
-
-En aquest àmbit, i tal com veurem més endavant a l’apartat \textit{2.3. Estat de l’art}, existeix una àmplia recerca que actualment treballa i desenvolupa projectes en relació a aquest àmbit. El potencial d’estudi que ofereix resulta d’un alt interès a causa de la possibilitat de recerca i síntesi i als diferents aspectes i criteris sobre els quals es pot treballar.\\
+Tal i com veurem més endavant a l’apartat \textit{2.3. Estat de l’art}, existeix una àmplia recerca que actualment treballa i desenvolupa projectes en relació a aquest àmbit. El potencial d’estudi que ofereix resulta d’un alt interès a causa de la possibilitat de recerca i síntesi i als diferents aspectes i criteris sobre els quals es pot treballar.\\
 
 Així, tant com estudiant com a futur professional del sector de l’enginyeria del software, es poden contemplar diversos criteris per treballar en aquesta temàtica:
 \begin{itemize}
 \item Un aprofundiment en els coneixements de l’enginyeria i els sistemes software
-\item Treball i recerca en conceptes de control de qualitat i fiabilitat
+\item Treball i recerca en conceptes de control de qualitat, fiabilitat i millora de l'experiència de l'usuari
 \item Possibilitat de col·laborar i aprofundir en un tema de recerca d’actualitat dins l’enginyeria de serveis i els sistemes d’informació
 \item Plantejament d’un projecte complet que pugui servir a tercers interessats en l’estudi de sistemes de monitoratge autoadaptatius
 \end{itemize}  
 
-
-%-----------------------------------
-%	SUBSECTION 1
-%-----------------------------------
-\section{Definició de l'àrea d'estudi}
-
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
-
-%-----------------------------------
-%	SUBSECTION 2
-%-----------------------------------
-
 \subsection{Identificació dels stakeholders}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+
+Les diferents fases que engloben aquest projecte deriven en l'obtenció d'un producte final, orientat a la seva aplicació pràctica. Com a tal, els documents generats i els components dissenyats i implementats esdevenen productes propis dins el context del monitoratge de sistemes software. Com a tals, aspectes que s'exposaran al llarg d'aquest document (el disseny i implementació d'una arquitectura genèrica pels monitors, la gestió de les configuracions, etc.) poden resultar d'utilitat per a agents externs a la pròpia autoria del projecte.\\
+
+Podem considerar, per tant, que podrà ser una eina d’interès pels principals stakeholders, que vindrien a ser:
+\begin{itemize}
+\item \textbf{Desenvolupadors i enginyers software}. Aquells agents al càrrec del control de qualitat de sistemes softwares de diverses naturaleses. Els conceptes treballats, el plantejament de problemàtiques, i el producte generat, poden aportar valor de qualitat al sector treballant, per una banda, en la síntesi i recopilació de la informació actual, i per altra banda, aportant propostes i solucions pròpies basades en l’experiència del desenvolupament del projecte.
+\item \textbf{Gestors de projecte i experts en Sistemes d'Informació}. La gestió de la informació, el tractament i el seu potencial poden resultar afectats gràcies a la capacitat de recol·lecció de dades del sistema de monitoratge, així com els criteris de revisió i control de qualitat, que permeten analitzar i obtenir informació fiable.
+\item \textbf{Usuaris finals dels sistemes monitorats}. De forma indirecta, es veuran afectats degut a les conseqüències del monitoratge dut a terme per aquest sistema de monitoratge o d’altres derivats dels conceptes treballats al llarg d’aquest projecte.
+\end{itemize}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -46,11 +37,35 @@ Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar p
 
 \section{Estat de l'art}
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+Per tal de plantejar les necessitats i projeccions del treball, així com les vies de desenvolupament del projecte, és necessari conèixer quina és la situació del monitoratge autoadaptatiu de sistemes software en la recerca actual.\\
+
+En primer lloc, cal conéixer l’entorn referent als sistemes software autoadaptatius: és a dir, aquells que seran l’objectiu de monitoratge del nostre sistema de monitoratge (que no deixa de ser un altre sistema software autoadaptatiu). És interessant veure com la recerca i la investigació planteja, de forma pràcticament correlacionada, els conceptes de sistema autoadaptatiu i monitoratge.\\
+
+De fet, documents de caràcter acadèmic tals com \textit{“An Approach to Self-adaptive Software Based on Supervisory Control”} , publicat per la Vanderbilt University de Nashville (USA), plantegen una arquitectura d’autoadaptabilitat per sistemes software basada en la supervisió o monitoratge. Tal com podem veure a la Figura 1, destaquem dos components principals: l’aplicació principal, o \textbf{Main Application Function}, equivalent al sistema software (servei web, aplicació mòbil, etc.) encarregat d'una funcionalitat específica i sobre el qual volem realitzar el control de qualitat; i el component supervisor, o \textbf{Supervisory Component}, que s'encarrega d'executar aquest control de qualitat.\\
+
+La interacció i arquitectura plantejada en la figura és relativament senzilla. El component software a avaluar forma part del domini del sistema a avaluar (\textit{ground-level}, GL). En la seva activitat, aquesta aplicació o sistema rep una sèrie de dades (que dependrà de la naturalesa i objectiu del sistema), i produeix uns resultats en base a aquest \textit{input}. Paral·lelament, com qualsevol sistema orientat a l'ús, existeix una interacció sistema-usuari. Més enllà del domini i les característiques pròpies dels sistemes software, es presenta l'entorn corresponent al sistema de supervisió o monitoratge (\textit{supervisory-level}, SL). En aquest nivell trobem des d'un punt de vista lògic el component de supervisió o monitor, que interacciona amb l'aplicació principal de dues formes diferents:
+
+\begin{itemize}
+\item \textbf{Monitoratge}. Procés d'interacció entre el component principal i el monitor on el primer envia informació al segon. L'aplicatiu produeix, com a conseqüència de la seva activitat, informació i dades que envia com a \textit{output} al monitor. Aquesta informació ha d'estar prèviament definida i estructurada, de tal manera que el monitor sigui capaç d'interpretar-la.
+\item \textbf{Reconfiguració}. El monitor procesa les dades que rep com a input del monitoratge i, segons els criteris d'adaptabilitat establerts, aplica els canvis o reconfiguracions pertinents en el sistema software monitorat. D'aquesta manera, la lògica encarregada d'interpretar la informació i prendre decisions d'adaptabilitat (SL) queda totalment separada de la lògica del domini de l'aplicatiu (GL).
+\end{itemize}
+
+Partint d'aquest punt, aquest document estableix les premisses del monitoratge i les necessitats de reconfiguració d’aquests tercers sistemes softwares, la naturalesa dels quals és diversa i heterogènia. Noti's que, de fet, l'anterior disseny presenta una arquitectura genèrica aplicable a qualsevol entorn software, independentment de la naturalesa del domini monitorat. Tot i així, existeix una àmplia recerca especialitzada: publicacions com \textit{"Agent Based Services for Negotiation, Monitoring and Reconfiguration of Cloud Resources”} , publicada per la universitat de Nàpols (Itàlia), es centren en analitzar els requisits, necessitats i funcions principals del monitoratge i reconfiguració de sistemes i recursos al núvol (p.e. serveis web).\\
+
+La documentació i bibliografia referent als sistemes software autoadaptables i als sistemes de supervisió i monitoratge és molt àmplia. Tot i així, si focalitzem la recerca a la problemàtica a resoldre, és a dir, l’autoadaptabilitat i reconfiguració dels sistemes de monitoratge, no trobem un treball tan profunditzat i específic com en el cas prèviament explicat.\\
+
+En alguns documents, com per exemple el ja esmentat publicat per la University of Nashville, es mencionen criteris del disseny de la capa de supervisió, entre els quals entren en joc, p.e., factors com la previsió d’errors a la capa de l’aplicatiu principal, o ve esdeveniments/disparadors inesperats. I, com és lògic, una reacció i canvis per part del sistema de monitoratge. \\
+
+En altres documents, tals com “Self-reconfiguration of service-based systems: a case study for service level agreements and resource optimization” , publicat per IBM, es defineixen models autònoms d’autoadaptabilitat i reconfiguració autònoma, basats en tècniques de detecció d’esdeveniments i canvis en el propi sistema. Conceptes com l’anàlisi de l’estat del sistema, el monitoratge i l’execució d’una reconfiguració entren en joc dins d’aquest pla.
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 
 \subsection{Projecte SUPERSEDE}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+
+Finalment, un dels punts claus en els quals ens basarem considerant l’estat de l’art actual, és el sistema de monitoratge autoadaptatiu plantejat dins el marc del projecte SUPERSEDE. Aquest projecte planteja precisament un dels aspectes claus del nostre tema: el repte de mantenir un sistema de qualitat evolutiu basant-se en la investigació de diferents mètodes i eines que poden entrar en joc. \\
+
+SUPERSEDE planteja la problemàtica actual en quant a la manca d’eines i sistemes que explotin el feedback de l’usuari i la informació del context dels sistemes softwares, que orientin aquesta informació per la generació, manteniment i millora dels sistemes softwares, amb l’objectiu final de millorar l’experiència de l’usuari (en conceptes de qualitat de servei). Tal i com podem veure a la Figura 2, dins el cicle plantejat per SUPERSEDE, la col·lecció de dades (monitoratge) evoluciona i s’adapta en base a les dades obtingudes, el seu anàl·lisi, la presa de decisions i, finalment l’aplicació d’adaptacions específiques. \\
+
+En base a aquests conceptes, existeix recerca i potencial de treball per plantejar les premisses per garantir competències d’autoadaptabilitat d’un sistema de monitoratge. Partint dels criteris d’autoadaptabilitat i reconfiguració dels sistemes software, i estudiant les premisses del monitoratge (requisits, necessitats, funcionalitats, etc.), podem plantejar-nos una sèrie d’objectius a satisfer per desenvolupar un projecte a l’alçada de les expectatives inicialment preestablertes.\\

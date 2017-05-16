@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.5.4)  15 MAY 2017 16:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.5.4)  16 MAY 2017 09:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1711,7 +1711,7 @@ Package hyperref Warning: Suppressing link with empty target on input line 120.
 Package hyperref Warning: Suppressing link with empty target on input line 124.
 
 
-<Figures/fib.png, id=293, 3602.45876pt x 461.725pt>
+<Figures/fib.png, id=289, 3602.45876pt x 461.725pt>
 File: Figures/fib.png Graphic file (type png)
  <use Figures/fib.png>
 Package pdftex.def Info: Figures/fib.png used on input line 137.
@@ -1830,41 +1830,96 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 ]
 Cap\'{\i }tol 2.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 11.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--15
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
 1: section
 [3]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 40.
-) [4]
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 23.
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 71--268
+
+ []
+
+[6]
 \openout2 = `Chapters/Objectius.aux'.
 
  (./Chapters/Objectius.tex
 Cap\'{\i }tol 3.
 )
 1: section
-[5
+[7
 
 
 
 ]
 \openout2 = `Chapters/GestioIDesenvolupament.aux'.
 
- (./Chapters/GestioIDesenvolupament.tex [6
+ (./Chapters/GestioIDesenvolupament.tex [8
 
 
 
@@ -1872,21 +1927,21 @@ Cap\'{\i }tol 3.
 Cap\'{\i }tol 4.
 )
 1: section
-[7] [8]
+[9] [10]
 \openout2 = `Chapters/EinesDesenvolupament.aux'.
 
  (./Chapters/EinesDesenvolupament.tex
 Cap\'{\i }tol 5.
 )
 1: section
-[9
+[11
 
 
 
 ]
 \openout2 = `Chapters/AnalisiRequisits.aux'.
 
- (./Chapters/AnalisiRequisits.tex [10
+ (./Chapters/AnalisiRequisits.tex [12
 
 
 
@@ -1894,20 +1949,20 @@ Cap\'{\i }tol 5.
 Cap\'{\i }tol 6.
 )
 1: section
-[11]
+[13]
 \openout2 = `Chapters/DissenySistema.aux'.
 
- (./Chapters/DissenySistema.tex [12
+ (./Chapters/DissenySistema.tex [14
 
 
 
 ]
 Cap\'{\i }tol 7.
 1: section
-[13]) [14] [15]
+[15]) [16] [17]
 \openout2 = `Chapters/ModelatgeConfiguracions.aux'.
 
- (./Chapters/ModelatgeConfiguracions.tex [16
+ (./Chapters/ModelatgeConfiguracions.tex [18
 
 
 
@@ -1915,21 +1970,21 @@ Cap\'{\i }tol 7.
 Cap\'{\i }tol 8.
 )
 1: section
-[17] [18]
+[19] [20]
 \openout2 = `Chapters/ReconfiguracioMonitors.aux'.
 
  (./Chapters/ReconfiguracioMonitors.tex
 Cap\'{\i }tol 9.
 )
 1: section
-[19
+[21
 
 
 
 ]
 \openout2 = `Chapters/DissenyDashboard.aux'.
 
- (./Chapters/DissenyDashboard.tex [20
+ (./Chapters/DissenyDashboard.tex [22
 
 
 
@@ -1937,10 +1992,10 @@ Cap\'{\i }tol 9.
 Cap\'{\i }tol 10.
 )
 1: section
-[21]
+[23]
 \openout2 = `Chapters/ValidacioSistema.aux'.
 
- (./Chapters/ValidacioSistema.tex [22
+ (./Chapters/ValidacioSistema.tex [24
 
 
 
@@ -1948,10 +2003,10 @@ Cap\'{\i }tol 10.
 Cap\'{\i }tol 11.
 )
 1: section
-[23]
+[25]
 \openout2 = `Chapters/TreballFutur.aux'.
 
- (./Chapters/TreballFutur.tex [24
+ (./Chapters/TreballFutur.tex [26
 
 
 
@@ -1959,10 +2014,10 @@ Cap\'{\i }tol 11.
 Cap\'{\i }tol 12.
 )
 1: section
-[25]
+[27]
 \openout2 = `Chapters/Conclusions.aux'.
 
- (./Chapters/Conclusions.tex [26
+ (./Chapters/Conclusions.tex [28
 
 
 
@@ -1970,10 +2025,10 @@ Cap\'{\i }tol 12.
 Cap\'{\i }tol 13.
 )
 1: section
-[27]
+[29]
 \openout2 = `Appendices/AppendixA.aux'.
 
- (./Appendices/AppendixA.tex [28
+ (./Appendices/AppendixA.tex [30
 
 
 
@@ -1984,7 +2039,7 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 11.
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ))
 1: section
-[29]
+[31]
 
 LaTeX Warning: Empty bibliography on input line 298.
 
@@ -2000,29 +2055,29 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 302.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 302.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C86FFE05267DC64828BEDBE8BE40F859;10427.
+(rerunfilecheck)             Checksum: 8FF601A4FB70CA2A73B72E54BC65EEEF;10296.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29029 strings out of 493304
- 591684 string characters out of 6139872
- 722970 words of memory out of 5000000
- 31937 multiletter control sequences out of 15000+600000
+ 29035 strings out of 493304
+ 591754 string characters out of 6139872
+ 721971 words of memory out of 5000000
+ 31942 multiletter control sequences out of 15000+600000
  42425 words of font info for 71 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 52i,20n,77p,10402b,2209s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,20n,77p,10402b,2209s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pa
 latino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (43 pages, 206416 bytes).
+Output written on main.pdf (45 pages, 215989 bytes).
 PDF statistics:
- 611 PDF objects out of 1000 (max. 8388607)
- 552 compressed objects within 6 object streams
- 119 named destinations out of 1000 (max. 500000)
- 582 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 614 PDF objects out of 1000 (max. 8388607)
+ 553 compressed objects within 6 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 574 words of extra memory for PDF output out of 10000 (max. 10000000)
 

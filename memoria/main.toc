@@ -6,70 +6,69 @@
 \contentsline {chapter}{Agra\@umlaut iments}{vii}{section*.3}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}}{1}{chapter.7}
 \contentsline {chapter}{\numberline {2}Contextualitzaci\IeC {\'o}}{3}{chapter.8}
-\contentsline {section}{\numberline {2.1}Justificaci\IeC {\'o} de la tem\IeC {\`a}tica}{3}{section.9}
-\contentsline {section}{\numberline {2.2}Definici\IeC {\'o} de l'\IeC {\`a}rea d'estudi}{3}{section.10}
-\contentsline {subsection}{\numberline {2.2.1}Identificaci\IeC {\'o} dels stakeholders}{4}{subsection.11}
-\contentsline {section}{\numberline {2.3}Estat de l'art}{4}{section.12}
-\contentsline {subsection}{\numberline {2.3.1}Projecte SUPERSEDE}{4}{subsection.13}
-\contentsline {chapter}{\numberline {3}Objectius}{5}{chapter.14}
-\contentsline {section}{\numberline {3.1}Objectiu general}{5}{section.15}
-\contentsline {subsection}{\numberline {3.1.1}Objectius espec\IeC {\'\i }fics}{5}{subsection.16}
-\contentsline {section}{\numberline {3.2}Abast del projecte}{5}{section.17}
-\contentsline {chapter}{\numberline {4}Gesti\IeC {\'o} i desenvolupament}{7}{chapter.18}
-\contentsline {section}{\numberline {4.1}Metodologia de desenvolupament}{7}{section.19}
-\contentsline {section}{\numberline {4.2}Planificaci\IeC {\'o} temporal}{7}{section.20}
-\contentsline {section}{\numberline {4.3}Viabilitat}{7}{section.21}
-\contentsline {subsection}{\numberline {4.3.1}Estimaci\IeC {\'o} pressupost\IeC {\`a}ria}{7}{subsection.22}
-\contentsline {subsection}{\numberline {4.3.2}Sostenibilitat econ\IeC {\`o}mica, social i ambiental}{8}{subsection.23}
-\contentsline {chapter}{\numberline {5}Eines de desenvolupament}{9}{chapter.24}
-\contentsline {section}{\numberline {5.1}Tecnologies utilitzades}{9}{section.25}
-\contentsline {section}{\numberline {5.2}Entorn de configuraci\IeC {\'o}}{9}{section.26}
-\contentsline {chapter}{\numberline {6}An\IeC {\`a}lisi de requisits}{11}{chapter.27}
-\contentsline {section}{\numberline {6.1}Abast i domini}{11}{section.28}
-\contentsline {section}{\numberline {6.2}Requisits}{11}{section.29}
-\contentsline {subsection}{\numberline {6.2.1}Funcionals}{11}{subsection.30}
-\contentsline {subsection}{\numberline {6.2.2}De qualitat}{11}{subsection.31}
-\contentsline {chapter}{\numberline {7}Disseny del sistema}{13}{chapter.32}
-\contentsline {section}{\numberline {7.1}Descripci\IeC {\'o} general}{13}{section.33}
-\contentsline {section}{\numberline {7.2}Sistema de monitoratge}{13}{section.34}
-\contentsline {subsection}{\numberline {7.2.1}Monitors}{13}{subsection.35}
-\contentsline {subsection}{\numberline {7.2.2}Monitor Manager}{13}{subsection.36}
-\contentsline {subsection}{\numberline {7.2.3}Orchestrator}{14}{subsection.37}
-\contentsline {section}{\numberline {7.3}Sistema d'adaptabilitat}{14}{section.38}
-\contentsline {subsection}{\numberline {7.3.1}Model Repository}{14}{subsection.39}
-\contentsline {subsection}{\numberline {7.3.2}Adapter}{14}{subsection.40}
-\contentsline {subsubsection}{Model Adapter}{15}{section*.41}
-\contentsline {subsubsection}{Enactor}{15}{section*.42}
-\contentsline {section}{\numberline {7.4}Dashboard}{15}{section.43}
-\contentsline {chapter}{\numberline {8}Modelatge UML de configuracions dels monitors}{17}{chapter.44}
-\contentsline {section}{\numberline {8.1}Main Section 1}{17}{section.45}
-\contentsline {subsection}{\numberline {8.1.1}Subsection 1}{17}{subsection.46}
-\contentsline {subsection}{\numberline {8.1.2}Subsection 2}{17}{subsection.47}
-\contentsline {section}{\numberline {8.2}Main Section 2}{17}{section.48}
-\contentsline {chapter}{\numberline {9}Reconfiguraci\IeC {\'o} dels monitors}{19}{chapter.49}
-\contentsline {section}{\numberline {9.1}Main Section 1}{19}{section.50}
-\contentsline {subsection}{\numberline {9.1.1}Subsection 1}{19}{subsection.51}
-\contentsline {subsection}{\numberline {9.1.2}Subsection 2}{19}{subsection.52}
-\contentsline {section}{\numberline {9.2}Main Section 2}{19}{section.53}
-\contentsline {chapter}{\numberline {10}Disseny del dashboard}{21}{chapter.54}
-\contentsline {section}{\numberline {10.1}Main Section 1}{21}{section.55}
-\contentsline {subsection}{\numberline {10.1.1}Subsection 1}{21}{subsection.56}
-\contentsline {subsection}{\numberline {10.1.2}Subsection 2}{21}{subsection.57}
-\contentsline {section}{\numberline {10.2}Main Section 2}{21}{section.58}
-\contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{23}{chapter.59}
-\contentsline {section}{\numberline {11.1}Main Section 1}{23}{section.60}
-\contentsline {subsection}{\numberline {11.1.1}Subsection 1}{23}{subsection.61}
-\contentsline {subsection}{\numberline {11.1.2}Subsection 2}{23}{subsection.62}
-\contentsline {section}{\numberline {11.2}Main Section 2}{23}{section.63}
-\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{25}{chapter.64}
-\contentsline {section}{\numberline {12.1}Main Section 1}{25}{section.65}
-\contentsline {subsection}{\numberline {12.1.1}Subsection 1}{25}{subsection.66}
-\contentsline {subsection}{\numberline {12.1.2}Subsection 2}{25}{subsection.67}
-\contentsline {section}{\numberline {12.2}Main Section 2}{25}{section.68}
-\contentsline {chapter}{\numberline {13}Conclusions}{27}{chapter.69}
-\contentsline {section}{\numberline {13.1}Main Section 1}{27}{section.70}
-\contentsline {subsection}{\numberline {13.1.1}Subsection 1}{27}{subsection.71}
-\contentsline {subsection}{\numberline {13.1.2}Subsection 2}{27}{subsection.72}
-\contentsline {section}{\numberline {13.2}Main Section 2}{27}{section.73}
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{29}{appendix.74}
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{29}{section.75}
+\contentsline {section}{\numberline {2.1}Presentaci\IeC {\'o} i justificaci\IeC {\'o} de la tem\IeC {\`a}tica}{3}{section.9}
+\contentsline {subsection}{\numberline {2.1.1}Identificaci\IeC {\'o} dels stakeholders}{4}{subsection.10}
+\contentsline {section}{\numberline {2.2}Estat de l'art}{4}{section.11}
+\contentsline {subsection}{\numberline {2.2.1}Projecte SUPERSEDE}{6}{subsection.12}
+\contentsline {chapter}{\numberline {3}Objectius}{7}{chapter.13}
+\contentsline {section}{\numberline {3.1}Objectiu general}{7}{section.14}
+\contentsline {subsection}{\numberline {3.1.1}Objectius espec\IeC {\'\i }fics}{7}{subsection.15}
+\contentsline {section}{\numberline {3.2}Abast del projecte}{7}{section.16}
+\contentsline {chapter}{\numberline {4}Gesti\IeC {\'o} i desenvolupament}{9}{chapter.17}
+\contentsline {section}{\numberline {4.1}Metodologia de desenvolupament}{9}{section.18}
+\contentsline {section}{\numberline {4.2}Planificaci\IeC {\'o} temporal}{9}{section.19}
+\contentsline {section}{\numberline {4.3}Viabilitat}{9}{section.20}
+\contentsline {subsection}{\numberline {4.3.1}Estimaci\IeC {\'o} pressupost\IeC {\`a}ria}{9}{subsection.21}
+\contentsline {subsection}{\numberline {4.3.2}Sostenibilitat econ\IeC {\`o}mica, social i ambiental}{10}{subsection.22}
+\contentsline {chapter}{\numberline {5}Eines de desenvolupament}{11}{chapter.23}
+\contentsline {section}{\numberline {5.1}Tecnologies utilitzades}{11}{section.24}
+\contentsline {section}{\numberline {5.2}Entorn de configuraci\IeC {\'o}}{11}{section.25}
+\contentsline {chapter}{\numberline {6}An\IeC {\`a}lisi de requisits}{13}{chapter.26}
+\contentsline {section}{\numberline {6.1}Abast i domini}{13}{section.27}
+\contentsline {section}{\numberline {6.2}Requisits}{13}{section.28}
+\contentsline {subsection}{\numberline {6.2.1}Funcionals}{13}{subsection.29}
+\contentsline {subsection}{\numberline {6.2.2}De qualitat}{13}{subsection.30}
+\contentsline {chapter}{\numberline {7}Disseny del sistema}{15}{chapter.31}
+\contentsline {section}{\numberline {7.1}Descripci\IeC {\'o} general}{15}{section.32}
+\contentsline {section}{\numberline {7.2}Sistema de monitoratge}{15}{section.33}
+\contentsline {subsection}{\numberline {7.2.1}Monitors}{15}{subsection.34}
+\contentsline {subsection}{\numberline {7.2.2}Monitor Manager}{15}{subsection.35}
+\contentsline {subsection}{\numberline {7.2.3}Orchestrator}{16}{subsection.36}
+\contentsline {section}{\numberline {7.3}Sistema d'adaptabilitat}{16}{section.37}
+\contentsline {subsection}{\numberline {7.3.1}Model Repository}{16}{subsection.38}
+\contentsline {subsection}{\numberline {7.3.2}Adapter}{16}{subsection.39}
+\contentsline {subsubsection}{Model Adapter}{17}{section*.40}
+\contentsline {subsubsection}{Enactor}{17}{section*.41}
+\contentsline {section}{\numberline {7.4}Dashboard}{17}{section.42}
+\contentsline {chapter}{\numberline {8}Modelatge UML de configuracions dels monitors}{19}{chapter.43}
+\contentsline {section}{\numberline {8.1}Main Section 1}{19}{section.44}
+\contentsline {subsection}{\numberline {8.1.1}Subsection 1}{19}{subsection.45}
+\contentsline {subsection}{\numberline {8.1.2}Subsection 2}{19}{subsection.46}
+\contentsline {section}{\numberline {8.2}Main Section 2}{19}{section.47}
+\contentsline {chapter}{\numberline {9}Reconfiguraci\IeC {\'o} dels monitors}{21}{chapter.48}
+\contentsline {section}{\numberline {9.1}Main Section 1}{21}{section.49}
+\contentsline {subsection}{\numberline {9.1.1}Subsection 1}{21}{subsection.50}
+\contentsline {subsection}{\numberline {9.1.2}Subsection 2}{21}{subsection.51}
+\contentsline {section}{\numberline {9.2}Main Section 2}{21}{section.52}
+\contentsline {chapter}{\numberline {10}Disseny del dashboard}{23}{chapter.53}
+\contentsline {section}{\numberline {10.1}Main Section 1}{23}{section.54}
+\contentsline {subsection}{\numberline {10.1.1}Subsection 1}{23}{subsection.55}
+\contentsline {subsection}{\numberline {10.1.2}Subsection 2}{23}{subsection.56}
+\contentsline {section}{\numberline {10.2}Main Section 2}{23}{section.57}
+\contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{25}{chapter.58}
+\contentsline {section}{\numberline {11.1}Main Section 1}{25}{section.59}
+\contentsline {subsection}{\numberline {11.1.1}Subsection 1}{25}{subsection.60}
+\contentsline {subsection}{\numberline {11.1.2}Subsection 2}{25}{subsection.61}
+\contentsline {section}{\numberline {11.2}Main Section 2}{25}{section.62}
+\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{27}{chapter.63}
+\contentsline {section}{\numberline {12.1}Main Section 1}{27}{section.64}
+\contentsline {subsection}{\numberline {12.1.1}Subsection 1}{27}{subsection.65}
+\contentsline {subsection}{\numberline {12.1.2}Subsection 2}{27}{subsection.66}
+\contentsline {section}{\numberline {12.2}Main Section 2}{27}{section.67}
+\contentsline {chapter}{\numberline {13}Conclusions}{29}{chapter.68}
+\contentsline {section}{\numberline {13.1}Main Section 1}{29}{section.69}
+\contentsline {subsection}{\numberline {13.1.1}Subsection 1}{29}{subsection.70}
+\contentsline {subsection}{\numberline {13.1.2}Subsection 2}{29}{subsection.71}
+\contentsline {section}{\numberline {13.2}Main Section 2}{29}{section.72}
+\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{31}{appendix.73}
+\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{31}{section.74}
