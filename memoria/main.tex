@@ -21,7 +21,6 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
@@ -36,6 +35,7 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 headsepline, % Uncomment to get a line under the header
 %chapterinoneline, % Uncomment to place the chapter title next to the number on one line
 %consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+table
 ]{MastersDoctoralThesis} % The class file specifying the document structure
 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
@@ -44,6 +44,8 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{palatino} % Use the Palatino font by default
 
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage{eurosym}
+
 
 \addbibresource{example.bib} % The filename of the bibliography
 
@@ -100,9 +102,10 @@ headsepline, % Uncomment to get a line under the header
 \begin{titlepage}
 \begin{center}
 
-\vspace*{.06\textheight}
-{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
-\textsc{\Large Treball de Final de Grau}\\[0.5cm] % Thesis type
+%\vspace*{.06\textheight}
+\includegraphics[width=\textwidth]{fib.png}\vspace{4.0cm} % University/department logo - uncomment to place it
+%{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+%\textsc{\Large Treball de Final de Grau}\\[1.5cm] % Thesis type
 
 \HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
@@ -123,7 +126,7 @@ headsepline, % Uncomment to get a line under the header
 \emph{Codirector:} \\
 \href{}{\examname} % Supervisor name - remove the \href bracket to remove the link  
 \end{flushright}
-\end{minipage}\\[2cm]
+\end{minipage}\\[6cm]
  
 %\vfill
 
@@ -133,8 +136,6 @@ headsepline, % Uncomment to get a line under the header
 \groupname\\[2cm] % Research group name and department name
  
 %\vfill
-
-\includegraphics[width=\textwidth]{fib.png} % University/department logo - uncomment to place it
  
 \vfill
 \end{center}

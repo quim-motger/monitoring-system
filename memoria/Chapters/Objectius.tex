@@ -8,16 +8,41 @@
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
+Definit el context, l'àrea d'estudi i una aproximació a l'estat de l'art actual d'aquest projecte, cal definir amb el màxim nivell de detall quins seran els objectius principals, així com els objectius específics i l'abast, per tal d'introduïr els conceptes treballats durant el desenvolupament del mateix.
+
 \section{Objectiu general}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
+L’objectiu principal d’aquest projecte consisteix en la implementació d’un sistema software orientat al monitoratge d’altres sistemes softwares. Aquest sistema haurà de complir 3 característiques principals: ser autoadaptable, heterogeni i distribuït. A continuació procedim a explicar en detall què entendrem per aquestes característiques dins el context d’aquest projecte, en base a la contextualització i els conceptes explicats anteriorment:
+
+\begin{enumerate}
+\item \textbf{Autoadaptable}. El sistema de monitoratge generat ha d'estar dotat de capacitats d'adaptabilitat de la seva execució en temps real. Mitjançant la gestió i control de la seva activitat, els diferents monitors han d'oferir eines d'adaptació orientades al control de qualitat del propi sistema. Per fer-ho, caldrà tenir en compte dos punts que es desenvoluparan més endavant: en primer lloc, la dotació dels monitors d'aquestes eines d'adaptació; en segon lloc, el disseny i implementació dels components necessaris per gestionar les adaptacions.
+\item \textbf{Heterogeni}. El sistema constarà d’un conjunt de monitors de naturalesa variada i permetrà, mitjançant un disseny i una arquitectura prou genèrica, la integració de nous monitors de diversa índole. Per tant, el sistema haurà d’estar capacitat per gestionar els diversos tipus de monitors tot i les seves diferències en aspectes com el sistema monitorat, la naturalesa del monitoratge, les necessitats de configuració, etc. L'objectiu d'aquesta característica és que el resultat final sigui el més aprofitable i reusable possible.
+\item \textbf{Distribuït}. El sistema haurà de permetre desplegar els diferents monitors i els components d'adaptabilitat de forma distribuïda i, per tant, tenir la capacitat de desplegar els diferents components com a elements independents dins el nostre sistema genèric.
+\end{enumerate}
+
+Els detalls tècnics de l'assoliment d'aquests 3 objectius es desenvoluparan al llarg d'aquesta memòria. 
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{Objectius específics}
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
+En base a l’objectiu general prèviament establert, cal definir una sèrie d’objectius específics que ens permetran assolir-lo definint unes vies prou clares com per a facilitar el desenvolupament del projecte. Procedim, doncs, a enumerar aquests objectius:
+
+\begin{itemize}
+\item \textbf{OBJ1.} Definir una planificació pel desenvolupament del projecte en funció dels requisits.
+\item \textbf{OBJ2.} Dissenyar una arquitectura software adequada a les necessitats.
+\item \textbf{OBJ3.} Implementar el sistema de monitoratge.
+\item \textbf{OBJ4.} Implementar el sistema d'adaptació dels monitors.
+\item \textbf{OBJ5.} Generació d’un producte final usable, que pugui ser desplegable i reproduïble en format demo.
+\item \textbf{OBJ6.} Configurar i definir l’entorn de desenvolupament i d’ús del sistema.
+\item \textbf{OBJ7.} Assegurar qualitat i fiabilitat mitjançant els criteris definits.
+\item \textbf{OBJ8.} Seguir una metodologia de desenvolupament i testing del sistema.
+\item \textbf{OBJ9.} Definir una sèrie de casos d’ús per mostrar la usabilitat i comportament real del sistema.
+\item \textbf{OBJ10.} Documentar i justificar l’evolució del projecte.
+\end{itemize}
+
+Aquests objectius engloben les dues vessants d'aquest projecte, ja especificades anteriorment: la generació i documentació d'un Treball de Final de Grau, i el disseny i la implementació del sistema descrit. En qualsevol cas, aquests objectius específics defineixen les "metes finals" d'aquest projecte. Per garantir-ne i comprendre el desenvolupament fins a assolir-los, cal definir les tasques i, per tant, l'abast específic d'aquest projecte.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -25,4 +50,14 @@ Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum an
 
 \section{Abast del projecte}
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+Els objectius específics prèviament identificats ens donen una visió acurada de l’abast del nostre projecte i les tasques a realitzar. Tot i així, és important reflectir de forma explícita l’abast d’aquest projecte, enumerant els requisits (o dit d’una altra manera, les tasques o necessitats a satisfer) i delimitant el nostre projecte. Ens basarem per tant en els següents punts:
+
+\begin{itemize}
+\item Realitzar una recerca bibliogràfica (basada en l’estat de l’art) per assentar les bases i el context del desenvolupament del projecte.
+\item Dissenyar, implementar i documentar un disseny arquitectònic software que satisfaci l’objectiu general i els tres criteris (autoadaptabilitat, heterogeneïtat i distribució) del nostre sistema de monitoratge.
+\item Dissenyar, implementar i documentar el sistema d'adaptabilitat dels monitors i realitzar la integració amb els mateixos.
+\item Definir una sèrie de casos d'ús (mínim de 3 escenaris) que ens permetin validar les funcionalitats del sistema amb exemples mitjançant l'execució real.
+\item Dissenyar i implementar un dashboard que permeti visualitzar l'activitat del sistema de monitoratge i adaptabilitat.
+\end{itemize}
+
+Aquests punts estableixen el mínim del que podríem considerar com a necessari per considerar que s’han assolit els objectius esmentats a l’apartat 3 d’aquest document. Tot i així, podem preveure la possibiltiat de permetre’ns augmentar les perspectives, i gràcies a l’ús d’una metodologia àgil (veure apartat 5.1. Metodologia de treball), augmentar l’abast del projecte, amb aspectes com incrementar el nombre de monitors implementats, o augmentar les funcionalitats del dashboard. En qualsevol cas, aquests aspectes serien un afegit secundari que únicament tindrà sentit contemplar amb el transcurs del projecte.
