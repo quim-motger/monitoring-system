@@ -40,14 +40,14 @@
 \contentsline {subsubsection}{Dimensi\IeC {\'o} social}{21}{section*.55}
 \contentsline {subsubsection}{Dimensi\IeC {\'o} ambiental}{21}{section*.56}
 \contentsline {subsubsection}{Matriu de sostenibilitat}{22}{section*.57}
-\contentsline {chapter}{\numberline {5}Eines de desenvolupament}{23}{chapter.59}
-\contentsline {section}{\numberline {5.1}Tecnologies utilitzades}{23}{section.60}
-\contentsline {section}{\numberline {5.2}Entorn de configuraci\IeC {\'o}}{23}{section.61}
-\contentsline {chapter}{\numberline {6}An\IeC {\`a}lisi de requisits}{25}{chapter.62}
-\contentsline {section}{\numberline {6.1}Abast i domini}{25}{section.63}
-\contentsline {section}{\numberline {6.2}Requisits}{25}{section.64}
-\contentsline {subsection}{\numberline {6.2.1}Funcionals}{25}{subsection.65}
-\contentsline {subsection}{\numberline {6.2.2}De qualitat}{25}{subsection.66}
+\contentsline {chapter}{\numberline {5}An\IeC {\`a}lisi de requisits}{23}{chapter.59}
+\contentsline {section}{\numberline {5.1}Visi\IeC {\'o} general del sistema}{23}{section.60}
+\contentsline {section}{\numberline {5.2}Requisits}{24}{section.61}
+\contentsline {subsection}{\numberline {5.2.1}Funcionals}{24}{subsection.62}
+\contentsline {subsection}{\numberline {5.2.2}De qualitat}{24}{subsection.63}
+\contentsline {chapter}{\numberline {6}Eines de desenvolupament}{25}{chapter.64}
+\contentsline {section}{\numberline {6.1}Tecnologies utilitzades}{25}{section.65}
+\contentsline {section}{\numberline {6.2}Entorn de configuraci\IeC {\'o}}{25}{section.66}
 \contentsline {chapter}{\numberline {7}Disseny del sistema}{27}{chapter.67}
 \contentsline {section}{\numberline {7.1}Descripci\IeC {\'o} general}{27}{section.68}
 \contentsline {section}{\numberline {7.2}Sistema de monitoratge}{27}{section.69}

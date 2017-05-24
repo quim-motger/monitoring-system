@@ -4,32 +4,57 @@
 
 \label{AnalisiRequisits} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
+Definits els objectius i l'abast del nostre projecte, és necessari procedir a traduïr aquests en requisits específics que el nostre sistema ha de satisfer. I que, en conseqüència, guiaran les posteriors tasques de disseny i implementació dels diferents components a desenvolupar.
 
-\section{Abast i domini}
+\section{Visió general del sistema}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
+De forma prèvia a la identificació dels requisits, i a partir de la informació prèviament exposada, podem presentar una breu visió general del nostre sistema. En aquesta part no es presentaran detalls més enllà de la naturalesa, objectius i funcionalitats generals del sistema i els seus components, ja que aquests es desenvoluparan més endavant, un cop els requisits estiguin definits.\\
+
+En primer lloc, establim de nou la premisa d'aquest projecte: el \textbf{disseny}, la \textbf{implementació} i \textbf{validació} d'un sistema de \textbf{monitoratge} que satisfaci les característiques d'\textbf{adaptabilitat}, \textbf{heterogeneïtat} i \textbf{distribució} (característiques explicades al \textit{Capítol 3. Objectius}). En base al context del projecte SUPERSEDE (presentat al \textit{Capítol 2. Contextualització}), i segons aquest objectiu, el nostre sistema haurà d'incloure dues vessants:
+
+\begin{itemize}
+\item Un \textbf{sistema de monitoratge} de serveis i components software tercers.
+\item Un \textbf{sistema d'adaptabilitat} que permeti adaptar l'activitat del sistema de monitoratge.
+\end{itemize}
+
+El component clau de l'activitat del monitoratge és el que anomenem \textbf{monitor}. Un monitor no és més que un component software (independentment de la seva naturalesa o la tecnologia amb la qual està desenvolupat) que interactua amb un component software i col·lecciona informació relacionada amb la seva activitat, tal i com s'explica al \textit{Capítol 2.2. Estat de l'art}. Per tal de generar un sistema de monitoratge dins el nostre projecte, haurem de tenir en compte diversos factors.\\
+
+En primer lloc, necessitarem definir una \textbf{arquitectura genèrica} que ens permeti definir l'estructura i arquitectura bàsica dels monitors que inclourem al nostre projecte. D'aquesta manera, mitjançant criteris que s'estudiaran més endavant, el nostre sistema disposarà d'un component genèric a partir del qual podrem generar \textbf{monitors específics}, independentment de la seva activitat en termes específics. Així, garantit la característica d'\textbf{heterogeneïtat}, el nostre sistema permetrà la seva extensió mitjançant la implementació de nous monitors que es puguin integrar al sistema.\\
+
+En segon lloc, haurem de considerar per una banda que aquests monitors han de ser components independents que es puguin desplegar de forma distribuïda i que la seva activitat pugui actuar com a unitat per sí mateixa. Per altra banda, per gestionar la integració del nostre sistema, necessitarem definir components que \textbf{integri} aquest conjunt de monitors en un únic punt i sigui capaç de gestionar l'activitat dels mateixos.\\
+
+Paral·lelament al sistema de monitoratge, necessitem dissenyar i implementar una part del sistema que \textbf{gestioni les configuracions dels monitors} (és a dir, les diferents activitats de monitoratge) i pugui gestionar les adaptacions sobre els monitors. Per gestionar tot aquest subdomini del projecte, s'utilitzaran un \textbf{conjunt de models UML} amb els quals es modelaran tots els detalls relacionats amb les configuracions i les adaptacions dels monitors: configuracions actuals, propostes de noves configuracions, detalls sobre mecanismes d'adaptacions, etc. Mitjançant aquest conjunt de models, que més endavant es detallaran, el sistema podrà \textbf{computar i aplicar de forma automàtica adaptacions} sobre els monitors desplegats. Per garantir el funcionament i la validació del sistema, caldrà que aquests dos subcomponents estiguin integrats i es puguin comunicar entre ells, seguint els criteris d'adaptació.\\
+
+Finalment, com a tasca complementària, el nostre sistema inclourà un \textit{dashboard} consultor que permeti visualitza les diferents adaptacions que el sistema realitza sobre els monitors, per tal de poder observar i validar l'activitat del sistema d'acord amb els requisits establerts.
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \section{Requisits}
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
+Per formalitzar els conceptes prèviament exposats, definirem una sèrie de requisits prou genèrics que ens serviran per guiar el desenvolupament del nostre sistema. Els detalls d'aquests requisits s'aniran exposant a mesura que es presenti la recerca i el treball realitzats.
 
-%-----------------------------------
-%	SUBSECTION 2
-%-----------------------------------
+Classificarem aquest requisits en 3 tipus: \textbf{funcionals}, \textbf{arquitecturals} i \textbf{de qualitat}.
 
 \subsection{Funcionals}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
 
-%----------------------------------------------------------------------------------------
-%	SECTION 2
-%----------------------------------------------------------------------------------------
+\begin{itemize}
+\item[\textbf{RF-1}] \textbf{Alta d'una nova activitat de monitoratge.} El sistema ha de permetre inicialitzar un nou procés de monitoratge en un dels monitors integrats. Aquesta activitat ha de ser configurable segons els paràmetres de configuració defintis pel propi monitor.
+\item[\textbf{RF-2}] \textbf{Baixa d'una activitat de monitoratge.} Donada una activitat de monitoratge existent per un monitor específic, el sistema ha de permetre aturar aquesta activitat.
+\item[\textbf{RF-3}] \textbf{Modificació d'una activitat de monitoratge.} Donada una activitat de monitoratge existent per un monitor específic, el sistema ha de permetre modificar els paràmetres de configuració de l'activitat de monitoratge del monitor.
+\item[\textbf{RF-4}] \textbf{Consulta d'una activitat de monitoratge.} Donada una activitat de monitoratge existent per un monitor específic, el sistema ha de permetre consultar les dades i paràmetres de configuració d'aquella activitat de monitoratge.
+\item[\textbf{RF-5}] \textbf{•}
+\end{itemize}
 
-\subsection{De qualitat}
+\subsection{Arquitecturals}
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+\begin{itemize}
+\item[\textbf{RA-1}] \textbf{Arquitectura genèrica per monitors extensible.} L'arquitectura proposada per la implementació dels monitors ha de ser genèrica, independent de la seva activitat, i extensible per qualsevol tipus de monitor.
+\item[\textbf{RA-2}] \textbf{Integració dels monitors.} El sistema ha d'integrar els diversos monitors mitjançant un únic punt d'entrada i garantir, mitjançant l'arquitectura genèrica, la operabilitat amb els mateixos.
+\item[\textbf{RA-3}] \textbf{}
+\end{itemize}
+
+\subsection{De Qualitat}
+
+
+

@@ -1,0 +1,16 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {catalan}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}}{1}{chapter.2}
+\contentsline {chapter}{\numberline {2}Contextualitzaci\IeC {\'o}}{3}{chapter.3}
+\contentsline {section}{\numberline {2.1}Presentaci\IeC {\'o} i justificaci\IeC {\'o} de la tem\IeC {\`a}tica}{3}{section.4}
+\contentsline {subsection}{\numberline {2.1.1}Identificaci\IeC {\'o} dels stakeholders}{4}{subsection.5}
+\contentsline {section}{\numberline {2.2}Estat de l'art}{4}{section.6}
+\contentsline {subsection}{\numberline {2.2.1}Projecte SUPERSEDE}{6}{subsection.8}
+\contentsline {chapter}{\numberline {3}Gesti\IeC {\'o} del desenvolupament i alternatives}{9}{chapter.14}
+\contentsline {section}{\numberline {3.1}Metodologia de desenvolupament}{9}{section.15}
+\contentsline {section}{\numberline {3.2}Planificaci\IeC {\'o} temporal}{9}{section.19}
+\contentsline {section}{\numberline {3.3}Previsi\IeC {\'o} d'alternatives i pla d'acci\IeC {\'o}}{10}{section.20}
+\contentsline {chapter}{\numberline {4}Integraci\IeC {\'o} de coneixements}{13}{chapter.21}
+\contentsline {chapter}{\numberline {5}Integraci\IeC {\'o} de lleis i regulacions}{15}{chapter.22}
+\contentsline {chapter}{\numberline {6}Conclusions}{17}{chapter.23}
