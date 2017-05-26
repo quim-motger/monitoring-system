@@ -144,29 +144,27 @@ table
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
 %----------------------------------------------------------------------------------------
+%
+%\begin{declaration}
+%\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+%\noindent Jo, \authorname, declaro que aquest Treball de Final de Grau titulat \textit{\ttitle}
+%i el treball presentats en el mateix són propis. Declaro que:
 
-\begin{declaration}
-\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
-\noindent Jo, \authorname, declaro que aquest Treball de Final de Grau titulat \textit{\ttitle}
-i el treball presentats en el mateix són propis. Declaro que:
-
-\begin{itemize} 
-\item La feina aquí presentada ha estat desenvolupada durant el curs del Grau en Enginyeria Informàtica
-\item S'ha indicat degudament l'ús de publicacions o components d'autoria externa, utilitzats com a suport pel desenvolupament del projecte, reconeixent l'autoria original dels mateixos
-\item S'ha indicat degudament tota la feina desenvolupada per autoria pròpia
-\item Totes les publicacions terceres consultades pel desenvolupament del treball estan degudament citades
+%\begin{itemize} 
+%\item La feina aquí presentada ha estat desenvolupada durant el curs del Grau en Enginyeria Informàtica
+%\item S'ha indicat degudament l'ús de publicacions o components d'autoria externa, utilitzats com a suport pel desenvolupament del projecte, reconeixent l'autoria original dels mateixos
+%\item S'ha indicat degudament tota la feina desenvolupada per autoria pròpia
+%\item Totes les publicacions terceres consultades pel desenvolupament del treball estan degudament citades
 %\item \\
-\end{itemize}
-\noindent I per deixar constància d'aquesta declaració, signo el present document\\[2cm]
+%\end{itemize}
+%\noindent I per deixar constància d'aquesta declaració, signo el present document\\[2cm]
  
-\noindent Signatura:\\
-\rule[2cm]{25em}{0.5pt} % This prints a line for the signature
- 
-\noindent Date:\\
-\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
-\end{declaration}
-
-\clearpage
+%\noindent Signatura:\\
+%\rule[2cm]{25em}{0.5pt} % This prints a line for the signature
+% 
+%\noindent Date:\\
+%\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+%\end{declaration}
 
 %----------------------------------------------------------------------------------------
 %	QUOTATION PAGE
@@ -174,9 +172,7 @@ i el treball presentats en el mateix són propis. Declaro que:
 
 %\vspace*{0.2\textheight}
 
-%\noindent\enquote{\itshape Thanks to my solid academic training, today I can write hundreds of %words on virtually any topic without possessing a shred of information, which is how I got a %good job in journalism.}\bigbreak
-
-%\hfill Dave Barry
+%\noindent{\itshape A mi madre, quien me dio las herramientas para ser capaz de hacer camino al andar.}\bigbreak
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT PAGE
@@ -193,10 +189,10 @@ En base a aquesta premisa, aquest Treball de Final de Grau consisteix en el diss
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
 
-\begin{acknowledgements}
-\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
-The acknowledgments and the people to thank go here, don't forget to include your project advisor\ldots
-\end{acknowledgements}
+%\begin{acknowledgements}
+%\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+%The acknowledgments and the people to thank go here, don't forget to include your project advisor\ldots
+%\end{acknowledgements}
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
@@ -271,8 +267,8 @@ The acknowledgments and the people to thank go here, don't forget to include you
 \include{Chapters/GestioIDesenvolupament} 
 \include{Chapters/AnalisiRequisits}
 \include{Chapters/EinesDesenvolupament}
-\include{Chapters/DissenySistema}
-\include{Chapters/ModelatgeConfiguracions}
+\include{Chapters/SistemaMonitoratge}
+\include{Chapters/SistemaAdaptabilitat}
 \include{Chapters/ReconfiguracioMonitors}
 \include{Chapters/DissenyDashboard}
 \include{Chapters/ValidacioSistema}

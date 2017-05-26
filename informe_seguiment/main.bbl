@@ -1,0 +1,108 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{nashville}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Karsai}{K.}%
+     {Gabor}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ledeczi}{L.}%
+     {Akos}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Peceli}{P.}%
+     {Janos Sztipanovits~Gabor}{J.~S.~G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Simon}{S.}%
+     {Gyula}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kovacshazy}{K.}%
+     {Tamas}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{KG+1}
+  \strng{fullhash}{KGLAPJSGSGKT1}
+  \field{sortinit}{K}
+  \field{title}{An Approach to Self-adaptive Software Based on Supervisory
+  Control}
+  \field{journaltitle}{Self-Adaptive Software: Applications (IWSAS)}
+  \field{year}{2001}
+\endentry
+
+\entry{ibm}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Li}{L.}%
+     {Ying}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sun}{S.}%
+     {Kewei}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Qiu}{Q.}%
+     {Jie}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chen}{C.}%
+     {Ying}{Y.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LY+1}
+  \strng{fullhash}{LYSKQJCY1}
+  \field{sortinit}{L}
+  \field{title}{Self-reconfiguration of service-based systems: A case study for
+  service level agreements and resource optimization.}
+  \field{journaltitle}{International Conference on Web Services}
+  \field{year}{2005}
+\endentry
+
+\entry{napols}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Venticinque}{V.}%
+     {Salvatore}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{VS1}
+  \strng{fullhash}{VS1}
+  \field{sortinit}{V}
+  \field{title}{Agent based services for negotiation, monitoring and
+  reconfiguration of cloud resources.}
+  \field{journaltitle}{European Research Activities in Cloud Computing}
+  \field{year}{2012}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
