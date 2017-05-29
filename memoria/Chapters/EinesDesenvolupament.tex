@@ -4,17 +4,20 @@
 
 \label{EinesDesenvolupament} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
+El desenvolupament del sistema proposat requereix la integració d'un conjunt de subcomponents independents que, tot i comunicar-se entre ells, presenten una sèrie de característiques tècniques variades. Els requisits de desenvolupament i els entorns sobre els quals aquests components s'han de desenvolupar dependran de la naturalesa i els objectius de cadascun d'aquests. I, en termes genèrics, la gestió del sistema requerirà l'ús d'eines que ens facilitin aquest comportament.\\
+
+Com a punt de partida al desenvolupament i exposició dels diversos components i tecnologies utilitzades, plantegem les tecnologies i elements bàsics que formen part del desenvolupament del projecte per, a partir d'aquí i al llarg dels següents capítols, exposar les tecnologies (llibreries, frameworks, etc.) que integrarem a aquestes per assolir els objectius.
 
 \section{Tecnologies utilitzades}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
+Procedim a identificar les tecnologies bàsiques, amb les seves versions corresponents:
 
-%-----------------------------------
-%	SUBSECTION 1
-%-----------------------------------
-\section{Entorn de configuració}
+\begin{itemize}
+\item \textbf{Git / GitHub (http://github.com).} Com a software de control de gestions i repositori s'utilitza \textbf{git} i \textbf{GitHub}, respectivament. La completesa i maduresa de git en la seva actualitat, així com les funcionalitats oferides per GitHub i la comoditat de la seva gestió, les fan candidates ideals per a realitzar el desenvolupament del projecte.
+\item \textbf{Java 8.} Pràcticament la totalitat del projecte i els seus components s'han implementat utilitzant llenguatge Java. Concretament, la darrera versió Java 8, degut a les millores i la correcció d'alguns bugs que suposa respecte la seva anterior versió, Java 7.
+\item \textbf{Eclipse IDE for Java Developers (Neon 4.6.2).} IDE i versió corresponents utilitzats pel desenvolupament dels components. S'ha considerat com l'opció ideal per una banda, per facilitar la compatibilitat i integració amb el projecte SUPERSEDE i els altres components, i per altra banda per la senzillesa i la integració de diferents plug-ins i eines que faciliten el desenvolupament. 
+\item \textbf{Eclipse Modeling Tools (Neon 4.6.2).}  IDE complementari al desenvolupament orientat al desenvolupament de projectes de creació i edició de models UML mitjançant l'ús de tecnologies associades que es detallaran més endavant. 
+\item \textbf{Gradle 2.13.} Davant la necessitat de gestionar les dependències i la compilació dels diferents components, s'ha triat Gradle com a opció preferent.
+\end{itemize}
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
+Tot i que, tal i com s'especificava anteriorment, hi intervenen moltes altres tecnologies, aquestes s'aniran presentant conforme sigui necessari per facilitar l'assimilació dels conceptes explicats. El llistat anterior es correspon a la base sota la qual partirem.

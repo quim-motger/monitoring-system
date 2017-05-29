@@ -39,41 +39,53 @@
 \contentsline {subsubsection}{Dimensi\IeC {\'o} ambiental}{21}{section*.54}
 \contentsline {subsubsection}{Matriu de sostenibilitat}{22}{section*.55}
 \contentsline {chapter}{\numberline {5}Visi\IeC {\'o} general del sistema}{23}{chapter.57}
-\contentsline {chapter}{\numberline {6}Eines de desenvolupament}{29}{chapter.59}
-\contentsline {section}{\numberline {6.1}Tecnologies utilitzades}{29}{section.60}
-\contentsline {section}{\numberline {6.2}Entorn de configuraci\IeC {\'o}}{29}{section.61}
-\contentsline {chapter}{\numberline {7}Sistema de monitoratge}{31}{chapter.62}
-\contentsline {section}{\numberline {7.1}Section 1}{31}{section.63}
-\contentsline {section}{\numberline {7.2}Section 2}{31}{section.64}
-\contentsline {subsection}{\numberline {7.2.1}Subsection 2.1}{31}{subsection.65}
-\contentsline {chapter}{\numberline {8}Sistema d'adaptabilitat}{33}{chapter.66}
-\contentsline {section}{\numberline {8.1}Section 1}{33}{section.67}
-\contentsline {section}{\numberline {8.2}Section 2}{33}{section.68}
-\contentsline {subsection}{\numberline {8.2.1}Subsection 2.1}{33}{subsection.69}
-\contentsline {chapter}{\numberline {9}Reconfiguraci\IeC {\'o} dels monitors}{35}{chapter.70}
-\contentsline {section}{\numberline {9.1}Main Section 1}{35}{section.71}
-\contentsline {subsection}{\numberline {9.1.1}Subsection 1}{35}{subsection.72}
-\contentsline {subsection}{\numberline {9.1.2}Subsection 2}{35}{subsection.73}
-\contentsline {section}{\numberline {9.2}Main Section 2}{35}{section.74}
-\contentsline {chapter}{\numberline {10}Disseny del dashboard}{37}{chapter.75}
-\contentsline {section}{\numberline {10.1}Main Section 1}{37}{section.76}
-\contentsline {subsection}{\numberline {10.1.1}Subsection 1}{37}{subsection.77}
-\contentsline {subsection}{\numberline {10.1.2}Subsection 2}{37}{subsection.78}
-\contentsline {section}{\numberline {10.2}Main Section 2}{37}{section.79}
-\contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{39}{chapter.80}
-\contentsline {section}{\numberline {11.1}Main Section 1}{39}{section.81}
-\contentsline {subsection}{\numberline {11.1.1}Subsection 1}{39}{subsection.82}
-\contentsline {subsection}{\numberline {11.1.2}Subsection 2}{39}{subsection.83}
-\contentsline {section}{\numberline {11.2}Main Section 2}{39}{section.84}
-\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{41}{chapter.85}
-\contentsline {section}{\numberline {12.1}Main Section 1}{41}{section.86}
-\contentsline {subsection}{\numberline {12.1.1}Subsection 1}{41}{subsection.87}
-\contentsline {subsection}{\numberline {12.1.2}Subsection 2}{41}{subsection.88}
-\contentsline {section}{\numberline {12.2}Main Section 2}{41}{section.89}
-\contentsline {chapter}{\numberline {13}Conclusions}{43}{chapter.90}
-\contentsline {section}{\numberline {13.1}Main Section 1}{43}{section.91}
-\contentsline {subsection}{\numberline {13.1.1}Subsection 1}{43}{subsection.92}
-\contentsline {subsection}{\numberline {13.1.2}Subsection 2}{43}{subsection.93}
-\contentsline {section}{\numberline {13.2}Main Section 2}{43}{section.94}
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{45}{appendix.95}
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{45}{section.96}
+\contentsline {subsection}{\numberline {5.0.4}Disseny del sistema}{24}{subsection.58}
+\contentsline {subsection}{\numberline {5.0.5}Integraci\IeC {\'o} de components}{27}{subsection.60}
+\contentsline {chapter}{\numberline {6}Eines de desenvolupament}{29}{chapter.61}
+\contentsline {section}{\numberline {6.1}Tecnologies utilitzades}{29}{section.62}
+\contentsline {chapter}{\numberline {7}Sistema de monitoratge}{31}{chapter.63}
+\contentsline {section}{\numberline {7.1}Monitors}{31}{section.64}
+\contentsline {subsection}{\numberline {7.1.1}Especificacions t\IeC {\`e}cniques}{32}{subsection.68}
+\contentsline {subsubsection}{Comportament intern del monitor}{32}{section*.72}
+\contentsline {subsubsection}{Redirecci\IeC {\'o} de dades col\IeC {\textperiodcentered }lectades}{33}{section*.76}
+\contentsline {subsubsection}{Par\IeC {\`a}metres de configuraci\IeC {\'o}}{34}{section*.77}
+\contentsline {subsection}{\numberline {7.1.2}Arquitectura gen\IeC {\`e}rica}{34}{subsection.78}
+\contentsline {section}{\numberline {7.2}Section 2}{36}{section.80}
+\contentsline {subsection}{\numberline {7.2.1}Subsection 2.1}{36}{subsection.81}
+\contentsline {chapter}{\numberline {8}Disseny del sistema}{37}{chapter.82}
+\contentsline {section}{\numberline {8.1}Descripci\IeC {\'o} general}{37}{section.83}
+\contentsline {section}{\numberline {8.2}Sistema de monitoratge}{37}{section.84}
+\contentsline {subsection}{\numberline {8.2.1}Monitors}{37}{subsection.85}
+\contentsline {subsection}{\numberline {8.2.2}Monitor Manager}{37}{subsection.86}
+\contentsline {subsection}{\numberline {8.2.3}Orchestrator}{38}{subsection.87}
+\contentsline {section}{\numberline {8.3}Sistema d'adaptabilitat}{38}{section.88}
+\contentsline {subsection}{\numberline {8.3.1}Model Repository}{38}{subsection.89}
+\contentsline {subsection}{\numberline {8.3.2}Adapter}{38}{subsection.90}
+\contentsline {subsubsection}{Model Adapter}{39}{section*.91}
+\contentsline {subsubsection}{Enactor}{39}{section*.92}
+\contentsline {section}{\numberline {8.4}Dashboard}{39}{section.93}
+\contentsline {chapter}{\numberline {9}Reconfiguraci\IeC {\'o} dels monitors}{41}{chapter.94}
+\contentsline {section}{\numberline {9.1}Main Section 1}{41}{section.95}
+\contentsline {subsection}{\numberline {9.1.1}Subsection 1}{41}{subsection.96}
+\contentsline {subsection}{\numberline {9.1.2}Subsection 2}{41}{subsection.97}
+\contentsline {section}{\numberline {9.2}Main Section 2}{41}{section.98}
+\contentsline {chapter}{\numberline {10}Disseny del dashboard}{43}{chapter.99}
+\contentsline {section}{\numberline {10.1}Main Section 1}{43}{section.100}
+\contentsline {subsection}{\numberline {10.1.1}Subsection 1}{43}{subsection.101}
+\contentsline {subsection}{\numberline {10.1.2}Subsection 2}{43}{subsection.102}
+\contentsline {section}{\numberline {10.2}Main Section 2}{43}{section.103}
+\contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{45}{chapter.104}
+\contentsline {section}{\numberline {11.1}Main Section 1}{45}{section.105}
+\contentsline {subsection}{\numberline {11.1.1}Subsection 1}{45}{subsection.106}
+\contentsline {subsection}{\numberline {11.1.2}Subsection 2}{45}{subsection.107}
+\contentsline {section}{\numberline {11.2}Main Section 2}{45}{section.108}
+\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{47}{chapter.109}
+\contentsline {section}{\numberline {12.1}Main Section 1}{47}{section.110}
+\contentsline {subsection}{\numberline {12.1.1}Subsection 1}{47}{subsection.111}
+\contentsline {subsection}{\numberline {12.1.2}Subsection 2}{47}{subsection.112}
+\contentsline {section}{\numberline {12.2}Main Section 2}{47}{section.113}
+\contentsline {chapter}{\numberline {13}Conclusions}{49}{chapter.114}
+\contentsline {section}{\numberline {13.1}Main Section 1}{49}{section.115}
+\contentsline {subsection}{\numberline {13.1.1}Subsection 1}{49}{subsection.116}
+\contentsline {subsection}{\numberline {13.1.2}Subsection 2}{49}{subsection.117}
+\contentsline {section}{\numberline {13.2}Main Section 2}{49}{section.118}

@@ -1,3 +1,6 @@
 rm main.pdf
-pdflatex main.tex
+pdflatex main
+bibtex main
+pdflatex main
+pdflatex main
 xdg-open main.pdf

@@ -4,17 +4,117 @@
 
 \label{SistemaMonitoratge} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
+En aquest punt tenim la base necessària per procedir a exposar el treball realitzat des d'un punt de vista de disseny software i implementació dels diferents components. Agafant com a referència la solució proposada al \textit{Capítol 5. Visió general del sistema}, procedirem a desenvolupar els detalls tècnics de cadascun dels components que integren aquest sistema.\\
 
-\section{Section 1}
+Començarem per explicar els detalls relacionats amb el disseny i la implementació dels monitors.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
+\section{Monitors}
 
-%-----------------------------------
-%	SUBSECTION 1
-%-----------------------------------
+Recordem que, dins el nostre context, un \textbf{monitor} consisteix en un \textbf{component software} autònom amb una activitat regular orientada al control de qualitat d'un altre sistema software. Aquest control de qualitat es basa en una col·lecció de dades obtingudes a través d'aquest segon sistema, que ens aporten informació pròpia del context monitorat. Amb aquestes dades, un sistema capacitat per processar i analitzar aquestes dades, es poden generar suggerències de modificacions. Aquesta darrera part, però, queda fora de l'abast del nostre projecte, que centrarà l'activitat dels monitors en la seva tasca principal: la col·lecció de dades sota una sèrie de criteris específics.\\
+
+En general, per tant, volem que el nostre sistema disposi d'un conjunt de monitors heterogenis (i, per tant, de naturalesa i comportament diferents), que puguin ser capaços de gestionar \textbf{processos de monitoratge} de forma paral·lela. És a dir: cadascun d'aquests monitors ha de ser capaç d'inicialitzar processos de monitoratge que s'executin en paral·lel i en segon pla, col·lectin dades d'acord als criteris de cadascun d'aquests processos, i les redireccionin a un tercer component software, encarregat del seu anàlisi.\\
+
+Per tant, necessitem que cadascun d'aquests monitors satisfaci els següents requisits funcionals:
+
+\begin{enumerate}
+\item \textbf{Inicialització de procés de monitoratge.} El monitor ha de poder rebre una petició per inicialitzar un nou procés de monitoratge amb una sèrie de paràmetres de configuració que defineixin aquest procés de monitoratge.
+\item \textbf{Modificació de procés de monitoratge.} Donat un procés de monitoratge ja existent, el sistema ha de permetre la seva reconfiguració. És a dir: el sistema ha de permetre modificar els paràmetres d'aquest procés i, en conseqüència, alterar el comportament del procés (d'acord amb els criteris que es presenten a continuació.
+\item \textbf{Aturada de procés de monitoratge.} Donat un procés de monitoratge ja existent, el sistema ha de permetre la seva aturada. Davant aquesta petició, el procés s'atura, i per tant es deixen de recol·lectar dades sota aquells criteris de monitoratge.
+\end{enumerate}
+
+\subsection{Especificacions tècniques}
+
+Tal i com establiem com a objectiu principal del projecte, aquest sistema de monitoratge ha de ser \textbf{heterogeni}. La conseqüència principal d'aquesta característica és que necessitem definir un sistema que contempli que cadascun d'aquests requisits funcionals es garanteixen en la integració dels monitors implementats, i que per tant esdevenen casos d'ús complets i satisfactoris del nostre context. Per fer-ho, i donat que els monitors seran el principal punt de variabilitat del nostre sistema, hem d'afegir un cert nivell d'abstracció, un \textbf{desacoblament} entre els detalls específics de cadascun dels monitors, que ens resulten indiferents per la resta del sistema.\\
+
+Per tant, el primer pas que hem de realitzar és \textbf{dissenyar una arquitectura} i uns \textbf{criteris de configuració genèrics} que satisfacin dos criteris: primerament, que ens permetin integrar tots els monitors implementats sota aquesta proposta al nostre sistema; i en segon lloc, que permetin una independència suficient com per garantir el criteri d'heterogeneïtat dels monitors.\\
+
+Desenvoluparem aquesta proposta analitzant els següents punts:
+
+\begin{enumerate}
+\item \textbf{Comportament intern del monitor.} Anàlisi de les necessitats i detalls tècnics del funcionament intern del procés de monitoratge.
+\item \textbf{Redirecció de dades col·lectades.} Especificacions tècniques del mètode de gestió i redirecció de dades.
+\item \textbf{Configuració dels monitors.} D'acord amb les necessitats anteriors, descriure quins paràmetres necessitarem per configurar els monitors.
+\end{enumerate}
+
+\subsubsection{Comportament intern del monitor}
+
+La implementació d'un monitor representa, des d'un punt de vista semàntic, un component software encarregat de monitorar un component software concret. En aquest context específic, entendrem \textbf{monitorar} com la col·lecció periòdica d'un conjunt de dades produïdes de l'execució del sistema software monitorat.\\
+
+En base a aquesta definició, entendrem com a \textbf{procés de monitoratge} el cicle següent:
+
+\begin{enumerate}
+\item Inicialització de les estructures de col·lecció de dades
+\item Captura de dades durant el transcurs d'un període de temps determinat
+\item Enviament de les dades a un tercer component software
+\end{enumerate}
+
+Així, de forma periòdica, un procés de monitoratge recull durant un període de temps (o \textbf{\textit{time slot}}) específic totes les dades que el monitor ha estat configurat per recollir. Per tal que els monitors es puguin explotar al màxim, és imprescindible que aquests permetin l'\textbf{execució en paral·lel} de diversos processos de monitoratge, amb possibles diferències en els seus paràmetres de configuració (p.e., aquest \textit{time slot}).\\
+
+Davant aquesta proposta, el comportament i potencial d'un monitor queda molt limitat, ja que elements com p.e. el mètode de recollida de dades, o fins i tot les dades recollides, queden molt limitats. En general, és molt possible que un sistema software pugui ser monitorat mitjançant diferents tècniques, com per exemple l'ús d'APIs, llibreries o components externs, etc. Per aquesta raó, si volem permetre que el nostre monitor ofereixi flexibilitat en aquest aspecte, hem de permetre l'ús de diferents eines, o \textbf{\textit{tools}}, que aquest monitor pot utilitzar indistintament per executar els processos de monitoratge.\\
+
+La integració de diverses \textit{tools} dins un monitor ens permeten no només una variabilitat en l'execució de la col·lecció de dades, sinó també una major fiabilitat i qualitat del monitor com a component software. Ens permet reaccionar, entre d'altres, davant escenaris on l'ús d'un sistema de monitoratge específic deixa de funcionar (p.e. una API que no dona resposta), ja que davant la detecció d'aquest error el canvi de \textit{tool} utilitzada ens permet que el monitor no deixi de ser usable.\\
+
+En resum, necessitem que el monitor sigui capaç de gestionar un nombre indefinit de processos de monitoratge en paral·lel, amb configuracions diferents, i que utilitzin el conjunt de \textit{tools} implementades.
+
+\subsubsection{Redirecció de dades col·lectades}
+
+Un dels objectius de les especificacions tècniques dels monitors és permetre la seva integració, en primer lloc, dins el context del nostre projecte, i en segon lloc, a sistemes tercers que permetin l'anàlisi de les dades recollides durant la seva activitat de monitoratge. D'aquesta manera augmentem el valor propi dels components dissenyats en el projecte, reutilitzable en contexts diferents al plantejat. Per aquesta raó, i per completar l'activitat del monitor, hem de contemplar com dissenyar l'enviament i redirecció de les dades que cada monitor recull i formata durant la seva activitat. \\
+
+Per facilitar aquest aspecte, i permetre també la seva integració dins el sistema general de SUPERSEDE, els monitors integraran la implementació d'enviament de les seves dades a través d'\textbf{Apache Kafka.} Es tracta d'una plataforma distribuïda de \textit{streaming} que ofereix la possibilitat de crear i configurar \textit{pipelines} de dades en temps real que actuen com a canal de comunicació entre diverses aplicacions o components software. L'arquitectura és senzilla: un component software, anomenat \textbf{\textit{producer}}, es comunica amb el servidor Kafka i envia dades de forma periòdica a un \textit{pipeline} específic d'aquest servidor, prèviament configurat i identificament amb el que anomenem Kafka \textit{topic}, un identificador únic d'aquell \textit{pipeline} per aquell desplegament de Kafka. Aquest flux de dades s'encua al servidor, i es redireccionen a uns altres sistemes o aplicacions, anomenats \textbf{\textit{consumers}}, que reben i processen les dades d'un pipeline específic a mesura que es van enviant i processant.\\
+
+En general, l'avantatge principal de Kafka i la justificació del seu ús pel nostre context és que permet una integració còmode i fiable entre diferents aplicacions que necessiten comunicar dades de forma periòdica, garantint la seva arribada. Kafka ofereix una sèrie d'APIs per configurar els \textit{producers} i \textit{consumers}, així com una configuració relativament senzilla del propi servidor. Gràcies a aquestes característiques, podem aprofitar els propis monitors per actuar com a \textit{producers} d'un \textit{stream} de dades, que es correspondrà amb les dades monitorades durant els processos d'execució, i distribuïr-les als diferents \textit{pipelines} o Kafka \textit{topics}. Així, davant possibles ampliacions i expansions d'aquest projecte, podem fàcilment incorporar components d'anàlisi gràcies al desacoblament entre la lògica interna del monitor i l'enviament i captura de dades que l'arquitectura de Kafka ens ofereix.\\
+
+La lògica interna genèrica proposada per la implementació dels monitors serà, per tant, l'ús de l'API de \textit{producer} de Kafka per part dels monitors, pel qual cada procés de monitoratge enviarà de forma periòdica dades a un servidor Kafka específic, o Kafka \textit{endpoint}, i dins aquest desplegament, a un \textit{pipeline} o Kafka \textit{topic} específic.
+
+\subsubsection{Paràmetres de configuració}
+
+Davant les especificacions anteriors, i per garantir el màxim nivell de personalització i configuració dels monitors, cadascun dels processos de monitoratge actius en un monitor ha de permetre definir els paràmetres relacionats amb les possibles variacions i diferències entre aquests processos, tant en temps de creació com durant la seva reconfiguració. En aquest sentit, es proposen els següents paràmetres com a genèrics per a totes les implementacions de monitors:
+
+\begin{itemize}
+\item \textbf{\textit{Time slot}}. Expressat en segons, indica la durada de cada període de monitoratge de dades (és a dir, temps que transcorre cada vegada que s'envia un nou \textit{stream} de dades).
+\item \textbf{\textit{Tool name}}. Nom de l'eina (\textit{tool}) utilitzada per aquell procés de monitoratge, i que per tant implica la col·lecció d'unes dades específiques utilitzant una tècnica específica.
+\item \textbf{\textit{Kafka endpoint}}. Adreça que apunta al servidor on es troba desplegat el sistema Kafka on s'han d'enviar les dades generades, ja sigui \textit{localhost} o URL pública.
+\item \textbf{\textit{Kafka topic}}. Identifica el \textit{pipeline} de dades del servidor Kafka on el monitor (\textit{producer} dins el context de Kafka) ha d'enviar les dades.
+\end{itemize}
+
+És possible, tal i com veurem més endavant, que alguns monitors requereixin de paràmetres de configuració addicionals, propis del funcionament intern específic del monitor. Per aquest motiu, a banda de proporcionar una configuració bàsica pels monitors amb els paràmetres anteriors, cal permetre també una extensibilitat en quant a paràmetres de configuració.
+
+\subsection{Arquitectura genèrica}
+
+\begin{figure}
+\centering
+\includegraphics[width=14cm]{Figures/Figure5}
+\decoRule
+\caption[Arquitectura software genèrica d'un monitor]{Arquitectura software genèrica d'un monitor}
+\label{fig:Figura5}
+\end{figure}
+
+Es proposa l'arquitectura definida a la Figura 5 a extendre per cadascuna de les implementacions de monitors. Per entendre aquesta arquitectura, a continuació s'expliquen cadascun dels elements integrats:
+
+\begin{itemize}
+\item \textbf{MonitoringParams}. Classe abstracta que cada monitor ha d'implementar que conté, de base, els paràmetres de configuració dels monitors genèrics per tots aquests. Addicionalment, cada implementació de monitor pot afegir els paràmetres i la lògica associada a aquests que consideri oportuns.
+\item \textbf{ParserConfiguration}. Interfície que cada monitor ha d'implementar i que defineix un mètode per transformar un objecte JSON en una instància de la classe \textit{MonitoringParams} implementada pel propi monitor. L'objectiu és permetre així que el monitor pugui processar JSON com a format de comunicació estàndar per les peticions de configuracions, facilitant el seu ús desplegat com a servei web (especialment útil per l'Integrated Framework dins el context SUPERSEDE, tal i com s'explica al \textit{Capítol 5. Visió general del sistema}).
+\item \textbf{ToolInterface}. Interfície parametritzada amb una especialització de la classe \textit{MonitoringParams} que defineix una instància de procés de monitoratge per una \textit{tool} específica. Defineix els següents mètodes:
+\begin{itemize}
+\item \textbf{\textit{addConfiguration(T)}} -> inicialitza el procés de monitoratge amb els paràmetres definits per la instància de T (subclasse de MonitoringParams)
+\item \textbf{\textit{deleteConfiguration()}} -> atura el procés de monitoratge i elimina la instància de la \textit{tool}
+\item \textbf{\textit{updateConfiguration(T)}} -> actualitza els paràmetres de configuració del procés iniciat en segon pla per la instància de la \textit{tool}
+\end{itemize}
+\item \textbf{ToolDispatcher}. Classe que actua com a controlador del monitor, rebent totes les peticions relacionades amb els processos de monitoratge i gestionant les diferents instàncies en execució. Defineix un \textit{ParserConfiguration} per processar la traducció de JSON (format estàndar) a \textit{MonitoringParams} pels següents mètodes:
+\begin{itemize}
+\item \textbf{\textit{addConfiguration(JSONObject)}} -> processa els paràmetres definits al JSONObject i inicialitza una instància de la \textit{tool} corresponent amb els paràmetres associats
+\item \textbf{\textit{deleteConfiguration(int)}} -> atura el procés de monitoratge identificat per l'id proporcionat
+\item \textbf{\textit{updateConfiguration(JSONObject, int)}} -> actualitza els paràmetres de configuració definits al JSONObject del procés de monitoratge identificat per int
+\end{itemize}
+Aquest controlador és perfectament usable per tot monitor implementat d'acord amb la configuració de la resta de classes i interf
+\item \textbf{MonitoringData}. Interfície que cada monitor implementa amb les dades i format que el monitor genera fruït de la seva activitat, amb la implementació d'un mètode \textit{toJsonObject()} per definir un format genèric de les dades a enviar
+\item \textbf{KafkaCommunication}. Classe que implementa la comunicació amb el servidor de Kafka, i que permet enviar les dades generades per l'activitat de monitoratge. Implementa dues lògiques diferenciades:
+\begin{itemize}
+\item Comunicació amb un Kafka endpoint personalitzable i configurable per extensió i \textit{testing} (corresponent als mètodes \textit{initProducer(String)} i \textit{generateResponseKafka(List<MonitoringData>))}
+\item Comunicació amb el Kafka endpoint desplegat a IF (mètodes \textit{initProxy()} i \textit{generateResponseIF(List<MonitoringData>))}
+\end{itemize}
+\end{itemize}
+
 \section{Section 2}
 
 Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.

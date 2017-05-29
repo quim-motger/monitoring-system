@@ -25,6 +25,10 @@ Finalment, com a tasca complementària, el nostre sistema inclourà un \textit{d
 
 Definida la visió general del nostre sistema, i abans d'adreçar-nos als requisits específics, podem definir una \textbf{proposta de disseny} del sistema (presentada a la \textit{Figura 5.1}) basada en els diferents components que intervindran per dur a terme l'activitat prèviament descrita. En base a aquesta proposta, procedirem a explicar cadascun dels components que intervenen segons els següents criteris: element/s d'entrada o \textbf{input}, comportament intern o \textbf{action}, i element/s de sortida o \textbf{output}.\\
 
+\subsection{Disseny del sistema}
+
+Primerament, comencem per explicar els components que formen el \textbf{sistema de monitoratge}:
+
 \begin{figure}
 \centering
 \includegraphics[width=13cm]{Figures/Figure4}
@@ -32,8 +36,6 @@ Definida la visió general del nostre sistema, i abans d'adreçar-nos als requis
 \caption[Disseny genèric del sistema proposat]{Disseny genèric del sistema proposat}
 \label{fig:Figura4}
 \end{figure}
-
-Primerament, comencem per explicar els components que formen el \textbf{sistema de monitoratge}:
 
 \begin{itemize}
 \item \textbf{Monitor.} Component de naturalesa ja descrita anteriorment, és l'encarregat de realitzar la col·lecció de dades d'un sistema software orientat al control de qualitat d'aquest. Dins el nostre sistema, disposarem d'un conjunt de monitors variats, conjunt que podrà ser extès sota diversos criteris i seguint el marc de la proposta de disseny plantejada.
@@ -96,4 +98,14 @@ En aquest punt, necessitem un últim component que actui de pont entre el sistem
 
 A termes genèrics, i sense entrar encara en detalls de disseny intern de cadascun d'aquests components, tenim una proposta inicial genèrica que defineix com ha de ser el nostre sistema, quins components l'han de formar i com s'han de relacionar entre ells per satisfer l'objectiu genèric d'aquest projecte.\\
 
-Com a punt adicional, es proposa també el disseny d'un \textbf{dashboard} basat en un aplicatiu web senzill, a través del qual poguem visualitzar algunes de les dades de les adaptacions generades pel nostre sistema, amb l'objectiu de facilitar el control de l'activitat del sistema i la validació del mateix per una possible demostració.
+Com a punt addicional, es proposa també el disseny d'un \textbf{dashboard} basat en un aplicatiu web senzill, a través del qual poguem visualitzar algunes de les dades de les adaptacions generades pel nostre sistema, amb l'objectiu de facilitar el control de l'activitat del sistema i la validació del mateix per una possible demostració.
+
+\subsection{Integració de components}
+
+La interacció entre els diferents components del sistema haurà de ser un dels elements a tractar en el desenvolupament del projecte. Un dels objectius principals és garantir el màxim desacoblament entre cadascuna d'aquestes interaccions, de tal manera que cadascun dels components puguin ser reaprofitats de forma independement, i que a més la major part de modificacions en aquests components no afectin a la resta, com a mínim en termes d'interacció.\\
+
+Per facilitar aquesta integració, el projecte SUPERSEDE ofereix una plataforma anomenada \textit{Integrated Framework} (IF), desenvolupada per un partner del projecte. El seu objectiu és oferir una integració de tots els components desplegats al \textit{back-end} del sistema. A nivell tècnic, aquest component ofereix una llibreria amb un conjunt de \textit{proxies} implementats, a través dels quals els diferents components es poden comunicar amb altres components desplegats i afegits al IF.\\
+
+Per permetre aquesta integració, l'únic requisit que planteja aquesta plataforma és l'exposició dels diferents components com a serveis web RESTful. D'aquesta manera, IF actua com a pont directe sense necessitat de formatar o mapejar els paràmetres d'entrada i sortida d'aquestes interaccions, ja que aquest component s'encarrega de fer les transformacions pertinents d'acord amb les necessitats d'interacció. \\
+
+Veurem més endavant com aquest sistema aprofita aquest framework per facilitar la comunicació i evitar mapejats d'entrada/sortida. Amb aquest objectiu, serà necessari exposar alguns dels components com a serveis web.
