@@ -52,44 +52,44 @@
 \contentsline {subsection}{\numberline {7.1.2}Arquitectura gen\IeC {\`e}rica}{34}{subsection.78}
 \contentsline {subsection}{\numberline {7.1.3}Implementaci\IeC {\'o} de monitors}{36}{subsection.80}
 \contentsline {subsubsection}{Twitter Monitor}{36}{section*.81}
-\contentsline {subsubsection}{Google Play Monitor}{37}{section*.82}
-\contentsline {subsubsection}{App Store Monitor}{37}{section*.83}
-\contentsline {section}{\numberline {7.2}Monitor Manager}{37}{section.84}
-\contentsline {section}{\numberline {7.3}Orchestrator}{37}{section.85}
-\contentsline {chapter}{\numberline {8}Disseny del sistema}{39}{chapter.86}
-\contentsline {section}{\numberline {8.1}Descripci\IeC {\'o} general}{39}{section.87}
-\contentsline {section}{\numberline {8.2}Sistema de monitoratge}{39}{section.88}
-\contentsline {subsection}{\numberline {8.2.1}Monitors}{39}{subsection.89}
-\contentsline {subsection}{\numberline {8.2.2}Monitor Manager}{39}{subsection.90}
-\contentsline {subsection}{\numberline {8.2.3}Orchestrator}{40}{subsection.91}
-\contentsline {section}{\numberline {8.3}Sistema d'adaptabilitat}{40}{section.92}
-\contentsline {subsection}{\numberline {8.3.1}Model Repository}{40}{subsection.93}
-\contentsline {subsection}{\numberline {8.3.2}Adapter}{40}{subsection.94}
-\contentsline {subsubsection}{Model Adapter}{41}{section*.95}
-\contentsline {subsubsection}{Enactor}{41}{section*.96}
-\contentsline {section}{\numberline {8.4}Dashboard}{41}{section.97}
-\contentsline {chapter}{\numberline {9}Reconfiguraci\IeC {\'o} dels monitors}{43}{chapter.98}
-\contentsline {section}{\numberline {9.1}Main Section 1}{43}{section.99}
-\contentsline {subsection}{\numberline {9.1.1}Subsection 1}{43}{subsection.100}
-\contentsline {subsection}{\numberline {9.1.2}Subsection 2}{43}{subsection.101}
-\contentsline {section}{\numberline {9.2}Main Section 2}{43}{section.102}
-\contentsline {chapter}{\numberline {10}Disseny del dashboard}{45}{chapter.103}
-\contentsline {section}{\numberline {10.1}Main Section 1}{45}{section.104}
-\contentsline {subsection}{\numberline {10.1.1}Subsection 1}{45}{subsection.105}
-\contentsline {subsection}{\numberline {10.1.2}Subsection 2}{45}{subsection.106}
-\contentsline {section}{\numberline {10.2}Main Section 2}{45}{section.107}
-\contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{47}{chapter.108}
-\contentsline {section}{\numberline {11.1}Main Section 1}{47}{section.109}
-\contentsline {subsection}{\numberline {11.1.1}Subsection 1}{47}{subsection.110}
-\contentsline {subsection}{\numberline {11.1.2}Subsection 2}{47}{subsection.111}
-\contentsline {section}{\numberline {11.2}Main Section 2}{47}{section.112}
-\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{49}{chapter.113}
-\contentsline {section}{\numberline {12.1}Main Section 1}{49}{section.114}
-\contentsline {subsection}{\numberline {12.1.1}Subsection 1}{49}{subsection.115}
-\contentsline {subsection}{\numberline {12.1.2}Subsection 2}{49}{subsection.116}
-\contentsline {section}{\numberline {12.2}Main Section 2}{49}{section.117}
-\contentsline {chapter}{\numberline {13}Conclusions}{51}{chapter.118}
-\contentsline {section}{\numberline {13.1}Main Section 1}{51}{section.119}
-\contentsline {subsection}{\numberline {13.1.1}Subsection 1}{51}{subsection.120}
-\contentsline {subsection}{\numberline {13.1.2}Subsection 2}{51}{subsection.121}
-\contentsline {section}{\numberline {13.2}Main Section 2}{51}{section.122}
+\contentsline {subsubsection}{Google Play Monitor}{38}{section*.83}
+\contentsline {subsubsection}{App Store Monitor}{38}{section*.84}
+\contentsline {section}{\numberline {7.2}Monitor Manager}{38}{section.85}
+\contentsline {section}{\numberline {7.3}Orchestrator}{38}{section.86}
+\contentsline {chapter}{\numberline {8}Disseny del sistema}{39}{chapter.87}
+\contentsline {section}{\numberline {8.1}Descripci\IeC {\'o} general}{39}{section.88}
+\contentsline {section}{\numberline {8.2}Sistema de monitoratge}{39}{section.89}
+\contentsline {subsection}{\numberline {8.2.1}Monitors}{39}{subsection.90}
+\contentsline {subsection}{\numberline {8.2.2}Monitor Manager}{39}{subsection.91}
+\contentsline {subsection}{\numberline {8.2.3}Orchestrator}{40}{subsection.92}
+\contentsline {section}{\numberline {8.3}Sistema d'adaptabilitat}{40}{section.93}
+\contentsline {subsection}{\numberline {8.3.1}Model Repository}{40}{subsection.94}
+\contentsline {subsection}{\numberline {8.3.2}Adapter}{40}{subsection.95}
+\contentsline {subsubsection}{Model Adapter}{41}{section*.96}
+\contentsline {subsubsection}{Enactor}{41}{section*.97}
+\contentsline {section}{\numberline {8.4}Dashboard}{41}{section.98}
+\contentsline {chapter}{\numberline {9}Reconfiguraci\IeC {\'o} dels monitors}{43}{chapter.99}
+\contentsline {section}{\numberline {9.1}Main Section 1}{43}{section.100}
+\contentsline {subsection}{\numberline {9.1.1}Subsection 1}{43}{subsection.101}
+\contentsline {subsection}{\numberline {9.1.2}Subsection 2}{43}{subsection.102}
+\contentsline {section}{\numberline {9.2}Main Section 2}{43}{section.103}
+\contentsline {chapter}{\numberline {10}Disseny del dashboard}{45}{chapter.104}
+\contentsline {section}{\numberline {10.1}Main Section 1}{45}{section.105}
+\contentsline {subsection}{\numberline {10.1.1}Subsection 1}{45}{subsection.106}
+\contentsline {subsection}{\numberline {10.1.2}Subsection 2}{45}{subsection.107}
+\contentsline {section}{\numberline {10.2}Main Section 2}{45}{section.108}
+\contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{47}{chapter.109}
+\contentsline {section}{\numberline {11.1}Main Section 1}{47}{section.110}
+\contentsline {subsection}{\numberline {11.1.1}Subsection 1}{47}{subsection.111}
+\contentsline {subsection}{\numberline {11.1.2}Subsection 2}{47}{subsection.112}
+\contentsline {section}{\numberline {11.2}Main Section 2}{47}{section.113}
+\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{49}{chapter.114}
+\contentsline {section}{\numberline {12.1}Main Section 1}{49}{section.115}
+\contentsline {subsection}{\numberline {12.1.1}Subsection 1}{49}{subsection.116}
+\contentsline {subsection}{\numberline {12.1.2}Subsection 2}{49}{subsection.117}
+\contentsline {section}{\numberline {12.2}Main Section 2}{49}{section.118}
+\contentsline {chapter}{\numberline {13}Conclusions}{51}{chapter.119}
+\contentsline {section}{\numberline {13.1}Main Section 1}{51}{section.120}
+\contentsline {subsection}{\numberline {13.1.1}Subsection 1}{51}{subsection.121}
+\contentsline {subsection}{\numberline {13.1.2}Subsection 2}{51}{subsection.122}
+\contentsline {section}{\numberline {13.2}Main Section 2}{51}{section.123}

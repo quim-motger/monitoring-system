@@ -98,7 +98,7 @@ Es proposa l'arquitectura definida a la Figura 5 a extendre per cadascuna de les
 \item \textbf{\textit{deleteConfiguration(int)}} -> atura el procés de monitoratge identificat per l'id proporcionat
 \item \textbf{\textit{updateConfiguration(JSONObject, int)}} -> actualitza els paràmetres de configuració definits al JSONObject del procés de monitoratge identificat per int
 \end{itemize}
-Aquest controlador és perfectament usable per tot monitor implementat d'acord amb la configuració de la resta de classes i interf
+Per tal de gestionar la \textit{tool} utilitzada en cada procés de monitoratge (que representarà una nova instància de la implementació de la interfície \textit{ToolInterface}) utilitzant el paràmetre \textit{toolName} de configuració, s'utilitza el patró \textit{reflection}. Aquest patró de disseny software es caracteritza per la modificació en temps d'execució del comportament d'un sistema; i, en el nostre cas, ens interessa per permetre  la instanciació de les diferents \textit{tools} utilitzant el seu nom sense necessitat de coneixe'l. Mitjançant l'ús del nom de la tool, i coneixent el \textit{package} on es troben implementades les tools, podem instanciar aquella tool partint únicament del nom, sense necessitat de cap altre tipus de context.
 \item \textbf{MonitoringData}. Interfície que cada monitor implementa amb les dades i format que el monitor genera fruït de la seva activitat, amb la implementació d'un mètode \textit{toJsonObject()} per definir un format genèric de les dades a enviar
 \item \textbf{KafkaCommunication}. Classe que implementa la comunicació amb el servidor de Kafka, i que permet enviar les dades generades per l'activitat de monitoratge. Implementa 4 mètodes segons les dues lògiques de comunicació possibles: la integrada al sistema SUPERSEDE (utilitzant \textit{proxies} de IF), i una configuració personalitzable a un Kafka endpoint específic:
 \begin{itemize}
@@ -121,7 +121,7 @@ En aquest projecte presentem la implementació de 3 monitors classificats en 2 t
 
 L'objectiu d'aquest monitor és supervisar i recol·lectar els tuits publicats a la xarxa social de Twitter durant un període de temps concret (definit al procés de monitoratge) que compleixen una sèrie de característiques específiques, d'acord amb els criteris que poden resultar d'interès en quant a la informació d'aquests tuits. \\
 
-Per permetre aquesta activitat de monitorate, i tal i com procedirem amb cadascun dels monitors, necessitem implementar com a mínim una \textit{tool} amb la qual realitzar el procés de monitoratge. Definirem una \textit{tool} anomenada \textbf{TwitterAPI} que utilitzarà la llibreria \textbf{twitter4j}, una llibreria lliure no oficial de Java que permet utilitzar una arquitectura ja definida per connectar-se a les APIs de Twitter, i entre d'altres a la \textbf{Stream API}, una API que permet obrir \textit{streams} de dades per capturar i processar tots els tuits publicats en temps real que compleixin una sèrie de característiques específiques.\\
+Per permetre aquesta activitat de monitorate, i tal i com procedirem amb cadascun dels monitors, necessitem implementar com a mínim una \textit{tool} amb la qual realitzar el procés de monitoratge. Definirem una \textit{tool} anomenada \textbf{TwitterAPI} que utilitzarà \textbf{twitter4j}, una llibreria lliure no oficial de Java que permet utilitzar una arquitectura ja definida per connectar-se a les APIs de Twitter, i entre d'altres a la \textbf{Stream API}, una API que permet obrir \textit{streams} de dades per capturar i processar tots els tuits publicats en temps real que compleixin una sèrie de característiques específiques. Aquests \textit{streams} s'executaran com a \textit{threads} en segon pla i en paral·lel d'acord amb el nº de processos de monitoratge oberts.\\
 
 Pel nostre cas, definirem dos paràmetres per filtrar els tuits monitorats: l'\textbf{autor} del tuit i l'aparició d'un \textbf{conjunt de paraules} específic al contingut del tuit. Per configurar cadascun dels processos de monitoratge d'acord a aquests dos criteris, caldrà afegir els següents paràmetres:
 
@@ -140,6 +140,27 @@ on $X_{n}$ és una expressió booleana formada per una combinació indefinida d'
 \centerline{\textit{$keyword_{1} \,\, AND \,\, keyword_{2} \,\, AND \,\, .. \,\, AND \,\, keyword_{n}$}}\bigskip
 
 Davant aquest fet, i per evitar forçar un format específic del paràmetre de configuració d'entrada, necessitem implementar una lògica interna pròpia de la \textit{tool} TwitterAPI que transformi qualsevol expressió booleana en la seva expressió FND. 
+
+\begin{figure}
+\centering
+\includegraphics[width=14cm]{Figures/Figure6}
+\decoRule
+\caption[Arquitectura software del monitor de Twitter]{Arquitectura software del monitor de Twitter}
+\label{fig:Figura6}
+\end{figure}
+
+Donats aquests detalls podem utilitzar l'arquitectura genèrica proposada anteriorment per extendre la implementació del monitor de Twitter. Aquesta arquitectura i els components implementats es troben definits a la Figura 6, on podem veure aquells components reutilitzats de l'arquitectura genèrica remarcats en groc, per poder fer una comparativa ràpida sobre les classes i components que ha calgut implementar per poder definir un monitor:
+
+\begin{itemize}
+\item \textbf{TwitterMonitoringParams.} Subclasse de la classe abstracta \textit{MonitoringParams} que hereta per una banda els atributs comuns a tots els monitors (\textit{kafkaEndpoint, toolName, kafkaTopic} i \textit{timeSlot}) i per altra banda en defineix dos nous: la \textit{keywordExpression} i un llistat d'\textit{accounts}.
+\item \textbf{TwitterParserConfiguration.} Implementació de la interfície que defineix la transformació del format d'entrada del monitor (JSONObject) a la instància de \textit{TwitterMonitoringParams} amb la qual el monitor (i en conseqüència la seva \textit{tool}) treballarà.
+\item \textbf{TwitterMonitoringData.} Implementació de la interfície que defineix la transformació de les dades recollides durant un cicle del procés de monitoratge d'una \textit{tool} al format de sortida del monitor (JSONObject).
+\item \textbf{TwitterAPI.} Implementació de la interfície que defineix la lògica de les tres operacions de qualsevol \textit{tool}: iniciar una nova configuració, modificar-ne una d'existent, i eliminar-ne una d'existent. En aquest cas disposem d'una única implementació, però tal i com veurem més endavant, l'arquitectura permet sense problema generar un conjunt de \textit{tools} diferenciades, cadascuna amb les seves característiques i dades internes, que utilitzaran les mateixes implementacions de formats de dades definides anteriorment. Aquest component serà l'encarregat d'utilitzar \textit{twitter4j} per configurar la crida a la Stream API i obrir el \textit{thread} encarregat d'anar rebent i emmagatzemant els tuits rebut. Addicionalment, serà també responsabilitat d'aquesta tool comunicar-se amb \textit{KafkaCommunication} per utilitzar el mètode de comunicació (a través de IF o personalitzat) que correspongui, d'acord amb les necessitats de la \textit{tool}.
+\end{itemize}
+
+Cal destacar que gràcies al disseny de l'arquitectura proposada anteriorment per la implementació d'un monitor integrat al nostre sistema (o, de fet, sense necessitat que l'objectiu final sigui la seva integració) ha requerit una extensió relativament senzilla. Únicament ha calgut implementar aquells aspectes propis de cada monitor, que en són 4: els paràmetres específics de configuració (1), el mapejat dels paràmetres d'entrada (2), el mapejat de les dades de sortida (3), i el funcionament de les \textit{tools} (en aquest cas, twitter4j) per realitzar els processos de monitoratge (4). 
+
+D'aquesta manera satisfem un dels principals objectius: dotar al nostre sistema de la màxima extensibilitat, sense deixar de banda els objectius generals de mantenir un sistema autoadaptable amb heterogeneïtat 
 
 \subsubsection{Google Play Monitor}
 
