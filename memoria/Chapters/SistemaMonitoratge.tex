@@ -121,7 +121,7 @@ Aquesta és per tant la proposta d'una arquitectura genèrica per la implementac
 
 \subsection{Implementació de monitors}
 
-Un cop exposada l'arquitectura i especificacions genèriques dels monitors, el següent pas és procedir a la implementació dels diferents monitors que integrarem al nostre sistema. Aquestes implementacions esdevindran possibles casos d'ús a executar, però únicament suposen exemples dins d'un ample ventall de possibilitats d'implementació.
+Un cop exposada l'arquitectura i especificacions genèriques dels monitors, el següent pas és procedir a la implementació dels diferents monitors que integrarem al nostre sistema. Aquestes implementacions esdevindran possibles casos d'ús a executar, però únicament suposen exemples dins d'un ample ventall de possibilitats d'implementació.\\
 
 En aquest projecte presentem la implementació de 3 monitors classificats en 2 tipus de monitors diferents: \textbf{monitors de xarxes socials} i \textbf{monitors de botigues d'aplicacions}. Pel primer tipus, es proposa un monitor de la xarxa social \textbf{Twitter}. Pel segon tipus, es proposen dos monitors: un monitor de \textbf{Google Play} i un altre de l'\textbf{App Store}. 
 
@@ -147,7 +147,7 @@ on $X_{n}$ és una expressió booleana formada per una combinació indefinida d'
 
 \centerline{\textit{$keyword_{1} \,\, AND \,\, keyword_{2} \,\, AND \,\, .. \,\, AND \,\, keyword_{n}$}}\bigskip
 
-Davant aquest fet, i per evitar forçar un format específic del paràmetre de configuració d'entrada, necessitem implementar una lògica interna pròpia de la \textit{tool} TwitterAPI que transformi qualsevol expressió booleana en la seva expressió FND. 
+Davant aquest fet, i per evitar forçar un format específic del paràmetre de configuració d'entrada, necessitem implementar una lògica interna pròpia de la \textit{tool} TwitterAPI que transformi qualsevol expressió booleana en la seva expressió FND. \\
 
 \begin{figure}
 \centering
@@ -168,7 +168,9 @@ Donats aquests detalls podem utilitzar l'arquitectura genèrica proposada anteri
 
 Cal destacar que gràcies al disseny de l'arquitectura proposada anteriorment per la implementació d'un monitor integrat al nostre sistema (o, de fet, sense necessitat que l'objectiu final sigui la seva integració) ha requerit una extensió relativament senzilla. Únicament ha calgut implementar aquells aspectes propis de cada monitor, que en són 4: els paràmetres específics de configuració (1), el mapejat dels paràmetres d'entrada (2), el mapejat de les dades de sortida (3), i el funcionament de les \textit{tools} (en aquest cas, twitter4j) per realitzar els processos de monitoratge (4). D'aquesta manera satisfem un dels principals objectius: dotar al nostre sistema de la màxima extensibilitat i heterogeneïtat possible, amb la possibilitat de personalitzar l'activitat i semàntica de cada monitor partint d'una arquitectura comuna. \\
 
-El següent pas d'acord amb les necessitats tècniques per la integració és exposar el monitor i les seves funcionalitats com un servei web RESTful. D'aquesta manera, mitjançant la documentació d'una API per accedir a les diferents operacions d'alta, baixa i modificació d'un procés de monitoratge, podem integrar els monitors al IF del projecte SUPERSEDE i permetre així el seu accés a través de la plataforma d'integració. En aquest sentit l'ús de JSON com a format de comunicació d'entrada i sortida ens facilita la seva exposició com a servei web, que utilitzarà també el format JSON com a \textit{payload} per fer les crides. La documentació de l'API del monitor de Twitter es pot trobar a l'apèndix ~\ref{AppendixA}, on podem trobar en detall les peticions REST implementades, així com el format dels \textit{inputs} i \textit{outputs} de cadascuna de les crides.
+\noindent{\large{\textbf{Exposició com a servei REST}}}\\
+
+El següent pas d'acord amb les necessitats tècniques per la integració és exposar el monitor i les seves funcionalitats com un servei web RESTful. D'aquesta manera, mitjançant la documentació d'una API per accedir a les diferents operacions d'alta, baixa i modificació d'un procés de monitoratge, podem integrar els monitors al IF del projecte SUPERSEDE i permetre així el seu accés a través de la plataforma d'integració. En aquest sentit l'ús de JSON com a format de comunicació d'entrada i sortida ens facilita la seva exposició com a servei web, que utilitzarà també el format JSON com a \textit{payload} per fer les crides. La documentació de l'API del monitor de Twitter es pot trobar a l'apèndix ~\ref{AppendixA}, on podem trobar en detall les peticions REST implementades, així com el format dels \textit{inputs} i \textit{outputs} de cadascuna de les crides.\\
 
 Per tal de poder concebre com funcionaria la comunicació amb el monitor per iniciar una nova instància de monitoratge, la figura ~\ref{fig:Figura8} mostra un exemple d'objecte JSON utilitzat.
 
