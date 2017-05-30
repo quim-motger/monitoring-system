@@ -56,7 +56,7 @@ Per facilitar aquest aspecte, i permetre també la seva integració dins el sist
 
 \begin{figure}
 \centering
-\includegraphics[width=14cm]{Figures/Figure7}
+\includegraphics[width=11cm]{Figures/Figure7}
 \decoRule
 \caption[Exemple d'arquitectura de la comunicació amb Kafka]{Exemple d'arquitectura de la comunicació amb Kafka}
 \label{fig:Kafka}
@@ -166,9 +166,39 @@ Donats aquests detalls podem utilitzar l'arquitectura genèrica proposada anteri
 \item \textbf{TwitterAPI.} Implementació de la interfície que defineix la lògica de les tres operacions de qualsevol \textit{tool}: iniciar una nova configuració, modificar-ne una d'existent, i eliminar-ne una d'existent. En aquest cas disposem d'una única implementació, però tal i com veurem més endavant, l'arquitectura permet sense problema generar un conjunt de \textit{tools} diferenciades, cadascuna amb les seves característiques i dades internes, que utilitzaran les mateixes implementacions de formats de dades definides anteriorment. Aquest component serà l'encarregat d'utilitzar \textit{twitter4j} per configurar la crida a la Stream API i obrir el \textit{thread} encarregat d'anar rebent i emmagatzemant els tuits rebut. Addicionalment, serà també responsabilitat d'aquesta tool comunicar-se amb \textit{KafkaCommunication} per utilitzar el mètode de comunicació (a través de IF o personalitzat) que correspongui, d'acord amb les necessitats de la \textit{tool}.
 \end{itemize}
 
-Cal destacar que gràcies al disseny de l'arquitectura proposada anteriorment per la implementació d'un monitor integrat al nostre sistema (o, de fet, sense necessitat que l'objectiu final sigui la seva integració) ha requerit una extensió relativament senzilla. Únicament ha calgut implementar aquells aspectes propis de cada monitor, que en són 4: els paràmetres específics de configuració (1), el mapejat dels paràmetres d'entrada (2), el mapejat de les dades de sortida (3), i el funcionament de les \textit{tools} (en aquest cas, twitter4j) per realitzar els processos de monitoratge (4). D'aquesta manera satisfem un dels principals objectius: dotar al nostre sistema de la màxima extensibilitat i heterogeneïtat possible, amb la possibilitat de personalitzar l'activitat i semàntica de cada monitor partint d'una arquitectura comuna. 
+Cal destacar que gràcies al disseny de l'arquitectura proposada anteriorment per la implementació d'un monitor integrat al nostre sistema (o, de fet, sense necessitat que l'objectiu final sigui la seva integració) ha requerit una extensió relativament senzilla. Únicament ha calgut implementar aquells aspectes propis de cada monitor, que en són 4: els paràmetres específics de configuració (1), el mapejat dels paràmetres d'entrada (2), el mapejat de les dades de sortida (3), i el funcionament de les \textit{tools} (en aquest cas, twitter4j) per realitzar els processos de monitoratge (4). D'aquesta manera satisfem un dels principals objectius: dotar al nostre sistema de la màxima extensibilitat i heterogeneïtat possible, amb la possibilitat de personalitzar l'activitat i semàntica de cada monitor partint d'una arquitectura comuna. \\
 
+El següent pas d'acord amb les necessitats tècniques per la integració és exposar el monitor i les seves funcionalitats com un servei web RESTful. D'aquesta manera, mitjançant la documentació d'una API per accedir a les diferents operacions d'alta, baixa i modificació d'un procés de monitoratge, podem integrar els monitors al IF del projecte SUPERSEDE i permetre així el seu accés a través de la plataforma d'integració. En aquest sentit l'ús de JSON com a format de comunicació d'entrada i sortida ens facilita la seva exposició com a servei web, que utilitzarà també el format JSON com a \textit{payload} per fer les crides. La documentació de l'API del monitor de Twitter es pot trobar a l'apèndix ~\ref{AppendixA}, on podem trobar en detall les peticions REST implementades, així com el format dels \textit{inputs} i \textit{outputs} de cadascuna de les crides.
 
+Per tal de poder concebre com funcionaria la comunicació amb el monitor per iniciar una nova instància de monitoratge, la figura ~\ref{fig:Figura8} mostra un exemple d'objecte JSON utilitzat.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=11cm]{Figures/Figure8}
+\decoRule
+\caption[Exemple JSON de configuració del monitor de Twitter]{Exemple JSON de configuració del monitor de Twitter}
+\label{fig:Figura8}
+\end{figure}
+
+En referència a aquesta possible petició, la figura ~\ref{fig:Figura9} mostra un exemple de la resposta (en cas d'èxit en la configuració del monitor) que retorna aquest monitor per la petició anterior. En aquesta figura, definim 2 paràmetres de retorn. Primerament,  \texttt{idConf}, que conté l'identificador de la nova instància de monitoratge creada (variable indispensable per tal que sigui usable i poder realitzar adaptacions posteriors). En segon lloc \texttt{status}, que indica si la petició s'ha realitzat amb èxit o s'ha produït algun error.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8cm]{Figures/Figure9}
+\decoRule
+\caption[Exemple resposta amb èxit del monitor de Twitter]{Exemple amb èxit del monitor de Twitter}
+\label{fig:Figura9}
+\end{figure}
+
+Donat el cas que s'hagi produït algun error, el format de resposta anterior no és vàlid (no s'ha creat cap instància i, per tant, cap identificador pot ser produït) ni suficient (no ens aporta informació de quin ha estat l'error). En aquest cas, un exemple de resposta seria l'exposat a la figura ~\ref{fig:Figura10}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10cm]{Figures/Figure10}
+\decoRule
+\caption[Exemple resposta amb error del monitor de  Twitter]{Exemple resposta amb error del monitor de Twitter}
+\label{fig:Figura10}
+\end{figure}
 
 \subsubsection{Google Play Monitor}
 
