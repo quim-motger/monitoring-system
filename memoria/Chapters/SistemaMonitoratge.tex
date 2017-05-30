@@ -54,9 +54,17 @@ Un dels objectius de les especificacions tècniques dels monitors és permetre l
 
 Per facilitar aquest aspecte, i permetre també la seva integració dins el sistema general de SUPERSEDE, els monitors integraran la implementació d'enviament de les seves dades a través d'\textbf{Apache Kafka.} Es tracta d'una plataforma distribuïda de \textit{streaming} que ofereix la possibilitat de crear i configurar \textit{pipelines} de dades en temps real que actuen com a canal de comunicació entre diverses aplicacions o components software. L'arquitectura és senzilla: un component software, anomenat \textbf{\textit{producer}}, es comunica amb el servidor Kafka i envia dades de forma periòdica a un \textit{pipeline} específic d'aquest servidor, prèviament configurat i identificament amb el que anomenem Kafka \textit{topic}, un identificador únic d'aquell \textit{pipeline} per aquell desplegament de Kafka. Aquest flux de dades s'encua al servidor, i es redireccionen a uns altres sistemes o aplicacions, anomenats \textbf{\textit{consumers}}, que reben i processen les dades d'un pipeline específic a mesura que es van enviant i processant.\\
 
+\begin{figure}
+\centering
+\includegraphics[width=14cm]{Figures/Figure7}
+\decoRule
+\caption[Exemple d'arquitectura de la comunicació amb Kafka]{Exemple d'arquitectura de la comunicació amb Kafka}
+\label{fig:Kafka}
+\end{figure}
+
 En general, l'avantatge principal de Kafka i la justificació del seu ús pel nostre context és que permet una integració còmode i fiable entre diferents aplicacions que necessiten comunicar dades de forma periòdica, garantint la seva arribada. Kafka ofereix una sèrie d'APIs per configurar els \textit{producers} i \textit{consumers}, així com una configuració relativament senzilla del propi servidor. Gràcies a aquestes característiques, podem aprofitar els propis monitors per actuar com a \textit{producers} d'un \textit{stream} de dades, que es correspondrà amb les dades monitorades durant els processos d'execució, i distribuïr-les als diferents \textit{pipelines} o Kafka \textit{topics}. Així, davant possibles ampliacions i expansions d'aquest projecte, podem fàcilment incorporar components d'anàlisi gràcies al desacoblament entre la lògica interna del monitor i l'enviament i captura de dades que l'arquitectura de Kafka ens ofereix.\\
 
-La lògica interna genèrica proposada per la implementació dels monitors serà, per tant, l'ús de l'API de \textit{producer} de Kafka per part dels monitors, pel qual cada procés de monitoratge enviarà de forma periòdica dades a un servidor Kafka específic, o Kafka \textit{endpoint}, i dins aquest desplegament, a un \textit{pipeline} o Kafka \textit{topic} específic.
+La lògica interna genèrica proposada per la implementació dels monitors serà, per tant, l'ús de l'API de \textit{producer} de Kafka per part dels monitors, pel qual cada procés de monitoratge enviarà de forma periòdica dades a un servidor Kafka específic, o Kafka \textit{endpoint}, i dins aquest desplegament, a un \textit{pipeline} o Kafka \textit{topic} específic. A la figura ~\ref{fig:Kafka} s'exposa com funciona aquesta comunicació entre els monitors i els \textit{consumers}, components que poden ser de qualsevol tipus sempre i quant implementin la lògica de \textit{consumers} pròpia e Kafka.
 
 \subsubsection{Paràmetres de configuració}
 
@@ -81,7 +89,7 @@ Davant les especificacions anteriors, i per garantir el màxim nivell de persona
 \label{fig:Figura5}
 \end{figure}
 
-Es proposa l'arquitectura definida a la Figura 5 a extendre per cadascuna de les implementacions de monitors. Per entendre aquesta arquitectura, a continuació s'expliquen cadascun dels elements integrats:
+Es proposa l'arquitectura definida a la figura ~\ref{fig:Figura5} a extendre per cadascuna de les implementacions de monitors. Per entendre aquesta arquitectura, a continuació s'expliquen cadascun dels elements integrats:
 
 \begin{itemize}
 \item \textbf{MonitoringParams}. Classe abstracta que cada monitor ha d'implementar que conté, de base, els paràmetres de configuració dels monitors genèrics per tots aquests. Addicionalment, cada implementació de monitor pot afegir els paràmetres i la lògica associada a aquests que consideri oportuns.
@@ -109,7 +117,7 @@ Per tal de gestionar la \textit{tool} utilitzada en cada procés de monitoratge 
 \end{itemize}
 \end{itemize}
 
-Aquesta és per tant la proposta d'una arquitectura genèrica per la implementació de cadascun dels monitors a integrar en el nostre sistema. Les especificacions tècniques tant des d'un punt de vista de requisits funcionals com requisits arquitectònics o de qualitat queden garantides, així com la seva extensibilitat d'acord amb les característiques específiques necessàries de cada monitor. La proposta genèrica s'implementa en un projecte del qual les implementacions de monitors específics han d'extendre com a subprojecte, utilitzant les funcionalitats de Gradle a tal efecte.
+Aquesta és per tant la proposta d'una arquitectura genèrica per la implementació de cadascun dels monitors a integrar en el nostre sistema. Les especificacions tècniques tant des d'un punt de vista de requisits funcionals com requisits arquitectònics o de qualitat queden garantides, així com la seva extensibilitat d'acord amb les característiques específiques necessàries de cada monitor. La proposta genèrica s'implementa en un projecte del qual les implementacions de monitors específics han d'estendre com a subprojecte, utilitzant les funcionalitats de Gradle a tal efecte.
 
 \subsection{Implementació de monitors}
 
@@ -121,7 +129,7 @@ En aquest projecte presentem la implementació de 3 monitors classificats en 2 t
 
 L'objectiu d'aquest monitor és supervisar i recol·lectar els tuits publicats a la xarxa social de Twitter durant un període de temps concret (definit al procés de monitoratge) que compleixen una sèrie de característiques específiques, d'acord amb els criteris que poden resultar d'interès en quant a la informació d'aquests tuits. \\
 
-Per permetre aquesta activitat de monitorate, i tal i com procedirem amb cadascun dels monitors, necessitem implementar com a mínim una \textit{tool} amb la qual realitzar el procés de monitoratge. Definirem una \textit{tool} anomenada \textbf{TwitterAPI} que utilitzarà \textbf{twitter4j}, una llibreria lliure no oficial de Java que permet utilitzar una arquitectura ja definida per connectar-se a les APIs de Twitter, i entre d'altres a la \textbf{Stream API}, una API que permet obrir \textit{streams} de dades per capturar i processar tots els tuits publicats en temps real que compleixin una sèrie de característiques específiques. Aquests \textit{streams} s'executaran com a \textit{threads} en segon pla i en paral·lel d'acord amb el nº de processos de monitoratge oberts.\\
+Per permetre aquesta activitat de monitoratge, i tal i com procedirem amb cadascun dels monitors, necessitem implementar com a mínim una \textit{tool} amb la qual realitzar el procés de monitoratge. Definirem una \textit{tool} anomenada \textbf{TwitterAPI} que utilitzarà \textbf{twitter4j}, una llibreria lliure no oficial de Java que permet utilitzar una arquitectura ja definida per connectar-se a les APIs de Twitter, i entre d'altres a la \textbf{Stream API}, una API que permet obrir \textit{streams} de dades per capturar i processar tots els tuits publicats en temps real que compleixin una sèrie de característiques específiques. Aquests \textit{streams} s'executaran com a \textit{threads} en segon pla i en paral·lel d'acord amb el nº de processos de monitoratge oberts.\\
 
 Pel nostre cas, definirem dos paràmetres per filtrar els tuits monitorats: l'\textbf{autor} del tuit i l'aparició d'un \textbf{conjunt de paraules} específic al contingut del tuit. Per configurar cadascun dels processos de monitoratge d'acord a aquests dos criteris, caldrà afegir els següents paràmetres:
 
@@ -130,7 +138,7 @@ Pel nostre cas, definirem dos paràmetres per filtrar els tuits monitorats: l'\t
 \item \textbf{keywordExpression} - expressió booleana formada per combinacions AND, OR i NOT de diferents \textit{keywords} que el contingut del tuit ha de satisfer per ser monitorat
 \end{itemize}
 
-La \textit{Stream API} ofereix paràmetres de configuració per realitzar el \textit{tracking} dels tuits que satisfan ambdues condicions. En el cas del primer paràmetre \textit{accounts} no cal realitzar cap transformació, ja que únicament necessitem els noms únics de les comptes dels autors per obtenir els seus tuits. Contrariament, l'API únicament ofereix l'oportunitat de filtrar per combinacions de paraules expressades en la seva \textit{forma normal disjuntiva}, o \textbf{FND}. És a dir, expressions del format:\\
+La \textit{Stream API} ofereix paràmetres de configuració per realitzar el \textit{tracking} dels tuits que satisfan ambdues condicions. En el cas del primer paràmetre \textit{accounts} no cal realitzar cap transformació, ja que únicament necessitem els noms únics de les comptes dels autors per obtenir els seus tuits. Contràriament, l'API únicament ofereix l'oportunitat de filtrar per combinacions de paraules expressades en la seva \textit{forma normal disjuntiva}, o \textbf{FND}. És a dir, expressions del format:\\
 
 \centerline{\textit{$X_{1} \,\, OR \,\, X_{2} \,\, OR \,\, .. \,\, OR \,\, X_{n}$}}\bigskip
 
@@ -149,7 +157,7 @@ Davant aquest fet, i per evitar forçar un format específic del paràmetre de c
 \label{fig:Figura6}
 \end{figure}
 
-Donats aquests detalls podem utilitzar l'arquitectura genèrica proposada anteriorment per extendre la implementació del monitor de Twitter. Aquesta arquitectura i els components implementats es troben definits a la Figura 6, on podem veure aquells components reutilitzats de l'arquitectura genèrica remarcats en groc, per poder fer una comparativa ràpida sobre les classes i components que ha calgut implementar per poder definir un monitor:
+Donats aquests detalls podem utilitzar l'arquitectura genèrica proposada anteriorment per extendre la implementació del monitor de Twitter. Aquesta arquitectura i els components implementats es troben definits a la figura ~\ref{fig:Figura6}, on podem veure aquells components reutilitzats de l'arquitectura genèrica remarcats en groc, per poder fer una comparativa ràpida sobre les classes i components que ha calgut implementar per poder definir un monitor:
 
 \begin{itemize}
 \item \textbf{TwitterMonitoringParams.} Subclasse de la classe abstracta \textit{MonitoringParams} que hereta per una banda els atributs comuns a tots els monitors (\textit{kafkaEndpoint, toolName, kafkaTopic} i \textit{timeSlot}) i per altra banda en defineix dos nous: la \textit{keywordExpression} i un llistat d'\textit{accounts}.
@@ -158,9 +166,9 @@ Donats aquests detalls podem utilitzar l'arquitectura genèrica proposada anteri
 \item \textbf{TwitterAPI.} Implementació de la interfície que defineix la lògica de les tres operacions de qualsevol \textit{tool}: iniciar una nova configuració, modificar-ne una d'existent, i eliminar-ne una d'existent. En aquest cas disposem d'una única implementació, però tal i com veurem més endavant, l'arquitectura permet sense problema generar un conjunt de \textit{tools} diferenciades, cadascuna amb les seves característiques i dades internes, que utilitzaran les mateixes implementacions de formats de dades definides anteriorment. Aquest component serà l'encarregat d'utilitzar \textit{twitter4j} per configurar la crida a la Stream API i obrir el \textit{thread} encarregat d'anar rebent i emmagatzemant els tuits rebut. Addicionalment, serà també responsabilitat d'aquesta tool comunicar-se amb \textit{KafkaCommunication} per utilitzar el mètode de comunicació (a través de IF o personalitzat) que correspongui, d'acord amb les necessitats de la \textit{tool}.
 \end{itemize}
 
-Cal destacar que gràcies al disseny de l'arquitectura proposada anteriorment per la implementació d'un monitor integrat al nostre sistema (o, de fet, sense necessitat que l'objectiu final sigui la seva integració) ha requerit una extensió relativament senzilla. Únicament ha calgut implementar aquells aspectes propis de cada monitor, que en són 4: els paràmetres específics de configuració (1), el mapejat dels paràmetres d'entrada (2), el mapejat de les dades de sortida (3), i el funcionament de les \textit{tools} (en aquest cas, twitter4j) per realitzar els processos de monitoratge (4). 
+Cal destacar que gràcies al disseny de l'arquitectura proposada anteriorment per la implementació d'un monitor integrat al nostre sistema (o, de fet, sense necessitat que l'objectiu final sigui la seva integració) ha requerit una extensió relativament senzilla. Únicament ha calgut implementar aquells aspectes propis de cada monitor, que en són 4: els paràmetres específics de configuració (1), el mapejat dels paràmetres d'entrada (2), el mapejat de les dades de sortida (3), i el funcionament de les \textit{tools} (en aquest cas, twitter4j) per realitzar els processos de monitoratge (4). D'aquesta manera satisfem un dels principals objectius: dotar al nostre sistema de la màxima extensibilitat i heterogeneïtat possible, amb la possibilitat de personalitzar l'activitat i semàntica de cada monitor partint d'una arquitectura comuna. 
 
-D'aquesta manera satisfem un dels principals objectius: dotar al nostre sistema de la màxima extensibilitat, sense deixar de banda els objectius generals de mantenir un sistema autoadaptable amb heterogeneïtat 
+
 
 \subsubsection{Google Play Monitor}
 
