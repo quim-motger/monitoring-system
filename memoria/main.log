@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.5.4)  29 MAY 2017 15:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.5.4)  30 MAY 2017 09:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1712,7 +1712,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \c__siunitx_mathtt_int=\count365
 
 1: section
-<Figures/fib.png, id=357, 3602.45876pt x 461.725pt>
+<Figures/fib.png, id=373, 3602.45876pt x 461.725pt>
 File: Figures/fib.png Graphic file (type png)
  <use Figures/fib.png>
 Package pdftex.def Info: Figures/fib.png used on input line 106.
@@ -1866,7 +1866,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
-<Figures/Figure1.jpg, id=541, 325.215pt x 277.035pt>
+<Figures/Figure1.jpg, id=561, 325.215pt x 277.035pt>
 File: Figures/Figure1.jpg Graphic file (type jpg)
  <use Figures/Figure1.jpg>
 Package pdftex.def Info: Figures/Figure1.jpg used on input line 46.
@@ -1912,7 +1912,7 @@ LaTeX Font Warning: Font shape `OMS/ppl/bx/n' undefined
 (Font)              using `OMS/ppl/m/n' instead
 (Font)              for symbol `textperiodcentered' on input line 82.
 
-[6] <Figures/Figure2.png, id=559, 552.0625pt x 408.52625pt>
+[6] <Figures/Figure2.png, id=579, 552.0625pt x 408.52625pt>
 File: Figures/Figure2.png Graphic file (type png)
 
 <use Figures/Figure2.png>
@@ -1959,7 +1959,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
 
-<Figures/Figure3.jpg, id=590, 1204.5pt x 540.0175pt>
+<Figures/Figure3.jpg, id=610, 1204.5pt x 540.0175pt>
 File: Figures/Figure3.jpg Graphic file (type jpg)
  <use Figures/Figure3.jpg>
 Package pdftex.def Info: Figures/Figure3.jpg used on input line 21.
@@ -2052,7 +2052,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--27
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 28.
 
-<Figures/Figure4.png, id=640, 560.0925pt x 347.8596pt>
+<Figures/Figure4.png, id=660, 560.0925pt x 347.8596pt>
 File: Figures/Figure4.png Graphic file (type png)
 
 <use Figures/Figure4.png>
@@ -2113,24 +2113,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
  (./Chapters/SistemaMonitoratge.tex
 Cap\'{\i }tol 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
-
- []
-
-
-Overfull \hbox (6.41591pt too wide) in paragraph at lines 13--14
+Overfull \hbox (6.41591pt too wide) in paragraph at lines 11--12
 \T1/ppl/m/n/10.95 Recordem que, dins el nos-tre con-text, un \T1/ppl/b/n/10.95 
 mo-ni-tor \T1/ppl/m/n/10.95 con-sis-teix en un \T1/ppl/b/n/10.95 com-po-nent so
 ftwa-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
@@ -2140,26 +2130,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
 [32]
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
@@ -2170,52 +2160,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--56
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
-
- []
-
-[33] <Figures/Figure5.png, id=694, 2054.42531pt x 855.195pt>
+[33] <Figures/Figure5.png, id=715, 2054.42531pt x 855.195pt>
 File: Figures/Figure5.png Graphic file (type png)
 
 <use Figures/Figure5.png>
-Package pdftex.def Info: Figures/Figure5.png used on input line 86.
+Package pdftex.def Info: Figures/Figure5.png used on input line 78.
 (pdftex.def)             Requested size: 398.33858pt x 165.81628pt.
  [34]
-Overfull \hbox (2.44196pt too wide) in paragraph at lines 105--106
+Overfull \hbox (2.44196pt too wide) in paragraph at lines 97--98
 []\T1/ppl/b/it/10.95 addConfiguration(JSONObject) \T1/ppl/m/n/10.95 -> pro-ces-
 sa els pa-rà-me-tres de-fi-nits al JSO-
  []
 
 
-Overfull \hbox (5.98933pt too wide) in paragraph at lines 107--108
+Overfull \hbox (5.98933pt too wide) in paragraph at lines 99--100
 []\T1/ppl/b/it/10.95 updateConfiguration(JSONObject, int) \T1/ppl/m/n/10.95 -> 
 ac-tu-a-lit-za els pa-rà-me-tres de con-
  []
 
-[35 <./Figures/Figure5.png>]) [36]
+[35 <./Figures/Figure5.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
+
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--139
+
+ []
+
+) [37]
 \openout2 = `Chapters/SistemaAdaptabilitat.aux'.
 
- (./Chapters/SistemaAdaptabilitat.tex
+ (./Chapters/SistemaAdaptabilitat.tex [38
+
+
+
+]
 Cap\'{\i }tol 8.
 1: section
-[37
-
-
-
-]) [38] [39]
+[39]) [40] [41]
 \openout2 = `Chapters/ReconfiguracioMonitors.aux'.
 
- (./Chapters/ReconfiguracioMonitors.tex [40
+ (./Chapters/ReconfiguracioMonitors.tex [42
 
 
 
@@ -2223,10 +2223,10 @@ Cap\'{\i }tol 8.
 Cap\'{\i }tol 9.
 )
 1: section
-[41]
+[43]
 \openout2 = `Chapters/DissenyDashboard.aux'.
 
- (./Chapters/DissenyDashboard.tex [42
+ (./Chapters/DissenyDashboard.tex [44
 
 
 
@@ -2234,10 +2234,10 @@ Cap\'{\i }tol 9.
 Cap\'{\i }tol 10.
 )
 1: section
-[43]
+[45]
 \openout2 = `Chapters/ValidacioSistema.aux'.
 
- (./Chapters/ValidacioSistema.tex [44
+ (./Chapters/ValidacioSistema.tex [46
 
 
 
@@ -2245,10 +2245,10 @@ Cap\'{\i }tol 10.
 Cap\'{\i }tol 11.
 )
 1: section
-[45]
+[47]
 \openout2 = `Chapters/TreballFutur.aux'.
 
- (./Chapters/TreballFutur.tex [46
+ (./Chapters/TreballFutur.tex [48
 
 
 
@@ -2256,10 +2256,10 @@ Cap\'{\i }tol 11.
 Cap\'{\i }tol 12.
 )
 1: section
-[47]
+[49]
 \openout2 = `Chapters/Conclusions.aux'.
 
- (./Chapters/Conclusions.tex [48
+ (./Chapters/Conclusions.tex [50
 
 
 
@@ -2267,7 +2267,7 @@ Cap\'{\i }tol 12.
 Cap\'{\i }tol 13.
 )
 1: section
-[49]
+[51]
 Package csquotes Info: Disabling multilingual quotes on input line 295.
 
 
@@ -2285,7 +2285,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 300.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 300.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 300.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7C00D779BDE5DD2F533175D5425C1280;13082.
+(rerunfilecheck)             Checksum: 51A42F57B4D3605EAC90052F1F43A656;13741.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2298,25 +2298,28 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29240 strings out of 493304
- 594605 string characters out of 6139872
- 731375 words of memory out of 5000000
- 32079 multiletter control sequences out of 15000+600000
+ 29250 strings out of 493304
+ 594721 string characters out of 6139872
+ 731376 words of memory out of 5000000
+ 32083 multiletter control sequences out of 15000+600000
  43089 words of font info for 73 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 58i,20n,83p,10398b,2209s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,20n,83p,10398b,2212s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/eurosym/feybr10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/eurosym/feymr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatin
-o/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (61 pages, 683400 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/eurosym/feybr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/euro
+sym/feymr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (63 pages, 713616 bytes).
 PDF statistics:
- 834 PDF objects out of 1000 (max. 8388607)
- 745 compressed objects within 8 object streams
- 180 named destinations out of 1000 (max. 500000)
- 735 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 876 PDF objects out of 1000 (max. 8388607)
+ 782 compressed objects within 8 object streams
+ 186 named destinations out of 1000 (max. 500000)
+ 767 words of extra memory for PDF output out of 10000 (max. 10000000)
 

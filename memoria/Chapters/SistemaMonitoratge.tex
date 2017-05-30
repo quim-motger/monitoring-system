@@ -4,17 +4,13 @@
 
 \label{SistemaMonitoratge} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-En aquest punt tenim la base necessària per procedir a exposar el treball realitzat des d'un punt de vista de disseny software i implementació dels diferents components. Agafant com a referència la solució proposada al \textit{Capítol 5. Visió general del sistema}, procedirem a desenvolupar els detalls tècnics de cadascun dels components que integren aquest sistema.\\
-
-Començarem per explicar els detalls relacionats amb el disseny i la implementació dels monitors.
+En aquest punt tenim la base necessària per procedir a exposar el treball realitzat des d'un punt de vista de disseny software i implementació dels diferents components. Agafant com a referència la solució proposada al \textit{Capítol 5. Visió general del sistema}, procedirem a desenvolupar els detalls tècnics de cadascun dels components que integren aquest sistema. Començarem per explicar els detalls relacionats amb el disseny i la implementació dels monitors.
 
 \section{Monitors}
 
 Recordem que, dins el nostre context, un \textbf{monitor} consisteix en un \textbf{component software} autònom amb una activitat regular orientada al control de qualitat d'un altre sistema software. Aquest control de qualitat es basa en una col·lecció de dades obtingudes a través d'aquest segon sistema, que ens aporten informació pròpia del context monitorat. Amb aquestes dades, un sistema capacitat per processar i analitzar aquestes dades, es poden generar suggerències de modificacions. Aquesta darrera part, però, queda fora de l'abast del nostre projecte, que centrarà l'activitat dels monitors en la seva tasca principal: la col·lecció de dades sota una sèrie de criteris específics.\\
 
-En general, per tant, volem que el nostre sistema disposi d'un conjunt de monitors heterogenis (i, per tant, de naturalesa i comportament diferents), que puguin ser capaços de gestionar \textbf{processos de monitoratge} de forma paral·lela. És a dir: cadascun d'aquests monitors ha de ser capaç d'inicialitzar processos de monitoratge que s'executin en paral·lel i en segon pla, col·lectin dades d'acord als criteris de cadascun d'aquests processos, i les redireccionin a un tercer component software, encarregat del seu anàlisi.\\
-
-Per tant, necessitem que cadascun d'aquests monitors satisfaci els següents requisits funcionals:
+En general, per tant, volem que el nostre sistema disposi d'un conjunt de monitors heterogenis (i, per tant, de naturalesa i comportament diferents), que puguin ser capaços de gestionar \textbf{processos de monitoratge} de forma paral·lela. És a dir: cadascun d'aquests monitors ha de ser capaç d'inicialitzar processos de monitoratge que s'executin en paral·lel i en segon pla, col·lectin dades d'acord als criteris de cadascun d'aquests processos, i les redireccionin a un tercer component software, encarregat del seu anàlisi.Per tant, necessitem que cadascun d'aquests monitors satisfaci els següents requisits funcionals:
 
 \begin{enumerate}
 \item \textbf{Inicialització de procés de monitoratge.} El monitor ha de poder rebre una petició per inicialitzar un nou procés de monitoratge amb una sèrie de paràmetres de configuració que defineixin aquest procés de monitoratge.
@@ -26,9 +22,7 @@ Per tant, necessitem que cadascun d'aquests monitors satisfaci els següents req
 
 Tal i com establiem com a objectiu principal del projecte, aquest sistema de monitoratge ha de ser \textbf{heterogeni}. La conseqüència principal d'aquesta característica és que necessitem definir un sistema que contempli que cadascun d'aquests requisits funcionals es garanteixen en la integració dels monitors implementats, i que per tant esdevenen casos d'ús complets i satisfactoris del nostre context. Per fer-ho, i donat que els monitors seran el principal punt de variabilitat del nostre sistema, hem d'afegir un cert nivell d'abstracció, un \textbf{desacoblament} entre els detalls específics de cadascun dels monitors, que ens resulten indiferents per la resta del sistema.\\
 
-Per tant, el primer pas que hem de realitzar és \textbf{dissenyar una arquitectura} i uns \textbf{criteris de configuració genèrics} que satisfacin dos criteris: primerament, que ens permetin integrar tots els monitors implementats sota aquesta proposta al nostre sistema; i en segon lloc, que permetin una independència suficient com per garantir el criteri d'heterogeneïtat dels monitors.\\
-
-Desenvoluparem aquesta proposta analitzant els següents punts:
+Per tant, el primer pas que hem de realitzar és \textbf{dissenyar una arquitectura} i uns \textbf{criteris de configuració genèrics} que satisfacin dos criteris: primerament, que ens permetin integrar tots els monitors implementats sota aquesta proposta al nostre sistema; i en segon lloc, que permetin una independència suficient com per garantir el criteri d'heterogeneïtat dels monitors. Desenvoluparem aquesta proposta analitzant els següents punts:
 
 \begin{enumerate}
 \item \textbf{Comportament intern del monitor.} Anàlisi de les necessitats i detalls tècnics del funcionament intern del procés de monitoratge.
@@ -38,9 +32,7 @@ Desenvoluparem aquesta proposta analitzant els següents punts:
 
 \subsubsection{Comportament intern del monitor}
 
-La implementació d'un monitor representa, des d'un punt de vista semàntic, un component software encarregat de monitorar un component software concret. En aquest context específic, entendrem \textbf{monitorar} com la col·lecció periòdica d'un conjunt de dades produïdes de l'execució del sistema software monitorat.\\
-
-En base a aquesta definició, entendrem com a \textbf{procés de monitoratge} el cicle següent:
+La implementació d'un monitor representa, des d'un punt de vista semàntic, un component software encarregat de monitorar un component software concret. En aquest context específic, entendrem \textbf{monitorar} com la col·lecció periòdica d'un conjunt de dades produïdes de l'execució del sistema software monitorat. En base a aquesta definició, entendrem com a \textbf{procés de monitoratge} el cicle següent:
 
 \begin{enumerate}
 \item Inicialització de les estructures de col·lecció de dades
@@ -108,20 +100,51 @@ Es proposa l'arquitectura definida a la Figura 5 a extendre per cadascuna de les
 \end{itemize}
 Aquest controlador és perfectament usable per tot monitor implementat d'acord amb la configuració de la resta de classes i interf
 \item \textbf{MonitoringData}. Interfície que cada monitor implementa amb les dades i format que el monitor genera fruït de la seva activitat, amb la implementació d'un mètode \textit{toJsonObject()} per definir un format genèric de les dades a enviar
-\item \textbf{KafkaCommunication}. Classe que implementa la comunicació amb el servidor de Kafka, i que permet enviar les dades generades per l'activitat de monitoratge. Implementa dues lògiques diferenciades:
+\item \textbf{KafkaCommunication}. Classe que implementa la comunicació amb el servidor de Kafka, i que permet enviar les dades generades per l'activitat de monitoratge. Implementa 4 mètodes segons les dues lògiques de comunicació possibles: la integrada al sistema SUPERSEDE (utilitzant \textit{proxies} de IF), i una configuració personalitzable a un Kafka endpoint específic:
 \begin{itemize}
-\item Comunicació amb un Kafka endpoint personalitzable i configurable per extensió i \textit{testing} (corresponent als mètodes \textit{initProducer(String)} i \textit{generateResponseKafka(List<MonitoringData>))}
-\item Comunicació amb el Kafka endpoint desplegat a IF (mètodes \textit{initProxy()} i \textit{generateResponseIF(List<MonitoringData>))}
+\item \textbf{\textit{initProxy()}} -> inicialitza la instància de \textit{proxy} que permet la comunicació amb el Kafka \textit{server} desplegat a IF
+\item \textbf{\textit{generateResponseIF(List<MonitoringData>)}} -> envia el llistat d'instàncies de dades monitorades a través del \textit{proxy} inicialitzat
+\item \textbf{\textit{initProducer(String)}} -> inicialitza un \textit{producer} de Kafka que es comunica amb l'\textit{endpoint} especificat
+\item \textbf{\textit{generateResponseKafka(List<MonitoringData>)}} -> envia el llistat d'instàncies de dades monitorades a través del \textit{producer} inicialitzat
 \end{itemize}
 \end{itemize}
 
-\section{Section 2}
+Aquesta és per tant la proposta d'una arquitectura genèrica per la implementació de cadascun dels monitors a integrar en el nostre sistema. Les especificacions tècniques tant des d'un punt de vista de requisits funcionals com requisits arquitectònics o de qualitat queden garantides, així com la seva extensibilitat d'acord amb les característiques específiques necessàries de cada monitor. La proposta genèrica s'implementa en un projecte del qual les implementacions de monitors específics han d'extendre com a subprojecte, utilitzant les funcionalitats de Gradle a tal efecte.
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
+\subsection{Implementació de monitors}
 
-%-----------------------------------
-%	SUBSECTION 2
-%-----------------------------------
+Un cop exposada l'arquitectura i especificacions genèriques dels monitors, el següent pas és procedir a la implementació dels diferents monitors que integrarem al nostre sistema. Aquestes implementacions esdevindran possibles casos d'ús a executar, però únicament suposen exemples dins d'un ample ventall de possibilitats d'implementació.
 
-\subsection{Subsection 2.1}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+En aquest projecte presentem la implementació de 3 monitors classificats en 2 tipus de monitors diferents: \textbf{monitors de xarxes socials} i \textbf{monitors de botigues d'aplicacions}. Pel primer tipus, es proposa un monitor de la xarxa social \textbf{Twitter}. Pel segon tipus, es proposen dos monitors: un monitor de \textbf{Google Play} i un altre de l'\textbf{App Store}. 
+
+\subsubsection{Twitter Monitor}
+
+L'objectiu d'aquest monitor és supervisar i recol·lectar els tuits publicats a la xarxa social de Twitter durant un període de temps concret (definit al procés de monitoratge) que compleixen una sèrie de característiques específiques, d'acord amb els criteris que poden resultar d'interès en quant a la informació d'aquests tuits. \\
+
+Per permetre aquesta activitat de monitorate, i tal i com procedirem amb cadascun dels monitors, necessitem implementar com a mínim una \textit{tool} amb la qual realitzar el procés de monitoratge. Definirem una \textit{tool} anomenada \textbf{TwitterAPI} que utilitzarà la llibreria \textbf{twitter4j}, una llibreria lliure no oficial de Java que permet utilitzar una arquitectura ja definida per connectar-se a les APIs de Twitter, i entre d'altres a la \textbf{Stream API}, una API que permet obrir \textit{streams} de dades per capturar i processar tots els tuits publicats en temps real que compleixin una sèrie de característiques específiques.\\
+
+Pel nostre cas, definirem dos paràmetres per filtrar els tuits monitorats: l'\textbf{autor} del tuit i l'aparició d'un \textbf{conjunt de paraules} específic al contingut del tuit. Per configurar cadascun dels processos de monitoratge d'acord a aquests dos criteris, caldrà afegir els següents paràmetres:
+
+\begin{itemize}
+\item \textbf{accounts} - llistat amb els identificadors dels autors dels quals volem obtenir els tuits 
+\item \textbf{keywordExpression} - expressió booleana formada per combinacions AND, OR i NOT de diferents \textit{keywords} que el contingut del tuit ha de satisfer per ser monitorat
+\end{itemize}
+
+La \textit{Stream API} ofereix paràmetres de configuració per realitzar el \textit{tracking} dels tuits que satisfan ambdues condicions. En el cas del primer paràmetre \textit{accounts} no cal realitzar cap transformació, ja que únicament necessitem els noms únics de les comptes dels autors per obtenir els seus tuits. Contrariament, l'API únicament ofereix l'oportunitat de filtrar per combinacions de paraules expressades en la seva \textit{forma normal disjuntiva}, o \textbf{FND}. És a dir, expressions del format:\\
+
+\centerline{\textit{$X_{1} \,\, OR \,\, X_{2} \,\, OR \,\, .. \,\, OR \,\, X_{n}$}}\bigskip
+
+\noindent
+on $X_{n}$ és una expressió booleana formada per una combinació indefinida d'operands AND:\\
+
+\centerline{\textit{$keyword_{1} \,\, AND \,\, keyword_{2} \,\, AND \,\, .. \,\, AND \,\, keyword_{n}$}}\bigskip
+
+Davant aquest fet, i per evitar forçar un format específic del paràmetre de configuració d'entrada, necessitem implementar una lògica interna pròpia de la \textit{tool} TwitterAPI que transformi qualsevol expressió booleana en la seva expressió FND. 
+
+\subsubsection{Google Play Monitor}
+
+\subsubsection{App Store Monitor}
+
+\section{Monitor Manager}
+
+\section{Orchestrator}
