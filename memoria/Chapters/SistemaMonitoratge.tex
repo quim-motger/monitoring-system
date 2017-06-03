@@ -166,6 +166,16 @@ Donats aquests detalls podem utilitzar l'arquitectura genèrica proposada anteri
 \item \textbf{TwitterAPI.} Implementació de la interfície que defineix la lògica de les tres operacions de qualsevol \textit{tool}: iniciar una nova configuració, modificar-ne una d'existent, i eliminar-ne una d'existent. En aquest cas disposem d'una única implementació, però tal i com veurem més endavant, l'arquitectura permet sense problema generar un conjunt de \textit{tools} diferenciades, cadascuna amb les seves característiques i dades internes, que utilitzaran les mateixes implementacions de formats de dades definides anteriorment. Aquest component serà l'encarregat d'utilitzar \textit{twitter4j} per configurar la crida a la Stream API i obrir el \textit{thread} encarregat d'anar rebent i emmagatzemant els tuits rebut. Addicionalment, serà també responsabilitat d'aquesta tool comunicar-se amb \textit{KafkaCommunication} per utilitzar el mètode de comunicació (a través de IF o personalitzat) que correspongui, d'acord amb les necessitats de la \textit{tool}.
 \end{itemize}
 
+A la figura \ref{fig:Figura12} es pot observar un exemple de l'objecte JSON generat a partir de la transformació definida per la implementació de la interfície \textit{MonitoringData}. Aquest objecte serà enviat, a través de la \textit{tool} i utilitzant la classe \textit{KafkaCommunication}, al Kafka \textit{endpoint} i Kafka \textit{topic} definits a la configuració del monitoratge. De les dades generades per la comunicació amb l'API, recollirem: \textit{idItem} (identificador del tuit), \textit{timeStamp} (moment en que s'ha realitzat el tuit), \textit{message} (contingut del mateix), \textit{author} (l'identificador de l'autor), i \textit{link} (enllaç al tuit a la plataforma Twitter). 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=14cm]{Figures/Figure12}
+\decoRule
+\caption[Exemple dades de sortida generades pel monitor de Twitter]{Exemple dades de sortida generades pel monitor de Twitter}
+\label{fig:Figura12}
+\end{figure}
+
 Cal destacar que gràcies al disseny de l'arquitectura proposada anteriorment per la implementació d'un monitor integrat al nostre sistema (o, de fet, sense necessitat que l'objectiu final sigui la seva integració) ha requerit una extensió relativament senzilla. Únicament ha calgut implementar aquells aspectes propis de cada monitor, que en són 4: els paràmetres específics de configuració (1), el mapejat dels paràmetres d'entrada (2), el mapejat de les dades de sortida (3), i el funcionament de les \textit{tools} (en aquest cas, twitter4j) per realitzar els processos de monitoratge (4). D'aquesta manera satisfem un dels principals objectius: dotar al nostre sistema de la màxima extensibilitat i heterogeneïtat possible, amb la possibilitat de personalitzar l'activitat i semàntica de cada monitor partint d'una arquitectura comuna. \\
 
 \noindent{\large{\textbf{Exposició com a servei REST}}}\\
@@ -204,7 +214,60 @@ Donat el cas que s'hagi produït algun error, el format de resposta anterior no 
 
 \subsubsection{Google Play Monitor}
 
+Aquest segon monitor, encarregat del monitoratge de dades de la botiga d'aplicacions dels sistemes operatius Android, \textbf{Google Play}, pretén recollir les dades referents a les crítiques o \textit{reviews} que els usuaris de Google Play fan de les aplicacions que es descarreguen. De manera semblant al monitor de Twitter, però en un context i amb un objectiu diferent, recull dades dels usuaris i els missatges que publiquen al voltant d'un focus específic.\\
+
+En aquest cas, i aprofitant que tenim definit un cas d'ús simple d'un monitor amb una sola \textit{tool}, podem procedir a explotar l'arquitectura dels nostres monitors i definir un monitor que utilitzi més d'una \textit{tool} per realitzar els processos de monitoratge. En aquest cas, s'ha fet una recerca a la xarxa sobre els diversos sistemes i components que existeixen (d'ús total o parcialment lliure) per realitzar el monitoratge, i s'han triat els dos següents degut a les seves característiques:
+
+\begin{itemize}
+\item \textbf{GooglePlayAPI}. \textit{Tool} que implementa una comunicació en 2n pla, similar al sistema de \textit{threads} emprat pel monitor de Twitter, amb la Google Play Developer API. Diem "similar" degut al fet que aquesta API, que funciona mitjançant un sistema d'autenticació OAuth 2.0, no permet obrir un \textit{stream} de dades com es presentava amb el monitor de Twitter, sino que permet obtenir, mitjançant crides API, les dades referents al conjunt total de \textit{reviews} publicades per una aplicació determinada en el moment de la crida. D'aquesta manera no podem obtenir un \textit{stream} de dades real de forma directa, sino que serà responsabilitat de la pròpia \textit{tool} simular aquest \textit{stream} de dades. Per fer-ho, realitzarem de forma periòdica (segons el \textit{timeSlot} definit) crides a l'API per obtenir aquestes dades, i la \textit{tool} s'encarregarà de recollir i retornar únicament les \textit{reviews} realitzades durant el període de monitoratge. Com a avantatge principal, aquesta \textit{tool} permet fer \textbf{fins a 60 crides} en 1 hora, un nombre molt elevat especialment si ho contrastem amb altres eines. Per contra, com a limitació únicament permet obtenir dades d'aplicacions de les quals l'usuari que s'ha autenticat n'és el propietari.
+\item \textbf{AppTweak}. Aquesta eina permet obtenir als usuaris registrats un ample ventall de dades de les aplicacions publicades a GooglePlay. En aquest cas, l'autenticació està basada en crides amb \textit{token}, i el sistema és similar a la \textit{tool} de GooglePlayAPI: necessitem simular dins el comportament de la mateixa \textit{tool} un \textit{stream} de dades parsejant els resultats de la consulta de les \textit{reviews} públiques fins al moment de la crida. En aquest cas, i en contraposició amb l'anterior \textit{tool}, com a avantatge principal aquesta eina permet \textbf{obtenir informació de qualsevol app} publicada al mercat, independentment de la seva propietat. Per contra, la seva versió gratuïta (ofereix un servei de pagament) únicament permet realitzar 100 crides al mes. Una xifra que pot resultar baixa però que, considerant la naturalesa de l'entorn monitorat, podem considerar suficient en alguns casos, ja que equivaldria a 3 crides diàries. 
+\end{itemize}
+
+La tria d'aquestes dues \textit{tools} es basa en les seves característiques d'ús i limitacions, complementàries entre elles, que ens permeten configurar un monitor prou adaptable a les necessitats del procés de monitoratge. Addicionalment a les consideracions anteriors, les dades obtingudes per ambdues \textit{tools} no són les mateixes (tot i que coincideixen en un alt percentatge), i per tal caldrà gestionar tal i com es comentarà més endavant aquesta irregularitat.\\
+
+Per aquest cas d'ús, i degut al que hauria de ser l'escenari més habitual (monitorar en temps reals els comentaris que es realitzen sobre una aplicació específica),es defineix com a paràmetre de configuració la pròpia aplicació a monitorar, identificada pel \textbf{nom del \textit{package}}:
+
+\begin{itemize}
+\item \textbf{packageName} - identificador únic d'una aplicació publicada a Google Play
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=14cm]{Figures/Figure11}
+\decoRule
+\caption[Arquitectura software del monitor de Google Play]{Arquitectura software del monitor de Google Play}
+\label{fig:Figura11}
+\end{figure}
+
+La implementació del monitor basada en l'arquitectura genèrica definida presenta diverses similituds en comparació amb el monitor de Twitter, amb la principal diferència que, per aquest cas, tenim 2 \textit{tools} implementades a utilitzar.
+
+\begin{itemize}
+\item \textbf{GooglePlayMonitoringParams.} Subclasse de la classe abstracta \textit{MonitoringParams} que hereta els atributs comuns a tots els monitors, i afegeix com a atribut particular del monitor un string \textit{packageName}.
+\item \textbf{GooglePlayParserConfiguration.} Implementació de la interfície que defineix la transformació del format d'entrada del monitor (JSONObject) a la instància de \textit{GooglePlayMonitoringParams}.
+\item \textbf{GooglePlayMonitoringData.} Implementació de la interfície que defineix la transformació de les dades recollides al format JSON de sortida. En aquest cas hem d'afegir la consideració prèviament introduïda sobre la variabilitat de les dades entre les dues \textit{tools}. Davant aquest punt, podem explotar els avantatges de l'arquitectura presentada, que ens dona dues opcions:
+\begin{enumerate}
+\item Podem implementar una única classe que estendrà la interfície \textit{MonitoringData} i contindrà tots els paràmetres (comuns i no comuns) de les dades generades durant el procés de monitoratge. En aquest cas, la pròpia \textit{tool} crearà instàncies d'objectes monitorats amb les dades de les quals disposi, i aquelles que no pugui definir (i per tant, que prenguin valors buits o nuls) simplement no apareixeran en la transformació a objecte JSON que enviarem al Kafka \textit{endpoint}. D'aquesta manera, amb una única classe satisfem les necessitats del monitor.
+\item Alternativament podem modelar un conjunt de classes que implementin la interfície, de manera que cada \textit{tool} utilitzi una d'aquestes implementacions. D'aquesta manera, disposaríem d'una implementació de \textit{MonitoringData} per cada \textit{tool} d'acord amb la informació que proporciona cadascuna d'aquestes.
+\end{enumerate}
+Gràcies al disseny, cada desenvolupador podrà utilitzar l'opció que m'es s'adeqüi a les seves necessitats. La 1a opció pot resultar adequada quan p.e. el subconjunt de dades que volem obtenir sigui independent de la \textit{tool}, i per contra la 2a opció ens farà servei per desacoblar totalment les dades entre diferents tools. Pel nostre cas d'ús, considerarem la 1a opció, ja que dins la integració de SUPERSEDE, l'anàlisi d'aquestes dades serà independent de la \textit{tool} utilitzada.
+\item \textbf{GooglePlayAPI}. Implementació de \textit{ToolInterface} que utilitza l'API de Google Play Developer. Aquesta \textit{tool} implementa una comunicació mitjançant autenticació OAuth 2.0 mitjançant els \textit{tokens} obtinguts al registrar un usuari de Google Play com a \textit{developer}. Per aquest projecte s'ha utilitzat un compte personal de Google Play compartit amb altres estudiants del Grau en Enginyeria Informàtica, per tal de poder probar i validar aquesta \textit{tool} (ja que, tal i com especificat anteriorment, únicament ens permet obtenir dades de les aplicacions de les quals l'usuari n'és l'autor). Degut al gran volum de dades que es poden generar al demanar les \textit{reviews} d'una aplicació, l'API funciona mitjançant un sistema de paginació. És a dir: la crida REST per obtenir les reviews retorna un subconjunt de mida relativament petita i, addicionalment, un \textit{token} que permet referenciar el següent subconjunt (o pàgina) de reviews. Aquest token s'utilitza per realitzar una nova crida, que conté un nou subconjunt de reviews i, addicionalment, un nou \textit{token} per la següent pàgina. D'aquesta manera, les dades venen paginades i subdividides. És responsabilitat de la \textit{tool} implementar la lògica per realitzar les crides de forma iterativa. 
+Aquest tractament pot ser un procés relativament lent (en termes computacionals). Però això no suposa un trencament amb la filosofia de "fotografiar" el sistema en un moment determinat: en el moment que es fa la crida REST, l'API captura les \textit{públiques} en aquell moment, i construeix els objectes de dades paginats, de tal manera que encara que es triguin uns segons en computar totes les pàgines de dades, aquestes sempre seran una representació del moment en que s'ha fet la primera crida, corresponent al final d'un cicle de monitoratge de durada definida al \textit{timeSlot.}
+\item \textbf{AppTweak}. Implementació de \textit{ToolInterface} que utilitza l'API de AppTweak. A diferència de l'anterior, tant l'autenticació com la lògica per obtenir les dades és molt més senzilla. En el cas de la primera, funciona mitjançant l'ús d'un \textit{token} a la capçalera de la crida REST, únic per usuari a la plataforma. En el cas de la segona, una sola crida REST retorna totes les dades corresponents a les \textit{reviews} d'aquella aplicació.
+\end{itemize}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=14cm]{Figures/Figure13}
+\decoRule
+\caption[Exemple dades de sortida generades pel monitor de Google Play]{Exemple dades de sortida generades pel monitor de Google Play}
+\label{fig:Figura13}
+\end{figure}
+
+\noindent{\large{\textbf{Exposició com a servei REST}}}\\
+
 \subsubsection{App Store Monitor}
+
+\noindent{\large{\textbf{Exposició com a servei REST}}}\\
 
 \section{Monitor Manager}
 
