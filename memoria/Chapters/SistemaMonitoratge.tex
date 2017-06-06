@@ -220,7 +220,7 @@ En aquest cas, i aprofitant que tenim definit un cas d'ús simple d'un monitor a
 
 \begin{itemize}
 \item \textbf{GooglePlayAPI}. \textit{Tool} que implementa una comunicació en 2n pla, similar al sistema de \textit{threads} emprat pel monitor de Twitter, amb la Google Play Developer API. Diem "similar" degut al fet que aquesta API, que funciona mitjançant un sistema d'autenticació OAuth 2.0, no permet obrir un \textit{stream} de dades com es presentava amb el monitor de Twitter, sino que permet obtenir, mitjançant crides API, les dades referents al conjunt total de \textit{reviews} publicades per una aplicació determinada en el moment de la crida. D'aquesta manera no podem obtenir un \textit{stream} de dades real de forma directa, sino que serà responsabilitat de la pròpia \textit{tool} simular aquest \textit{stream} de dades. Per fer-ho, realitzarem de forma periòdica (segons el \textit{timeSlot} definit) crides a l'API per obtenir aquestes dades, i la \textit{tool} s'encarregarà de recollir i retornar únicament les \textit{reviews} realitzades durant el període de monitoratge. Com a avantatge principal, aquesta \textit{tool} permet fer \textbf{fins a 60 crides} en 1 hora, un nombre molt elevat especialment si ho contrastem amb altres eines. Per contra, com a limitació únicament permet obtenir dades d'aplicacions de les quals l'usuari que s'ha autenticat n'és el propietari.
-\item \textbf{AppTweak}. Aquesta eina permet obtenir als usuaris registrats un ample ventall de dades de les aplicacions publicades a GooglePlay. En aquest cas, l'autenticació està basada en crides amb \textit{token}, i el sistema és similar a la \textit{tool} de GooglePlayAPI: necessitem simular dins el comportament de la mateixa \textit{tool} un \textit{stream} de dades parsejant els resultats de la consulta de les \textit{reviews} públiques fins al moment de la crida. En aquest cas, i en contraposició amb l'anterior \textit{tool}, com a avantatge principal aquesta eina permet \textbf{obtenir informació de qualsevol app} publicada al mercat, independentment de la seva propietat. Per contra, la seva versió gratuïta (ofereix un servei de pagament) únicament permet realitzar 100 crides al mes. Una xifra que pot resultar baixa però que, considerant la naturalesa de l'entorn monitorat, podem considerar suficient en alguns casos, ja que equivaldria a 3 crides diàries. 
+\item \textbf{GooglePlay-AppTweak}. Aquesta eina permet obtenir als usuaris registrats un ample ventall de dades de les aplicacions publicades a GooglePlay. En aquest cas, l'autenticació està basada en crides amb \textit{token}, i el sistema és similar a la \textit{tool} de GooglePlayAPI: necessitem simular dins el comportament de la mateixa \textit{tool} un \textit{stream} de dades parsejant els resultats de la consulta de les \textit{reviews} públiques fins al moment de la crida. En aquest cas, i en contraposició amb l'anterior \textit{tool}, com a avantatge principal aquesta eina permet \textbf{obtenir informació de qualsevol app} publicada al mercat, independentment de la seva propietat. Per contra, la seva versió gratuïta (ofereix un servei de pagament) únicament permet realitzar 100 crides al mes. Una xifra que pot resultar baixa però que, considerant la naturalesa de l'entorn monitorat, podem considerar suficient en alguns casos, ja que equivaldria a 3 crides diàries. 
 \end{itemize}
 
 La tria d'aquestes dues \textit{tools} es basa en les seves característiques d'ús i limitacions, complementàries entre elles, que ens permeten configurar un monitor prou adaptable a les necessitats del procés de monitoratge. Addicionalment a les consideracions anteriors, les dades obtingudes per ambdues \textit{tools} no són les mateixes (tot i que coincideixen en un alt percentatge), i per tal caldrà gestionar tal i com es comentarà més endavant aquesta irregularitat.\\
@@ -249,12 +249,6 @@ La implementació del monitor basada en l'arquitectura genèrica definida presen
 \item Podem implementar una única classe que estendrà la interfície \textit{MonitoringData} i contindrà tots els paràmetres (comuns i no comuns) de les dades generades durant el procés de monitoratge. En aquest cas, la pròpia \textit{tool} crearà instàncies d'objectes monitorats amb les dades de les quals disposi, i aquelles que no pugui definir (i per tant, que prenguin valors buits o nuls) simplement no apareixeran en la transformació a objecte JSON que enviarem al Kafka \textit{endpoint}. D'aquesta manera, amb una única classe satisfem les necessitats del monitor.
 \item Alternativament podem modelar un conjunt de classes que implementin la interfície, de manera que cada \textit{tool} utilitzi una d'aquestes implementacions. D'aquesta manera, disposaríem d'una implementació de \textit{MonitoringData} per cada \textit{tool} d'acord amb la informació que proporciona cadascuna d'aquestes.
 \end{enumerate}
-Gràcies al disseny, cada desenvolupador podrà utilitzar l'opció que m'es s'adeqüi a les seves necessitats. La 1a opció pot resultar adequada quan p.e. el subconjunt de dades que volem obtenir sigui independent de la \textit{tool}, i per contra la 2a opció ens farà servei per desacoblar totalment les dades entre diferents tools. Pel nostre cas d'ús, considerarem la 1a opció, ja que dins la integració de SUPERSEDE, l'anàlisi d'aquestes dades serà independent de la \textit{tool} utilitzada.
-\item \textbf{GooglePlayAPI}. Implementació de \textit{ToolInterface} que utilitza l'API de Google Play Developer. Aquesta \textit{tool} implementa una comunicació mitjançant autenticació OAuth 2.0 mitjançant els \textit{tokens} obtinguts al registrar un usuari de Google Play com a \textit{developer}. Per aquest projecte s'ha utilitzat un compte personal de Google Play compartit amb altres estudiants del Grau en Enginyeria Informàtica, per tal de poder probar i validar aquesta \textit{tool} (ja que, tal i com especificat anteriorment, únicament ens permet obtenir dades de les aplicacions de les quals l'usuari n'és l'autor). Degut al gran volum de dades que es poden generar al demanar les \textit{reviews} d'una aplicació, l'API funciona mitjançant un sistema de paginació. És a dir: la crida REST per obtenir les reviews retorna un subconjunt de mida relativament petita i, addicionalment, un \textit{token} que permet referenciar el següent subconjunt (o pàgina) de reviews. Aquest token s'utilitza per realitzar una nova crida, que conté un nou subconjunt de reviews i, addicionalment, un nou \textit{token} per la següent pàgina. D'aquesta manera, les dades venen paginades i subdividides. És responsabilitat de la \textit{tool} implementar la lògica per realitzar les crides de forma iterativa. 
-Aquest tractament pot ser un procés relativament lent (en termes computacionals). Però això no suposa un trencament amb la filosofia de "fotografiar" el sistema en un moment determinat: en el moment que es fa la crida REST, l'API captura les \textit{públiques} en aquell moment, i construeix els objectes de dades paginats, de tal manera que encara que es triguin uns segons en computar totes les pàgines de dades, aquestes sempre seran una representació del moment en que s'ha fet la primera crida, corresponent al final d'un cicle de monitoratge de durada definida al \textit{timeSlot.}
-\item \textbf{AppTweak}. Implementació de \textit{ToolInterface} que utilitza l'API de AppTweak. A diferència de l'anterior, tant l'autenticació com la lògica per obtenir les dades és molt més senzilla. En el cas de la primera, funciona mitjançant l'ús d'un \textit{token} a la capçalera de la crida REST, únic per usuari a la plataforma. En el cas de la segona, una sola crida REST retorna totes les dades corresponents a les \textit{reviews} d'aquella aplicació.
-\end{itemize}
-
 \begin{figure}[!h]
 \centering
 \includegraphics[width=14cm]{Figures/Figure13}
@@ -262,13 +256,91 @@ Aquest tractament pot ser un procés relativament lent (en termes computacionals
 \caption[Exemple dades de sortida generades pel monitor de Google Play]{Exemple dades de sortida generades pel monitor de Google Play}
 \label{fig:Figura13}
 \end{figure}
+Gràcies al disseny, cada desenvolupador podrà utilitzar l'opció que m'es s'adeqüi a les seves necessitats. La 1a opció pot resultar adequada quan p.e. el subconjunt de dades que volem obtenir sigui independent de la \textit{tool}, i per contra la 2a opció ens farà servei per desacoblar totalment les dades entre diferents tools. Pel nostre cas d'ús, considerarem la 1a opció, ja que dins la integració de SUPERSEDE, l'anàlisi d'aquestes dades serà independent de la \textit{tool} utilitzada.
+\item \textbf{GooglePlayAPI}. Implementació de \textit{ToolInterface} que utilitza l'API de Google Play Developer. Aquesta \textit{tool} implementa una comunicació mitjançant autenticació OAuth 2.0 mitjançant els \textit{tokens} obtinguts al registrar un usuari de Google Play com a \textit{developer}. Per aquest projecte s'ha utilitzat un compte personal de Google Play compartit amb altres estudiants del Grau en Enginyeria Informàtica, per tal de poder probar i validar aquesta \textit{tool} (ja que, tal i com especificat anteriorment, únicament ens permet obtenir dades de les aplicacions de les quals l'usuari n'és l'autor). Degut al gran volum de dades que es poden generar al demanar les \textit{reviews} d'una aplicació, l'API funciona mitjançant un sistema de paginació. És a dir: la crida REST per obtenir les reviews retorna un subconjunt de mida relativament petita i, addicionalment, un \textit{token} que permet referenciar el següent subconjunt (o pàgina) de reviews. Aquest token s'utilitza per realitzar una nova crida, que conté un nou subconjunt de reviews i, addicionalment, un nou \textit{token} per la següent pàgina. D'aquesta manera, les dades venen paginades i subdividides. És responsabilitat de la \textit{tool} implementar la lògica per realitzar les crides de forma iterativa. 
+Aquest tractament pot ser un procés relativament lent (en termes computacionals). Però això no suposa un trencament amb la filosofia de "fotografiar" el sistema en un moment determinat: en el moment que es fa la crida REST, l'API captura les \textit{públiques} en aquell moment, i construeix els objectes de dades paginats, de tal manera que encara que es triguin uns segons en computar totes les pàgines de dades, aquestes sempre seran una representació del moment en que s'ha fet la primera crida, corresponent al final d'un cicle de monitoratge de durada definida al \textit{timeSlot.}
+\item \textbf{AppTweak}. Implementació de \textit{ToolInterface} que utilitza l'API de AppTweak. A diferència de l'anterior, tant l'autenticació com la lògica per obtenir les dades és molt més senzilla. En el cas de la primera, funciona mitjançant l'ús d'un \textit{token} a la capçalera de la crida REST, únic per usuari a la plataforma. En el cas de la segona, una sola crida REST retorna totes les dades corresponents a les \textit{reviews} d'aquella aplicació.
+\end{itemize}
 
 \noindent{\large{\textbf{Exposició com a servei REST}}}\\
+
+De forma anàloga a l'exposició com a servei del monitor de Twitter, cal dissenyar i implementar un servei REST per desplegar les funcionalitats del monitor de Google Play. La figura ~\ref{fig:Figura14} mostra un exemple d'un possible objecte JSON de configuració del monitor.\\
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=11cm]{Figures/Figure14}
+\decoRule
+\caption[Exemple JSON de configuració del monitor de GooglePlay]{Exemple JSON de configuració del monitor de GooglePlay}
+\label{fig:Figura14}
+\end{figure}
+
+Tot i que el paràmetre de \textit{toolName} ja l'havíem vist en l'anterior monitor, ja que és necessari per la instanciació de la \textit{tool} utilitzant el patró reflexió, en aquest cas cobra una especial importància, ja que al disposar d'un conjunt de \textit{tools} podem utilitzar els noms d'aquestes per configurar el monitor; en aquest cas, amb les \textit{tools} de \textbf{GooglePlay} i \textbf{AppTweak}.
 
 \subsubsection{App Store Monitor}
 
 \noindent{\large{\textbf{Exposició com a servei REST}}}\\
 
 \section{Monitor Manager}
+
+Partint de l'arquitectura genèrica dels monitors, i l'exemplificació d'aquesta en casos d'ús reals (i per tant a seva implementació), disposem dels primers components essencials per construïr el nostre sistema. En aquest punt disposem d'un subconjunt de monitors que satisfan les seves especificacions tècniques individuals, relacionades amb l'activitat de monitoratge. Però necessitem anar un pas mes enllà en l'evolució del nostre sistema per satisfer els objectius generals d'adaptabilitat, i procedir a desenvolupar components d'integració.\\
+
+Per aquest objectiu, el primer pas és el desenvolupament del \textbf{Monitor Manager}. Aquest component, tal com el seu nom indica (i com s'ha presentat al \textit{Capítol 5. Visió general del sistema}), s'encarrega de la gestió de tots els monitors desplegats al sistema. Per gestió entenem la satisfacció dels següents requisits funcionals:
+
+\begin{enumerate}
+\item \textbf{Inicialització de procés de monitoratge per a un monitor específic.} El component ha de ser capaç de rebre una petició d'inicialització de procés de monitoratge per un dels monitors integrats al sistema, i redireccionar aquesta petició al monitor corresponent, de manera que aquest pugui processar i executar la petició.
+\item \textbf{Modificació de procés de monitoratge per a un monitor específic.} Donat un procés de monitoratge existent per a un monitor específic integrat al sistema, el component ha de rebre una petició de reconfiguració d'aquest, processar-la i redireccionar-la al monitor corresponent.
+\item \textbf{Aturada de procés de monitoratge per a un monitor específic.} Donat un procés de monitoratge existent per a un monitor específic integrat al sistema, el component ha de rebre una petició per aturar-lo, processar-la i redireccionar-la al monitor corresponent.
+\end{enumerate}
+
+Com es pot extreure de les funcionalitats anteriors, l'objectiu principal d'aquest component és \textbf{processar} i \textbf{redireccionar} les peticions relacionades amb accions sobre els monitors desplegats. D'aquesta manera, i enfocat al màxim nivell d'independència entre components, estem afegint un nivell d'abstracció per sobre dels monitors que permetrà la comunicació amb la resta de components del sistema sense necessitat de conèixer els detalls semàntics i tècnics de cada implementació dels monitors.\\
+
+Per tant, com a part de la tasca en el disseny i desenvolupament d'aquest monitor, caldrà definir un punt d'entrada únic pels 3 tipus d'operacions: \textbf{iniciar}, \textbf{modificar} i \textbf{aturar} un procés de monitoratge en un monitor específic. La lògica interna del Monitor Manager, per tant, s'haurà d'encarregar de processar aquestes peticions, identificar a quin monitor pertoca, i redireccionar-la al mateix.
+
+\subsection{Especificacions tècniques}
+
+Les especificacions tècniques en les que ens basarem per dissenyar i implementar el Monitor Manager requereixen satisfer una \textbf{integració} que actuï com a pont \textbf{únic} entre components tercers del sistema i els nostres monitors. Seguint els criteris presentats anteriorment, caldrà considerar els següents punts:
+
+\begin{enumerate}
+\item \textbf{INPUT - Petició de configuració de monitor}. Descripció dels paràmetres i el format genèric d'aquests per realitzar la redirecció de la petició.
+\item \textbf{\textit{ACTION} - Processat de la petició}. Tractament del format genèric dels paràmetres i interpretació d'acord amb el monitor adreçat.
+\item \textbf{\textit{OUTPUT} - Redirecció al monitor}. Enviament de la petició processada cap al monitor.
+\end{enumerate}
+
+\subsubsection{INPUT - Petició de configuració de monitor}
+
+La petició de configuració s'ha de rebre en un format genèric que el propi Monitor Manager sigui capaç d'encapsular, identificar el monitor al qual cal enviar-la, i redireccionar-la posteriorment. Per fer-ho, independentment del format, necessitem identificar dos factors claus que el Monitor Manager ha de rebre:
+
+\begin{itemize}
+\item El \textbf{monitor específic} al qual s'ha de redireccionar la petició
+\item Els \textbf{paràmetres de configuració} per aquell monitor: \textit{toolName} + \textit{kafkaEndpoint} + \textit{kafkaTopic} + \textit{timeSlot} + [paràmetres específics]
+\end{itemize} 
+
+Respecte al 2n punt, es tracta d'informació formatada que el monitor específic necessita, i que per tant podem reaprofitar i mantenir estructurada tal i com s'ha documentat prèviament. Respecte al 1r punt, en canvi, es tracta d'informació que el Monitor Manager necessita addicionalment per processar la redirecció.\\
+
+En aquest punt cal decidir si aquesta informació l'afegim de forma implícita a l'objecte JSON de configuració, o bé si busquem una alternativa que ens permeti mantenir l'objecte JSON intacte. En el primer cas, la informació relativa a la configuració queda totalment integrada en un sol objecte JSON que utilitzarem per \textbf{redireccionar} i \textbf{configurar} el monitor. Però això obliga a modificar el format d'aquest JSON, afegint informació addicional que el monitor no necessita. En el segon cas, en canvi, podem mantenir un objecte de configuració que es propaga entre els diferents components: primer com a \textit{input} del Monitor Manager, i després com a \textit{output} redireccionat com a \textit{input} al monitor específic. Alternativament, però, cal buscar una forma de comunicar al Monitor manager a quin monitor trobarà la \textit{tool} sobre la qual hem d'iniciar un procés de monitoratge.\\
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=11cm]{Figures/Figure15}
+\decoRule
+\caption[Exemple JSON de configuració de monitor al Monitor Manager]{Exemple JSON de configuració de monitor al Monitor Manager}
+\label{fig:Figura15}
+\end{figure}
+
+En aquest sentit aprofitarem la necessitat d'exposició dels components com a serveis RESTful per, mitjançant el propi disseny de la API que implementarà el Monitor Manager, definir aquest paràmetre. En el  disseny d'aquesta API, present a l'apèndix ~\ref{AppendixA}, proposem com a paràmetre dins la URL de les 3 crides a implementar (creació, modificació i eliminació) el propi identificador del monitor. Així, exemplificant la crida per crear una configuració sobre el monitor de Twitter, podem veure a la figura ~\ref{fig:Figura15} la URL que defineix el recurs per realitzar aquesta operació (on \textit{monitorName} és el paràmetre de la URL que identifica el monitor a redireccionar), així com un exemple de JSON que rebrà. Com es pot apreciar, aquest presenta els mateixos camps que el JSON definit als monitors.\\
+
+Amb aquestes dades d'entrada, el Monitor Manager ja és capaç de realitzar la redirecció al monitor corresponent.
+
+\subsubsection{ACTION - Processat de la petició}
+
+Un cop definida la informació i el seu format d'entrada necessaris per satisfer les especificacions tècniques, cal avaluar com partim d'aquesta informació a la petició de configuració de monitors.\\
+
+Ja que la única tasca a realitzar és la redirecció (ja que les dades no cal que siguin tractades), hem de partir del paràmetre \textit{toolName} per identificar el monitor al qual redireccionar. 
+
+\subsubsection{OUTPUT - Redirecció al monitor}
+
+\subsection{Implementació del Monitor Manager}
+
+
 
 \section{Orchestrator}
