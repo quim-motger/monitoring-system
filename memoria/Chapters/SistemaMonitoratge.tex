@@ -335,12 +335,34 @@ Amb aquestes dades d'entrada, el Monitor Manager ja és capaç de realitzar la r
 
 Un cop definida la informació i el seu format d'entrada necessaris per satisfer les especificacions tècniques, cal avaluar com partim d'aquesta informació a la petició de configuració de monitors.\\
 
-Ja que la única tasca a realitzar és la redirecció (ja que les dades no cal que siguin tractades), hem de partir del paràmetre \textit{toolName} per identificar el monitor al qual redireccionar. 
+Ja que la única tasca a realitzar és la redirecció (ja que les dades no cal que siguin tractades), hem de partir del paràmetre \textit{monitorName} per identificar el monitor al qual redireccionar. El component IF exposa, de manera separada, la implementació de classes o \textit{proxies} diferents per cada monitor implementat. És a dir: per cada monitor que vulguem integrar i registrar al nostre sistema, necessitarem afegir-ho a IF per garantir-ne la integració de la comunicació, mitjançant la implementació d'un \textit{proxy} amb els mètodes de comunicació que ofereix. Per tant, la responsabilitat del Monitor Manager serà utilitzar el paràmetre \textit{monitorName} per discernir entre els \textit{proxies} implementats per IF i seleccionar aquell que es correspongui al monitor al qual la petició ha d'anar adreçada. 
 
 \subsubsection{OUTPUT - Redirecció al monitor}
 
+Finalment, identificat i instanciat el \textit{proxy} el Monitor Manager executarà una crida \textit{addConfiguration}, \textit{updateConfiguration} o \textit{deleteConfiguration} en funció de l'operació enviada. De nou en aquest sentit s'aprofita l'\textit{input} d'aquest component mitjançant la seva exposició com a servei: cada mètode de creació, modificació i eliminació crida al mètode corresponent del \textit{proxy} definit per \textit{monitorName}. A aquest \textit{proxy} s'enviarà la instància de configuració rebuda d'entrada, reaprofitant exactament el mateix format, mantenint així la uniformitat de les dades desitjada.
+
 \subsection{Implementació del Monitor Manager}
 
+En definitiva, d'acord amb les necessitats establertes, la implementació del Monitor Manager es basarà simplement en el disseny i implementació d'un servei REST que implementi els 3 mètodes definits anteriorment, i que la seva lògica interna s'encarregui simplement d'identificar, a partir del nom del monitor rebut com a paràmetre, el \textit{proxy} que implementa la comunicació amb aquell monitor.\\
 
+Podeu consultar el projecte i la seva implementació al següent enllaç:  \url{https://github.com/supersede-project/monitor_feedback/tree/develop_quim-motger/monitormanager}
 
 \section{Orchestrator}
+
+Aquest component forma part de la integració d'aquest projecte dins el projecte SUPERSEDE, i per tant el disseny i desenvolupament d'aquest ha estat únicament realitzat com a part d'aquest TFG de forma parcial. Concretament, aquelles parts referents a l'activitat de monitoratge i reconfiguració de monitors.\\
+
+La seva tasca principal és actuar de pont entre els components encarregats d'aplicar adaptacions (\textit{Enactments}) i aquells encarregats del monitoratge (\textit{Monitoring}), que recordem forma part del cicle MAPE-k descrit anteriorment. Aquest és necessari en el moment que diversos sistemes d'adaptabilitat apliquen modificacions en diversos sistemes encarregats de monitorar dades. Aquest TFG n'és un cas específic. Si, per contra, aquest hagués d'actuar com a sistema independent, l'abstracció garantida pel Monitor Manager, que unifica tots els monitors sota un únic punt d'entrada, ja seria suficient per facilitar la comunicació, el manteniment i l'extensió de components. Per contra, si haguéssim volgut afegir la lògica del Monitor Manager al mateix Orchestrator, i aprofitar la seva necessitat dins SUPERSEDE per estalviar-nos una capa en el sistema, ens veuríem obligats a aplicar modificacions i manteniment a l'Orchestrator, un component genèric d'integració, davant modificacions específiques pel nostre cas d'ús. Per tal d'evitar això, s'ha decidit mantenir aquests dos components per separat, i garantir un desacoblament de components el més alt possible.\\
+
+Addicionalment, a aquest component se li assigna una responsabilitat superior associada a la gestió i control del sistema de monitoratge i les seves especificacions. Amb això es fa referència a la persistència i control de metadades relacionades amb els monitors, que ens permeten tenir de forma integrada coneixement sobre el nostre sistema. Aspectes com, p.e., els \textbf{tipus de monitors} integrats, que engloben un conjunt de monitors treballant sobre una mateixa àrea, o bé les \textbf{tools implementades} per cada tipus de monitor.\\
+
+\subsection{Especificacions tècniques}
+
+En general, per tant, podem concebre l'Orchestrator com un \textbf{component d'integració} i un \textbf{repositori de metadades}. Per tant, independentment de les funcionalitats que caldrà implementar (que a continuació detallarem), caldrà tenir en compte dues característiques bàsiques:
+
+\begin{enumerate}
+\item Haurà de gestionar la \textbf{persistència} de dades relacionades amb els monitors, i per tant caldrà afrontar el \textbf{disseny} i la \textbf{implementació} d'una base de dades 
+\item Paral·lelament, caldrà implementar un controlador exposat com a \textbf{servei REST} que exposi les seves funcionalitats i, addicionalment, permeti la seva integració a IF
+\end{enumerate}
+
+
+
