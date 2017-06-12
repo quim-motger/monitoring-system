@@ -4,32 +4,110 @@
 
 \label{ModelatgeConfiguracions} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
 
-\section{Main Section 1}
+Finalitzada l'especificació de disseny i tècnica dels monitors i les seves configuracions, així com els detalls de la seva implementació, ja tenim definit un sistema de monitoratge que satisfà els criteris d'\textbf{heterogeneïtat} i \textbf{distribució}. Aquestes característiques queden garantides dins el sistema de monitoratge com a unitat independent.\\
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
+El següent pas és gestionar una extensió del sistema que permeti gestionar l'adaptabilitat dels monitors, i concretament que aquesta pugui ser automatitzada, sense necessitat de definir explícitament crides a peticions de reconfiguració al Orchestrator. Tot i que queda fora de l'abast el disseny d'un sistema d'anàlisi i detecció automàtica de reconfiguracions a aplicar (l'equivalent al sistema d'\textbf{A}nàlisi dins el \textit{MAPE-k}), el nostre objectiu és dotar al sistema de monitoratge d'un sistema d'adaptabilitat, que sigui capaç de processar i computar aquestes reconfiguracions.\\
 
-%-----------------------------------
-%	SUBSECTION 1
-%-----------------------------------
-\subsection{Subsection 1}
+\section{Requisits del modelatge}
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
+Per poder definir els models amb els quals hem de treballar, primer necessitem definir les necessitats del nostre sistema. En termes genèrics, el sistema d'adaptabilitat a dissenyar necessita resoldre la següent problemàtica:\\
 
-%-----------------------------------
-%	SUBSECTION 2
-%-----------------------------------
+\textit{Donada una \textbf{instància} del sistema de monitoratge, el sistema ha de rebre una \textbf{proposta de reconfiguració} dels monitors, basada en la modificació d'una \textbf{característica} específica, aplicant un \textbf{conjunt d'accions} sobre els \textbf{elements del sistema} determinats.}\\
 
-\subsection{Subsection 2}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+Per major aclariment, anem a analitzar el significat de cadascun dels conceptes introduïts en aquesta definició:
 
-%----------------------------------------------------------------------------------------
-%	SECTION 2
-%----------------------------------------------------------------------------------------
+\begin{enumerate}
+\item \textbf{Instància del sistema}. Referent al conjunt de \textbf{classes} que defineixen els diferents tipus de configuracions persistents al sistema (és a dir, les diferents implementacions de processos de monitoratge associats a les diferents \textit{tools}), i les instàncies actives corresponents (és a dir, els processos de monitoratge actius).
+\item \textbf{Proposta de reconfiguració}. Necessitem modelar, per una banda, el conjunt de característiques que podem referenciar i editar dins el nostre sistema. Aquestes inclouen, per exemple, la definició de l'atribut \textit{timeSlot} de les instàncies dels monitors de Twitter dins el tipus de monitor SocialNetwork. Per altra banda, necessitem modelar, basat en aquest model de característiques, propostes de configuracions específiques, on es defineixin p.e. valors específics d'aquest \textit{timeSlot}.
+\item \textbf{Característica específica}. En relació al punt anterior, que engloba un conjunt de característiques modificables en el sistema, necessitem referenciar quina característica volem modificar.
+\item \textbf{Conjunt d'accions}. A partir de les propostes de configuració, i l'aplicació d'una característica específica, hem de definir les diferents accions que s'han de realitzar sobre la instància actual del sistema. Aquestes accions inclouran, seguint amb el mateix exemple, la modificació p.e. d'un atribut com \textit{timeSlot}.
+\item \textbf{Elements del sistema}. Necessitem referenciar sobre quins elements del sistema volem aplicar els canvis. És a dir: hem de ser capaços de referenciar, dins el model del sistema, quines instàncies cal modificar i quines no, per tal d'aplicar les accions basades en les característiques anteriors només als que ens interessin.
+\end{enumerate}
 
-\section{Main Section 2}
+\section{Disseny de models UML}
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+Partint d'aquests requisits conceptuals, necessitem definir el conjunt de models amb els quals treballarem per representar tots aquests punts, i permetre així la computació automàtica de canvis dins el nostre sistema. Procedirem presentant cadascun dels models, explicant breument en què consisteixen, i més profundament com s'apliquen al nostre projecte.\\
+
+La implementació i gestió d'aquests models es realitzarà utilitzant l'eina Papyrus, introduïda anteriorment al \textit{Capítol 5. Eines de desenvolupament}. Concretament, pel tractament i gestió de la seva implementació es farà servir la llibreria UML2, versió 5.0.0.
+
+\subsection{Base Model}
+
+Definirem \textit{Base Model} com un diagrama de classes UML que defineix les diferents classes que representen cadascun dels diferents tipus de configuracions de monitors i les seves instàncies. Conceptualment, per tant, és senzill de concebre dins el nostre context, ja que no ve a ser res més que una representació en UML del sistema. D'acord amb el nostre disseny, les necessitats d'aquest disseny UML són les següents: 
+
+\begin{itemize}
+\item Cal definir una \textbf{classe abstracta} que representi l'abstracció genèrica de totes les configuracions: és a dir, que englobi aquelles propietats (atributs) compartits entre totes les \textit{tools} del nostre sistema. En el nostre cas, aquests seran: \textit{timeSlot}, \textit{kafkaEndpoint}, \textit{kafkaTopic}, \textit{toolName} i el propi identificador \textit{id}.
+\item A continuació cal afegir les implementacions d'aquesta classe abstracta basades en les possibles diferents configuracions que es poden donar d'alta en el nostre sistema. En definitiva: totes aquelles varietats de configuracions segons els diferents paràmetres a definir (que en el nostre sistema ve a ser equivalent a les diferències entre tipus de monitors).
+\item Per cadascuna d'aquestes implementacions, cal modelar el conjunt de configuracions (és a dir, instàncies de classes), amb els valors dels atributs definits.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{Figures/Figure16}
+\decoRule
+\caption{Exemple de Base Model del sistema de monitoratge}
+\label{fig:Figura16}
+\end{figure}
+
+A la figura ~\ref{fig:Figura16} podem visualitzar un exemple de \textit{Base Model} que representa aquesta fotografia d'un sistema on tenim definits el monitor de Twitter i el de Google Play. \textit{AMonitorConfiguration} representa la classe abstracta dels diferents tipus de configuracions; \textit{SocialNetworks} i \textit{MarketPlaces} representen les extensions de configuracions genèriques amb els paràmetres addicionals definits; i finalment, \textit{OlympicGamesMarketPlacesMonitor} i \textit{OlympicGamesTwitterMonitor} són instàncies dels diferents tipus de configuracions (no s'ha afegit el monitor d'AppStore per simplicitat en l'exemplificació). També veiem addicionalment una classe anomenada \textit{MonitoringSystemConfiguration}, en relació d'agregació a \textit{AMonitorConfiguration}, i una instància d'aquesta mateixa. Aquestes són classes establertes com a requisits dins el context SUPERSEDE, i per tant no són necessàries a tenir en compte.\\
+
+L'objectiu principal de l'adaptabilitat del sistema serà aplicar canvis en aquest \textit{Base Model} que defineix l'estat actual del sistema. Així, el sistema d'adaptabilitat actualitzarà per una banda el \textit{Base Model} actual, aplicant els canvis pertinents, i computarà les diferències amb l'anterior per definir reconfiguracions que s'enviaran al Orchestrator.
+
+\subsection{Features}
+
+Aquests canvis, que anomenem de forma genèrica, són modificacions dins el diagrama de classes del sistema, i per tant inclou aspectes com, p.e., la modificació del valor d'un atribut d'una instància de configuració. Aquestes modificacions, però, no poden ser aleatòries: suposant que no considerem el comportament del sistema de \textit{\textbf{P}lanificació} dins el \textit{MAPE-k}, i per tant no definim l'autogeneració de noves propostes de configuracions del sistema, necessitem modelar de forma definida una sèrie de casos, o configuracions predefinides, que defineixin un \textbf{conjunt de combinacions de característiques} adreçades a aplicar-se en diferents casos. És a dir: necessitem modelar d'alguna forma diferents alternatives per valors dels diferents atributs de les configuracions.\\
+ 
+En termes específics, el que estarem fent serà definir un conjunt de propostes que aplicarem per a casos específics. Podríem, per exemple, modelar una proposta de configuració que disminueixi el valor del \textit{timeSlot} quan el volum de dades obtingudes pel monitoratge sigui molt baix, i vulguem rebre aquestes amb menys periodicitat; o bé podríem re-orientar les dades a un \textit{kafkaEndpoint} diferent quan, per diferents motius, el kafkaEndpoint actual estigui caigut i les dades rebotin. Davant aquests exemples, i un nombre indeterminat (d'acord amb les nostres necessitats), podem definir diferents casos o propostes que representin semànticament un canvi en el sistema.\\
+
+Per modelar aquest aspecte, introduïm dos tipus de models addicionals: el \textbf{\textit{Feature Model}} i les \textbf{\textit{Feature Configurations}}.
+
+\subsubsection{Feature Model}
+
+Un \textit{Feature Model}, o model de característiques, en la seva definició genèrica, és un diagrama que permet gestionar el conjunt d'aspectes comuns i variables dins d'un sistema i els seus components. Representa, en definitiva, una modelització estandarditzada que defineix una jerarquia entre aquestes característiques i estableix les diferents opcionalitats.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=14cm]{Figures/Figure17}
+\decoRule
+\caption{Exemple de Feature Model del sistema de monitoratge}
+\label{fig:Figura17}
+\end{figure}
+
+Aplicat al nostre context, un \textit{Feature Model} ens serveix per definir quines característiques del nostre sistema podem referenciar i modificar, i com s'estructuren aquestes des d'un punt de vista jeràrquic d'acord amb les implementacions de la classe abstracte de configuració de monitors. Un dels casos d'ús que contemplarem, ja que permet validar el nostre sistema alhora que mostrar fàcilment la repercussió dels canvis, és la reconfiguració de l'atribut \textit{timeSlot} d'una instància de monitor. A la figura ~\ref{fig:Figura17} podem observar un exemple de \textit{Feature Model} del nostre sistema. Com podem veure, representa una modelació conceptual del sistema de monitoratge i la seva jerarquia: un sistema de monitoratge, amb el conjunt de tipus de monitors, que implementen un conjunt de monitors específics, on cadascun d'ells engloben una sèrie de \textit{features}, és a dir, característiques que podem referenciar del nostre sistema. En aquest exemple, si ens fixem per exemple en el cas de Twitter, tenim per una banda la \textit{feature} \textit{timeSlot}, representada com un Integer de valor variable, i \textit{keywordExpression}, que en comptes de tenir un valor (com podria ser un string) editable, defineix dues característiques opcionals, que representen dos possibilitats de valor associades a aquesta \textit{feature}. De manera similar trobem el cas del monitor de Google Play i d'App Store, on la \textit{feature} \textit{toolName} és només configurable amb dos opcions en cada cas, segons les \textit{tools} que tenen implementades, i de nou el \textit{timeSlot}. Cal destacar que aquest es tracta únicament d'un exemple de \textit{Feature Model}: les diferents \textit{features} es podrien ampliar i/o modificar, p.e. afegint noves \textit{tools} conforme s'implementin, o bé afegint altres paràmetres a modificar (p.e. \textit{kafkaEndpoint} o \textit{kafkaTopic}).
+
+\subsubsection{Feature Configuration}
+
+Una \textit{Feature Configuration} representa una configuració específica d'un \textit{Feature Model}. És a dir: davant les diferents opcionalitats i variabilitats que un \textit{Feature Model} defineix, com poden ser la personalització del valor d'una \textit{feature}, o bé la selecció entre un conjunt d'opcions, la \textit{Feature Configuration} és la modelació d'un cas específic d'aquestes \textit{features}.\\
+
+Aplicat al nostre context, i seguint amb l'exemple anterior, l'objectiu d'una \textit{Feature Configuration} es modelar una proposta de configuració del sistema de monitoratge. Així, definim uns valors específics pels atributs de les configuracions. A la figura ~\ref{fig:Figura18} podem visualitzar un exemple basat en el \textit{Feature Model} de la figura ~\ref{fig:Figura17}.
+
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{Figures/Figure18}
+\decoRule
+\caption{Exemple de Feature Configuration del sistema de monitoratge}
+\label{fig:Figura18}
+\end{figure}
+
+Si ens fixem en aquesta \textit{Feature Configuration} i la comparem amb el \textit{Feature Model}, veiem que tots els punts de variabilitat que aquesta segona definia s'especifiquen amb un valor o opcions específics. Per aquest cas, p.e., es proposa un valor de timeSlot específic per les configuracions de tots els tipus de monitors; paral·lelament, en el cas del monitor de Twitter s'especifica la \textit{KeywordExpression1} com a opció a triar per aquest paràmetre, i les tools de \textit{GooglePlayAPI} i \textit{iTunes} per les \textit{tools} dels monitors de Market Places. En definitiva, és la representació d'una proposta de configuració de les \textit{features} definides. Orientat al nostre cas d'ús, aquesta proposta ens permet traduir-les al \textit{Base Model} en una sèrie de modificacions d'atributs.\\
+
+\subsection{Pattern Model}
+
+Aquesta modificació d'atributs, però, únicament ens està definint una acció genèrica. És a dir, la semàntica que podem desprendre d'una \textit{Feature Configuration} és simplement la definició d'una proposta general per les configuracions dels monitors. El problema, però, està en que la \textit{Feature Configuration} defineix tot el conjunt del sistema (en aquest cas, tots els atributs de tots els monitors), però no ens dona cap informació sobre quines instàncies del \textit{Base Model} cal aplicar aquests canvis. És a dir: suposem que al \textit{Base Model} de la figura ~\ref{fig:Figura16} volem actualitzar el \textit{timeSlot} de la instància \textit{OlympicGamesTwitterMonitor}, però no de la instància \textit{OlympicGamesMarketPlacesMonitor}.\\
+
+Amb aquest objectiu, necessitem afegir informació addicional, una forma de modelar la identificació dels elements sobre els quals volem aplicar els canvis de reconfiguració (aplicant criteris variats, segons cada cas). Per satisfer aquesta necessitat, utilitzarem els \textit{Pattern Models}. Aquests models defineixen, mitjançant un llenguatge específic de la llibreria UML2, patrons de cerca que permeten retornar elements (classes, instàncies, relacions, atributs, etc.) dins un diagrama UML. 
+
+\begin{figure}
+\centering
+\includegraphics[width=11cm]{Figures/Figure19}
+\decoRule
+\caption{Exemple de Pattern Model del sistema de monitoratge}
+\label{fig:Figura19}
+\end{figure}
+
+
+
+\subsection{Profile Model}
+
+\subsection{Aspect Model}
+
