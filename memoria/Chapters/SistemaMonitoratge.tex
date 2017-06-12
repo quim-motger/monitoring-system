@@ -359,10 +359,107 @@ Addicionalment, a aquest component se li assigna una responsabilitat superior as
 
 En general, per tant, podem concebre l'Orchestrator com un \textbf{component d'integració} i un \textbf{repositori de metadades}. Per tant, independentment de les funcionalitats que caldrà implementar (que a continuació detallarem), caldrà tenir en compte dues característiques bàsiques:
 
+\begin{itemize}
+\item Haurà de gestionar la \textbf{persistència} de dades relacionades amb els monitors, i per tant caldrà afrontar el \textbf{disseny} i la \textbf{implementació} d'una base de dades.
+\item Paral·lelament, caldrà implementar un controlador exposat com a \textbf{servei REST} que exposi les seves funcionalitats i, addicionalment, permeti la seva integració a IF.
+\end{itemize}
+
+Per definir els detalls d'aquestes dues branques, necessitem primer definir amb quines metadades estarem treballant i com estructurarem el seu contingut. Definirem, essencialment, tres entitats principals:
+
 \begin{enumerate}
-\item Haurà de gestionar la \textbf{persistència} de dades relacionades amb els monitors, i per tant caldrà afrontar el \textbf{disseny} i la \textbf{implementació} d'una base de dades 
-\item Paral·lelament, caldrà implementar un controlador exposat com a \textbf{servei REST} que exposi les seves funcionalitats i, addicionalment, permeti la seva integració a IF
+\item \textbf{Monitor configuration}. Instància ja definida anteriorment, que representa l'execució d'una \textit{tool} amb uns paràmetres de configuració específics.
+\item \textbf{Monitor tool}. Engloba les metadades associades a aquella \textit{tool} i té associades totes les configuracions en procés d'execució. D'aquesta manera, les dades referents a les configuracions actives per a una \textit{tool} no es troben exclusivament al desplegament del propi monitor, el que suposaria la necessitat d'accedir al propi monitor. Contràriament, aquestes dades es trobaran integrades a l'Orchestrator, el que facilitarà la seva gestió quan es tracti de casos exclusivament de lectura de dades. Aquest darrer propòsit, en qualsevol cas, no entra part del context d'aquest projecte, sinó que està orientat a la integració del TFG amb SUPERSEDE i l'explotació d'aquestes dades.
+\item \textbf{Monitor type}. Engloba un conjunt de \textit{tools} que pertanyen a monitors d'una mateixa categoria, com per exemple \textit{Social Networks} o \textit{Market Places}. Aquest agrupament per tipus, com en el cas anterior, tampoc és rellevant pel nostre context, però ens ofereix integració de dades que resulta d'interès en termes analítics.
 \end{enumerate}
 
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[htb]
+\centering
+\label{InstanciacioOrchestrator}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Monitor Type}            & \textbf{Monitor Tool}          & \textbf{Monitor configuration} \\ \hline
+\multirow{3}{*}{Social Networks} & \multirow{3}{*}{TwitterAPI}    & TwitterAPI-Conf1               \\ \cline{3-3} 
+                                 &                                & TwitterAPI-Conf2               \\ \cline{3-3} 
+                                 &                                & TwitterAPI-Conf3               \\ \hline
+\multirow{6}{*}{Market Places}   & \multirow{2}{*}{GooglePlayAPI} & GooglePlay-Conf1               \\ \cline{3-3} 
+                                 &                                & GooglePlay-Conf2               \\ \cline{2-3} 
+                                 & GooglePlay-AppTweak            & GooglePlay-AppTweak-Conf1      \\ \cline{2-3} 
+                                 & \multirow{2}{*}{iTunesApple}   & iTunesApple-Conf1              \\ \cline{3-3} 
+                                 &                                & iTunesApple-Conf2              \\ \cline{2-3} 
+                                 & AppStore-AppTweak              & AppStore-AppTweak-Conf1        \\ \hline
+\end{tabular}
+\caption{Exemple d'instanciació del sistema de monitoratge}
+\end{table}
 
+Per tal d'entendre bé aquest esquema, podem visualitzar un esquema conceptual a la taula 7.1 que presenta un exemple de constitució d'un sistema de monitoratge en actiu com el que hem anat descrivint al llarg d'aquest projecte. Bàsicament tenim dos tipus de monitors, \textbf{Social Networks} i \textbf{Market Places}. Pel primer tenim definida una única \textit{tool}, \textbf{TwitterAPI}; pel segon, tenim definides 4, dues per cada \textit{market place} (\textit{AppStore} i \textit{GooglePlay}). Fixem-nos en el detall que en cap moment estem contemplant l'entitat \textbf{monitor} en aquest esquema. Això es deu al fet que, dins el nostre esquema, l'entitat monitor només és significativa des d'un punt de vista físic, com a punt integrat de desplegament que agrupa un conjunt de \textit{tools}. Podríem considerar que existeixen punts comuns entre \textit{tools} dins un mateix monitor, com p.e. la implementació dels paràmetres d'entrada o de sortida. Però la nostra arquitectura no restringeix aquest aspecte. Dins un mateix monitor, cada \textit{tool} pot implementar aquestes interfícies i classes d'acord amb les seves necessitats. D'aquesta manera, el concepte monitor únicament és significatiu des del punt de vista d'implementació i desplegament físic, no lògic o de metadades. Per tant, no considerarem aquesta entitat dins el nostre esquema conceptual.\\
 
+Finalment, a la taula podem veure un conjunt d'exemple de configuracions. Aquest no vindrà limitat per cap restricció, i tot i que cada monitor s'ha d'encarregar en última instància de gestionar-ho, serà a través del Orchestrator i el Monitor Manager que es gestionaran les altes, baixes i modificacions d'aquests.
+
+\subsubsection{INPUT - Peticions de configuració del sistema de monitoratge}
+
+Mitjançant l'exposició de les funcionalitats com a servei REST, l'Orchestrator haurà de rebre el conjunt de peticions amb dos objectius principals: la \textbf{gestió de metadades} del nostre sistema de monitoratge, i la \textbf{redirecció de les peticions} associades directament a configuracions del sistema. La definició d'aquests mètodes d'entrada no ve a ser més que el disseny d'un controlador basat en les operacions \textbf{CRUD} (\textit{\textbf{C}reate}, \textit{\textbf{R}ead}, \textit{\textbf{U}pdate}, \textit{\textbf{D}elete}) per les entitats \textit{Monitor Type}, \textit{Monitor Tool} i \textit{Monitor Configuration}. A la taula 7.2 podem visualitzar un resum conceptual dels mètodes que necessitarem definir, i quins paràmetres caldrà definir per cadascun d'ells.\\
+
+\begin{table}[htb]
+\centering
+\label{PeticionsOrchestrator}
+\begin{tabular}{|p{4cm}|p{6cm}|p{3cm}|}
+\hline
+\textbf{Operació}                            & \textbf{Definició}                                                        & \textbf{Paràmetres}                                                                                                           \\ \hline
+\multicolumn{3}{|c|}{\textbf{Monitor Type}}                                                                                                                                                                                                                        \\ \hline
+Llistat de Monitor Types                     & Retorna el llistat de tots els Monitor Types instanciats al sistema       & /                                                                                                                                       \\ \hline
+Obté un Monitor Type                         & Retorna les dades d'un Monitor Type específic                             & - nomTipus                                                                                                                              \\ \hline
+Alta de Monitor Type                         & Crea una nova instància de Monitor Type                                   & - nomTipus                                                                                                                              \\ \hline
+Baixa de Monitor Type                        & Elimina una instància de Monitor Type existent                            & - nomTipus                                                                                                                              \\ \hline
+\multicolumn{3}{|c|}{\textbf{Monitor Tool}}                                                                                                                                                                                                                        \\ \hline
+Llistat de Tools per Monitor Type            & Retorna el llistat de totes les Tools implementades per a un Monitor Type & - nomTipus                                                                                                                              \\ \hline
+Obté una Tool per un Monitor Type            & Retorna les dades d'una Tool per un Monitor Type                          & \begin{tabular}[c]{@{}l@{}}- nomTipus\\ - nomTool\end{tabular}                                                                          \\ \hline
+Alta de Tool per un Monitor Type             & Crea una nova Tool per un Monitor Type                                    & \begin{tabular}[c]{@{}l@{}}- nomTipus\\ - nomTool\\ - nomMonitor\end{tabular}                                                           \\ \hline
+Baixa de Tool per un Monitor Type            & Elimina una Tool existent per un Monitor Type                             & \begin{tabular}[c]{@{}l@{}}- nomTipus\\ - nomTool\end{tabular}                                                                          \\ \hline
+\multicolumn{3}{|c|}{\textbf{Monitor Configuration}}                                                                                                                                                                                                               \\ \hline
+Llistat de Configurations per una Tool       & Retorna el llistat de totes les Configurations actives per una Tool       & \begin{tabular}[c]{@{}l@{}}- nomTipus\\ - nomTool\end{tabular}                                                                          \\ \hline
+Obté una Configuration per una Tool          & Retorna les dades d'una Configuration per una Monitor Tool                & \begin{tabular}[c]{@{}l@{}}- nomTipus\\ - nomTool\\ - idConf\end{tabular}                                                               \\ \hline
+Alta de Configuration per una Tool           & Crea una nova Configuration per una Monitor Tool                          & \begin{tabular}[c]{@{}l@{}}- nomTipus\\ - nomTool\\ - timeSlot\\ - kafkaEndpoint\\ - kafkaTopic\\ - {[}custom{]}\end{tabular} \\ \hline
+Modificació d'una Configuration per una Tool & Modifica els paràmetres d'una Configuration existent per una Monitor Tool & \begin{tabular}[c]{@{}l@{}}- nomTipus\\ - nomTool\\ - idConf\\ - timeSlot\\ - kafkaEndpoint\\ - kafkaTopic\\ - {[}custom{]}\end{tabular} \\ \hline                                                                                                                    
+Baixa d'una Configuration per una Tool       & Elimina una Configuration existent per una Monitor Tool                   & \begin{tabular}[c]{@{}l@{}}- nomTipus\\ - nomTool\\ - idConf\\ - timeSlot\\ - kafkaEndpoint\\ - kafkaTopic\\ - {[}custom{]}\end{tabular} \\ \hline
+\end{tabular}
+\caption{Llistat de peticions d'entrada del Orchestrator}
+\end{table}
+
+Respecte aquests mètodes, cal considerar els identificadors de cadascuna d'aquestes entitats:
+
+\begin{itemize}
+\item \textbf{Monitor Type}. S'identifica per un \textbf{nom} únic
+\item \textbf{Monitor Tool}. S'identifica per un \textit{Monitor Type} (un nom de \textit{Monitor Type}) + un \textbf{nom} únic de tool
+\item \textbf{Monitor Configuration}. S'identifica per un \textit{Monitor Type} (un nom de \textit{Monitor Type}) + una \textit{Monitor tool} (un nom de \textit{Monitor Tool}) + un \textbf{id} únic de la configuració
+\end{itemize}
+
+En general, tota la informació d'entrada que necessita per executar cadascuna de les operacions es basa en identificar el recurs sobre el qual aplicar l'acció. Aquesta identificació a nivell de configuració, que és la darrera entitat que a nosaltres ens interessa considerar, es basa en un triplet de la forma:\\
+
+\centerline{\textbf{monitorType + monitorTool + idConf}}\bigskip
+
+Només en un cas necessitem afegir més informació, que serà pels dos casos a treballar en aquest projecte: la \textbf{creació d'una configuració} i la seva \textbf{reconfiguració} (o actualització). En aquest cas, i tal i com s'ha definit en l'especificació i disseny dels monitors, caldrà afegir d'una banda aquells paràmetres obligatoris per a tot monitor, i addicionalment aquells propis de cada \textit{tool}.\\
+
+\subsubsection{ACTION - Actualització de metadades}
+
+El comportament intern de l'Orchestrator serà relativament senzill, ja que únicament necessita contemplar l'actualització de metadades i el processament de les peticions realitzades per redirigir-les, si s'escau, al monitor corresponent.\\
+
+Considerant primer \textbf{l'actualització de metadades}, l'Orchestrator actualitzarà d'acord a l'operació executada modificacions a la base de dades d'acord amb \textbf{creació}, \textbf{actualització} i eliminació de les entitats prèviament definides. En cas que es tracti d'operacions de lectura, només caldrà accedir a la base de dades i llegir les dades associades a la petició realitzada. Aquest aspecte de l'acció interna el considerarem trivial, ja que es tracta únicament de modificacions associades a una BDD relacional (veure més endavant a \textit{Implementació del Orchestrator}), i no resulta d'especial interès per la finalitat del nostre projecte.\\
+
+\subsubsection{OUTPUT - Redirecció de peticions}
+
+Per altra banda cal definir la \textbf{redirecció de peticions} a monitors. Fixem-nos que, al disposar de totes les dades integrades, aquesta únicament caldrà contemplar-la pels casos en els que no només cal realitzar modificacions sobre les pròpies metadades (o bé simplement realitzar lectures), sinó també realitzar canvis relacionats amb l'execució real dels monitors. Això per tant inclourà: \textbf{alta} de configuració, \textbf{reconfiguració} d'una configuració, i \textbf{eliminació} d'una configuració. En aquests 3 casos, l'Orchestrator haurà de realitzar la redirecció amb el Monitor Manager, utilitzant la integració amb IF.\\
+
+El mateix problema de criteri de redirecció sorgeix que en el cas del Monitor Manager. Necessitem saber quina \textit{tool} va associada a quin monitor, per tal d'indicar al Monitor Manager a quin monitor es troba implementada aquella \textit{tool}. El Monitor Manager requeria aquest paràmetre en la petició, ja que ell no té constància d'aquestes dades. Però a l'Orchestrator sí que disposem d'aquesta metadada, associada a una \textit{tool}, i definida en el moment de creació, tal i com observem també a la taula 7.2. Per tant, a l'hora d'instanciar el \textit{proxy} de IF per comunicar-se amb el Monitor Manager, cridarem al mètode corresponent al Monitor identificat per aquest atribut. D'aquesta manera la redirecció queda satisfeta.\\
+
+\subsection{Implementació de l'Orchestrator}
+
+Sense entrar en molt detall en els aspectes d'implementació de les especificacions prèviament descrites, podem trobar els detalls d'aquesta a: 
+
+\begin{itemize}
+\item Disseny de l'esquema de la \textbf{base de dades}, definit a l'apèndix ~\ref{AppendixA}
+\item Disseny de l\textbf{API RESTful}, definit a l'apèndix ~\ref{AppendixA}
+\end{itemize}
+
+Degut a que el comportament i els detalls específics no són d'especial interés pel domini d'aquest projecte, no s'entrarà amb més detall en la informació referent a la implementació tècnica, que s'ha realitzat seguint les instruccions i els requisits tècnics específics del component Orchestrator genèric implementat per \textit{partners} del projecte SUPERSEDE.

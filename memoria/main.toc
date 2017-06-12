@@ -62,42 +62,46 @@
 \contentsline {subsection}{\numberline {7.2.2}Implementaci\IeC {\'o} del Monitor Manager}{47}{subsection.107}
 \contentsline {section}{\numberline {7.3}Orchestrator}{48}{section.108}
 \contentsline {subsection}{\numberline {7.3.1}Especificacions t\IeC {\`e}cniques}{48}{subsection.109}
-\contentsline {chapter}{\numberline {8}Disseny del sistema}{49}{chapter.112}
-\contentsline {section}{\numberline {8.1}Descripci\IeC {\'o} general}{49}{section.113}
-\contentsline {section}{\numberline {8.2}Sistema de monitoratge}{49}{section.114}
-\contentsline {subsection}{\numberline {8.2.1}Monitors}{49}{subsection.115}
-\contentsline {subsection}{\numberline {8.2.2}Monitor Manager}{49}{subsection.116}
-\contentsline {subsection}{\numberline {8.2.3}Orchestrator}{50}{subsection.117}
-\contentsline {section}{\numberline {8.3}Sistema d'adaptabilitat}{50}{section.118}
-\contentsline {subsection}{\numberline {8.3.1}Model Repository}{50}{subsection.119}
-\contentsline {subsection}{\numberline {8.3.2}Adapter}{50}{subsection.120}
-\contentsline {subsubsection}{Model Adapter}{51}{section*.121}
-\contentsline {subsubsection}{Enactor}{51}{section*.122}
-\contentsline {section}{\numberline {8.4}Dashboard}{51}{section.123}
-\contentsline {chapter}{\numberline {9}Reconfiguraci\IeC {\'o} dels monitors}{53}{chapter.124}
-\contentsline {section}{\numberline {9.1}Main Section 1}{53}{section.125}
-\contentsline {subsection}{\numberline {9.1.1}Subsection 1}{53}{subsection.126}
-\contentsline {subsection}{\numberline {9.1.2}Subsection 2}{53}{subsection.127}
-\contentsline {section}{\numberline {9.2}Main Section 2}{53}{section.128}
-\contentsline {chapter}{\numberline {10}Disseny del dashboard}{55}{chapter.129}
-\contentsline {section}{\numberline {10.1}Main Section 1}{55}{section.130}
-\contentsline {subsection}{\numberline {10.1.1}Subsection 1}{55}{subsection.131}
-\contentsline {subsection}{\numberline {10.1.2}Subsection 2}{55}{subsection.132}
-\contentsline {section}{\numberline {10.2}Main Section 2}{55}{section.133}
-\contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{57}{chapter.134}
-\contentsline {section}{\numberline {11.1}Main Section 1}{57}{section.135}
-\contentsline {subsection}{\numberline {11.1.1}Subsection 1}{57}{subsection.136}
-\contentsline {subsection}{\numberline {11.1.2}Subsection 2}{57}{subsection.137}
-\contentsline {section}{\numberline {11.2}Main Section 2}{57}{section.138}
-\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{59}{chapter.139}
-\contentsline {section}{\numberline {12.1}Main Section 1}{59}{section.140}
-\contentsline {subsection}{\numberline {12.1.1}Subsection 1}{59}{subsection.141}
-\contentsline {subsection}{\numberline {12.1.2}Subsection 2}{59}{subsection.142}
-\contentsline {section}{\numberline {12.2}Main Section 2}{59}{section.143}
-\contentsline {chapter}{\numberline {13}Conclusions}{61}{chapter.144}
-\contentsline {section}{\numberline {13.1}Main Section 1}{61}{section.145}
-\contentsline {subsection}{\numberline {13.1.1}Subsection 1}{61}{subsection.146}
-\contentsline {subsection}{\numberline {13.1.2}Subsection 2}{61}{subsection.147}
-\contentsline {section}{\numberline {13.2}Main Section 2}{61}{section.148}
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{63}{appendix.149}
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{63}{section.150}
+\contentsline {subsubsection}{INPUT - Peticions de configuraci\IeC {\'o} del sistema de monitoratge}{50}{section*.114}
+\contentsline {subsubsection}{ACTION - Actualitzaci\IeC {\'o} de metadades}{50}{section*.116}
+\contentsline {subsubsection}{OUTPUT - Redirecci\IeC {\'o} de peticions}{51}{section*.117}
+\contentsline {subsection}{\numberline {7.3.2}Implementaci\IeC {\'o} de l'Orchestrator}{51}{subsection.118}
+\contentsline {chapter}{\numberline {8}Disseny del sistema}{53}{chapter.119}
+\contentsline {section}{\numberline {8.1}Descripci\IeC {\'o} general}{53}{section.120}
+\contentsline {section}{\numberline {8.2}Sistema de monitoratge}{53}{section.121}
+\contentsline {subsection}{\numberline {8.2.1}Monitors}{53}{subsection.122}
+\contentsline {subsection}{\numberline {8.2.2}Monitor Manager}{53}{subsection.123}
+\contentsline {subsection}{\numberline {8.2.3}Orchestrator}{54}{subsection.124}
+\contentsline {section}{\numberline {8.3}Sistema d'adaptabilitat}{54}{section.125}
+\contentsline {subsection}{\numberline {8.3.1}Model Repository}{54}{subsection.126}
+\contentsline {subsection}{\numberline {8.3.2}Adapter}{54}{subsection.127}
+\contentsline {subsubsection}{Model Adapter}{55}{section*.128}
+\contentsline {subsubsection}{Enactor}{55}{section*.129}
+\contentsline {section}{\numberline {8.4}Dashboard}{55}{section.130}
+\contentsline {chapter}{\numberline {9}Reconfiguraci\IeC {\'o} dels monitors}{57}{chapter.131}
+\contentsline {section}{\numberline {9.1}Main Section 1}{57}{section.132}
+\contentsline {subsection}{\numberline {9.1.1}Subsection 1}{57}{subsection.133}
+\contentsline {subsection}{\numberline {9.1.2}Subsection 2}{57}{subsection.134}
+\contentsline {section}{\numberline {9.2}Main Section 2}{57}{section.135}
+\contentsline {chapter}{\numberline {10}Disseny del dashboard}{59}{chapter.136}
+\contentsline {section}{\numberline {10.1}Main Section 1}{59}{section.137}
+\contentsline {subsection}{\numberline {10.1.1}Subsection 1}{59}{subsection.138}
+\contentsline {subsection}{\numberline {10.1.2}Subsection 2}{59}{subsection.139}
+\contentsline {section}{\numberline {10.2}Main Section 2}{59}{section.140}
+\contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{61}{chapter.141}
+\contentsline {section}{\numberline {11.1}Main Section 1}{61}{section.142}
+\contentsline {subsection}{\numberline {11.1.1}Subsection 1}{61}{subsection.143}
+\contentsline {subsection}{\numberline {11.1.2}Subsection 2}{61}{subsection.144}
+\contentsline {section}{\numberline {11.2}Main Section 2}{61}{section.145}
+\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{63}{chapter.146}
+\contentsline {section}{\numberline {12.1}Main Section 1}{63}{section.147}
+\contentsline {subsection}{\numberline {12.1.1}Subsection 1}{63}{subsection.148}
+\contentsline {subsection}{\numberline {12.1.2}Subsection 2}{63}{subsection.149}
+\contentsline {section}{\numberline {12.2}Main Section 2}{63}{section.150}
+\contentsline {chapter}{\numberline {13}Conclusions}{65}{chapter.151}
+\contentsline {section}{\numberline {13.1}Main Section 1}{65}{section.152}
+\contentsline {subsection}{\numberline {13.1.1}Subsection 1}{65}{subsection.153}
+\contentsline {subsection}{\numberline {13.1.2}Subsection 2}{65}{subsection.154}
+\contentsline {section}{\numberline {13.2}Main Section 2}{65}{section.155}
+\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{67}{appendix.156}
+\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{67}{section.157}
