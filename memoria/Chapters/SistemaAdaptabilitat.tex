@@ -80,7 +80,7 @@ Tot i així, addicionalment existeix la possibilitat d'estendre atributs especí
 \end{itemize}
 \item \textbf{Feature Configuration}
 \begin{itemize}
-\item \textbf{Status.} Ídem que l'atribut al \textit{Base Model}
+\item \textbf{Status.} Indica si la \textit{Feature Configuration} ha estat computada per un sistema extern (\textit{ComputedByDM}) o bé si s'ha aplicat com a adaptació dins el sistema (\textit{Enacted})
 \end{itemize}
 \item \textbf{Adaptability Model}
 \begin{itemize}
@@ -138,7 +138,18 @@ A l'apèndix ~\ref{AppendixA} es troba definida l'API utilitzada per la integrac
 
 \subsection{Model Repository Client}
 
+Aquest subcomponent del Model Repository s'encarrega d'actuar de pont entre el Model Repository Manager, que gestiona les dades/metadades dels models, i l'Adapter, component que utilitzarà el Model Repository per obtenir les instàncies dels models que necessita per gestionar les adaptacions de reconfiguracions. El disseny i la implementació d'aquest component han estat principalment realitzats per partners tercers del projecte, amb algunes col·laboracions i aportacions específiques per l'adaptabilitat dels models, especialment per la seva orientació a validar el cas d'ús de reconfiguració de monitors. Per tant, procedirem a explicar únicament aquells aspectes realitzats com a part del treball d'aquest TFG i els conceptes necessaris per entendre el seu funcionament.\\
 
+Des d'un punt de vista de \textbf{disseny}, aquest component defineix una interfície \textit{IModelRepository} que defineix, per una banda, els mètodes CRUD per cadascun dels 6 tipus de models existents al sistema. Addicionalment, defineix mètodes de cerca més complexos en base a les metadades dels models. Aquests mètodes seran els que ens permetran executar les adaptacions de forma automatitzada, sense necessitat de definir models específics, a mode de l'exemple introduït anteriorment sobre la cerca de la darrera configuració computada. D'aquests mètodes, ens interessaran especialment els següents:
+
+\begin{itemize}
+\item \textit{getLastBaseModel} - Permet obtenir el darrer \textit{Base Model} del sistema, que representa per tant l'estat actual del sistema de monitoratge, i ens servirà per agafar com a model per aplicar els canvis de reconfiguració
+\item \textit{getLastComputedFeatureConfiguration} - Obté la darrera \textit{Feature Configuration} amb l'atribut \textit{status} amb valor \textit{ComputedByDM}. D'aquesta manera, podem obtenir aquella darrera proposta de configuració que no s'ha executat encara (i per tant, que no té l'atribut \textit{status} amb valor \textit{Enacted})
+\item \textit{getLastEnactedFeatureConfiguration} - Obté la darrera \textit{Feature Configuration} amb l'atribut \textit{status} amb valor \textit{Enacted}. D'aquesta manera, podem obtenir la darrera configuració executada, i juntament amb l'anterior mètode, podem computar les diferències entre les dues.
+\item \textit{getAspectModelsForSystem} - Obté el llistat de \textit{Adaptability Models} donat un \textit{systemId}. En el nostre cas, ens interessar obtenir aquells amb sistema \textit{MonitoringReconfiguration}, que representaran totes les adaptacions possibles a aplicar dins el nostre context.
+\end{itemize}
+
+La implementació d'aquesta interfície defineix la interacció amb el Model Repository Manager i la gestió de persistència dels models per tal de poder referenciar i treballar amb ells des del component Adapter.
 
 \section{Adapter}
 
