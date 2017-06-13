@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {2.2.1}Projecte SUPERSEDE}{6}{subsection.11}
 \contentsline {chapter}{\numberline {3}Objectius}{9}{chapter.17}
 \contentsline {section}{\numberline {3.1}Objectiu general}{9}{section.18}
-\contentsline {subsection}{\numberline {3.1.1}Objectius espec\IeC {\'\i }fics}{10}{subsection.22}
+\contentsline {subsection}{\numberline {3.1.1}Objectius espec\IeC {\'\i }fics}{9}{subsection.22}
 \contentsline {section}{\numberline {3.2}Abast del projecte}{10}{section.23}
 \contentsline {chapter}{\numberline {4}Gesti\IeC {\'o} i desenvolupament}{13}{chapter.24}
 \contentsline {section}{\numberline {4.1}Metodologia de desenvolupament}{13}{section.25}
@@ -50,11 +50,11 @@
 \contentsline {subsubsection}{Redirecci\IeC {\'o} de dades col\IeC {\textperiodcentered }lectades}{33}{section*.76}
 \contentsline {subsubsection}{Par\IeC {\`a}metres de configuraci\IeC {\'o}}{34}{section*.78}
 \contentsline {subsection}{\numberline {7.1.2}Arquitectura gen\IeC {\`e}rica}{35}{subsection.79}
-\contentsline {subsection}{\numberline {7.1.3}Implementaci\IeC {\'o} de monitors}{37}{subsection.81}
+\contentsline {subsection}{\numberline {7.1.3}Implementaci\IeC {\'o} de monitors}{36}{subsection.81}
 \contentsline {subsubsection}{Twitter Monitor}{37}{section*.82}
-\contentsline {subsubsection}{Google Play Monitor}{41}{section*.88}
+\contentsline {subsubsection}{Google Play Monitor}{40}{section*.88}
 \contentsline {subsubsection}{App Store Monitor}{44}{section*.94}
-\contentsline {section}{\numberline {7.2}Monitor Manager}{45}{section.95}
+\contentsline {section}{\numberline {7.2}Monitor Manager}{44}{section.95}
 \contentsline {subsection}{\numberline {7.2.1}Especificacions t\IeC {\`e}cniques}{45}{subsection.99}
 \contentsline {subsubsection}{INPUT - Petici\IeC {\'o} de configuraci\IeC {\'o} de monitor}{46}{section*.103}
 \contentsline {subsubsection}{ACTION - Processat de la petici\IeC {\'o}}{47}{section*.105}
@@ -72,47 +72,29 @@
 \contentsline {subsection}{\numberline {8.2.1}Base Model}{54}{subsection.127}
 \contentsline {subsection}{\numberline {8.2.2}Features}{55}{subsection.129}
 \contentsline {subsubsection}{Feature Model}{56}{section*.130}
-\contentsline {subsubsection}{Feature Configuration}{56}{section*.132}
-\contentsline {subsection}{\numberline {8.2.3}Adapted Model}{58}{subsection.134}
-\contentsline {subsection}{\numberline {8.2.4}Pattern Model}{58}{subsection.135}
-\contentsline {subsection}{\numberline {8.2.5}Profile Model}{58}{subsection.136}
-\contentsline {subsection}{\numberline {8.2.6}Aspect Model}{58}{subsection.137}
+\contentsline {subsubsection}{Feature Configuration}{57}{section*.132}
+\contentsline {subsection}{\numberline {8.2.3}Pattern Model}{57}{subsection.134}
+\contentsline {subsection}{\numberline {8.2.4}Profile Model}{58}{subsection.136}
+\contentsline {subsection}{\numberline {8.2.5}Aspect Model}{58}{subsection.137}
 \contentsline {chapter}{\numberline {9}Sistema d'adaptabilitat}{59}{chapter.138}
-\contentsline {section}{\numberline {9.1}Descripci\IeC {\'o} general}{59}{section.139}
-\contentsline {section}{\numberline {9.2}Sistema de monitoratge}{59}{section.140}
-\contentsline {subsection}{\numberline {9.2.1}Monitors}{59}{subsection.141}
-\contentsline {subsection}{\numberline {9.2.2}Monitor Manager}{59}{subsection.142}
-\contentsline {subsection}{\numberline {9.2.3}Orchestrator}{60}{subsection.143}
-\contentsline {section}{\numberline {9.3}Sistema d'adaptabilitat}{60}{section.144}
-\contentsline {subsection}{\numberline {9.3.1}Model Repository}{60}{subsection.145}
-\contentsline {subsection}{\numberline {9.3.2}Adapter}{60}{subsection.146}
-\contentsline {subsubsection}{Model Adapter}{61}{section*.147}
-\contentsline {subsubsection}{Enactor}{61}{section*.148}
-\contentsline {section}{\numberline {9.4}Dashboard}{61}{section.149}
-\contentsline {chapter}{\numberline {10}Reconfiguraci\IeC {\'o} dels monitors}{63}{chapter.150}
-\contentsline {section}{\numberline {10.1}Main Section 1}{63}{section.151}
-\contentsline {subsection}{\numberline {10.1.1}Subsection 1}{63}{subsection.152}
-\contentsline {subsection}{\numberline {10.1.2}Subsection 2}{63}{subsection.153}
-\contentsline {section}{\numberline {10.2}Main Section 2}{63}{section.154}
-\contentsline {chapter}{\numberline {11}Disseny del dashboard}{65}{chapter.155}
-\contentsline {section}{\numberline {11.1}Main Section 1}{65}{section.156}
-\contentsline {subsection}{\numberline {11.1.1}Subsection 1}{65}{subsection.157}
-\contentsline {subsection}{\numberline {11.1.2}Subsection 2}{65}{subsection.158}
-\contentsline {section}{\numberline {11.2}Main Section 2}{65}{section.159}
-\contentsline {chapter}{\numberline {12}Validaci\IeC {\'o} del sistema}{67}{chapter.160}
-\contentsline {section}{\numberline {12.1}Main Section 1}{67}{section.161}
-\contentsline {subsection}{\numberline {12.1.1}Subsection 1}{67}{subsection.162}
-\contentsline {subsection}{\numberline {12.1.2}Subsection 2}{67}{subsection.163}
-\contentsline {section}{\numberline {12.2}Main Section 2}{67}{section.164}
-\contentsline {chapter}{\numberline {13}Treball futur i possibles expansions}{69}{chapter.165}
-\contentsline {section}{\numberline {13.1}Main Section 1}{69}{section.166}
-\contentsline {subsection}{\numberline {13.1.1}Subsection 1}{69}{subsection.167}
-\contentsline {subsection}{\numberline {13.1.2}Subsection 2}{69}{subsection.168}
-\contentsline {section}{\numberline {13.2}Main Section 2}{69}{section.169}
-\contentsline {chapter}{\numberline {14}Conclusions}{71}{chapter.170}
-\contentsline {section}{\numberline {14.1}Main Section 1}{71}{section.171}
-\contentsline {subsection}{\numberline {14.1.1}Subsection 1}{71}{subsection.172}
-\contentsline {subsection}{\numberline {14.1.2}Subsection 2}{71}{subsection.173}
-\contentsline {section}{\numberline {14.2}Main Section 2}{71}{section.174}
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{73}{appendix.175}
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{73}{section.176}
+\contentsline {section}{\numberline {9.1}Model Repository}{59}{section.139}
+\contentsline {subsection}{\numberline {9.1.1}Model Repository Manager}{61}{subsection.144}
+\contentsline {subsubsection}{Disseny de la base de dades}{61}{section*.147}
+\contentsline {subsection}{\numberline {9.1.2}Model Repository Client}{62}{subsection.149}
+\contentsline {section}{\numberline {9.2}Adapter}{62}{section.150}
+\contentsline {section}{\numberline {9.3}Model Adapter}{62}{section.151}
+\contentsline {section}{\numberline {9.4}Enactor}{62}{section.152}
+\contentsline {chapter}{\numberline {10}Dashboard}{65}{chapter.153}
+\contentsline {section}{\numberline {10.1}Disseny de l'arquitectura software}{65}{section.154}
+\contentsline {section}{\numberline {10.2}Disseny de la interf\IeC {\'\i }cie}{65}{section.155}
+\contentsline {section}{\numberline {10.3}Implementaci\IeC {\'o}}{65}{section.156}
+\contentsline {chapter}{\numberline {11}Reconfiguraci\IeC {\'o} dels monitors}{67}{chapter.157}
+\contentsline {section}{\numberline {11.1}Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de reconfiguraci\IeC {\'o}}{67}{section.158}
+\contentsline {section}{\numberline {11.2}Exemple de cas d'\IeC {\'u}s}{67}{section.159}
+\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{69}{chapter.160}
+\contentsline {chapter}{\numberline {13}Conclusions}{71}{chapter.161}
+\contentsline {section}{\numberline {13.1}Justificaci\IeC {\'o} de l'assoliment de compet\IeC {\`e}ncies}{71}{section.162}
+\contentsline {section}{\numberline {13.2}Desviacions i dificultats}{71}{section.163}
+\contentsline {section}{\numberline {13.3}Avaluaci\IeC {\'o} del desenvolupament del projecte}{71}{section.164}
+\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{73}{appendix.165}
+\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{73}{section.166}
