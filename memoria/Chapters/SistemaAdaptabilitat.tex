@@ -29,7 +29,7 @@ Una primera aproximació que ens podríem plantejar seria implementar un compone
 
 Això per tant implica que no podríem aplicar escenaris d'adaptació com per exemple:\\
 
-\centerline{Actualitzar el sistema de monitoratge amb la darrera Feature Configuration computada}\bigskip
+\centerline{\textit{Actualitzar el sistema de monitoratge amb la darrera Feature Configuration computada}}\bigskip
 
 Si tornem al cicle \textit{MAPE-k}, suposant un sistema de \textit{\textbf{P}lanificació} que produeix noves propostes de configuració (FC), aquest enviaria periòdicament aquests models al nostre sistema d'adaptabilitat. Si el nostre sistema és capaç de consultar les dates en què aquestes propostes es van afegint, és capaç de computar quina és la darrera afegida. I en definitiva, és capaç de computar, de forma automàtica i sense necessitat de donar-li cap mena d'informació, quins canvis aplicar al sistema de monitoratge.\\
 
@@ -40,7 +40,7 @@ Addicionalment a aquest problema, alguns models tenen dependències amb altres m
 Partint d'aquestes necessitats, és evident que necessitem estendre els mètodes de lectura de models a mètodes més complerts, on utilitzem dades auxiliars per fer cerques dins el nostre repositori. És en aquest punt quan aquesta primera aproximació resulta ineficient: si volem accedir a les metadades dels fitxers dels models, tals com la data de creació, l'autor, el sistema que l'ha computat, etc. (més endavant les veurem amb més detall), carregar tots els fitxers dinàmicament per accedir a aquestes dades per fer la cerca resulta molt ineficient. És per això que, alternativament, utilitzarem la següent arquitectura per gestionar la persistència de models:
 
 \begin{itemize}
-\item \textbf{Model Repository Manager.} Component que gestiona les metadades dels models, emmagatzemades en una base de dades relacionals, i que estén un controlador amb els mètodes de cerca per obtenir els identificadors dels models associats.
+\item \textbf{Model Repository Manager.} Component que gestiona les metadades dels models, emmagatzemades en una base de dades relacionals, i que estén un controlador amb els mètodes de cerca per obtenir les metadades dels models desitjats.
 \item \textbf{Model Repository Client.} Component que es comunica amb el Model Repository Manager per obtenir les dades dels models, gestiona la persistència del repositori de models, i encapsula els mètodes i objectes per obtenir i treballar amb els models associats a les reconfiguracions.
 \end{itemize}
 
@@ -100,13 +100,45 @@ En el nostre cas, optarem per l'opció \textit{concrete table inheritance}. La r
 
 \begin{figure}
 \centering
-\includegraphics[width=13cm]{Figures/Figure20}
+\includegraphics[width=11cm]{Figures/Figure20}
 \decoRule
 \caption{Disseny de la base de dades del Model Repository Manager}
 \label{fig:Figura20}
 \end{figure}
 
+D'aquesta manera, la identificació d'un model queda definida per \textbf{id + ModelType}, el primer com a atribut explícit de metadades i el segon com a metadada implícita derivada de la taula en la qual emmagatzemem el model.
+
+\subsubsection{Disseny i implementació del domini i controlador}
+
+Modelat l'esquema de les metadades a la base de dades, podem procedir a implementar les classes de domini amb les quals treballarem per operar sobre aquestes. Partint del disseny anterior necessitem definir dos aspectes. En primer lloc, necessitem \textbf{modelar la jerarquia} de models, segons els atributs genèrics i els atributs específics de cada model. En segon lloc, definir com modelarem i identificarem el llistat de dependències de cada model.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=11cm]{Figures/Figure21}
+\decoRule
+\caption{Disseny del domini del Model Repository Manager}
+\label{fig:Figura21}
+\end{figure}
+
+A la figura ~\ref{fig:Figura21} es presenta el diagrama simplificat de la proposta de disseny. Per la definició dels models, definim una classe genèrica \textit{GenericModel} amb tots els atributs genèrics a tots els models. Addicionalment, s'implementa una classe per cada tipus de model específic (al diagrama apareixen \textit{BaseModel} i \textit{ProfileModel}, a mode d'exemple). Als atributs que apareixen al diagrama cal afegir els mètodes \textit{getters} i \textit{setters} tradicionals, no afegits per simplificació de l'esquema, així com els constructors. Per sobre de \textit{GenericModel} definim una classe abstracta \textit{IModel}, requisit establert per SUPERSEDE per futures extensions. \\
+
+Paral·lelament es presenta una proposta de gestió de les dependències. Ja que els nostres models es troben identificats per la parella \textit{id + ModelType}, es proposa la definició d'una interfície \textit{IModelId} genèrica, totalment genèrica i sense cap mètode, oberta a possibles extensions i refactoritzacions necessàries pel context de SUPERSEDE. Per gestionar aquestes dependències pel nostre context, definim una nova interfície, \textit{ITypedModelId}, que defineix els mètodes per extreure les dues dades necessàries per identificar un model, \textit{getNumber} i \textit{getModelType}. D'aquesta interfície definim una implementació, que obté aquests dos valors definits als mètodes anteriors mapejant directament aquests atributs. D'aquesta manera, el llistat de dependències dels models usats en la reconfiguració de monitors seran instàncies de la classe \textit{TypedModelId} amb els dos atributs \textit{id} i \textit{ModelType}.\\ 
+
+Amb aquest domini podem procedir a implementar el controlador i, posteriorment, la seva exposició com a servei REST per la integració amb IF. Sense entrar en gaires detalls tècnics sobre aquesta part (molt similar a les anteriors exposicions com serveis), definirem les 5 operacions CRUD bàsiques, sempre considerant per \textit{ModelType}. També serà responsabilitat del Model Repository Manager, associada a cadascuna d'aquestes operacions, la gestió del contingut dels models. Aquesta responsabilitat consistirà bàsicament en emmagatzemar en disc, segons on es trobi desplegat aquest component, els fitxers dels models, amb el contingut determinat. Aquesta persistència es gestionarà definint el contingut del model com un string, tant per indicar al Model Repository Manager el contingut a emmagatzemar, com per obtenir-lo quan es consultin les dades d'un mateix.
+
+\begin{enumerate}
+\item \textbf{Llista models d'un tipus.} Retorna les metadades de tots els models existents d'un tipus determinat.
+\item \textbf{Obté un model.} Retorna les metadades i un string amb el contingut d'un model donat un identificador i un \textit{ModelType}.
+\item \textbf{Crea un nou model.} Emmagatzema un nou model amb les metadades passades al Model Repository Manager i guarda un fitxer a disc amb el contingut, el nom i l'extensió determinats a les metadades.
+\item \textbf{Actualitza les metadades d'un model.} Donat un identificador i un \textit{Model Type}, actualitza els valors de les metadades d'un model i el contingut, nom i/o extensió del fitxer (quan s'escaigui). 
+\item \textbf{Eliminar les metadades d'un model.} Donat un identificador i un \textit{Model Type}, elimina la instància de metadades d'aquest model i elimina el fitxer del repositori.
+\end{enumerate}
+
+A l'apèndix ~\ref{AppendixA} es troba definida l'API utilitzada per la integració d'aquest component.
+
 \subsection{Model Repository Client}
+
+
 
 \section{Adapter}
 
