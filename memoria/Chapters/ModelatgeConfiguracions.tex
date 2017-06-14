@@ -77,7 +77,7 @@ Aplicat al nostre context, un \textit{Feature Model} ens serveix per definir qui
 
 \subsubsection{Feature Configuration}
 
-Una \textit{Feature Configuration} (FC) representa una configuració específica d'un \textit{Feature Model}. És a dir: davant les diferents opcionalitats i variabilitats que un \textit{Feature Model} defineix, com poden ser la personalització del valor d'una \textit{feature}, o bé la selecció entre un conjunt d'opcions, la \textit{Feature Configuration} és la modelació d'un cas específic d'aquestes \textit{features}.\\
+Una \textit{Feature Configuration} (FC) representa una configuració específica d'un \textit{Feature Model}. És a dir: davant les diferents opcionalitats i variabilitats que un \textit{Feature Model} defineix, com poden ser la personalització del valor d'una \textit{feature}, o bé la selecció entre un conjunt d'opcions, la \textit{Feature Configuration} és la modelació d'un cas específic d'aquestes \textit{features}. A diferència del \textit{Feature Model}, que presenta totes les opcions del sistema, la \textit{Feature Configuration} presenta només una opció específica per aquells punts variables dins el \textit{Feature Model}. Aquestes opcions específiques reben el nom de \textbf{selections} (seleccions).\\
 
 Aplicat al nostre context, i seguint amb l'exemple anterior, l'objectiu d'una \textit{Feature Configuration} es modelar una proposta de configuració del sistema de monitoratge. Així, definim uns valors específics pels atributs de les configuracions. A la figura ~\ref{fig:Figura18} podem visualitzar un exemple basat en el \textit{Feature Model} de la figura ~\ref{fig:Figura17}.\\
 
@@ -108,6 +108,8 @@ Amb aquest objectiu, necessitem afegir informació addicional, una forma de mode
 A la figura ~\ref{fig:Figura19} podem veure un exemple de \textit{Pattern} aplicat al nostre cas d'estudi. Sense entrar en els detalls específics de la sintaxi, aquest patró anomenat \textit{twitterTimeSlot} retorna tots els objectes de tipus \textit{Slot}, que en l'especificació UML2 venen a ser els atributs d'una instància d'una classe, que compleixen dues característiques: que reben per nom \textit{timeSlot} (1) i que són atributs d'una instància de la classe amb nom \textit{twitter} (2). Així, quan vulguem aplicar de forma dinàmica adaptacions sobre el sistema, i concretament sobre els \textit{timeSlots} (1) de les instàncies de monitoratge del monitor de Twitter (2), podem referenciar aquests objectes amb la màxima eficiència, utilitzant les eines que la pròpia llibreria ens dona per treballar dinàmicament amb models UML.\\
 
 De manera similar a les FC, necessitarem definir un \textit{pattern} diferent per cada cas d'adaptació, d'acord amb els criteris específics. Tot i que això no exclou que alguns siguin reutilitzables entre diferents reconfiguracions. El potencial del VQL ens permet generar, amb una sintaxi relativament senzilla, patrons de cerca de tot tipus i que filtrin la cerca segons tot tipus de criteris: valors dels atributs de les instàncies, tipus de configuracions, relacions amb superclasses, etc. 
+
+MENCIONA EL MQ
 
 \subsection{Profile Model}
 

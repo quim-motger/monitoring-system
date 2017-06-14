@@ -80,21 +80,24 @@
 \contentsline {section}{\numberline {9.1}Model Repository}{59}{section.139}
 \contentsline {subsection}{\numberline {9.1.1}Model Repository Manager}{61}{subsection.144}
 \contentsline {subsubsection}{Disseny de la base de dades}{61}{section*.147}
-\contentsline {subsection}{\numberline {9.1.2}Model Repository Client}{62}{subsection.149}
-\contentsline {section}{\numberline {9.2}Adapter}{62}{section.150}
-\contentsline {section}{\numberline {9.3}Model Adapter}{62}{section.151}
-\contentsline {section}{\numberline {9.4}Enactor}{62}{section.152}
-\contentsline {chapter}{\numberline {10}Dashboard}{65}{chapter.153}
-\contentsline {section}{\numberline {10.1}Disseny de l'arquitectura software}{65}{section.154}
-\contentsline {section}{\numberline {10.2}Disseny de la interf\IeC {\'\i }cie}{65}{section.155}
-\contentsline {section}{\numberline {10.3}Implementaci\IeC {\'o}}{65}{section.156}
-\contentsline {chapter}{\numberline {11}Reconfiguraci\IeC {\'o} dels monitors}{67}{chapter.157}
-\contentsline {section}{\numberline {11.1}Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de reconfiguraci\IeC {\'o}}{67}{section.158}
-\contentsline {section}{\numberline {11.2}Exemple de cas d'\IeC {\'u}s}{67}{section.159}
-\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{69}{chapter.160}
-\contentsline {chapter}{\numberline {13}Conclusions}{71}{chapter.161}
-\contentsline {section}{\numberline {13.1}Justificaci\IeC {\'o} de l'assoliment de compet\IeC {\`e}ncies}{71}{section.162}
-\contentsline {section}{\numberline {13.2}Desviacions i dificultats}{71}{section.163}
-\contentsline {section}{\numberline {13.3}Avaluaci\IeC {\'o} del desenvolupament del projecte}{71}{section.164}
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{73}{appendix.165}
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{73}{section.166}
+\contentsline {subsubsection}{Disseny i implementaci\IeC {\'o} del domini i controlador}{62}{section*.148}
+\contentsline {subsection}{\numberline {9.1.2}Model Repository Client}{64}{subsection.155}
+\contentsline {section}{\numberline {9.2}Model Adapter}{65}{section.156}
+\contentsline {section}{\numberline {9.3}Adapter}{65}{section.157}
+\contentsline {subsection}{\numberline {9.3.1}Algorisme d'adaptabilitat}{65}{subsection.158}
+\contentsline {subsection}{\numberline {9.3.2}Disseny i diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia}{66}{subsection.176}
+\contentsline {section}{\numberline {9.4}Enactor}{66}{section.178}
+\contentsline {chapter}{\numberline {10}Dashboard}{69}{chapter.179}
+\contentsline {section}{\numberline {10.1}Disseny de l'arquitectura software}{69}{section.180}
+\contentsline {section}{\numberline {10.2}Disseny de la interf\IeC {\'\i }cie}{69}{section.181}
+\contentsline {section}{\numberline {10.3}Implementaci\IeC {\'o}}{69}{section.182}
+\contentsline {chapter}{\numberline {11}Reconfiguraci\IeC {\'o} dels monitors}{71}{chapter.183}
+\contentsline {section}{\numberline {11.1}Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de reconfiguraci\IeC {\'o}}{71}{section.184}
+\contentsline {section}{\numberline {11.2}Exemple de cas d'\IeC {\'u}s}{71}{section.185}
+\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{73}{chapter.186}
+\contentsline {chapter}{\numberline {13}Conclusions}{75}{chapter.187}
+\contentsline {section}{\numberline {13.1}Justificaci\IeC {\'o} de l'assoliment de compet\IeC {\`e}ncies}{75}{section.188}
+\contentsline {section}{\numberline {13.2}Desviacions i dificultats}{75}{section.189}
+\contentsline {section}{\numberline {13.3}Avaluaci\IeC {\'o} del desenvolupament del projecte}{75}{section.190}
+\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{77}{appendix.191}
+\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{77}{section.192}

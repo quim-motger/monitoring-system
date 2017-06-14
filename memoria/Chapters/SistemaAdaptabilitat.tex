@@ -76,11 +76,11 @@ Tot i així, addicionalment existeix la possibilitat d'estendre atributs especí
 \begin{itemize}
 \item \textbf{Base Model}
 \begin{itemize}
-\item \textbf{Status.} Indica si el model ha estat computat per un sistema extern (\textit{ComputedByDM}) o bé si és el resultat d'una adaptació dins el sistema d'adaptabilitat (\textit{Enacted}).
+\item \textbf{Status.} Indica si el model ha estat computat per un sistema extern (\textit{Computed}), si és el resultat d'una adaptació dins el sistema d'adaptabilitat (\textit{Enacted}), o bé si ha estat dissenyat manualment (\textit{Designed}).
 \end{itemize}
 \item \textbf{Feature Configuration}
 \begin{itemize}
-\item \textbf{Status.} Indica si la \textit{Feature Configuration} ha estat computada per un sistema extern (\textit{ComputedByDM}) o bé si s'ha aplicat com a adaptació dins el sistema (\textit{Enacted})
+\item \textbf{Status.} Indica si la \textit{Feature Configuration} ha estat computada per un sistema extern (\textit{Computed}), si s'ha aplicat com a adaptació dins el sistema (\textit{Enacted}), o bé si ha estat dissenyada manualment (\textit{Designed}).
 \end{itemize}
 \item \textbf{Adaptability Model}
 \begin{itemize}
@@ -96,15 +96,7 @@ A partir d'aquestes dades podem procedir al disseny de la base de dades del repo
 \item \textbf{\textit{Concrete table inheritance.}} Definir una taula per cada tipus de model i replicar els atributs comuns.
 \end{itemize}
 
-En el nostre cas, optarem per l'opció \textit{concrete table inheritance}. La raó principal d'aquesta opció és que, tot i compartir la major part de les dades, les entitats de models amb tipus diferents mai tindrà sentit contemplar-les conjuntament. És a dir: qualsevol lectura o modificació de models es farà sobre un model (o conjunt de models) d'un tipus específic, mai sobre models de forma genèrica (no tindrà sentit concebir l'entitat \textit{Model} abstracta). Si considerem la segona opció, veiem que seria molt ineficient, ja que caldria fer \textit{joins} internes per obtenir les dades els models, i per la mateixa raó que la ja esmentada sabem que seria un cost innecessari. Per tant, optarem per definir una taula per cada tipus, mantenint així la independència de les metadades entre models. A la figura ~\ref{fig:Figura20} podem veure el disseny proposat de la base de dades, d'acord als 6 tipus de models definits.\\
-
-\begin{figure}
-\centering
-\includegraphics[width=11cm]{Figures/Figure20}
-\decoRule
-\caption{Disseny de la base de dades del Model Repository Manager}
-\label{fig:Figura20}
-\end{figure}
+En el nostre cas, optarem per l'opció \textit{concrete table inheritance}. La raó principal d'aquesta opció és que, tot i compartir la major part de les dades, les entitats de models amb tipus diferents mai tindrà sentit contemplar-les conjuntament. És a dir: qualsevol lectura o modificació de models es farà sobre un model (o conjunt de models) d'un tipus específic, mai sobre models de forma genèrica (no tindrà sentit concebir l'entitat \textit{Model} abstracta). Si considerem la segona opció, veiem que seria molt ineficient, ja que caldria fer \textit{joins} internes per obtenir les dades els models, i per la mateixa raó que la ja esmentada sabem que seria un cost innecessari. Per tant, optarem per definir una taula per cada tipus, mantenint així la independència de les metadades entre models. A l'apèndix ~\ref{AppendixA} podem veure el disseny proposat de la base de dades, d'acord als 6 tipus de models definits.\\
 
 D'aquesta manera, la identificació d'un model queda definida per \textbf{id + ModelType}, el primer com a atribut explícit de metadades i el segon com a metadada implícita derivada de la taula en la qual emmagatzemem el model.
 
@@ -140,19 +132,76 @@ A l'apèndix ~\ref{AppendixA} es troba definida l'API utilitzada per la integrac
 
 Aquest subcomponent del Model Repository s'encarrega d'actuar de pont entre el Model Repository Manager, que gestiona les dades/metadades dels models, i l'Adapter, component que utilitzarà el Model Repository per obtenir les instàncies dels models que necessita per gestionar les adaptacions de reconfiguracions. El disseny i la implementació d'aquest component han estat principalment realitzats per partners tercers del projecte, amb algunes col·laboracions i aportacions específiques per l'adaptabilitat dels models, especialment per la seva orientació a validar el cas d'ús de reconfiguració de monitors. Per tant, procedirem a explicar únicament aquells aspectes realitzats com a part del treball d'aquest TFG i els conceptes necessaris per entendre el seu funcionament.\\
 
-Des d'un punt de vista de \textbf{disseny}, aquest component defineix una interfície \textit{IModelRepository} que defineix, per una banda, els mètodes CRUD per cadascun dels 6 tipus de models existents al sistema. Addicionalment, defineix mètodes de cerca més complexos en base a les metadades dels models. Aquests mètodes seran els que ens permetran executar les adaptacions de forma automatitzada, sense necessitat de definir models específics, a mode de l'exemple introduït anteriorment sobre la cerca de la darrera configuració computada. D'aquests mètodes, ens interessaran especialment els següents:
+Des d'un punt de vista de \textbf{disseny}, aquest component defineix una interfície \textit{IModelRepository} que defineix, per una banda, els mètodes CRUD per cadascun dels 6 tipus de models existents al sistema:
+ 
+\begin{itemize}
+\item 
+\end{itemize}
+ 
+Addicionalment, defineix mètodes de cerca més complexos en base a les metadades dels models. Aquests mètodes seran els que ens permetran executar les adaptacions de forma automatitzada, sense necessitat de definir models específics, a mode de l'exemple introduït anteriorment sobre la cerca de la darrera configuració computada. D'aquests mètodes, ens interessaran especialment els següents:
 
 \begin{itemize}
-\item \textit{getLastBaseModel} - Permet obtenir el darrer \textit{Base Model} del sistema, que representa per tant l'estat actual del sistema de monitoratge, i ens servirà per agafar com a model per aplicar els canvis de reconfiguració
-\item \textit{getLastComputedFeatureConfiguration} - Obté la darrera \textit{Feature Configuration} amb l'atribut \textit{status} amb valor \textit{ComputedByDM}. D'aquesta manera, podem obtenir aquella darrera proposta de configuració que no s'ha executat encara (i per tant, que no té l'atribut \textit{status} amb valor \textit{Enacted})
-\item \textit{getLastEnactedFeatureConfiguration} - Obté la darrera \textit{Feature Configuration} amb l'atribut \textit{status} amb valor \textit{Enacted}. D'aquesta manera, podem obtenir la darrera configuració executada, i juntament amb l'anterior mètode, podem computar les diferències entre les dues.
-\item \textit{getAspectModelsForSystem} - Obté el llistat de \textit{Adaptability Models} donat un \textit{systemId}. En el nostre cas, ens interessar obtenir aquells amb sistema \textit{MonitoringReconfiguration}, que representaran totes les adaptacions possibles a aplicar dins el nostre context.
+\item \textbf{Obté el \textit{Base Model} més actual} - Permet obtenir el darrer \textit{Base Model} del sistema, que representa per tant l'estat actual del sistema de monitoratge, i ens servirà per agafar com a model per aplicar els canvis de reconfiguració
+\item \textbf{Obté la darrera \textit{Feature Configuration} computada} - Obté la darrera \textit{Feature Configuration} amb l'atribut \textit{status} amb valor \textit{Computed}. D'aquesta manera, podem obtenir aquella darrera proposta de configuració que no s'ha executat encara (i per tant, que no té l'atribut \textit{status} amb valor \textit{Enacted})
+\item \textbf{Obté la darrera \textit{Feature Configuration} executada} - Obté la darrera \textit{Feature Configuration} amb l'atribut \textit{status} amb valor \textit{Enacted}. D'aquesta manera, podem obtenir la darrera configuració executada, i juntament amb l'anterior mètode, podem computar les diferències entre les dues.
+\item \textbf{Obté els \textit{Adaptability Models} candidats} - Obté el llistat de \textit{Adaptability Models} donat un \textit{systemId}. En el nostre cas, ens interessar obtenir aquells amb sistema \textit{MonitoringReconfiguration}, que representaran totes les adaptacions possibles a aplicar dins el nostre context.
 \end{itemize}
 
-La implementació d'aquesta interfície defineix la interacció amb el Model Repository Manager i la gestió de persistència dels models per tal de poder referenciar i treballar amb ells des del component Adapter.
+La implementació d'aquesta interfície defineix la interacció amb el Model Repository Manager i la gestió de persistència dels models per tal de poder referenciar i treballar amb ells des del component Adapter. A l'apèndix ~\ref{AppendixA} es pot consultar la interfície definida amb tots els mètodes que formen part del Model Repository Client, i que seran els utilitzats per executar la reconfiguració d'un monitor. 
+
+\section{Model Adapter}
+
 
 \section{Adapter}
 
-\section{Model Adapter}
+Satisfets els requisits tècnics i funcionals del Model Repository disposem d'un component que ens permet carregar dinàmicament tots els models i utilitzar els mètodes que la llibreria UML2 defineix amb els mateixos. Paral·lelament, el Model Adapter ens satisfà la necessitat d'adaptació dinàmica de diagrames de classe UML. El següent pas és definir el component que assumirà la responsabilitat de \textbf{gestionar i computar les reconfiguracions}. Aquesta responsabilitat serà assumida per l'Adapter, la responsabilitat principal del qual serà la interacció amb el Model Repository i el Model Adapter per aplicar l'algorisme que a continuació definim per computar reconfiguracions.\\
+
+\subsection{Algorisme d'adaptabilitat}
+
+L'\textbf{algorisme d'adaptabilitat} de models, o bé reconfiguració de monitors pel nostre cas d'estudi, consisteix en la implementació d'un algorisme que resolgui la següent problemàtica:
+
+\begin{center}
+\textit{Davant una petició de reconfiguració del sistema, calculem totes les diferències entre la \textbf{darrera Feature Configuration aplicada} i la \textbf{darrera Feature Configuration computada} i trobem totes les diferències de seleccions. Per cada diferència (és a dir, per cada \textbf{selection} present a una de les dues \textbf{Feature Configurations} però no a l'altra), apliquem les \textbf{accions definides als Adaptability Models} corresponents al \textbf{Base Model}, segons si aquesta s'activa a la nova configuració (apareix a la nova FC) o bé es desactiva (no apareix).}
+\end{center}
+
+Per entendre millor aquest plantejament, anem a analitzar pas per pas quins són els passos que s'han de realitzar per passar d'identificar una \textit{feature} a modificar el \textit{Base Model}:
+
+\begin{enumerate}
+\item Obtenim la \textbf{darrera \textit{Feature Configuration}} amb \textit{status = Computed}, que representa la última configuració del sistema proposada
+\item Obtenim la \textbf{darrera \textit{Feature Configuration}} amb \textit{status = Enacted}, que representa la última configuració del sistema aplicada
+\item Obtenim el \textbf{darrer \textit{Base Model} del sistema}, que representa l'estat actual del sistema de monitoratge
+\item Computem totes les diferències a nivell de \textbf{selections}, que apareixen només a una de les dues \textit{Feature Configurations}.
+\item Per cada \textit{selection} diferent trobada:
+\begin{enumerate}
+\item Obtenim els \textbf{\textit{Adaptability Models} associats a la \textit{feature}} que representa aquella \textit{selection}
+\item Per cada \textit{Adaptability Model} obtingut:
+\begin{enumerate}
+\item Obté tots els \textbf{\textit{pointcuts} definits per l'\textit{Adaptability Model}}
+\item Per cada \textit{pointcut} obtingut:
+\begin{enumerate}
+\item Obté el \textbf{\textit{pattern} definit per aquell \textit{pointcut}}
+\item Utilitza el component \textit{Model Query} per trobar tots els \textbf{elements al \textit{Base Model}} segons el \textbf{\textit{pattern} obtingut}
+\item Etiqueta amb el \textit{role} definit pel \textit{pointcut} tots els elements trobats pel \textit{Model Query}
+\end{enumerate}
+\item Obté les \textbf{\textit{compositions} definides per l'\textit{Adaptability Model}}
+\item Per cada \textit{composition}:
+\begin{enumerate}
+\item Comprova si aquella \textit{composition} defineix l'\textbf{activació o desactivació} de la \textit{feature}. 
+\item En cas que coincideixi amb el valor de l'activació/desactivació de la \textit{feature}, es comunica amb el Model Adapter per aplicar l'adaptació corresponent i obté el \textit{Base Model} adaptat.
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\item Actualitza el Model Repository amb el \textbf{nou \textit{Base Model}} i la nova \textit{Feature Configuration}.
+\end{enumerate}
+
+\subsection{Disseny i diagrama de seqüència}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=13cm]{Figures/Figure22}
+\decoRule
+\caption{Diagrama de seqüència de la reconfiguració del sistema amb l'Adapter}
+\label{fig:Figura22}
+\end{figure}
 
 \section{Enactor}
