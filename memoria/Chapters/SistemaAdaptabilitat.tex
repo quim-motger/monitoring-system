@@ -152,6 +152,33 @@ La implementació d'aquesta interfície defineix la interacció amb el Model Rep
 \section{Model Adapter}
 
 
+
+\section{Components auxiliars}
+
+Per treballar dinàmicament amb models UML utilitzant llibreries i plugins d'Eclipse (com UML2 i Papyrus respectivament), necessitem algunes funcionalitats addicionals a les implementades al Model Adapter. Al tractar-se de components reutilitzats i a implementats al projecte SUPERSEDE per altres col·laboradors del projecte, els presentarem per tal d'entendre el seu objectiu, les seves característiques i com encaixen dins el nostre projecte, però sense comptabilitzar-los com part del desenvolupament del treball. Aquests dos components seran el \textbf{Model Query} i l'\textbf{Enactor}.
+
+\subsection{Model Query}
+
+El \textbf{Model Query} consisteix en un component de gestió de models UML orientat a la cerca d'elements (classes, instàncies, relacions, atributs...) dins d'aquests models. Aquesta cerca s'utilitza combinant UML2, llibreria utilitzada per la càrrega dinàmica de models, amb VQL, utilitzat per definir patrons de cerca dins de models UML. 
+
+\begin{figure}
+\centering
+\includegraphics[width=11cm]{Figures/Figure23}
+\decoRule
+\caption{Interfície del Model Query}
+\label{fig:Figura23}
+\end{figure}
+
+\subsection{Enactor}
+
+\begin{figure}
+\centering
+\includegraphics[width=11cm]{Figures/Figure24}
+\decoRule
+\caption{EnactorFatory i interfície de l'Enactor}
+\label{fig:Figura24}
+\end{figure}
+
 \section{Adapter}
 
 Satisfets els requisits tècnics i funcionals del Model Repository disposem d'un component que ens permet carregar dinàmicament tots els models i utilitzar els mètodes que la llibreria UML2 defineix amb els mateixos. Paral·lelament, el Model Adapter ens satisfà la necessitat d'adaptació dinàmica de diagrames de classe UML. El següent pas és definir el component que assumirà la responsabilitat de \textbf{gestionar i computar les reconfiguracions}. Aquesta responsabilitat serà assumida per l'Adapter, la responsabilitat principal del qual serà la interacció amb el Model Repository i el Model Adapter per aplicar l'algorisme que a continuació definim per computar reconfiguracions.\\
@@ -203,5 +230,3 @@ Per entendre millor aquest plantejament, anem a analitzar pas per pas quins són
 \caption{Diagrama de seqüència de la reconfiguració del sistema amb l'Adapter}
 \label{fig:Figura22}
 \end{figure}
-
-\section{Enactor}
