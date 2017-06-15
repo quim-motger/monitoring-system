@@ -106,7 +106,7 @@ Modelat l'esquema de les metadades a la base de dades, podem procedir a implemen
 
 \begin{figure}
 \centering
-\includegraphics[width=11cm]{Figures/Figure21}
+\includegraphics[width=14cm]{Figures/Figure21}
 \decoRule
 \caption{Disseny del domini del Model Repository Manager}
 \label{fig:Figura21}
@@ -126,19 +126,30 @@ Amb aquest domini podem procedir a implementar el controlador i, posteriorment, 
 \item \textbf{Eliminar les metadades d'un model.} Donat un identificador i un \textit{Model Type}, elimina la instància de metadades d'aquest model i elimina el fitxer del repositori.
 \end{enumerate}
 
+
+\begin{figure}
+\centering
+\includegraphics[width=9cm]{Figures/Figure27}
+\decoRule
+\caption{Disseny de la interfície del Model Repository Manager}
+\label{fig:Figura27}
+\end{figure}
+
 A l'apèndix ~\ref{AppendixA} es troba definida l'API utilitzada per la integració d'aquest component.
 
 \subsection{Model Repository Client}
 
 Aquest subcomponent del Model Repository s'encarrega d'actuar de pont entre el Model Repository Manager, que gestiona les dades/metadades dels models, i l'Adapter, component que utilitzarà el Model Repository per obtenir les instàncies dels models que necessita per gestionar les adaptacions de reconfiguracions. El disseny i la implementació d'aquest component han estat principalment realitzats per partners tercers del projecte, amb algunes col·laboracions i aportacions específiques per l'adaptabilitat dels models, especialment per la seva orientació a validar el cas d'ús de reconfiguració de monitors. Per tant, procedirem a explicar únicament aquells aspectes realitzats com a part del treball d'aquest TFG i els conceptes necessaris per entendre el seu funcionament.\\
 
-Des d'un punt de vista de \textbf{disseny}, aquest component defineix una interfície \textit{IModelRepository} que defineix, per una banda, els mètodes CRUD per cadascun dels 6 tipus de models existents al sistema:
- 
-\begin{itemize}
-\item 
-\end{itemize}
- 
-Addicionalment, defineix mètodes de cerca més complexos en base a les metadades dels models. Aquests mètodes seran els que ens permetran executar les adaptacions de forma automatitzada, sense necessitat de definir models específics, a mode de l'exemple introduït anteriorment sobre la cerca de la darrera configuració computada. D'aquests mètodes, ens interessaran especialment els següents:
+Des d'un punt de vista de \textbf{disseny}, aquest component defineix una interfície \textit{IModelRepository} que defineix, per una banda, els mètodes CRUD per cadascun dels 6 tipus de models existents al sistema. Addicionalment, defineix mètodes de cerca més complexos en base a les metadades dels models. Aquests mètodes seran els que ens permetran executar les adaptacions de forma automatitzada, sense necessitat de definir models específics, a mode de l'exemple introduït anteriorment sobre la cerca de la darrera configuració computada. D'aquests mètodes, ens interessaran especialment els següents:
+
+\begin{figure}
+\centering
+\includegraphics[width=14cm]{Figures/Figure25}
+\decoRule
+\caption{Disseny de la interfície del Model Repository Service}
+\label{fig:Figura25}
+\end{figure}
 
 \begin{itemize}
 \item \textbf{Obté el \textit{Base Model} més actual} - Permet obtenir el darrer \textit{Base Model} del sistema, que representa per tant l'estat actual del sistema de monitoratge, i ens servirà per agafar com a model per aplicar els canvis de reconfiguració
@@ -147,11 +158,36 @@ Addicionalment, defineix mètodes de cerca més complexos en base a les metadade
 \item \textbf{Obté els \textit{Adaptability Models} candidats} - Obté el llistat de \textit{Adaptability Models} donat un \textit{systemId}. En el nostre cas, ens interessar obtenir aquells amb sistema \textit{MonitoringReconfiguration}, que representaran totes les adaptacions possibles a aplicar dins el nostre context.
 \end{itemize}
 
-La implementació d'aquesta interfície defineix la interacció amb el Model Repository Manager i la gestió de persistència dels models per tal de poder referenciar i treballar amb ells des del component Adapter. A l'apèndix ~\ref{AppendixA} es pot consultar la interfície definida amb tots els mètodes que formen part del Model Repository Client, i que seran els utilitzats per executar la reconfiguració d'un monitor. 
+La implementació d'aquesta interfície defineix la interacció amb el Model Repository Manager i la gestió de persistència dels models per tal de poder referenciar i treballar amb ells des del component Adapter. Podem veure-la definida a la figura ~\ref{fig:Figura25}. Degut a la seva extensió, i per major llegibilitat, fixem-nos que els primers mètodes es tracta dels 4 mètodes CRUD per cada \textit{ModelType} dels quals n'hi ha 6 (i per tant, 24 mètodes amb les operacions bàsiques). A continuació trobem els mètodes anteriorment descrits, que utilitzarem per processar l'adaptabilitat de models i la posterior reconfiguració de monitors.
 
 \section{Model Adapter}
 
+L'adaptació dinàmica de models UML és un dels principals reptes a afrontar com a part d'aquest projecte. Aquesta adaptació pot arribar a ser complexa, especialment si volem definir una adaptació de models que sigui prou genèrica com per a estendre-la a diferents tipus de models i diferents tipus d'operacions. No serà igual la modificació d'un diagrama de classes (com és el cas d'aquest projecte) que la modificació de, per exemple, un diagrama d'activitats. Per tal de permetre la seva integració a SUPERSEDE, per tant, cal que la lògica d'aquesta adaptabilitat segueixi una estructura prou abstracta que permeti estendre i implementar els diferents casos d'estudi. Per aquesta raó per desenvolupar el Model Adapter, component que assumirà la responsabilitat d'aquesta adaptació dinàmica, treballarem per una banda el disseny genèric del component, i per altra banda la implementació de la lògica necessària pel seu ús al cas de reconfiguració de monitors.\\
 
+\subsection{Disseny genèric}
+
+El primer que necessitem és definir les diferents operacions que el Model Adapter pot suportar. D'acord amb allò ja definit al \textit{Capítol 8. Modelatge de configuracions}, els \textit{Adaptability Models}, que descriuen el comportament d'aquestes adaptacions, suporten 4 tipus d'operacions: 
+
+\begin{enumerate}
+\item \textbf{ADD}. Donat un \textit{BaseModel}, afegeix al punt d'injecció \textit{jointpoint} els elements presents a \textit{AdviceModel}.
+\item \textbf{DELETE}. Donat un \textit{BaseModel}, elimina del punt d'injecció \textit{jointpoint} els elements presents a \textit{AdviceModel}.
+\item \textbf{REPLACE}. Donat un \textit{BaseModel}, substitueix el punt d'injecció \textit{jointpoint} amb els elements presents a \textit{AdviceModel}.
+\item \textbf{UPDATE}. Donat un \textit{BaseModel}, actualitza amb el valor definit els elements (atributs, o \textit{slots}) referenciats.
+\end{enumerate}
+
+Aquestes operacions estan contemplades des de l'abstracció del tipus de model que volem adaptar. Independentment d'aquest, si analitzem les 4 operacions, veiem que per una banda les 3 primeres presenten un comportament similar: utilitzen la mateixa informació, i la única variació és quin és el tractament intern. La 4a en canvi (la que serà el nostre cas d'estudi) es diferencia tant per les dades que necessita com pel seu comportament intern, ja que es tracta de la modificació de valors d'atributs d'elements del model. Partint d'aquesta idea, per tant, podem discernir entre dos tipus d'operacions: una orientada a l'adaptació complexa de models (ADD, DELETE, REPLACE) i l'altra a l'actualització de valors (UPDATE). A la figura ~\ref{fig:Figura28} podem veure el disseny de dues interfícies: una genèrica \textit{IModelAdapter} que exposa els dos mètodes principals, i una \textit{Composable} que defineix els 3 tipus d'adaptacions compostes. Aquest disseny queda justificat pel fet que l'Adapter, el component encarregat d'ordenar al Model Adapter l'adaptació de models, ha d'estar el màxim desacoblat de la lògica específica de l'adaptació de models. Ens veiem forçats a discernir entre UPDATE i la resta degut a la seva diferència des del punt de vista de requisits; però com que no és el cas amb les altres 3 accions, aquestes les encapsulem amb un sol mètode a la interfície \textit{IModelAdapter}, que serà la que aquest Adapter invocarà.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=11cm]{Figures/Figure28}
+\decoRule
+\caption{Disseny de les interfícies del Model Adapter}
+\label{fig:Figura28}
+\end{figure}
+
+
+
+\subsection{Disseny i implementació - diagrames de classes}
 
 \section{Components auxiliars}
 
@@ -159,23 +195,36 @@ Per treballar dinàmicament amb models UML utilitzant llibreries i plugins d'Ecl
 
 \subsection{Model Query}
 
-El \textbf{Model Query} consisteix en un component de gestió de models UML orientat a la cerca d'elements (classes, instàncies, relacions, atributs...) dins d'aquests models. Aquesta cerca s'utilitza combinant UML2, llibreria utilitzada per la càrrega dinàmica de models, amb VQL, utilitzat per definir patrons de cerca dins de models UML. 
+El \textbf{Model Query} consisteix en un component de gestió de models UML orientat a la cerca d'elements (classes, instàncies, relacions, atributs...) dins d'aquests models. Aquesta cerca s'utilitza combinant UML2, llibreria utilitzada per la càrrega dinàmica de models, amb VQL, utilitzat per definir patrons de cerca dins de models UML.\\
+
+Aquest component ens serà útil a l'hora de buscar al \textit{Base Model} que volem adaptar aquells elements que volem modificar (és a dir, p.e. els \textit{slots} o atributs el valor dels quals hem de modificar-ne el valor). A la figura ~\ref{fig:Figura23} podem veure la definició de la interfície que implementa Model Query, amb un mètode \textit{query(Pattern)} que rep com a paràmetre el \textit{pattern} amb el qual realitzarà la cerca. La nostra tasca serà, per tant, durant el procés d'adaptabilitat, obtenir el \textit{pattern} que ens interessa (que, si recordem, es troba definit a l'\textit{Adaptability Model}) i cridar a una instància d'aquest component inicialitzada amb el \textit{Base Model} corresponent, que ens retornarà com a resultat una \textit{Collection} amb elements UML trobats pel \textit{pattern}. Al tractar-se d'un component ja implementat fora de l'abast del projecte, no entrarem en els detalls tècnics del seu funcionament.
 
 \begin{figure}
 \centering
-\includegraphics[width=11cm]{Figures/Figure23}
+\includegraphics[width=6cm]{Figures/Figure23}
 \decoRule
-\caption{Interfície del Model Query}
+\caption{Disseny de la interfície del Model Query}
 \label{fig:Figura23}
 \end{figure}
 
 \subsection{Enactor}
 
+El component \textbf{Enactor} és un component orientat a la integració i comunicació entre el sistema d'adaptabilitat i el sistema de monitoratge. La seva tasca principal és rebre com a \textit{input} dos \textit{Base Model}, corresponents a l'actual del sistema abans de la reconfiguració i el nou \textit{Adapted Model} computat de l'adaptació de models, i mitjançant la comparació d'aquests dos models, extreure i construïr peticions de reconfiguració que enviarà posteriorment al component d'entrada del sistema de monitoratge: l'Orchestrator.\\
+
+L'Enactor es tracta d'un component genèric amb característiques pròpies de cada cas d'estudi. Dins el nostre context, l'Enactor ha de ser capaç de computar diferències entre diagrames de classes UML i traduïr-les a reconfiguracions de monitors. Però dins SUPERSEDE aquesta traducció pot ser amb models d'un altre tipus (p.e., diagrames d'activitat) a peticions de reconfiguració d'altres sistemes. Per aquesta raó, es defineixen dos components:
+
+\begin{itemize}
+\item \textbf{EnactorFactory.} Classe que encapsula els Enactors de cada \textit{ModelSystem} definit a SUPERSEDE, inclòs \textit{MonitoringReconfiguration}, i que a partir d'aquest paràmetre permet retornar una instància d'Enactor.
+\item \textbf{Enactor.} Component encarregat de la traducció de models a peticions de reconfiguració del sistema corresponent. La lògica interna d'aquest dependrà de cada \textit{ModelSystem}.
+\end{itemize}
+
+Com en el cas anterior, ignorarem els detalls tècnics interns i ens centrarem únicament en la seva usabilitat. A la figura ~\ref{fig:Figura24} trobem definida la interfície que implementa l'Enactor i la classe EnactorFactory.
+
 \begin{figure}
 \centering
 \includegraphics[width=11cm]{Figures/Figure24}
 \decoRule
-\caption{EnactorFatory i interfície de l'Enactor}
+\caption{Disseny de la interfície de l'Enactor i EnactorFactory}
 \label{fig:Figura24}
 \end{figure}
 
@@ -218,10 +267,24 @@ Per entendre millor aquest plantejament, anem a analitzar pas per pas quins són
 \end{enumerate}
 \end{enumerate}
 \end{enumerate}
-\item Actualitza el Model Repository amb el \textbf{nou \textit{Base Model}} i la nova \textit{Feature Configuration}.
+\item Actualitza el Model Repository amb el \textbf{nou \textit{Base Model}} i la \textbf{nova \textit{Feature Configuration}}.
 \end{enumerate}
 
 \subsection{Disseny i diagrama de seqüència}
+
+El disseny del component Adapter és relativament senzill en quant a arquitectura software, i el repte important és el disseny i la implementació de l'algorisme prèviament definit. Tot i així, la resta de components del sistema d'adaptabilitat han estat dissenyats i implementats per tal de fer que aquest disseny sigui el més senzill possible.\\
+
+A la figura ~\ref{fig:Figura26} podem veure la interfície definida per l'Adapter. Recordem que, la funció d'aquest component és realitzar l'adaptació de models de forma automàtica mitjançant un únic algorisme genèric. Aquest algorisme és el definit pel mètode \textit{enactAdaptationDecisionActionsForFC(ModelSystem system)}. La resta de mètodes reben paràmetres addicionals ja que estan orientats a realitzar adaptacions no de forma totalment automatitzada, sinó definint paràmetres específics (p.e. definint una nova FC a computar, o bé unes \textit{Actions} específiques).\\
+
+\begin{figure}
+\centering
+\includegraphics[width=9cm]{Figures/Figure26}
+\decoRule
+\caption{Disseny de la interfície de l'Adapter}
+\label{fig:Figura26}
+\end{figure}
+
+Nosaltres ens centrarem en la lògica d'aquest mètode genèric que obté els models de forma totalment automàtica, orientat al cas d'ús de reconfiguració genèric que volem exemplificar. A la figura ~\ref{fig:Figura22} podem visualitzar el diagrama de seqüència que defineix l'algorisme prèviament explicat i la seva interacció amb els components que formen part del sistema d'adaptabilitat. 
 
 \begin{figure}[!h]
 \centering

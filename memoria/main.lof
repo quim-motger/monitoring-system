@@ -30,7 +30,13 @@
 \contentsline {figure}{\numberline {8.4}{\ignorespaces Exemple de Pattern Model del sistema de monitoratge\relax }}{58}{figure.caption.135}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {9.1}{\ignorespaces Disseny del domini del Model Repository Manager\relax }}{63}{figure.caption.149}
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de la reconfiguraci\IeC {\'o} del sistema amb l'Adapter\relax }}{67}{figure.caption.177}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Repository Manager\relax }}{64}{figure.caption.155}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Repository Service\relax }}{66}{figure.caption.157}
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Disseny de les interf\IeC {\'\i }cies del Model Adapter\relax }}{68}{figure.caption.164}
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Query\relax }}{68}{figure.caption.168}
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Disseny de la interf\IeC {\'\i }cie de l'Enactor i EnactorFactory\relax }}{69}{figure.caption.170}
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Disseny de la interf\IeC {\'\i }cie de l'Adapter\relax }}{71}{figure.caption.191}
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de la reconfiguraci\IeC {\'o} del sistema amb l'Adapter\relax }}{72}{figure.caption.192}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

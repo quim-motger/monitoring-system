@@ -81,23 +81,26 @@
 \contentsline {subsection}{\numberline {9.1.1}Model Repository Manager}{61}{subsection.144}
 \contentsline {subsubsection}{Disseny de la base de dades}{61}{section*.147}
 \contentsline {subsubsection}{Disseny i implementaci\IeC {\'o} del domini i controlador}{62}{section*.148}
-\contentsline {subsection}{\numberline {9.1.2}Model Repository Client}{64}{subsection.155}
-\contentsline {section}{\numberline {9.2}Model Adapter}{65}{section.156}
-\contentsline {section}{\numberline {9.3}Adapter}{65}{section.157}
-\contentsline {subsection}{\numberline {9.3.1}Algorisme d'adaptabilitat}{65}{subsection.158}
-\contentsline {subsection}{\numberline {9.3.2}Disseny i diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia}{66}{subsection.176}
-\contentsline {section}{\numberline {9.4}Enactor}{66}{section.178}
-\contentsline {chapter}{\numberline {10}Dashboard}{69}{chapter.179}
-\contentsline {section}{\numberline {10.1}Disseny de l'arquitectura software}{69}{section.180}
-\contentsline {section}{\numberline {10.2}Disseny de la interf\IeC {\'\i }cie}{69}{section.181}
-\contentsline {section}{\numberline {10.3}Implementaci\IeC {\'o}}{69}{section.182}
-\contentsline {chapter}{\numberline {11}Reconfiguraci\IeC {\'o} dels monitors}{71}{chapter.183}
-\contentsline {section}{\numberline {11.1}Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de reconfiguraci\IeC {\'o}}{71}{section.184}
-\contentsline {section}{\numberline {11.2}Exemple de cas d'\IeC {\'u}s}{71}{section.185}
-\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{73}{chapter.186}
-\contentsline {chapter}{\numberline {13}Conclusions}{75}{chapter.187}
-\contentsline {section}{\numberline {13.1}Justificaci\IeC {\'o} de l'assoliment de compet\IeC {\`e}ncies}{75}{section.188}
-\contentsline {section}{\numberline {13.2}Desviacions i dificultats}{75}{section.189}
-\contentsline {section}{\numberline {13.3}Avaluaci\IeC {\'o} del desenvolupament del projecte}{75}{section.190}
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{77}{appendix.191}
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{77}{section.192}
+\contentsline {subsection}{\numberline {9.1.2}Model Repository Client}{65}{subsection.156}
+\contentsline {section}{\numberline {9.2}Model Adapter}{67}{section.158}
+\contentsline {subsection}{\numberline {9.2.1}Disseny gen\IeC {\`e}ric}{67}{subsection.159}
+\contentsline {subsection}{\numberline {9.2.2}Disseny i implementaci\IeC {\'o} - diagrames de classes}{68}{subsection.165}
+\contentsline {section}{\numberline {9.3}Components auxiliars}{68}{section.166}
+\contentsline {subsection}{\numberline {9.3.1}Model Query}{68}{subsection.167}
+\contentsline {subsection}{\numberline {9.3.2}Enactor}{69}{subsection.169}
+\contentsline {section}{\numberline {9.4}Adapter}{69}{section.171}
+\contentsline {subsection}{\numberline {9.4.1}Algorisme d'adaptabilitat}{70}{subsection.172}
+\contentsline {subsection}{\numberline {9.4.2}Disseny i diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia}{71}{subsection.190}
+\contentsline {chapter}{\numberline {10}Dashboard}{73}{chapter.193}
+\contentsline {section}{\numberline {10.1}Disseny de l'arquitectura software}{73}{section.194}
+\contentsline {section}{\numberline {10.2}Disseny de la interf\IeC {\'\i }cie}{73}{section.195}
+\contentsline {section}{\numberline {10.3}Implementaci\IeC {\'o}}{73}{section.196}
+\contentsline {chapter}{\numberline {11}Reconfiguraci\IeC {\'o} dels monitors}{75}{chapter.197}
+\contentsline {section}{\numberline {11.1}Exemple de cas d'\IeC {\'u}s}{75}{section.198}
+\contentsline {chapter}{\numberline {12}Treball futur i possibles expansions}{77}{chapter.199}
+\contentsline {chapter}{\numberline {13}Conclusions}{79}{chapter.200}
+\contentsline {section}{\numberline {13.1}Justificaci\IeC {\'o} de l'assoliment de compet\IeC {\`e}ncies}{79}{section.201}
+\contentsline {section}{\numberline {13.2}Desviacions i dificultats}{79}{section.202}
+\contentsline {section}{\numberline {13.3}Avaluaci\IeC {\'o} del desenvolupament del projecte}{79}{section.203}
+\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{81}{appendix.204}
+\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{81}{section.205}
