@@ -33,11 +33,17 @@
 \contentsline {figure}{\numberline {9.2}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Repository Manager\relax }}{64}{figure.caption.155}
 \contentsline {figure}{\numberline {9.3}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Repository Service\relax }}{66}{figure.caption.157}
 \contentsline {figure}{\numberline {9.4}{\ignorespaces Disseny de les interf\IeC {\'\i }cies del Model Adapter\relax }}{68}{figure.caption.164}
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Query\relax }}{68}{figure.caption.168}
-\contentsline {figure}{\numberline {9.6}{\ignorespaces Disseny de la interf\IeC {\'\i }cie de l'Enactor i EnactorFactory\relax }}{69}{figure.caption.170}
-\contentsline {figure}{\numberline {9.7}{\ignorespaces Disseny de la interf\IeC {\'\i }cie de l'Adapter\relax }}{71}{figure.caption.191}
-\contentsline {figure}{\numberline {9.8}{\ignorespaces Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de la reconfiguraci\IeC {\'o} del sistema amb l'Adapter\relax }}{72}{figure.caption.192}
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de l'adaptaci\IeC {\'o} composta del \textit {Model Adapter}\relax }}{69}{figure.caption.165}
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Implementacions de la interf\IeC {\'\i }cie \textit {Composable} per \textit {Class} i \textit {InstanceSpecification}\relax }}{70}{figure.caption.167}
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Query\relax }}{70}{figure.caption.170}
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Disseny de la interf\IeC {\'\i }cie de l'Enactor i EnactorFactory\relax }}{71}{figure.caption.172}
+\contentsline {figure}{\numberline {9.9}{\ignorespaces Disseny de la interf\IeC {\'\i }cie de l'Adapter\relax }}{73}{figure.caption.193}
+\contentsline {figure}{\numberline {9.10}{\ignorespaces Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de la reconfiguraci\IeC {\'o} autom\IeC {\`a}tica del sistema amb l'Adapter\relax }}{74}{figure.caption.194}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Disseny de la vista d'adaptacions suggerides del \textit {dashboard}\relax }}{76}{figure.caption.198}
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Disseny de la vista d'adaptacions executades del \textit {dashboard}\relax }}{77}{figure.caption.199}
+\contentsline {figure}{\numberline {10.3}{\ignorespaces Disseny del domini del \textit {dashboard}\relax }}{78}{figure.caption.201}
+\contentsline {figure}{\numberline {10.4}{\ignorespaces Disseny dels controladors REST del \textit {dashboard}\relax }}{78}{figure.caption.202}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

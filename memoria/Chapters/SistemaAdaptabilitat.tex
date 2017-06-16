@@ -162,7 +162,7 @@ La implementació d'aquesta interfície defineix la interacció amb el Model Rep
 
 \section{Model Adapter}
 
-L'adaptació dinàmica de models UML és un dels principals reptes a afrontar com a part d'aquest projecte. Aquesta adaptació pot arribar a ser complexa, especialment si volem definir una adaptació de models que sigui prou genèrica com per a estendre-la a diferents tipus de models i diferents tipus d'operacions. No serà igual la modificació d'un diagrama de classes (com és el cas d'aquest projecte) que la modificació de, per exemple, un diagrama d'activitats. Per tal de permetre la seva integració a SUPERSEDE, per tant, cal que la lògica d'aquesta adaptabilitat segueixi una estructura prou abstracta que permeti estendre i implementar els diferents casos d'estudi. Per aquesta raó per desenvolupar el Model Adapter, component que assumirà la responsabilitat d'aquesta adaptació dinàmica, treballarem per una banda el disseny genèric del component, i per altra banda la implementació de la lògica necessària pel seu ús al cas de reconfiguració de monitors.\\
+L'adaptació dinàmica de models UML pot arribar a ser complexa, especialment si volem definir una adaptació de models que sigui prou genèrica com per a estendre-la a diferents tipus de models i diferents tipus d'operacions. No serà igual la modificació d'un diagrama de classes (com és el cas d'aquest projecte) que la modificació de, per exemple, un diagrama d'activitats. Per tal de permetre la seva integració a SUPERSEDE, per tant, cal que la lògica d'aquesta adaptabilitat segueixi una estructura prou abstracta que permeti estendre i implementar els diferents casos d'estudi. Per aquesta raó per desenvolupar el Model Adapter, component que assumirà la responsabilitat d'aquesta adaptació dinàmica, treballarem per una banda el disseny genèric del component, i per altra banda la implementació de la lògica necessària pel seu ús al cas de reconfiguració de monitors.\\
 
 \subsection{Disseny genèric}
 
@@ -175,19 +175,58 @@ El primer que necessitem és definir les diferents operacions que el Model Adapt
 \item \textbf{UPDATE}. Donat un \textit{BaseModel}, actualitza amb el valor definit els elements (atributs, o \textit{slots}) referenciats.
 \end{enumerate}
 
-Aquestes operacions estan contemplades des de l'abstracció del tipus de model que volem adaptar. Independentment d'aquest, si analitzem les 4 operacions, veiem que per una banda les 3 primeres presenten un comportament similar: utilitzen la mateixa informació, i la única variació és quin és el tractament intern. La 4a en canvi (la que serà el nostre cas d'estudi) es diferencia tant per les dades que necessita com pel seu comportament intern, ja que es tracta de la modificació de valors d'atributs d'elements del model. Partint d'aquesta idea, per tant, podem discernir entre dos tipus d'operacions: una orientada a l'adaptació complexa de models (ADD, DELETE, REPLACE) i l'altra a l'actualització de valors (UPDATE). A la figura ~\ref{fig:Figura28} podem veure el disseny de dues interfícies: una genèrica \textit{IModelAdapter} que exposa els dos mètodes principals, i una \textit{Composable} que defineix els 3 tipus d'adaptacions compostes. Aquest disseny queda justificat pel fet que l'Adapter, el component encarregat d'ordenar al Model Adapter l'adaptació de models, ha d'estar el màxim desacoblat de la lògica específica de l'adaptació de models. Ens veiem forçats a discernir entre UPDATE i la resta degut a la seva diferència des del punt de vista de requisits; però com que no és el cas amb les altres 3 accions, aquestes les encapsulem amb un sol mètode a la interfície \textit{IModelAdapter}, que serà la que aquest Adapter invocarà.\\
+Aquestes operacions estan contemplades des de l'abstracció del tipus de model que volem adaptar. Independentment d'aquest, si analitzem les 4 operacions, veiem que per una banda les 3 primeres presenten un comportament similar: utilitzen la mateixa informació, i la única variació és quin és el tractament intern. La 4a en canvi (la que serà el nostre cas d'estudi) es diferencia tant per les dades que necessita com pel seu comportament intern, ja que es tracta de la modificació de valors d'atributs d'elements del model. Partint d'aquesta idea, per tant, podem discernir entre dos tipus d'operacions: una orientada a l'adaptació complexa de models (ADD, DELETE, REPLACE) i l'altra a l'actualització de valors (UPDATE). A la figura ~\ref{fig:Figura28} podem veure el disseny de dues interfícies: una genèrica \textit{IModelAdapter} que exposa els dos mètodes principals, i una \textit{Composable} que defineix els 3 tipus d'adaptacions compostes segons el tipus d'element UML que estem modificant. Addicionalment, definim una \textit{ComposableFactory} que actuarà com a factoria de les diferents implementacions de \textit{Composable}. Aquest disseny queda justificat pel fet que l'Adapter, el component encarregat d'ordenar al Model Adapter l'adaptació de models, ha d'estar el màxim desacoblat de la lògica específica de l'adaptació de models. Ens veiem forçats a discernir entre UPDATE i la resta degut a la seva diferència des del punt de vista de requisits; però com que no és el cas amb les altres 3 accions, aquestes les encapsulem amb un sol mètode a la interfície \textit{IModelAdapter}, que serà la que aquest Adapter invocarà.\\
 
 \begin{figure}
 \centering
-\includegraphics[width=11cm]{Figures/Figure28}
+\includegraphics[width=13cm]{Figures/Figure28}
 \decoRule
 \caption{Disseny de les interfícies del Model Adapter}
 \label{fig:Figura28}
 \end{figure}
 
+Aquesta interfície \textit{Composable} ens permet exposar els mètodes d'adaptabilitat de models segons cadascun dels 3 tipus d'operacions compostes. En tots casos, els paràmetres rebuts són els mateixos:
 
+\begin{itemize}
+\item \textit{Base Model} on s'han d'aplicar els canvis
+\item Element etiquetat com a \textit{jointpoint} (o amb el rol corresponent) al \textit{Base Model}
+\item \textit{Advice Model} que conté els canvis a aplicar
+\item Element etiquetat com a \textit{jointpoint} (o amb el rol corresponent) al \textit{Base Model}
+\end{itemize}
 
-\subsection{Disseny i implementació - diagrames de classes}
+Per comprendre millor el disseny i implementació de l'arquitectura genèrica del Model Adapter, la figura ~\ref{fig:Figura30} mostra el diagrama de seqüència de la operació \textit{applyCompositionDirective}, que rep per paràmetre:
+
+\begin{itemize}
+\item \textit{actionType} - Instància del tipus d'acció (ADD, DELETE, REPLACE) a executar
+\item \textit{baseModel} - Instància del \textit{Base Model} on s'han d'aplicar els canvis
+\item \textit{elements} - \textit{Hashmap} identificat per \textit{role} (amb el que s'han etiquetat) amb tots els elements que intervenen en l'adaptació
+\item \textit{adviceRole} - \textit{Role} amb el que està etiquetat l'element a l'\textit{Advice Model}
+\item \textit{variantModel} - Instància del \textit{Variant Model} que conté els canvis a aplicar
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=14cm]{Figures/Figure30}
+\decoRule
+\caption{Diagrama de seqüència de l'adaptació composta del \textit{Model Adapter}}
+\label{fig:Figura30}
+\end{figure}
+
+\subsection{Implementació - diagrames de classes}
+
+Amb aquest disseny podem estendre els casos d'ús del Model Adapter segons la necessitat d'adaptació de model de cada cas d'estudi del sistema. Al definir amb interfícies les 4 operacions bàsiques, així com els paràmetres d'entrada i la lògica des que rep una petició fins que identifica i ressol la operació a aplicar, només necessitem estendre la implementació per personalitzar les operacions que aplica sobre el model per aplicar les 3 operacions ADD, DELETE i REPLACE.\\
+
+Utilitzant el disseny definit a la figura ~\ref{fig:Figura28},podem estendre la implementació del Model Adapter per tal que treballi amb models UML de tipus diagrama de classes. Amb aquest objectiu, necessitem identificar els dos elements UML bàsics amb els quals treballarem: \textbf{classes} (p.e. la inserció d'un nou monitor) i \textbf{instàncies} (p.e. l'eliminació d'una configuració dins el sistema). Per tant, necessitem dues implementacions de la interfície \textit{Composable}: \textit{ComposableClass} i \textit{ComposableInstanceSpecification}. A la figura ~\ref{fig:Figura31} podem veure el disseny d'aquestes dues implementacions; bàsicament consisteix en la implementació dels 3 mètodes per cada tipus d'operació.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=11cm]{Figures/Figure31}
+\decoRule
+\caption{Implementacions de la interfície \textit{Composable} per \textit{Class} i \textit{InstanceSpecification}}
+\label{fig:Figura31}
+\end{figure}  
+
+La implementació interna d'aquestes classes s'ha realitzat de forma conjunta amb altres \textit{partners} del projecte, i en qualsevol cas, al no formar part del cas de validació d'aquest TFG, sinó d'una base a partir de la qual plantejar nous escenaris d'extensió i treball futur, no aprofundirem més en els detalls d'aquesta.\\
 
 \section{Components auxiliars}
 
@@ -274,7 +313,7 @@ Per entendre millor aquest plantejament, anem a analitzar pas per pas quins són
 
 El disseny del component Adapter és relativament senzill en quant a arquitectura software, i el repte important és el disseny i la implementació de l'algorisme prèviament definit. Tot i així, la resta de components del sistema d'adaptabilitat han estat dissenyats i implementats per tal de fer que aquest disseny sigui el més senzill possible.\\
 
-A la figura ~\ref{fig:Figura26} podem veure la interfície definida per l'Adapter. Recordem que, la funció d'aquest component és realitzar l'adaptació de models de forma automàtica mitjançant un únic algorisme genèric. Aquest algorisme és el definit pel mètode \textit{enactAdaptationDecisionActionsForFC(ModelSystem system)}. La resta de mètodes reben paràmetres addicionals ja que estan orientats a realitzar adaptacions no de forma totalment automatitzada, sinó definint paràmetres específics (p.e. definint una nova FC a computar, o bé unes \textit{Actions} específiques).\\
+A la figura ~\ref{fig:Figura26} podem veure la interfície definida per l'Adapter. Recordem que, la funció d'aquest component és realitzar l'adaptació de models de forma automàtica mitjançant un únic algorisme genèric. Aquest algorisme és el definit pel mètode \textit{enactAdaptationDecisionActionsForFC(ModelSystem system)}. La resta de mètodes reben paràmetres addicionals ja que estan orientats a realitzar adaptacions no de forma totalment automatitzada, sinó definint paràmetres específics (p.e. definint una nova FC a computar, o bé unes \textit{Actions} específiques). Per exemplificar i validar el nostre projecte, nosaltres ens centrarem en aplicar \textit{Feature Configurations} específiques, per comprovar que els canvis definits satisfan allò especificat a la \textit{Feature Configuration.}\\
 
 \begin{figure}
 \centering
@@ -284,12 +323,12 @@ A la figura ~\ref{fig:Figura26} podem veure la interfície definida per l'Adapte
 \label{fig:Figura26}
 \end{figure}
 
-Nosaltres ens centrarem en la lògica d'aquest mètode genèric que obté els models de forma totalment automàtica, orientat al cas d'ús de reconfiguració genèric que volem exemplificar. A la figura ~\ref{fig:Figura22} podem visualitzar el diagrama de seqüència que defineix l'algorisme prèviament explicat i la seva interacció amb els components que formen part del sistema d'adaptabilitat. 
+A la figura ~\ref{fig:Figura22} podem visualitzar el diagrama de seqüència que defineix l'algorisme prèviament explicat i la seva interacció amb els components que formen part del sistema d'adaptabilitat. 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=13cm]{Figures/Figure22}
 \decoRule
-\caption{Diagrama de seqüència de la reconfiguració del sistema amb l'Adapter}
+\caption{Diagrama de seqüència de la reconfiguració automàtica del sistema amb l'Adapter}
 \label{fig:Figura22}
 \end{figure}
