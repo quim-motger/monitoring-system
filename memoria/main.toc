@@ -97,10 +97,10 @@
 \contentsline {section}{\numberline {10.3}Implementaci\IeC {\'o}}{77}{section.200}
 \contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{79}{chapter.203}
 \contentsline {section}{\numberline {11.1}Presentaci\IeC {\'o} de cas d'\IeC {\'u}s}{79}{section.204}
-\contentsline {section}{\numberline {11.2}Execuci\IeC {\'o} de la reconfiguraci\IeC {\'o}}{79}{section.205}
-\contentsline {chapter}{\numberline {12}Conclusions}{81}{chapter.206}
-\contentsline {section}{\numberline {12.1}Justificaci\IeC {\'o} de l'assoliment de compet\IeC {\`e}ncies}{81}{section.207}
-\contentsline {section}{\numberline {12.2}Avaluaci\IeC {\'o} del potencial del producte generat}{82}{section.208}
-\contentsline {section}{\numberline {12.3}Avaluaci\IeC {\'o} general}{83}{section.209}
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{85}{appendix.210}
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{85}{section.211}
+\contentsline {section}{\numberline {11.2}Execuci\IeC {\'o} de la reconfiguraci\IeC {\'o}}{80}{section.209}
+\contentsline {chapter}{\numberline {12}Conclusions}{83}{chapter.214}
+\contentsline {section}{\numberline {12.1}Justificaci\IeC {\'o} de l'assoliment de compet\IeC {\`e}ncies}{83}{section.215}
+\contentsline {section}{\numberline {12.2}Avaluaci\IeC {\'o} del potencial del producte generat}{84}{section.216}
+\contentsline {section}{\numberline {12.3}Avaluaci\IeC {\'o} general}{85}{section.217}
+\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{87}{appendix.218}
+\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{87}{section.219}

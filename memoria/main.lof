@@ -45,5 +45,13 @@
 \contentsline {figure}{\numberline {10.3}{\ignorespaces Disseny del domini del \textit {dashboard}\relax }}{78}{figure.caption.201}
 \contentsline {figure}{\numberline {10.4}{\ignorespaces Disseny dels controladors REST del \textit {dashboard}\relax }}{78}{figure.caption.202}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {11.1}{\ignorespaces \textit {Base Model} utilitzat per validar la reconfiguraci\IeC {\'o} del sistema\relax }}{79}{figure.caption.205}
+\contentsline {figure}{\numberline {11.2}{\ignorespaces \textit {Feature Configuration} que descriu la darrera configuraci\IeC {\'o} del sistema aplicada\relax }}{80}{figure.caption.206}
+\contentsline {figure}{\numberline {11.3}{\ignorespaces \textit {Feature Configuration} que descriu la configuraci\IeC {\'o} a aplicar per la reconfiguraci\IeC {\'o}\relax }}{80}{figure.caption.207}
+\contentsline {figure}{\numberline {11.4}{\ignorespaces \textit {Adaptability Model} que descriu la reconfiguraci\IeC {\'o} a executar\relax }}{81}{figure.caption.208}
+\contentsline {figure}{\numberline {11.5}{\ignorespaces Primer enviament de dades del monitor de Twitter a Kafka\relax }}{81}{figure.caption.210}
+\contentsline {figure}{\numberline {11.6}{\ignorespaces Segon enviament de dades del monitor de Twitter a Kafka (abans de la reconfiguraci\IeC {\'o})\relax }}{81}{figure.caption.211}
+\contentsline {figure}{\numberline {11.7}{\ignorespaces Tercer enviament de dades del monitor de Twitter a Kafka (despr\IeC {\'e}s de la reconfiguraci\IeC {\'o})\relax }}{82}{figure.caption.212}
+\contentsline {figure}{\numberline {11.8}{\ignorespaces Quart enviament de dades del monitor de Twitter a Kafka (configuraci\IeC {\'o} estable)\relax }}{82}{figure.caption.213}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
