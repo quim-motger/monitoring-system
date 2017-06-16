@@ -8,10 +8,53 @@ Com a cloenda pel desenvolupament d'aquest projecte, aquest darrer capítol pret
 
 \section{Justificació de l'assoliment de competències}
 
+Com a part de la planificació del projecte i el curs de GEP, es van definir una sèrie de competències que es treballarien en aquest projecte en diferents graus. Un cop finalitzat el seu desenvolupament, hem d'assegurar no només la satisfacció dels objectius (plantejada al \textit{Capítol 11. Validació del sistema}), sinó també d'aquestes competències i el seu treball amb el màxim rigor possible.
 
+\begin{enumerate}
+\item [CES1.1.] \textbf{Desenvolupar, mantenir i avaluar sistemes i serveis software complexos i/o crítics. [En profunditat]}
+\subitem L'objectiu principal del projecte ha estat el desenvolupament de dos sistemes (de monitoratge i d'adaptabilitat) formats per un conjunt de components independents, integrats entre ells per satisfer un objectiu major. El desenvolupament de cadascun d'aquests components, així com el seu disseny, el seu \textit{testing} i la seva validació han suposat un treball en profunditat del treball realitzat en un sistema software complex, amb un ús de tecnologies variat i amb requisits diferenciats.
+\item [CES1.2.] \textbf{Donar solució a problemes d'integració en funció de les estratègies, dels estàndards i de les tecnologies disponibles. [En profunditat]}
+\subitem La integració i comunicació d'aquests components s'ha dissenyat i desenvolupat al llarg del projecte. La necessitat de disposar d'un sistema distribuït ens ha presentat la necessitat de donar solució a la integració de components, d'una banda a través de la necessitat del component d'integració utilitzat (IF), i d'altra banda el disseny i implementació de la lògica necessària a cada component per ser exposat com a servei i poder ser així integrat a IF.
+\item [CES1.3.] \textbf{Identificar, avaluar i gestionar els riscos potencials associats a la construcció de software que es poguessin presentar. [Bastant]}
+\subitem Especialment treballada durant la planificació del projecte, i utilitzada durant el seu desenvolupament, la gestió i planificació temporal s'ha adaptat a les petites desviacions que s'han anat patint al llarg del desenvolupament.
+\item [CES1.5.] \textbf{Especificar, dissenyar, implementar i avaluar bases de dades.  [Bastant]}
+\subitem Components com l'Orchestrator o el Model Repository Manager han necessitat l'especificació, el disseny, la implementació i l'avaluació de bases de dades relacionals. Aquestes tasques s'han realitzat d'acord a les necessitats de cada component.
+\item [CES1.7.] \textbf{Controlar la qualitat i dissenyar proves en la producció de software. [En profunditat]}
+\subitem Tots els components han estan validats independentment per satisfer la seva funcionalitat satisfactòriament; addicionalment, es dedica el \textit{Capítol 11. Validació del sistema} per controlar i avaluar l'execució completa de tots els components dins el \textit{workflow} d'adaptació del sistema de monitoratge.
+\item [CES1.8.] \textbf{Desenvolupar, mantenir i avaluar sistemes de control i de temps real. [En profunditat]}
+\subitem Els monitors implementats són components que interactuen en temps reals amb altres sistemes software. Aquests components s'han dissenyat i desenvolupat en el context d'aquest projecte, i ha calgut també la seva validació per permetre la seva integració.
+\item [CES1.9.] \textbf{Demostrar comprensió en la gestió i govern dels sistemes software. [En profunditat]}
+\subitem Al llarg de tot el projecte s'ha plantejat un fil conductor per descriure els diferents components a implementar i com els requisits del sistema s'han anat satisfent amb el desenvolupament d'aquests. Addicionalment s'han incorporat els raonaments i justificacions pertinents, tant per ajudar al lector a entendre el procés de desenvolupament, com per demostrar l'assimilació dels coneixements de gestió del sistema software generat.
+\item [CES2.1.] \textbf{Definir i gestionar els requisits d'un sistema software. [En profunditat]}
+\subitem Satisfet en la part de la planificació, des d'un punt de vista genèric per tot el sistema, i addicionalment durant el desenvolupament del projecte, conforme de cada component hem extret els requisits necessaris per procedir al seu desenvolupament.
+\item [CES2.2.] \textbf{Dissenyar solucions apropiades en un o més dominis d'aplicació, utilitzant mètodes d'enginyeria del software que integrin aspectes ètics, socials, legals i econòmics. [Bastant]}
+\subitem El \textit{Capítol 4. Gestió i desenvolupament} presenta d'una banda un anàlisi detallat i numèric dels requisits econòmics del projecte, segons criteris com les hores necessàries, l'equip físic i humà, etc. Per altra banda, presenta l'anàlisi dels criteris de sostenibilitat des del punt de vista ètic, social i legal que al llarg de tot el projecte s'ha assegurat que es garanteixen
+\textbf{\item [CES3.1.] Desenvolupar serveis i aplicacions multimèdia. [En profunditat]}
+\subitem L'exposició de tots els components com a serveis RESTful per permetre la seva integració, o bé el desenvolupament del \textit{dashboard} per l'adaptabilitat del sistema, ha suposat no només el treball d'aquests coneixements en aquest projecte, sinó també un aprenentatge en desenvolupament d'APIs i \textit{front-end}.
+\end{enumerate}
 
-\section{Desviacions i dificultats}
+\section{Avaluació del potencial del producte generat}
 
-\section{Treball futur i possibles expansions}
+Els resultats generats i el potencial de cadascun dels components desenvolupats s'han anat tractant i presentant al llarg del projecte, però és convenient fer un resum sobre el potencial del producte generat de cara a desenvolupament futur i ampliació de les seves funcionalitats.\\
 
-\section{Avaluació del desenvolupament del projecte}
+Primerament, la \textbf{proposta d'una arquitectura genèrica} pel desenvolupament de monitors obre la possibilitat d'extensió del sistema de monitoratge amb relativa facilitat, partint de la documentació que aquesta mateixa memòria presenta. De fet, actualment altres col·laboradors del projecte han fet servir aquesta mateixa arquitectura per desenvolupar altres monitors que s'han integrat en el sistema SUPERSEDE per altres casos d'estudi. Això és un exemple de com aquesta proposta satisfà el nostre objectiu d'heterogeneïtat, i permet partint d'una arquitectura genèrica implementar un monitor reutilitzant el màxim dels components, i assumint com a única responsabilitat addicional del desenvolupador la lògica interna del monitor.\\
+
+Respecte al sistema d'adaptabilitat, la validació d'aquest projecte es centra en la reconfiguració de processos de monitoratge actius, però els components desenvolupats i el model d'adaptació obre la porta a una \textbf{autonomia total del sistema} i una reconfiguració molt més completa. El sistema dona suport a modificacions més complexes de models UML, com per exemple afegir instàncies de configuracions (processos de monitoratge). Amb poques modificacions, podríem estendre i definir adaptacions molt més complexes: el sistema de monitoratge suporta completament qualsevol operació respecte els processos de monitoratge, i dins el sistema d'adaptabilitat, només caldria definir els models de configuració que defineixin aquests canvis, i adaptar el component Enactor per suportar la traducció a aquest tipus de peticions. Així, a mesura que es treballi en noves configuracions, podem disposar d'un sistema que no només sigui autoadaptable des del punt de vista de reconfiguració de processos de monitoratge, sino fins i tot en la posada en marxa i aturada.\\
+
+Finalment, cal contemplar que aquest projecte ha estat desenvolupat centrant-se en el cas de reconfiguració de monitors, però sempre respectant la seva integració dins SUPERSEDE. Això ha permès que alguns dels components desenvolupats, com per exemple el Model Repository, l'Adpater o el Model Adapter són completament reutilitzables per altres casos d'estudi totalment independents a la reconfiguració de monitors. En cada cas, caldria plantejar les necessitats de models, i estendre el Model Adapter per suportar l'adaptació dels models definits. A partir d'aquí, des d'un punt de vista genèric, la reconfiguració de sistemes és totalment autònoma i abstracta a la necessitat del sistema.
+
+En resum, podem satisfer que per una banda s'ha resolt una problemàtica específica, alhora que el producte generat permet el seu ús i reutilització per seguir treballant i desenvolupar en resoldre problemes dins la mateixa àrea i amb objectius similars.
+
+\section{Avaluació general}
+
+Davant els punts anteriorment exposats, es pot garantir no només la satisfacció dels objectius propis del projecte, sinó també els objectius des d'un punt de vista didàctic com a projecte que representa la cloenda dels estudis del Grau en Enginyeria Informàtica.\\
+
+Aquest projecte ha suposat, a títol personal, una de les primeres experiències en el desenvolupament d'un projecte amb implicacions reals, entenent aquest desenvolupament com el transcurs en la seva totalitat: des del plantejament de les necessitats i requisits fins la seva validació, passant pel disseny software i la implementació dels components especificats. Com a futur professional de l'enginyeria del software, l'oportunitat de participar en aquestes fases d'un projecte i veure la seva evolució aporta un gran valor personal i professional, que serveix de perfecte tancament dels estudis mitjançant l'assoliment i validació final dels coneixements adquirits durant el transcurs del grau.\\
+
+Addicionalment aquest projecte ha suposat no només una consolidació dels coneixements adquirits, sinó també un aprenentatge de tecnologies o conceptes que altrament és probable que no hagués tractat. Degut a la gran variabilitat de requisits tècnics dels diferents components del projecte, ha estat necessari afrontar reptes variats que en alguns casos han suposat dedicar hores d'aprenentatge (com, p.e., el disseny d'un \textit{front-end} amb un \textit{framework} específic). Aquest és un punt essencial que, a més, reflexa perfectament la realitat del món laboral dins el sector de l'enginyeria informàtica: la constant necessitat de renovació i aprenentatge en funció de les circumstàncies del moment.\\
+
+En definitiva les sensacions al finalitzar aquest projecte són altament satisfactòries. Consolidant els coneixements interioritzats durant els 4 anys d'aquest grau, produeix una gran motivació veure d'una banda les habilitats i coneixements adquirits, i d'altra banda el potencial coneixement encara per adquirir i desenvolupar, ja sigui en altres entorns acadèmics o en el món laboral. És el moment de tancar el darrer capítol d'aquesta memòria i, amb sort, començar a escriure'n molts més allà on el futur professional em condueixi. 
+
+\begin{center}
+\textit{Joróbate Flanders.}
+\end{center}

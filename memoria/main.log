@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.5.4)  16 JUN 2017 10:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.5.4)  16 JUN 2017 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1517,8 +1517,8 @@ Package csquotes Info: ... found 'babel' package.
 (./Chapters/AnalisiRequisits.aux) (./Chapters/EinesDesenvolupament.aux)
 (./Chapters/SistemaMonitoratge.aux) (./Chapters/ModelatgeConfiguracions.aux)
 (./Chapters/SistemaAdaptabilitat.aux) (./Chapters/DissenyDashboard.aux)
-(./Chapters/ReconfiguracioMonitors.aux) (./Chapters/TreballFutur.aux)
-(./Chapters/Conclusions.aux) (./Appendices/AppendixA.aux))
+(./Chapters/ReconfiguracioMonitors.aux) (./Chapters/Conclusions.aux)
+(./Appendices/AppendixA.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
@@ -2889,57 +2889,75 @@ Cap\'{\i }tol 11.
 
 
 ]
-\openout2 = `Chapters/TreballFutur.aux'.
+\openout2 = `Chapters/Conclusions.aux'.
 
- (./Chapters/TreballFutur.tex [80
+ (./Chapters/Conclusions.tex [80
 
 
 
 ]
 Cap\'{\i }tol 12.
-)
 1: section
 [81]
-\openout2 = `Chapters/Conclusions.aux'.
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
- (./Chapters/Conclusions.tex [82
+ []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
-]
-Cap\'{\i }tol 13.
-)
-1: section
+ []
+
+[82]
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
 [83]
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+) [84]
 \openout2 = `Appendices/AppendixA.aux'.
 
- (./Appendices/AppendixA.tex [84
-
-
-
-]
+ (./Appendices/AppendixA.tex
 Ap\`endix A.
 )
 1: section
-[85]
-Package csquotes Info: Disabling multilingual quotes on input line 301.
+[85
 
 
-LaTeX Warning: Empty bibliography on input line 302.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 306.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 306.
+]
+Package csquotes Info: Disabling multilingual quotes on input line 300.
+
+
+LaTeX Warning: Empty bibliography on input line 301.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
 (./main.aux (./Chapters/Introduccio.aux) (./Chapters/Contextualitzacio.aux)
 (./Chapters/Objectius.aux) (./Chapters/GestioIDesenvolupament.aux)
 (./Chapters/AnalisiRequisits.aux) (./Chapters/EinesDesenvolupament.aux)
 (./Chapters/SistemaMonitoratge.aux) (./Chapters/ModelatgeConfiguracions.aux)
 (./Chapters/SistemaAdaptabilitat.aux) (./Chapters/DissenyDashboard.aux)
-(./Chapters/ReconfiguracioMonitors.aux) (./Chapters/TreballFutur.aux)
-(./Chapters/Conclusions.aux) (./Appendices/AppendixA.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 306.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 306.
+(./Chapters/ReconfiguracioMonitors.aux) (./Chapters/Conclusions.aux)
+(./Appendices/AppendixA.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A521594887B2B138405B8FFDB8873E1B;17877.
+(rerunfilecheck)             Checksum: 396DBE1E9A46DD5FCF77AE1110B7CDF7;17817.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2949,10 +2967,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31405 strings out of 493304
- 627776 string characters out of 6139872
- 768273 words of memory out of 5000000
- 34046 multiletter control sequences out of 15000+600000
+ 31393 strings out of 493304
+ 627473 string characters out of 6139872
+ 765914 words of memory out of 5000000
+ 34041 multiletter control sequences out of 15000+600000
  43504 words of font info for 76 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  59i,20n,83p,10398b,2209s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2968,7 +2986,7 @@ re/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/palatino/uplri8a.pfb>
-Output written on main.pdf (97 pages, 2175897 bytes).
+Output written on main.pdf (97 pages, 2185558 bytes).
 PDF statistics:
  1289 PDF objects out of 1440 (max. 8388607)
  1123 compressed objects within 12 object streams

@@ -13,7 +13,6 @@ A level-1 auxiliary file: Chapters/ModelatgeConfiguracions.aux
 A level-1 auxiliary file: Chapters/SistemaAdaptabilitat.aux
 A level-1 auxiliary file: Chapters/DissenyDashboard.aux
 A level-1 auxiliary file: Chapters/ReconfiguracioMonitors.aux
-A level-1 auxiliary file: Chapters/TreballFutur.aux
 A level-1 auxiliary file: Chapters/Conclusions.aux
 A level-1 auxiliary file: Appendices/AppendixA.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -34,7 +33,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 You've used 1 entry,
             6047 wiz_defined-function locations,
-            1143 strings with 8486 characters,
+            1142 strings with 8461 characters,
 and the built_in function-call counts, 1306 in all, are:
 = -- 64
 > -- 58
