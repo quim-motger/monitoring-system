@@ -91,6 +91,12 @@ Aplicat al nostre context, i seguint amb l'exemple anterior, l'objectiu d'una \t
 
 Si ens fixem en aquesta \textit{Feature Configuration} i la comparem amb el \textit{Feature Model}, veiem que tots els punts de variabilitat que aquesta segona definia s'especifiquen amb un valor o opcions específics. Per aquest cas, p.e., es proposa un valor de timeSlot específic per les configuracions de tots els tipus de monitors; paral·lelament, en el cas del monitor de Twitter s'especifica la \textit{KeywordExpression1} com a opció a triar per aquest paràmetre, i les tools de \textit{GooglePlayAPI} i \textit{iTunes} per les \textit{tools} dels monitors de Market Places. En definitiva, és la representació d'una proposta de configuració de les \textit{features} definides. Orientat al nostre cas d'ús, aquesta proposta ens permet traduir-les al \textit{Base Model} en una sèrie de modificacions d'atributs.\\
 
+\subsection{Advice Model}
+
+En alguns casos, i especialment considerant l'expansió i futur treball a partir de les bases establertes per aquest projecte, la modificació de models pot anar més enllà de la modificació o actualització d'un valor com el \textit{timeslot} o algun altre paràmetre, com hem plantejat abans. De fet, per assolir una autonomia total del sistema de monitoratge, aquest hauria de ser capaç de modificar completament la seva activitat, mitjançant p.e. l'alta de nous processos de monitoratge o l'eliminació de processos existents.\\
+
+Per aquest motiu, tot i que no serà el cas d'estudi d'aquest projecte, cal introduir el concepte d'\textit{Advice Model}. Aquests models seran, dins el nostre context, diagrames de classes i instàncies en UML que modelen una secció del nostre sistema, com per exemple noves configuracions per a un monitor. La seva característica principal és que, a diferència dels \textit{Base Model}, que representen una modelació d'un estat del sistema, aquests defineixen variacions, punts de variabilitat que es poden afegir, eliminar o substituir al \textit{Base Model} original (més endavant veurem en què consisteixen aquestes modificacions). A la figura ~\ref{fig:advice} podem veure un exemple aplicable al nostre context: una representació de dues propostes de noves configuracions de monitoratge que es podrien afegir al sistema.
+
 \subsection{Pattern Model}
 
 Aquesta modificació d'atributs, però, únicament ens està definint una acció genèrica. És a dir, la semàntica que podem desprendre d'una \textit{Feature Configuration} és simplement la definició d'una proposta general per les configuracions dels monitors. El problema, però, està en que la \textit{Feature Configuration} defineix tot el conjunt del sistema (en aquest cas, tots els atributs de tots els monitors), però no ens dona cap informació sobre quines instàncies del \textit{Base Model} cal aplicar aquests canvis. És a dir: suposem que al \textit{Base Model} de la figura ~\ref{fig:Figura16} volem actualitzar el \textit{timeSlot} de la instància \textit{OlympicGamesTwitterMonitor}, però no de la instància \textit{OlympicGamesMarketPlacesMonitor}.\\
@@ -108,12 +114,52 @@ Amb aquest objectiu, necessitem afegir informació addicional, una forma de mode
 A la figura ~\ref{fig:Figura19} podem veure un exemple de \textit{Pattern} aplicat al nostre cas d'estudi. Sense entrar en els detalls específics de la sintaxi, aquest patró anomenat \textit{twitterTimeSlot} retorna tots els objectes de tipus \textit{Slot}, que en l'especificació UML2 venen a ser els atributs d'una instància d'una classe, que compleixen dues característiques: que reben per nom \textit{timeSlot} (1) i que són atributs d'una instància de la classe amb nom \textit{twitter} (2). Així, quan vulguem aplicar de forma dinàmica adaptacions sobre el sistema, i concretament sobre els \textit{timeSlots} (1) de les instàncies de monitoratge del monitor de Twitter (2), podem referenciar aquests objectes amb la màxima eficiència, utilitzant les eines que la pròpia llibreria ens dona per treballar dinàmicament amb models UML.\\
 
 De manera similar a les FC, necessitarem definir un \textit{pattern} diferent per cada cas d'adaptació, d'acord amb els criteris específics. Tot i que això no exclou que alguns siguin reutilitzables entre diferents reconfiguracions. El potencial del VQL ens permet generar, amb una sintaxi relativament senzilla, patrons de cerca de tot tipus i que filtrin la cerca segons tot tipus de criteris: valors dels atributs de les instàncies, tipus de configuracions, relacions amb superclasses, etc. 
-
-MENCIONA EL MQ
-
+ 
 \subsection{Profile Model}
 
-A partir dels \textit{patterns} definits, som capaços d'obtenir i referenciar aquests  
+A partir dels \textit{patterns} definits, som capaços d'obtenir i referenciar aquests objectes UML sobre els quals aplicar adaptacions. Un cop obtinguts, a aquests elements se'ls aplica un rol o \textit{stereotype} específic, que ens servirà bàsicament per distingir entre diferents tipus d'adaptacions dins d'una mateixa adaptació. És a dir: suposem que, dins una mateixa adaptació, volem actualitzar per una banda les configuracions dels processos de monitoratge del monitor de Twitter amb un valor \textit{x} i, per altra banda, les del monitor de GooglePlay amb un valor \textit{y}. Un cop l'Adapter computi les adaptacions i obtingui els elements a adaptar, es comunicarà amb el Model Adapter per sol·licitar-li l'aplicació d'una acció sobre els elements trobats identificats amb un rol específic. Aquesta adaptació composta queda fora del nostre abast, però és important introduïr per entendre el disseny genèric dels nostres models d'adaptació. Per la tasca d'etiquetar models, utilitzarem els anomenats \textit{Profile Models}, que són models que defineixen una classificació de rols o \textit{stereotypes} a aplicar sobre un cert grup d'elements UML segon el seu tipus i les seves característiques.\\
+
+Pel nostre context, simplement identificarem un \textit{stereotype} que anomenarem \textit{jointpoint}, i ens servirà per etiquetar, dins el \textit{Base Model}, aquells elements (bàsicament, \textit{slots}) que requereixen ser actualitzats. A la figura ~\ref{fig:profile} podem veure el \textit{Profile Model} utilitzat a SUPERSEDE per l'adaptació de models. No ens centrarem en la seva sintaxi a fons; únicament ens centrarem en el rol \textit{jointpoint}, que segons modela el \textit{Profile Model}, pot ser aplicat a qualsevol objecte UML que implementi \textit{Element} (que, segons la documentació de UML2, són tots aquells elements del diagram UML).\\
+
+\begin{figure}
+\centering
+\includegraphics[width=11cm]{Figures/profile}
+\decoRule
+\caption{Exemple de Profile Model del sistema de monitoratge}
+\label{fig:profile}
+\end{figure}
 
 \subsection{Aspect Model}
 
+Aquest tipus de model es tracta d'un tipus de document dissenyat i implementat per \textit{partners} del projecte SUPERSEDE. Com a tal, el projecte inclou una llibreria capaç de processar i interpretar dinàmicament aquest model i les seves referències. Ens referirem a ell com a \textit{Aspect Model} o \textit{Adaptability Model}, ja que bàsicament es tracta d'un fitxer de format similar a un JSON que, des d'un punt de vista semàntic, descriu adaptacions específiques interrelacionant els elements que intervenen en una adaptació del sistema. Aquests aspectes inclouen:
+
+\begin{itemize}
+\item \textbf{FeatureId}. Referencia la \textit{feature} d'un \textit{Feature Model} sobre la qual descriu una adaptació específica.
+\item \textbf{Pointucts}. Llistat de punts on s'han d'aplicar canvis per aquella reconfiguració. Per cada \textit{pointcut} que definim, s'especifica:
+\begin{itemize}
+\item \textbf{Pattern}. El \textit{pattern} utilitzat per buscar dinàmicament els elements al diagrama UML
+\item \textbf{Role}. El rol o \textit{stereotype} amb el qual s'etiquetaran aquests elements
+\end{itemize} 
+\item \textbf{Compositions}. Llistat de les adaptacions a realitzar sobre els punts o elements anteriorment identificats. Per cada \textit{composition} que definim, s'especifica:
+\begin{itemize}
+\item \textbf{Feature enabled}. Indica si s'ha d'aplicar quan la \textit{Feature Configuration} indica que aquella \textit{feature} passa a estar activada o desactivada
+\item \textbf{Jointpoint role}. Indica el rol que han de tenir els elements sobre els quals s'han d'aplicar el canvi definit per aquesta \textit{composition}. En aquest punt entraria en joc la composició d'adaptacions introduïda anteriorment al explicar els \textit{Profile Models}.
+\item \textbf{Action}. Indica el tipus d'acció a aplicar. En distingirem 2 tipus:
+\begin{itemize}
+\item \textbf{Update}. Serà la operació en la qual ens centrarem per validar el nostre sistema. Consisteix en actualitzar el valor d'un atribut (\textit{slot} en termes de modelació en UML2)
+\item \textbf{Add/Delete/Replace}. Tot i que queden fora de l'abast de validació del nostre projecte, les afegirem al disseny i desenvolupament del projecte davant les necessitats del desenvolupament a SUPERSEDE. Es tracta d'operacions que, en referència a un \textit{Advice Model} afegeixen, eliminen o substitueixen els elements UML presents a l'\textit{Advice Model} al punt d'injecció definit com a \textit{jointpoint} al \textit{Base Model}.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+A la figura ~\ref{fig:aspect} podem veure un exemple de model d'adaptabilitat amb els paràmetres anteriorment definits. En aquest cas, l'operació a aplicar és \textit{Update}, ja que serà la que ens interessarà pel cas d'estudi.
+
+Aquesta es tracta d'una aproximació genèrica inicial als models d'adaptabilitat. Per entendre el seu funcionament exacte i aprofundir en la sintaxi i les seves implicacions, en el següent capítol descriurem l'algorisme d'adaptabilitat i reconfiguració de monitors per entendre precisament com aquesta adaptació funciona amb els nostres models.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=11cm]{Figures/Figure38}
+\decoRule
+\caption{Exemple de Pattern Model del sistema de monitoratge}
+\label{fig:aspect}
+\end{figure}
