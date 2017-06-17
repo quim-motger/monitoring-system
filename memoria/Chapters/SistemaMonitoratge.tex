@@ -342,9 +342,17 @@ Ja que la única tasca a realitzar és la redirecció (ja que les dades no cal q
 
 \subsection{Disseny i implementació}
 
-En definitiva, d'acord amb les necessitats establertes, la implementació del Monitor Manager es basarà simplement en el disseny i implementació d'un servei REST que implementi els 3 mètodes definits anteriorment, i que la seva lògica interna s'encarregui simplement d'identificar, a partir del nom del monitor rebut com a paràmetre, el \textit{proxy} que implementa la comunicació amb aquell monitor.\\
+En definitiva, d'acord amb les necessitats establertes, la implementació del Monitor Manager es basarà simplement en el disseny i implementació d'un servei REST que implementi els 3 mètodes definits anteriorment, i que la seva lògica interna s'encarregui simplement d'identificar, a partir del nom del monitor rebut com a paràmetre, el \textit{proxy} que implementa la comunicació amb aquell monitor. A la figura ~\ref{fig:monitor-manager} podem veure la interfície que defineix els 3 mètodes que exposen les 3 funcionalitats bàsiques se les configuracions de monitors. A partir d'aquesta interfície, només caldrà exposar-lo com a servei web RESTful per la seva integració a IF.\\
 
-Podeu consultar el projecte i la seva implementació al següent enllaç:  \url{https://github.com/supersede-project/monitor_feedback/tree/develop_quim-motger/monitormanager}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8cm]{Figures/monitor-manager-interface}
+\decoRule
+\caption{Disseny de la interfície del Monitor Manager}
+\label{fig:monitor-manager}
+\end{figure}
+
+Cal notar que un dels paràmetres que reben com a paràmetre les 3 peticions ha de ser el nom del monitor al qual va redirigit aquesta petició. 
 
 \section{Orchestrator}
 
@@ -457,8 +465,17 @@ El mateix problema de criteri de redirecció sorgeix que en el cas del Monitor M
 Sense entrar en molt detall en els aspectes d'implementació de les especificacions prèviament descrites, podem trobar els detalls d'aquesta a: 
 
 \begin{itemize}
+\item Disseny dels controladors de domini, definits a la figura ~\ref{fig:orchestrator}
 \item Disseny de l'esquema de la \textbf{base de dades}, definit a l'apèndix ~\ref{AppendixA}
 \item Disseny de l\textbf{API RESTful}, definit a l'apèndix ~\ref{AppendixA}
 \end{itemize}
 
 Degut a que el comportament i els detalls específics no són d'especial interés pel domini d'aquest projecte, no s'entrarà amb més detall en la informació referent a la implementació tècnica, que s'ha realitzat seguint les instruccions i els requisits tècnics específics del component Orchestrator genèric implementat per \textit{partners} del projecte SUPERSEDE.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=14cm]{Figures/orchestrator}
+\decoRule
+\caption{Disseny dels controladors de l'Orchestrator}
+\label{fig:orchestrator}
+\end{figure}
