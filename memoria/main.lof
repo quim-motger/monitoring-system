@@ -12,50 +12,50 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Disseny gen\IeC {\`e}ric del sistema proposat}}{24}{figure.caption.43}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Exemple d'arquitectura de la comunicaci\IeC {\'o} amb Kafka}}{34}{figure.caption.61}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Arquitectura software gen\IeC {\`e}rica d'un monitor}}{35}{figure.caption.64}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Arquitectura software del monitor de Twitter}}{38}{figure.caption.67}
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Exemple dades de sortida generades pel monitor de Twitter}}{39}{figure.caption.68}
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Exemple JSON de configuraci\IeC {\'o} del monitor de Twitter}}{40}{figure.caption.69}
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Exemple resposta amb \IeC {\`e}xit del monitor de Twitter}}{40}{figure.caption.70}
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Exemple resposta amb error del monitor de Twitter}}{40}{figure.caption.71}
-\contentsline {figure}{\numberline {7.8}{\ignorespaces Arquitectura software del monitor de Google Play}}{42}{figure.caption.73}
-\contentsline {figure}{\numberline {7.9}{\ignorespaces Exemple dades de sortida generades pel monitor de Google Play}}{43}{figure.caption.76}
-\contentsline {figure}{\numberline {7.10}{\ignorespaces Exemple JSON de configuraci\IeC {\'o} del monitor de GooglePlay}}{44}{figure.caption.77}
-\contentsline {figure}{\numberline {7.11}{\ignorespaces Exemple JSON de configuraci\IeC {\'o} de monitor al Monitor Manager}}{46}{figure.caption.88}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Exemple d'arquitectura de la comunicaci\IeC {\'o} amb Kafka}}{34}{figure.caption.60}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Arquitectura software gen\IeC {\`e}rica d'un monitor}}{35}{figure.caption.62}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Arquitectura software del monitor de Twitter}}{38}{figure.caption.65}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Exemple dades de sortida generades pel monitor de Twitter}}{39}{figure.caption.66}
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Exemple JSON de configuraci\IeC {\'o} del monitor de Twitter}}{40}{figure.caption.67}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Exemple resposta amb \IeC {\`e}xit del monitor de Twitter}}{40}{figure.caption.68}
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Exemple resposta amb error del monitor de Twitter}}{40}{figure.caption.69}
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Arquitectura software del monitor de Google Play}}{42}{figure.caption.71}
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Exemple dades de sortida generades pel monitor de Google Play}}{43}{figure.caption.74}
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Exemple JSON de configuraci\IeC {\'o} del monitor de GooglePlay}}{44}{figure.caption.75}
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Exemple JSON de configuraci\IeC {\'o} de monitor al Monitor Manager}}{46}{figure.caption.85}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Exemple de Base Model del sistema de monitoratge\relax }}{55}{figure.caption.112}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Exemple de Feature Model del sistema de monitoratge\relax }}{56}{figure.caption.115}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Exemple de Feature Configuration del sistema de monitoratge\relax }}{57}{figure.caption.117}
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Exemple de Pattern Model del sistema de monitoratge\relax }}{58}{figure.caption.120}
-\contentsline {figure}{\numberline {8.5}{\ignorespaces Exemple de Profile Model del sistema de monitoratge\relax }}{60}{figure.caption.122}
-\contentsline {figure}{\numberline {8.6}{\ignorespaces Exemple de Pattern Model del sistema de monitoratge\relax }}{61}{figure.caption.124}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Exemple de Base Model del sistema de monitoratge\relax }}{55}{figure.caption.104}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Exemple de Feature Model del sistema de monitoratge\relax }}{56}{figure.caption.107}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Exemple de Feature Configuration del sistema de monitoratge\relax }}{57}{figure.caption.109}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Exemple de Pattern Model del sistema de monitoratge\relax }}{58}{figure.caption.112}
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Exemple de Profile Model del sistema de monitoratge\relax }}{60}{figure.caption.114}
+\contentsline {figure}{\numberline {8.6}{\ignorespaces Exemple de Pattern Model del sistema de monitoratge\relax }}{61}{figure.caption.116}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Disseny del domini del Model Repository Manager\relax }}{67}{figure.caption.136}
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Repository Manager\relax }}{68}{figure.caption.142}
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Repository Service\relax }}{70}{figure.caption.144}
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Disseny de les interf\IeC {\'\i }cies del Model Adapter\relax }}{72}{figure.caption.151}
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de l'adaptaci\IeC {\'o} composta del \textit {Model Adapter}\relax }}{73}{figure.caption.152}
-\contentsline {figure}{\numberline {9.6}{\ignorespaces Implementacions de la interf\IeC {\'\i }cie \textit {Composable} per \textit {Class} i \textit {InstanceSpecification}\relax }}{74}{figure.caption.154}
-\contentsline {figure}{\numberline {9.7}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Query\relax }}{74}{figure.caption.157}
-\contentsline {figure}{\numberline {9.8}{\ignorespaces Disseny de la interf\IeC {\'\i }cie de l'Enactor i EnactorFactory\relax }}{75}{figure.caption.159}
-\contentsline {figure}{\numberline {9.9}{\ignorespaces Disseny de la interf\IeC {\'\i }cie de l'Adapter\relax }}{77}{figure.caption.180}
-\contentsline {figure}{\numberline {9.10}{\ignorespaces Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de la reconfiguraci\IeC {\'o} autom\IeC {\`a}tica del sistema amb l'Adapter\relax }}{78}{figure.caption.181}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Disseny del domini del Model Repository Manager\relax }}{67}{figure.caption.129}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Repository Manager\relax }}{68}{figure.caption.135}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Repository Service\relax }}{70}{figure.caption.138}
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Disseny de les interf\IeC {\'\i }cies del Model Adapter\relax }}{72}{figure.caption.146}
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de l'adaptaci\IeC {\'o} composta del \textit {Model Adapter}\relax }}{73}{figure.caption.147}
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Implementacions de la interf\IeC {\'\i }cie \textit {Composable} per \textit {Class} i \textit {InstanceSpecification}\relax }}{74}{figure.caption.148}
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Disseny de la interf\IeC {\'\i }cie del Model Query\relax }}{74}{figure.caption.151}
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Disseny de la interf\IeC {\'\i }cie de l'Enactor i EnactorFactory\relax }}{75}{figure.caption.153}
+\contentsline {figure}{\numberline {9.9}{\ignorespaces Disseny de la interf\IeC {\'\i }cie de l'Adapter\relax }}{77}{figure.caption.174}
+\contentsline {figure}{\numberline {9.10}{\ignorespaces Diagrama de seq\IeC {\@umlaut u}\IeC {\`e}ncia de la reconfiguraci\IeC {\'o} autom\IeC {\`a}tica del sistema amb l'Adapter\relax }}{78}{figure.caption.175}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Disseny de la vista d'adaptacions suggerides del \textit {dashboard}\relax }}{80}{figure.caption.185}
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Disseny de la vista d'adaptacions executades del \textit {dashboard}\relax }}{81}{figure.caption.186}
-\contentsline {figure}{\numberline {10.3}{\ignorespaces Disseny del domini del \textit {dashboard}\relax }}{82}{figure.caption.188}
-\contentsline {figure}{\numberline {10.4}{\ignorespaces Disseny dels controladors REST del \textit {dashboard}\relax }}{82}{figure.caption.189}
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Disseny de la vista d'adaptacions suggerides del \textit {dashboard}\relax }}{80}{figure.caption.179}
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Disseny de la vista d'adaptacions executades del \textit {dashboard}\relax }}{81}{figure.caption.180}
+\contentsline {figure}{\numberline {10.3}{\ignorespaces Disseny del domini del \textit {dashboard}\relax }}{82}{figure.caption.182}
+\contentsline {figure}{\numberline {10.4}{\ignorespaces Disseny dels controladors REST del \textit {dashboard}\relax }}{82}{figure.caption.183}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {11.1}{\ignorespaces \textit {Base Model} utilitzat per validar la reconfiguraci\IeC {\'o} del sistema\relax }}{83}{figure.caption.192}
-\contentsline {figure}{\numberline {11.2}{\ignorespaces \textit {Feature Configuration} que descriu la darrera configuraci\IeC {\'o} del sistema aplicada\relax }}{84}{figure.caption.193}
-\contentsline {figure}{\numberline {11.3}{\ignorespaces \textit {Feature Configuration} que descriu la configuraci\IeC {\'o} a aplicar per la reconfiguraci\IeC {\'o}\relax }}{84}{figure.caption.194}
-\contentsline {figure}{\numberline {11.4}{\ignorespaces \textit {Adaptability Model} que descriu la reconfiguraci\IeC {\'o} a executar\relax }}{85}{figure.caption.195}
-\contentsline {figure}{\numberline {11.5}{\ignorespaces Sol\IeC {\textperiodcentered }licitud d'execuci\IeC {\'o} de l'adaptaci\IeC {\'o} \textit {MonitoringSystemConfigHighTimeslot}\relax }}{85}{figure.caption.197}
-\contentsline {figure}{\numberline {11.6}{\ignorespaces Resultats de l'execuci\IeC {\'o} de l'adaptaci\IeC {\'o} \textit {MonitoringSystemConfigHighTimeslot}\relax }}{86}{figure.caption.198}
-\contentsline {figure}{\numberline {11.7}{\ignorespaces Primer enviament de dades del monitor de Twitter a Kafka\relax }}{87}{figure.caption.199}
-\contentsline {figure}{\numberline {11.8}{\ignorespaces Segon enviament de dades del monitor de Twitter a Kafka (abans de la reconfiguraci\IeC {\'o})\relax }}{87}{figure.caption.200}
-\contentsline {figure}{\numberline {11.9}{\ignorespaces Tercer enviament de dades del monitor de Twitter a Kafka (despr\IeC {\'e}s de la reconfiguraci\IeC {\'o})\relax }}{88}{figure.caption.201}
-\contentsline {figure}{\numberline {11.10}{\ignorespaces Quart enviament de dades del monitor de Twitter a Kafka (configuraci\IeC {\'o} estable)\relax }}{88}{figure.caption.202}
+\contentsline {figure}{\numberline {11.1}{\ignorespaces \textit {Base Model} utilitzat per validar la reconfiguraci\IeC {\'o} del sistema\relax }}{83}{figure.caption.186}
+\contentsline {figure}{\numberline {11.2}{\ignorespaces \textit {Feature Configuration} que descriu la darrera configuraci\IeC {\'o} del sistema aplicada\relax }}{84}{figure.caption.187}
+\contentsline {figure}{\numberline {11.3}{\ignorespaces \textit {Feature Configuration} que descriu la configuraci\IeC {\'o} a aplicar per la reconfiguraci\IeC {\'o}\relax }}{84}{figure.caption.188}
+\contentsline {figure}{\numberline {11.4}{\ignorespaces \textit {Adaptability Model} que descriu la reconfiguraci\IeC {\'o} a executar\relax }}{85}{figure.caption.189}
+\contentsline {figure}{\numberline {11.5}{\ignorespaces Sol\IeC {\textperiodcentered }licitud d'execuci\IeC {\'o} de l'adaptaci\IeC {\'o} \textit {MonitoringSystemConfigHighTimeslot}\relax }}{85}{figure.caption.191}
+\contentsline {figure}{\numberline {11.6}{\ignorespaces Resultats de l'execuci\IeC {\'o} de l'adaptaci\IeC {\'o} \textit {MonitoringSystemConfigHighTimeslot}\relax }}{86}{figure.caption.192}
+\contentsline {figure}{\numberline {11.7}{\ignorespaces Primer enviament de dades del monitor de Twitter a Kafka\relax }}{87}{figure.caption.193}
+\contentsline {figure}{\numberline {11.8}{\ignorespaces Segon enviament de dades del monitor de Twitter a Kafka (abans de la reconfiguraci\IeC {\'o})\relax }}{87}{figure.caption.194}
+\contentsline {figure}{\numberline {11.9}{\ignorespaces Tercer enviament de dades del monitor de Twitter a Kafka (despr\IeC {\'e}s de la reconfiguraci\IeC {\'o})\relax }}{88}{figure.caption.195}
+\contentsline {figure}{\numberline {11.10}{\ignorespaces Quart enviament de dades del monitor de Twitter a Kafka (configuraci\IeC {\'o} estable)\relax }}{88}{figure.caption.196}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

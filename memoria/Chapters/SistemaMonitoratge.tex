@@ -18,7 +18,7 @@ En general, per tant, volem que el nostre sistema disposi d'un conjunt de monito
 \item \textbf{Aturada de procés de monitoratge.} Donat un procés de monitoratge ja existent, el sistema ha de permetre la seva aturada. Davant aquesta petició, el procés s'atura, i per tant es deixen de recol·lectar dades sota aquells criteris de monitoratge.
 \end{enumerate}
 
-\subsection{Especificacions tècniques}
+\subsection{Especificacions tècniques i funcionals}
 
 Tal i com establiem com a objectiu principal del projecte, aquest sistema de monitoratge ha de ser \textbf{heterogeni}. La conseqüència principal d'aquesta característica és que necessitem definir un sistema que contempli que cadascun d'aquests requisits funcionals es garanteixen en la integració dels monitors implementats, i que per tant esdevenen casos d'ús complets i satisfactoris del nostre context. Per fer-ho, i donat que els monitors seran el principal punt de variabilitat del nostre sistema, hem d'afegir un cert nivell d'abstracció, un \textbf{desacoblament} entre els detalls específics de cadascun dels monitors, que ens resulten indiferents per la resta del sistema.\\
 
@@ -30,9 +30,9 @@ Per tant, el primer pas que hem de realitzar és \textbf{dissenyar una arquitect
 \item \textbf{Configuració dels monitors.} D'acord amb les necessitats anteriors, descriure quins paràmetres necessitarem per configurar els monitors.
 \end{enumerate}
 
-\subsubsection{Comportament intern del monitor}
+\noindent \textbf{\large Comportament intern del monitor}\\
 
-La implementació d'un monitor representa, des d'un punt de vista semàntic, un component software encarregat de monitorar un component software concret. En aquest context específic, entendrem \textbf{monitorar} com la col·lecció periòdica d'un conjunt de dades produïdes de l'execució del sistema software monitorat. En base a aquesta definició, entendrem com a \textbf{procés de monitoratge} el cicle següent:
+\noindent La implementació d'un monitor representa, des d'un punt de vista semàntic, un component software encarregat de monitorar un component software concret. En aquest context específic, entendrem \textbf{monitorar} com la col·lecció periòdica d'un conjunt de dades produïdes de l'execució del sistema software monitorat. En base a aquesta definició, entendrem com a \textbf{procés de monitoratge} el cicle següent:
 
 \begin{enumerate}
 \item Inicialització de les estructures de col·lecció de dades
@@ -46,11 +46,11 @@ Davant aquesta proposta, el comportament i potencial d'un monitor queda molt lim
 
 La integració de diverses \textit{tools} dins un monitor ens permeten no només una variabilitat en l'execució de la col·lecció de dades, sinó també una major fiabilitat i qualitat del monitor com a component software. Ens permet reaccionar, entre d'altres, davant escenaris on l'ús d'un sistema de monitoratge específic deixa de funcionar (p.e. una API que no dona resposta), ja que davant la detecció d'aquest error el canvi de \textit{tool} utilitzada ens permet que el monitor no deixi de ser usable.\\
 
-En resum, necessitem que el monitor sigui capaç de gestionar un nombre indefinit de processos de monitoratge en paral·lel, amb configuracions diferents, i que utilitzin el conjunt de \textit{tools} implementades.
+En resum, necessitem que el monitor sigui capaç de gestionar un nombre indefinit de processos de monitoratge en paral·lel, amb configuracions diferents, i que utilitzin el conjunt de \textit{tools} implementades.\\
 
-\subsubsection{Redirecció de dades col·lectades}
+\noindent \textbf{\large Redirecció de dades}\\
 
-Un dels objectius de les especificacions tècniques dels monitors és permetre la seva integració, en primer lloc, dins el context del nostre projecte, i en segon lloc, a sistemes tercers que permetin l'anàlisi de les dades recollides durant la seva activitat de monitoratge. D'aquesta manera augmentem el valor propi dels components dissenyats en el projecte, reutilitzable en contexts diferents al plantejat. Per aquesta raó, i per completar l'activitat del monitor, hem de contemplar com dissenyar l'enviament i redirecció de les dades que cada monitor recull i formata durant la seva activitat. \\
+\noindent Un dels objectius de les especificacions tècniques dels monitors és permetre la seva integració, en primer lloc, dins el context del nostre projecte, i en segon lloc, a sistemes tercers que permetin l'anàlisi de les dades recollides durant la seva activitat de monitoratge. D'aquesta manera augmentem el valor propi dels components dissenyats en el projecte, reutilitzable en contexts diferents al plantejat. Per aquesta raó, i per completar l'activitat del monitor, hem de contemplar com dissenyar l'enviament i redirecció de les dades que cada monitor recull i formata durant la seva activitat. \\
 
 Per facilitar aquest aspecte, i permetre també la seva integració dins el sistema general de SUPERSEDE, els monitors integraran la implementació d'enviament de les seves dades a través d'\textbf{Apache Kafka.} Es tracta d'una plataforma distribuïda de \textit{streaming} que ofereix la possibilitat de crear i configurar \textit{pipelines} de dades en temps real que actuen com a canal de comunicació entre diverses aplicacions o components software. L'arquitectura és senzilla: un component software, anomenat \textbf{\textit{producer}}, es comunica amb el servidor Kafka i envia dades de forma periòdica a un \textit{pipeline} específic d'aquest servidor, prèviament configurat i identificament amb el que anomenem Kafka \textit{topic}, un identificador únic d'aquell \textit{pipeline} per aquell desplegament de Kafka. Aquest flux de dades s'encua al servidor, i es redireccionen a uns altres sistemes o aplicacions, anomenats \textbf{\textit{consumers}}, que reben i processen les dades d'un pipeline específic a mesura que es van enviant i processant.\\
 
@@ -64,11 +64,11 @@ Per facilitar aquest aspecte, i permetre també la seva integració dins el sist
 
 En general, l'avantatge principal de Kafka i la justificació del seu ús pel nostre context és que permet una integració còmode i fiable entre diferents aplicacions que necessiten comunicar dades de forma periòdica, garantint la seva arribada. Kafka ofereix una sèrie d'APIs per configurar els \textit{producers} i \textit{consumers}, així com una configuració relativament senzilla del propi servidor. Gràcies a aquestes característiques, podem aprofitar els propis monitors per actuar com a \textit{producers} d'un \textit{stream} de dades, que es correspondrà amb les dades monitorades durant els processos d'execució, i distribuïr-les als diferents \textit{pipelines} o Kafka \textit{topics}. Així, davant possibles ampliacions i expansions d'aquest projecte, podem fàcilment incorporar components d'anàlisi gràcies al desacoblament entre la lògica interna del monitor i l'enviament i captura de dades que l'arquitectura de Kafka ens ofereix.\\
 
-La lògica interna genèrica proposada per la implementació dels monitors serà, per tant, l'ús de l'API de \textit{producer} de Kafka per part dels monitors, pel qual cada procés de monitoratge enviarà de forma periòdica dades a un servidor Kafka específic, o Kafka \textit{endpoint}, i dins aquest desplegament, a un \textit{pipeline} o Kafka \textit{topic} específic. A la figura ~\ref{fig:Kafka} s'exposa com funciona aquesta comunicació entre els monitors i els \textit{consumers}, components que poden ser de qualsevol tipus sempre i quant implementin la lògica de \textit{consumers} pròpia e Kafka.
+La lògica interna genèrica proposada per la implementació dels monitors serà, per tant, l'ús de l'API de \textit{producer} de Kafka per part dels monitors, pel qual cada procés de monitoratge enviarà de forma periòdica dades a un servidor Kafka específic, o Kafka \textit{endpoint}, i dins aquest desplegament, a un \textit{pipeline} o Kafka \textit{topic} específic. A la figura ~\ref{fig:Kafka} s'exposa com funciona aquesta comunicació entre els monitors i els \textit{consumers}, components que poden ser de qualsevol tipus sempre i quant implementin la lògica de \textit{consumers} pròpia e Kafka.\\
 
-\subsubsection{Paràmetres de configuració}
+\noindent \textbf{\large Paràmetres de configuració}\\
 
-Davant les especificacions anteriors, i per garantir el màxim nivell de personalització i configuració dels monitors, cadascun dels processos de monitoratge actius en un monitor ha de permetre definir els paràmetres relacionats amb les possibles variacions i diferències entre aquests processos, tant en temps de creació com durant la seva reconfiguració. En aquest sentit, es proposen els següents paràmetres com a genèrics per a totes les implementacions de monitors:
+\noindent Davant les especificacions anteriors, i per garantir el màxim nivell de personalització i configuració dels monitors, cadascun dels processos de monitoratge actius en un monitor ha de permetre definir els paràmetres relacionats amb les possibles variacions i diferències entre aquests processos, tant en temps de creació com durant la seva reconfiguració. En aquest sentit, es proposen els següents paràmetres com a genèrics per a totes les implementacions de monitors:
 
 \begin{itemize}
 \item \textbf{\textit{Time slot}}. Expressat en segons, indica la durada de cada període de monitoratge de dades (és a dir, temps que transcorre cada vegada que s'envia un nou \textit{stream} de dades).
@@ -79,7 +79,7 @@ Davant les especificacions anteriors, i per garantir el màxim nivell de persona
 
 És possible, tal i com veurem més endavant, que alguns monitors requereixin de paràmetres de configuració addicionals, propis del funcionament intern específic del monitor. Per aquest motiu, a banda de proporcionar una configuració bàsica pels monitors amb els paràmetres anteriors, cal permetre també una extensibilitat en quant a paràmetres de configuració.
 
-\subsection{Arquitectura genèrica}
+\subsection{Disseny i arquitectura genèrica}
 
 \begin{figure}
 \centering
@@ -123,7 +123,7 @@ Aquesta és per tant la proposta d'una arquitectura genèrica per la implementac
 
 Un cop exposada l'arquitectura i especificacions genèriques dels monitors, el següent pas és procedir a la implementació dels diferents monitors que integrarem al nostre sistema. Aquestes implementacions esdevindran possibles casos d'ús a executar, però únicament suposen exemples dins d'un ample ventall de possibilitats d'implementació.\\
 
-En aquest projecte presentem la implementació de 3 monitors classificats en 2 tipus de monitors diferents: \textbf{monitors de xarxes socials} i \textbf{monitors de botigues d'aplicacions}. Pel primer tipus, es proposa un monitor de la xarxa social \textbf{Twitter}. Pel segon tipus, es proposen dos monitors: un monitor de \textbf{Google Play} i un altre de l'\textbf{App Store}. 
+En aquest projecte presentem la implementació de 3 monitors classificats en 2 tipus de monitors diferents: \textbf{monitors de xarxes socials} i \textbf{monitors de botigues d'aplicacions}. Pel primer tipus, es proposa un monitor de la xarxa social \textbf{Twitter}. Pel segon tipus, es proposen dos monitors: un monitor de \textbf{Google Play} i un altre de l'\textbf{App Store}.
 
 \subsubsection{Twitter Monitor}
 
@@ -256,6 +256,7 @@ La implementació del monitor basada en l'arquitectura genèrica definida presen
 \caption[Exemple dades de sortida generades pel monitor de Google Play]{Exemple dades de sortida generades pel monitor de Google Play}
 \label{fig:Figura13}
 \end{figure}
+
 Gràcies al disseny, cada desenvolupador podrà utilitzar l'opció que m'es s'adeqüi a les seves necessitats. La 1a opció pot resultar adequada quan p.e. el subconjunt de dades que volem obtenir sigui independent de la \textit{tool}, i per contra la 2a opció ens farà servei per desacoblar totalment les dades entre diferents tools. Pel nostre cas d'ús, considerarem la 1a opció, ja que dins la integració de SUPERSEDE, l'anàlisi d'aquestes dades serà independent de la \textit{tool} utilitzada.
 \item \textbf{GooglePlayAPI}. Implementació de \textit{ToolInterface} que utilitza l'API de Google Play Developer. Aquesta \textit{tool} implementa una comunicació mitjançant autenticació OAuth 2.0 mitjançant els \textit{tokens} obtinguts al registrar un usuari de Google Play com a \textit{developer}. Per aquest projecte s'ha utilitzat un compte personal de Google Play compartit amb altres estudiants del Grau en Enginyeria Informàtica, per tal de poder probar i validar aquesta \textit{tool} (ja que, tal i com especificat anteriorment, únicament ens permet obtenir dades de les aplicacions de les quals l'usuari n'és l'autor). Degut al gran volum de dades que es poden generar al demanar les \textit{reviews} d'una aplicació, l'API funciona mitjançant un sistema de paginació. És a dir: la crida REST per obtenir les reviews retorna un subconjunt de mida relativament petita i, addicionalment, un \textit{token} que permet referenciar el següent subconjunt (o pàgina) de reviews. Aquest token s'utilitza per realitzar una nova crida, que conté un nou subconjunt de reviews i, addicionalment, un nou \textit{token} per la següent pàgina. D'aquesta manera, les dades venen paginades i subdividides. És responsabilitat de la \textit{tool} implementar la lògica per realitzar les crides de forma iterativa. 
 Aquest tractament pot ser un procés relativament lent (en termes computacionals). Però això no suposa un trencament amb la filosofia de "fotografiar" el sistema en un moment determinat: en el moment que es fa la crida REST, l'API captura les \textit{públiques} en aquell moment, i construeix els objectes de dades paginats, de tal manera que encara que es triguin uns segons en computar totes les pàgines de dades, aquestes sempre seran una representació del moment en que s'ha fet la primera crida, corresponent al final d'un cicle de monitoratge de durada definida al \textit{timeSlot.}
@@ -274,11 +275,9 @@ De forma anàloga a l'exposició com a servei del monitor de Twitter, cal dissen
 \label{fig:Figura14}
 \end{figure}
 
-Tot i que el paràmetre de \textit{toolName} ja l'havíem vist en l'anterior monitor, ja que és necessari per la instanciació de la \textit{tool} utilitzant el patró reflexió, en aquest cas cobra una especial importància, ja que al disposar d'un conjunt de \textit{tools} podem utilitzar els noms d'aquestes per configurar el monitor; en aquest cas, amb les \textit{tools} de \textbf{GooglePlay} i \textbf{AppTweak}.
+Tot i que el paràmetre de \textit{toolName} ja l'havíem vist en l'anterior monitor, ja que és necessari per la instanciació de la \textit{tool} utilitzant el patró reflexió, en aquest cas cobra una especial importància, ja que al disposar d'un conjunt de \textit{tools} podem utilitzar els noms d'aquestes per configurar el monitor; en aquest cas, amb les \textit{tools} de \textbf{GooglePlay} i \textbf{AppTweak}.\\
 
 \subsubsection{App Store Monitor}
-
-\noindent{\large{\textbf{Exposició com a servei REST}}}\\
 
 \section{Monitor Manager}
 
@@ -296,7 +295,7 @@ Com es pot extreure de les funcionalitats anteriors, l'objectiu principal d'aque
 
 Per tant, com a part de la tasca en el disseny i desenvolupament d'aquest monitor, caldrà definir un punt d'entrada únic pels 3 tipus d'operacions: \textbf{iniciar}, \textbf{modificar} i \textbf{aturar} un procés de monitoratge en un monitor específic. La lògica interna del Monitor Manager, per tant, s'haurà d'encarregar de processar aquestes peticions, identificar a quin monitor pertoca, i redireccionar-la al mateix.
 
-\subsection{Especificacions tècniques}
+\subsection{Especificacions tècniques i funcionals}
 
 Les especificacions tècniques en les que ens basarem per dissenyar i implementar el Monitor Manager requereixen satisfer una \textbf{integració} que actuï com a pont \textbf{únic} entre components tercers del sistema i els nostres monitors. Seguint els criteris presentats anteriorment, caldrà considerar els següents punts:
 
@@ -306,9 +305,9 @@ Les especificacions tècniques en les que ens basarem per dissenyar i implementa
 \item \textbf{\textit{OUTPUT} - Redirecció al monitor}. Enviament de la petició processada cap al monitor.
 \end{enumerate}
 
-\subsubsection{INPUT - Petició de configuració de monitor}
+\noindent \textbf{\large Petició de configuració de monitor}\\
 
-La petició de configuració s'ha de rebre en un format genèric que el propi Monitor Manager sigui capaç d'encapsular, identificar el monitor al qual cal enviar-la, i redireccionar-la posteriorment. Per fer-ho, independentment del format, necessitem identificar dos factors claus que el Monitor Manager ha de rebre:
+\noindent La petició de configuració s'ha de rebre en un format genèric que el propi Monitor Manager sigui capaç d'encapsular, identificar el monitor al qual cal enviar-la, i redireccionar-la posteriorment. Per fer-ho, independentment del format, necessitem identificar dos factors claus que el Monitor Manager ha de rebre:
 
 \begin{itemize}
 \item El \textbf{monitor específic} al qual s'ha de redireccionar la petició
@@ -329,19 +328,19 @@ En aquest punt cal decidir si aquesta informació l'afegim de forma implícita a
 
 En aquest sentit aprofitarem la necessitat d'exposició dels components com a serveis RESTful per, mitjançant el propi disseny de la API que implementarà el Monitor Manager, definir aquest paràmetre. En el  disseny d'aquesta API, present a l'apèndix ~\ref{AppendixA}, proposem com a paràmetre dins la URL de les 3 crides a implementar (creació, modificació i eliminació) el propi identificador del monitor. Així, exemplificant la crida per crear una configuració sobre el monitor de Twitter, podem veure a la figura ~\ref{fig:Figura15} la URL que defineix el recurs per realitzar aquesta operació (on \textit{monitorName} és el paràmetre de la URL que identifica el monitor a redireccionar), així com un exemple de JSON que rebrà. Com es pot apreciar, aquest presenta els mateixos camps que el JSON definit als monitors.\\
 
-Amb aquestes dades d'entrada, el Monitor Manager ja és capaç de realitzar la redirecció al monitor corresponent.
+Amb aquestes dades d'entrada, el Monitor Manager ja és capaç de realitzar la redirecció al monitor corresponent.\\
 
-\subsubsection{ACTION - Processat de la petició}
+\noindent \textbf{\large Processat de la petició}\\
 
-Un cop definida la informació i el seu format d'entrada necessaris per satisfer les especificacions tècniques, cal avaluar com partim d'aquesta informació a la petició de configuració de monitors.\\
+\noindent Un cop definida la informació i el seu format d'entrada necessaris per satisfer les especificacions tècniques, cal avaluar com partim d'aquesta informació a la petició de configuració de monitors.\\
 
-Ja que la única tasca a realitzar és la redirecció (ja que les dades no cal que siguin tractades), hem de partir del paràmetre \textit{monitorName} per identificar el monitor al qual redireccionar. El component IF exposa, de manera separada, la implementació de classes o \textit{proxies} diferents per cada monitor implementat. És a dir: per cada monitor que vulguem integrar i registrar al nostre sistema, necessitarem afegir-ho a IF per garantir-ne la integració de la comunicació, mitjançant la implementació d'un \textit{proxy} amb els mètodes de comunicació que ofereix. Per tant, la responsabilitat del Monitor Manager serà utilitzar el paràmetre \textit{monitorName} per discernir entre els \textit{proxies} implementats per IF i seleccionar aquell que es correspongui al monitor al qual la petició ha d'anar adreçada. 
+Ja que la única tasca a realitzar és la redirecció (ja que les dades no cal que siguin tractades), hem de partir del paràmetre \textit{monitorName} per identificar el monitor al qual redireccionar. El component IF exposa, de manera separada, la implementació de classes o \textit{proxies} diferents per cada monitor implementat. És a dir: per cada monitor que vulguem integrar i registrar al nostre sistema, necessitarem afegir-ho a IF per garantir-ne la integració de la comunicació, mitjançant la implementació d'un \textit{proxy} amb els mètodes de comunicació que ofereix. Per tant, la responsabilitat del Monitor Manager serà utilitzar el paràmetre \textit{monitorName} per discernir entre els \textit{proxies} implementats per IF i seleccionar aquell que es correspongui al monitor al qual la petició ha d'anar adreçada. \\
 
-\subsubsection{OUTPUT - Redirecció al monitor}
+\noindent \textbf{\large Redirecció al monitor}\\
 
-Finalment, identificat i instanciat el \textit{proxy} el Monitor Manager executarà una crida \textit{addConfiguration}, \textit{updateConfiguration} o \textit{deleteConfiguration} en funció de l'operació enviada. De nou en aquest sentit s'aprofita l'\textit{input} d'aquest component mitjançant la seva exposició com a servei: cada mètode de creació, modificació i eliminació crida al mètode corresponent del \textit{proxy} definit per \textit{monitorName}. A aquest \textit{proxy} s'enviarà la instància de configuració rebuda d'entrada, reaprofitant exactament el mateix format, mantenint així la uniformitat de les dades desitjada.
+\noindent Finalment, identificat i instanciat el \textit{proxy} el Monitor Manager executarà una crida \textit{addConfiguration}, \textit{updateConfiguration} o \textit{deleteConfiguration} en funció de l'operació enviada. De nou en aquest sentit s'aprofita l'\textit{input} d'aquest component mitjançant la seva exposició com a servei: cada mètode de creació, modificació i eliminació crida al mètode corresponent del \textit{proxy} definit per \textit{monitorName}. A aquest \textit{proxy} s'enviarà la instància de configuració rebuda d'entrada, reaprofitant exactament el mateix format, mantenint així la uniformitat de les dades desitjada.
 
-\subsection{Implementació del Monitor Manager}
+\subsection{Disseny i implementació}
 
 En definitiva, d'acord amb les necessitats establertes, la implementació del Monitor Manager es basarà simplement en el disseny i implementació d'un servei REST que implementi els 3 mètodes definits anteriorment, i que la seva lògica interna s'encarregui simplement d'identificar, a partir del nom del monitor rebut com a paràmetre, el \textit{proxy} que implementa la comunicació amb aquell monitor.\\
 
@@ -355,7 +354,7 @@ La seva tasca principal és actuar de pont entre els components encarregats d'ap
 
 Addicionalment, a aquest component se li assigna una responsabilitat superior associada a la gestió i control del sistema de monitoratge i les seves especificacions. Amb això es fa referència a la persistència i control de metadades relacionades amb els monitors, que ens permeten tenir de forma integrada coneixement sobre el nostre sistema. Aspectes com, p.e., els \textbf{tipus de monitors} integrats, que engloben un conjunt de monitors treballant sobre una mateixa àrea, o bé les \textbf{tools implementades} per cada tipus de monitor.\\
 
-\subsection{Especificacions tècniques}
+\subsection{Especificacions tècniques i funcionals}
 
 En general, per tant, podem concebre l'Orchestrator com un \textbf{component d'integració} i un \textbf{repositori de metadades}. Per tant, independentment de les funcionalitats que caldrà implementar (que a continuació detallarem), caldrà tenir en compte dues característiques bàsiques:
 
@@ -395,11 +394,11 @@ Per definir els detalls d'aquestes dues branques, necessitem primer definir amb 
 
 Per tal d'entendre bé aquest esquema, podem visualitzar un esquema conceptual a la taula 7.1 que presenta un exemple de constitució d'un sistema de monitoratge en actiu com el que hem anat descrivint al llarg d'aquest projecte. Bàsicament tenim dos tipus de monitors, \textbf{Social Networks} i \textbf{Market Places}. Pel primer tenim definida una única \textit{tool}, \textbf{TwitterAPI}; pel segon, tenim definides 4, dues per cada \textit{market place} (\textit{AppStore} i \textit{GooglePlay}). Fixem-nos en el detall que en cap moment estem contemplant l'entitat \textbf{monitor} en aquest esquema. Això es deu al fet que, dins el nostre esquema, l'entitat monitor només és significativa des d'un punt de vista físic, com a punt integrat de desplegament que agrupa un conjunt de \textit{tools}. Podríem considerar que existeixen punts comuns entre \textit{tools} dins un mateix monitor, com p.e. la implementació dels paràmetres d'entrada o de sortida. Però la nostra arquitectura no restringeix aquest aspecte. Dins un mateix monitor, cada \textit{tool} pot implementar aquestes interfícies i classes d'acord amb les seves necessitats. D'aquesta manera, el concepte monitor únicament és significatiu des del punt de vista d'implementació i desplegament físic, no lògic o de metadades. Per tant, no considerarem aquesta entitat dins el nostre esquema conceptual.\\
 
-Finalment, a la taula podem veure un conjunt d'exemple de configuracions. Aquest no vindrà limitat per cap restricció, i tot i que cada monitor s'ha d'encarregar en última instància de gestionar-ho, serà a través del Orchestrator i el Monitor Manager que es gestionaran les altes, baixes i modificacions d'aquests.
+Finalment, a la taula podem veure un conjunt d'exemple de configuracions. Aquest no vindrà limitat per cap restricció, i tot i que cada monitor s'ha d'encarregar en última instància de gestionar-ho, serà a través del Orchestrator i el Monitor Manager que es gestionaran les altes, baixes i modificacions d'aquests.\\
 
-\subsubsection{INPUT - Peticions de configuració del sistema de monitoratge}
+\noindent \textbf{\large Peticions de configuració del sistema de monitoratge}\\
 
-Mitjançant l'exposició de les funcionalitats com a servei REST, l'Orchestrator haurà de rebre el conjunt de peticions amb dos objectius principals: la \textbf{gestió de metadades} del nostre sistema de monitoratge, i la \textbf{redirecció de les peticions} associades directament a configuracions del sistema. La definició d'aquests mètodes d'entrada no ve a ser més que el disseny d'un controlador basat en les operacions \textbf{CRUD} (\textit{\textbf{C}reate}, \textit{\textbf{R}ead}, \textit{\textbf{U}pdate}, \textit{\textbf{D}elete}) per les entitats \textit{Monitor Type}, \textit{Monitor Tool} i \textit{Monitor Configuration}. A la taula 7.2 podem visualitzar un resum conceptual dels mètodes que necessitarem definir, i quins paràmetres caldrà definir per cadascun d'ells.\\
+\noindent Mitjançant l'exposició de les funcionalitats com a servei REST, l'Orchestrator haurà de rebre el conjunt de peticions amb dos objectius principals: la \textbf{gestió de metadades} del nostre sistema de monitoratge, i la \textbf{redirecció de les peticions} associades directament a configuracions del sistema. La definició d'aquests mètodes d'entrada no ve a ser més que el disseny d'un controlador basat en les operacions \textbf{CRUD} (\textit{\textbf{C}reate}, \textit{\textbf{R}ead}, \textit{\textbf{U}pdate}, \textit{\textbf{D}elete}) per les entitats \textit{Monitor Type}, \textit{Monitor Tool} i \textit{Monitor Configuration}. A la taula 7.2 podem visualitzar un resum conceptual dels mètodes que necessitarem definir, i quins paràmetres caldrà definir per cadascun d'ells.\\
 
 \begin{table}[htb]
 \centering
@@ -441,19 +440,19 @@ En general, tota la informació d'entrada que necessita per executar cadascuna d
 
 Només en un cas necessitem afegir més informació, que serà pels dos casos a treballar en aquest projecte: la \textbf{creació d'una configuració} i la seva \textbf{reconfiguració} (o actualització). En aquest cas, i tal i com s'ha definit en l'especificació i disseny dels monitors, caldrà afegir d'una banda aquells paràmetres obligatoris per a tot monitor, i addicionalment aquells propis de cada \textit{tool}.\\
 
-\subsubsection{ACTION - Actualització de metadades}
+\noindent \textbf{\large Actualització de metadades}\\
 
-El comportament intern de l'Orchestrator serà relativament senzill, ja que únicament necessita contemplar l'actualització de metadades i el processament de les peticions realitzades per redirigir-les, si s'escau, al monitor corresponent.\\
+\noindent El comportament intern de l'Orchestrator serà relativament senzill, ja que únicament necessita contemplar l'actualització de metadades i el processament de les peticions realitzades per redirigir-les, si s'escau, al monitor corresponent.\\
 
 Considerant primer \textbf{l'actualització de metadades}, l'Orchestrator actualitzarà d'acord a l'operació executada modificacions a la base de dades d'acord amb \textbf{creació}, \textbf{actualització} i eliminació de les entitats prèviament definides. En cas que es tracti d'operacions de lectura, només caldrà accedir a la base de dades i llegir les dades associades a la petició realitzada. Aquest aspecte de l'acció interna el considerarem trivial, ja que es tracta únicament de modificacions associades a una BDD relacional (veure més endavant a \textit{Implementació del Orchestrator}), i no resulta d'especial interès per la finalitat del nostre projecte.\\
 
-\subsubsection{OUTPUT - Redirecció de peticions}
+\noindent \textbf{\large Redirecció de peticions}\\
 
-Per altra banda cal definir la \textbf{redirecció de peticions} a monitors. Fixem-nos que, al disposar de totes les dades integrades, aquesta únicament caldrà contemplar-la pels casos en els que no només cal realitzar modificacions sobre les pròpies metadades (o bé simplement realitzar lectures), sinó també realitzar canvis relacionats amb l'execució real dels monitors. Això per tant inclourà: \textbf{alta} de configuració, \textbf{reconfiguració} d'una configuració, i \textbf{eliminació} d'una configuració. En aquests 3 casos, l'Orchestrator haurà de realitzar la redirecció amb el Monitor Manager, utilitzant la integració amb IF.\\
+\noindent Per altra banda cal definir la \textbf{redirecció de peticions} a monitors. Fixem-nos que, al disposar de totes les dades integrades, aquesta únicament caldrà contemplar-la pels casos en els que no només cal realitzar modificacions sobre les pròpies metadades (o bé simplement realitzar lectures), sinó també realitzar canvis relacionats amb l'execució real dels monitors. Això per tant inclourà: \textbf{alta} de configuració, \textbf{reconfiguració} d'una configuració, i \textbf{eliminació} d'una configuració. En aquests 3 casos, l'Orchestrator haurà de realitzar la redirecció amb el Monitor Manager, utilitzant la integració amb IF.\\
 
 El mateix problema de criteri de redirecció sorgeix que en el cas del Monitor Manager. Necessitem saber quina \textit{tool} va associada a quin monitor, per tal d'indicar al Monitor Manager a quin monitor es troba implementada aquella \textit{tool}. El Monitor Manager requeria aquest paràmetre en la petició, ja que ell no té constància d'aquestes dades. Però a l'Orchestrator sí que disposem d'aquesta metadada, associada a una \textit{tool}, i definida en el moment de creació, tal i com observem també a la taula 7.2. Per tant, a l'hora d'instanciar el \textit{proxy} de IF per comunicar-se amb el Monitor Manager, cridarem al mètode corresponent al Monitor identificat per aquest atribut. D'aquesta manera la redirecció queda satisfeta.\\
 
-\subsection{Implementació de l'Orchestrator}
+\subsection{Disseny i implementació}
 
 Sense entrar en molt detall en els aspectes d'implementació de les especificacions prèviament descrites, podem trobar els detalls d'aquesta a: 
 
