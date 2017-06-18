@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.5.4)  17 JUN 2017 21:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.5.4)  18 JUN 2017 12:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1832,14 +1832,14 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 [7
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 56.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 59.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 56.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
 
-Overfull \hbox (5.67975pt too wide) in paragraph at lines 56--56
+Overfull \hbox (5.67975pt too wide) in paragraph at lines 59--59
  [][] [][][]\T1/ppl/m/n/10.95 Sol\OMS/cmsy/m/n/10.95 ^^A\T1/ppl/m/n/10.95 licit
 ud d'e-xe-cu-ció de l'a-dap-ta-ció \T1/ppl/m/it/10.95 Mo-ni-to-ringSys-tem-Con-
 fig-High-Ti-mes- 
@@ -1932,7 +1932,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
-<Figures/Figure1.jpg, id=600, 325.215pt x 277.035pt>
+<Figures/Figure1.jpg, id=606, 325.215pt x 277.035pt>
 File: Figures/Figure1.jpg Graphic file (type jpg)
  <use Figures/Figure1.jpg>
 Package pdftex.def Info: Figures/Figure1.jpg used on input line 46.
@@ -1978,7 +1978,7 @@ LaTeX Font Warning: Font shape `OMS/ppl/bx/n' undefined
 (Font)              using `OMS/ppl/m/n' instead
 (Font)              for symbol `textperiodcentered' on input line 82.
 
-[6] <Figures/Figure2.png, id=618, 552.0625pt x 408.52625pt>
+[6] <Figures/Figure2.png, id=624, 552.0625pt x 408.52625pt>
 File: Figures/Figure2.png Graphic file (type png)
 
 <use Figures/Figure2.png>
@@ -2006,7 +2006,10 @@ Cap\'{\i }tol 3.
 
 
 
-]) [10] [11]
+]
+LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/it' tried instead on input line 66.
+ [10]) [11]
 \openout2 = `Chapters/GestioIDesenvolupament.aux'.
 
  (./Chapters/GestioIDesenvolupament.tex [12
@@ -2020,47 +2023,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-<Figures/Figure3.jpg, id=652, 1204.5pt x 540.0175pt>
+<Figures/Figure3.jpg, id=659, 770.88pt x 470.50781pt>
 File: Figures/Figure3.jpg Graphic file (type jpg)
- <use Figures/Figure3.jpg>
-Package pdftex.def Info: Figures/Figure3.jpg used on input line 21.
-(pdftex.def)             Requested size: 227.62204pt x 102.04407pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
-
+<use Figures/Figure3.jpg>
+Package pdftex.def Info: Figures/Figure3.jpg used on input line 30.
+(pdftex.def)             Requested size: 227.62204pt x 138.92783pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
-1: section
-[13 <./Figures/Figure3.jpg>]
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 38.
 
 Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+
+ []
+
+1: section
+[13]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 47.
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
  []
 
@@ -2069,140 +2063,146 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+[14 <./Figures/Figure3.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
+[16]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <8> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 143.
-[16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 152.
+ [17]
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 279--280
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--331
+Underfull \hbox (badness 10000) in paragraph at lines 339--340
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 334--335
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--354
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 368--369
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
 
  []
 
@@ -2251,14 +2251,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--27
 
  []
 
-<Figures/Figure4.png, id=701, 587.3142pt x 347.8596pt>
+<Figures/Figure4.png, id=715, 587.3142pt x 347.8596pt>
 File: Figures/Figure4.png Graphic file (type png)
 
 <use Figures/Figure4.png>
 Package pdftex.def Info: Figures/Figure4.png used on input line 34.
 (pdftex.def)             Requested size: 369.88582pt x 219.0784pt.
-LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/it' tried instead on input line 43.
  [24 <./Figures/Figure4.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
@@ -2398,7 +2396,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
-<Figures/Figure7.png, id=760, 753.81625pt x 422.57875pt>
+<Figures/Figure7.png, id=773, 753.81625pt x 422.57875pt>
 File: Figures/Figure7.png Graphic file (type png)
 
 <use Figures/Figure7.png>
@@ -2419,19 +2417,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
-<Figures/Figure5.png, id=766, 2054.42531pt x 855.195pt>
+<Figures/Figure5.png, id=779, 1371.1225pt x 770.88pt>
 File: Figures/Figure5.png Graphic file (type png)
 
 <use Figures/Figure5.png>
 Package pdftex.def Info: Figures/Figure5.png used on input line 86.
-(pdftex.def)             Requested size: 398.33858pt x 165.81628pt.
- [36 <./Figures/Figure7.png>]
+(pdftex.def)             Requested size: 398.33858pt x 223.9494pt.
+ [36 <./Figures/Figure7.png>] [37 <./Figures/Figure5.png>]
 Overfull \hbox (2.44196pt too wide) in paragraph at lines 105--106
 []\T1/ppl/b/it/10.95 addConfiguration(JSONObject) \T1/ppl/m/n/10.95 -> pro-ces-
 sa els pa-rà-me-tres de-fi-nits al JSO-
  []
 
-[37 <./Figures/Figure5.png>]
+
 Overfull \hbox (5.98933pt too wide) in paragraph at lines 107--108
 []\T1/ppl/b/it/10.95 updateConfiguration(JSONObject, int) \T1/ppl/m/n/10.95 -> 
 ac-tu-a-lit-za els pa-rà-me-tres de con-
@@ -2462,19 +2460,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 145--147
 
  []
 
-
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
-[39] <Figures/Figure6.png, id=790, 3858.415pt x 1920.17375pt>
+<Figures/Figure6.png, id=802, 988.69376pt x 570.13pt>
 File: Figures/Figure6.png Graphic file (type png)
 
 <use Figures/Figure6.png>
 Package pdftex.def Info: Figures/Figure6.png used on input line 154.
-(pdftex.def)             Requested size: 398.33858pt x 198.2108pt.
- [40 <./Figures/Figure6.png>]
-<Figures/Figure12.png, id=798, 669.2503pt x 240.9pt>
+(pdftex.def)             Requested size: 398.33858pt x 229.70085pt.
+ [40 <./Figures/Figure6.png (PNG copy)>]
+<Figures/Figure12.png, id=809, 669.2503pt x 240.9pt>
 File: Figures/Figure12.png Graphic file (type png)
 
 <use Figures/Figure12.png>
@@ -2496,7 +2494,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 183--184
  []
 
 [41 <./Figures/Figure12.png>]
-<Figures/Figure8.png, id=805, 606.01407pt x 219.82124pt>
+<Figures/Figure8.png, id=816, 606.01407pt x 219.82124pt>
 File: Figures/Figure8.png Graphic file (type png)
 
 <use Figures/Figure8.png>
@@ -2507,43 +2505,48 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 195.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<Figures/Figure9.png, id=807, 480.29437pt x 135.50626pt>
+<Figures/Figure9.png, id=818, 480.29437pt x 135.50626pt>
 File: Figures/Figure9.png Graphic file (type png)
 
 <use Figures/Figure9.png>
 Package pdftex.def Info: Figures/Figure9.png used on input line 199.
 (pdftex.def)             Requested size: 227.62204pt x 64.21931pt.
 
-<Figures/Figure10.png, id=809, 516.42938pt x 119.69719pt>
+<Figures/Figure10.png, id=820, 516.42938pt x 119.69719pt>
 File: Figures/Figure10.png Graphic file (type png)
 
 <use Figures/Figure10.png>
 Package pdftex.def Info: Figures/Figure10.png used on input line 209.
 (pdftex.def)             Requested size: 284.52756pt x 65.94872pt.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
 
-[42 <./Figures/Figure8.png> <./Figures/Figure9.png> <./Figures/Figure10.png>]
+[42 <./Figures/Figure8.png> <./Figures/Figure9.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 226--227
 
  []
 
-[43] <Figures/Figure11.png, id=819, 3965.81625pt x 2221.29875pt>
+[43 <./Figures/Figure10.png>]
+<Figures/Figure11.png, id=830, 932.48375pt x 737.75626pt>
 File: Figures/Figure11.png Graphic file (type png)
 
 <use Figures/Figure11.png>
 Package pdftex.def Info: Figures/Figure11.png used on input line 236.
-(pdftex.def)             Requested size: 398.33858pt x 223.09192pt.
-
-<Figures/Figure13.png, id=820, 487.8225pt x 338.76563pt>
+(pdftex.def)             Requested size: 398.33858pt x 315.15767pt.
+ [44 <./Figures/Figure11.png (PNG copy)>]
+<Figures/Figure13.png, id=835, 487.8225pt x 338.76563pt>
 File: Figures/Figure13.png Graphic file (type png)
 
 <use Figures/Figure13.png>
 Package pdftex.def Info: Figures/Figure13.png used on input line 254.
 (pdftex.def)             Requested size: 398.33858pt x 276.62654pt.
- [44 <./Figures/Figure11.png>] [45 <./Figures/Figure13.png>]
+ [45 <./Figures/Figure13.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 266--267
 
  []
@@ -2553,225 +2556,265 @@ Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
-<Figures/Figure14.png, id=834, 365.11406pt x 146.04562pt>
+<Figures/Figure14.png, id=844, 365.11406pt x 146.04562pt>
 File: Figures/Figure14.png Graphic file (type png)
 
 <use Figures/Figure14.png>
 Package pdftex.def Info: Figures/Figure14.png used on input line 272.
 (pdftex.def)             Requested size: 312.9803pt x 125.19786pt.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 
  []
 
-[46 <./Figures/Figure14.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 294--295
+[46] <Figures/appstore.png, id=849, 920.43875pt x 737.75626pt>
+File: Figures/appstore.png Graphic file (type png)
 
+<use Figures/appstore.png>
+Package pdftex.def Info: Figures/appstore.png used on input line 299.
+(pdftex.def)             Requested size: 398.33858pt x 319.28908pt.
+
+Overfull \hbox (3.18617pt too wide) in paragraph at lines 310--311
+[]\T1/ppl/b/n/10.95 AppStoreMonitoringData. \T1/ppl/m/n/10.95 Im-ple-men-ta-ció
+ de la in-ter-fí-cie que de-fi-neix la trans-
  []
 
+[47 <./Figures/Figure14.png>] [48 <./Figures/appstore.png (PNG copy)>]
+<Figures/appstore-dades.png, id=859, 557.08125pt x 299.61937pt>
+File: Figures/appstore-dades.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--309
+<use Figures/appstore-dades.png>
+Package pdftex.def Info: Figures/appstore-dades.png used on input line 317.
+(pdftex.def)             Requested size: 398.33858pt x 214.2445pt.
 
- []
-
-[47]
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 319--320
-
- []
-
-<Figures/Figure15.png, id=849, 483.30562pt x 240.14719pt>
-File: Figures/Figure15.png Graphic file (type png)
-
-<use Figures/Figure15.png>
-Package pdftex.def Info: Figures/Figure15.png used on input line 323.
-(pdftex.def)             Requested size: 312.9803pt x 155.52216pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 329--330
-
- []
-
-[48 <./Figures/Figure15.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 331--332
+Underfull \hbox (badness 10000) in paragraph at lines 323--324
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
 
  []
 
+<Figures/appstore-conf.png, id=861, 1371.1225pt x 770.88pt>
+File: Figures/appstore-conf.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+<use Figures/appstore-conf.png>
+Package pdftex.def Info: Figures/appstore-conf.png used on input line 329.
+(pdftex.def)             Requested size: 312.9803pt x 175.95772pt.
 
- []
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 337--338
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 345--346
+[49 <./Figures/appstore-dades.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
 
  []
 
-<Figures/monitor-manager-interface.png, id=857, 214.55156pt x 88.83188pt>
-File: Figures/monitor-manager-interface.png Graphic file (type png)
-
-<use Figures/monitor-manager-interface.png>
-Package pdftex.def Info: Figures/monitor-manager-interface.png used on input li
-ne 349.
-(pdftex.def)             Requested size: 227.62204pt x 94.244pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
-
- []
-
-[49]
+[50 <./Figures/appstore-conf.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 361--362
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
 
  []
 
-[50 <./Figures/monitor-manager-interface.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
+
+ []
+
+<Figures/Figure15.png, id=873, 483.30562pt x 240.14719pt>
+File: Figures/Figure15.png Graphic file (type png)
+
+<use Figures/Figure15.png>
+Package pdftex.def Info: Figures/Figure15.png used on input line 376.
+(pdftex.def)             Requested size: 312.9803pt x 155.52216pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
 
  []
 
 [51]
-Overfull \hbox (9.60777pt too wide) in paragraph at lines 405--406
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 388--389
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
+
+ []
+
+[52 <./Figures/Figure15.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 398--399
+
+ []
+
+<Figures/monitor-manager-interface.png, id=890, 214.55156pt x 88.83188pt>
+File: Figures/monitor-manager-interface.png Graphic file (type png)
+
+<use Figures/monitor-manager-interface.png>
+Package pdftex.def Info: Figures/monitor-manager-interface.png used on input li
+ne 402.
+(pdftex.def)             Requested size: 227.62204pt x 94.244pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
+
+ []
+
+[53 <./Figures/monitor-manager-interface.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
+
+ []
+
+[54]
+Overfull \hbox (9.60777pt too wide) in paragraph at lines 458--459
 []\T1/ppl/m/n/10.95 Finalment, a la tau-la po-dem veu-re un con-junt d'e-xem-pl
 e de con-fi-gu-ra-ci-ons. Aquest
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 405--406
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
 
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 426--426
+Underfull \hbox (badness 1067) in paragraph at lines 479--479
 []|\T1/ppl/m/n/10.95 Baixa de To-ol per un
  []
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 430--430
+Underfull \hbox (badness 1102) in paragraph at lines 483--483
 []|\T1/ppl/m/n/10.95 Alta de Con-fi-gu-ra-ti-on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
 []|\T1/ppl/m/n/10.95 Modifica els pa-rà-me-tres d'u-na
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
 \T1/ppl/m/n/10.95 Con-fi-gu-ra-ti-on exis-tent per una
  []
 
 
-Overfull \hbox (3.4567pt too wide) in paragraph at lines 414--434
+Overfull \hbox (3.4567pt too wide) in paragraph at lines 467--487
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--446
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
+
+ []
+
+[55]
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 451--452
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
-
- []
-
-
-Overfull \hbox (1.23186pt too wide) in paragraph at lines 455--456
+Overfull \hbox (1.23186pt too wide) in paragraph at lines 508--509
 []\T1/ppl/m/n/10.95 Considerant pri-mer \T1/ppl/b/n/10.95 l'ac-tu-a-lit-za-ció 
 de me-ta-da-des\T1/ppl/m/n/10.95 , l'Orc-hes-tra-tor ac-tu-a-lit-za-rà d'a-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 455--456
-
- []
-
-[52]
-Underfull \hbox (badness 10000) in paragraph at lines 457--458
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--460
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--462
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
 
  []
 
-<Figures/orchestrator.png, id=882, 405.01312pt x 243.91125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 514--515
+
+ []
+
+[56] <Figures/orchestrator.png, id=913, 405.01312pt x 243.91125pt>
 File: Figures/orchestrator.png Graphic file (type png)
 
 <use Figures/orchestrator.png>
-Package pdftex.def Info: Figures/orchestrator.png used on input line 477.
+Package pdftex.def Info: Figures/orchestrator.png used on input line 530.
 (pdftex.def)             Requested size: 398.33858pt x 239.89856pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) [53] [54 <./Figures/orchestrator.png>] [55]
+) [57 <./Figures/orchestrator.png>] [58]
 \openout2 = `Chapters/ModelatgeConfiguracions.aux'.
 
 
-(./Chapters/ModelatgeConfiguracions.tex [56
-
-
-
-]
+(./Chapters/ModelatgeConfiguracions.tex
 Cap\'{\i }tol 8.
 
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
@@ -2794,12 +2837,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
  []
 
 1: section
-[57]
+[59
+
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
  []
 
-<Figures/Figure16.png, id=906, 789.70032pt x 301.125pt>
+<Figures/Figure16.png, id=929, 789.70032pt x 301.125pt>
 File: Figures/Figure16.png Graphic file (type png)
 
 <use Figures/Figure16.png>
@@ -2810,7 +2857,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
-[58]
+[60]
 Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
@@ -2820,18 +2867,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
-[59 <./Figures/Figure16.png>]
+[61 <./Figures/Figure16.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
  []
 
-<Figures/Figure17.jpg, id=919, 782.17218pt x 380.17032pt>
+<Figures/Figure17.jpg, id=942, 782.17218pt x 380.17032pt>
 File: Figures/Figure17.jpg Graphic file (type jpg)
 
 <use Figures/Figure17.jpg>
 Package pdftex.def Info: Figures/Figure17.jpg used on input line 70.
 (pdftex.def)             Requested size: 398.33858pt x 193.61165pt.
- [60 <./Figures/Figure17.jpg>]
+ [62 <./Figures/Figure17.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
@@ -2841,7 +2888,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-<Figures/Figure18.jpg, id=927, 767.11594pt x 242.40562pt>
+<Figures/Figure18.jpg, id=950, 767.11594pt x 242.40562pt>
 File: Figures/Figure18.jpg Graphic file (type jpg)
 
 <use Figures/Figure18.jpg>
@@ -2857,9 +2904,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
  []
 
-[61 <./Figures/Figure18.jpg>]
+[63 <./Figures/Figure18.jpg>]
 
-LaTeX Warning: Reference `fig:advice' on page 62 undefined on input line 98.
+LaTeX Warning: Reference `fig:advice' on page 64 undefined on input line 98.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 102--103
@@ -2871,7 +2918,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--105
 
  []
 
-<Figures/Figure19.jpg, id=933, 362.85562pt x 102.3825pt>
+<Figures/Figure19.jpg, id=957, 362.85562pt x 102.3825pt>
 File: Figures/Figure19.jpg Graphic file (type jpg)
 
 <use Figures/Figure19.jpg>
@@ -2882,7 +2929,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
-[62 <./Figures/Figure19.jpg>]
+[64 <./Figures/Figure19.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
@@ -2892,29 +2939,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
 
-<Figures/profile.png, id=940, 374.90062pt x 302.63063pt>
+<Figures/profile.png, id=964, 374.90062pt x 302.63063pt>
 File: Figures/profile.png Graphic file (type png)
 
 <use Figures/profile.png>
 Package pdftex.def Info: Figures/profile.png used on input line 126.
 (pdftex.def)             Requested size: 312.9803pt x 252.66104pt.
- [63]
+ [65]
 Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
-[64 <./Figures/profile.png>]
-<Figures/Figure38.png, id=951, 481.04718pt x 204.01219pt>
+[66 <./Figures/profile.png>]
+<Figures/Figure38.png, id=974, 481.04718pt x 204.01219pt>
 File: Figures/Figure38.png Graphic file (type png)
 
 <use Figures/Figure38.png>
 Package pdftex.def Info: Figures/Figure38.png used on input line 161.
 (pdftex.def)             Requested size: 312.9803pt x 132.73709pt.
-) [65 <./Figures/Figure38.png>]
+) [67 <./Figures/Figure38.png>]
 \openout2 = `Chapters/SistemaAdaptabilitat.aux'.
 
 
-(./Chapters/SistemaAdaptabilitat.tex [66
+(./Chapters/SistemaAdaptabilitat.tex [68
 
 
 
@@ -2946,7 +2993,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--31
  []
 
 1: section
-[67]
+[69]
 Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
@@ -2966,7 +3013,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
-[68] [69]
+[70] [71]
 Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
@@ -2976,7 +3023,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
-[70] <Figures/Figure21.jpg, id=985, 578.16pt x 357.58594pt>
+[72] <Figures/Figure21.jpg, id=1008, 578.16pt x 357.58594pt>
 File: Figures/Figure21.jpg Graphic file (type jpg)
 
 <use Figures/Figure21.jpg>
@@ -2992,8 +3039,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
-[71 <./Figures/Figure21.jpg>]
-<Figures/Figure27.png, id=991, 326.21875pt x 284.06125pt>
+[73 <./Figures/Figure21.jpg>]
+<Figures/Figure27.png, id=1014, 326.21875pt x 284.06125pt>
 File: Figures/Figure27.png Graphic file (type png)
 
 <use Figures/Figure27.png>
@@ -3004,8 +3051,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
-[72 <./Figures/Figure27.png (PNG copy)>]
-<Figures/Figure25.png, id=1002, 472.76625pt x 663.47874pt>
+[74 <./Figures/Figure27.png (PNG copy)>]
+<Figures/Figure25.png, id=1025, 472.76625pt x 663.47874pt>
 File: Figures/Figure25.png Graphic file (type png)
 
 <use Figures/Figure25.png>
@@ -3016,19 +3063,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
-[73] [74 <./Figures/Figure25.png (PNG copy)>]
+[75] [76 <./Figures/Figure25.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
-[75] <Figures/Figure28.png, id=1022, 585.18625pt x 270.00874pt>
+[77] <Figures/Figure28.png, id=1045, 585.18625pt x 270.00874pt>
 File: Figures/Figure28.png Graphic file (type png)
 
 <use Figures/Figure28.png>
 Package pdftex.def Info: Figures/Figure28.png used on input line 190.
 (pdftex.def)             Requested size: 369.88582pt x 170.67496pt.
 
-<Figures/Figure30.png, id=1024, 914.41624pt x 653.44125pt>
+<Figures/Figure30.png, id=1047, 914.41624pt x 653.44125pt>
 File: Figures/Figure30.png Graphic file (type png)
 
 <use Figures/Figure30.png>
@@ -3044,8 +3091,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 225--226
 
  []
 
-[76 <./Figures/Figure28.png (PNG copy)>]
-<Figures/Figure31.png, id=1031, 444.66125pt x 278.03876pt>
+[78 <./Figures/Figure28.png (PNG copy)>]
+<Figures/Figure31.png, id=1054, 444.66125pt x 278.03876pt>
 File: Figures/Figure31.png Graphic file (type png)
 
 <use Figures/Figure31.png>
@@ -3056,12 +3103,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 235--236
 
  []
 
-[77 <./Figures/Figure30.png>]
+[79 <./Figures/Figure30.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 243--244
 
  []
 
-<Figures/Figure23.jpg, id=1038, 219.06844pt x 74.52844pt>
+<Figures/Figure23.jpg, id=1061, 219.06844pt x 74.52844pt>
 File: Figures/Figure23.jpg Graphic file (type jpg)
 
 <use Figures/Figure23.jpg>
@@ -3072,8 +3119,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 257--258
 
  []
 
-[78 <./Figures/Figure31.png (PNG copy)> <./Figures/Figure23.jpg>]
-<Figures/Figure24.jpg, id=1044, 411.03563pt x 81.30376pt>
+[80 <./Figures/Figure31.png (PNG copy)> <./Figures/Figure23.jpg>]
+<Figures/Figure24.jpg, id=1067, 411.03563pt x 81.30376pt>
 File: Figures/Figure24.jpg Graphic file (type jpg)
 
 <use Figures/Figure24.jpg>
@@ -3084,24 +3131,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
  []
 
-[79 <./Figures/Figure24.jpg>]
+[81 <./Figures/Figure24.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
 
-[80]
+[82]
 Underfull \hbox (badness 10000) in paragraph at lines 322--323
 
  []
 
-<Figures/Figure26.png, id=1071, 431.6125pt x 139.52126pt>
+<Figures/Figure26.png, id=1096, 431.6125pt x 139.52126pt>
 File: Figures/Figure26.png Graphic file (type png)
 
 <use Figures/Figure26.png>
 Package pdftex.def Info: Figures/Figure26.png used on input line 326.
 (pdftex.def)             Requested size: 256.0748pt x 82.78091pt.
 
-<Figures/Figure22.png, id=1073, 800.9925pt x 1235.61626pt>
+<Figures/Figure22.png, id=1098, 800.9925pt x 1235.61626pt>
 File: Figures/Figure22.png Graphic file (type png)
 
 <use Figures/Figure22.png>
@@ -3111,7 +3158,7 @@ Package pdftex.def Info: Figures/Figure22.png used on input line 336.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [81 <./Figures/Figure26.png (PNG copy)>] [82 <./Figures/Figure22.png>]
+) [83 <./Figures/Figure26.png (PNG copy)>] [84 <./Figures/Figure22.png>]
 \openout2 = `Chapters/DissenyDashboard.aux'.
 
 
@@ -3122,7 +3169,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
-<Figures/Figure32.png, id=1085, 881.54344pt x 277.035pt>
+<Figures/Figure32.png, id=1108, 881.54344pt x 277.035pt>
 File: Figures/Figure32.png Graphic file (type png)
 
 <use Figures/Figure32.png>
@@ -3130,7 +3177,7 @@ Package pdftex.def Info: Figures/Figure32.png used on input line 27.
 (pdftex.def)             Requested size: 398.33858pt x 125.18031pt.
 
 1: section
-[83
+[85
 
 
 
@@ -3151,8 +3198,8 @@ Overfull \hbox (1.80977pt too wide) in paragraph at lines 50--51
 , mos-tra-rem de for-ma pa-ral\OMS/cmsy/m/n/10.95 ^^A\T1/ppl/m/n/10.95 lela
  []
 
-[84 <./Figures/Figure32.png>]
-<Figures/Figure33.png, id=1094, 880.79062pt x 213.04594pt>
+[86 <./Figures/Figure32.png>]
+<Figures/Figure33.png, id=1117, 880.79062pt x 213.04594pt>
 File: Figures/Figure33.png Graphic file (type png)
 
 <use Figures/Figure33.png>
@@ -3168,20 +3215,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
 
-<Figures/Figure34.png, id=1096, 812.03375pt x 317.185pt>
+<Figures/Figure34.png, id=1119, 812.03375pt x 317.185pt>
 File: Figures/Figure34.png Graphic file (type png)
 
 <use Figures/Figure34.png>
 Package pdftex.def Info: Figures/Figure34.png used on input line 78.
 (pdftex.def)             Requested size: 398.33858pt x 155.59138pt.
- [85 <./Figures/Figure33.png>]
-<Figures/Figure35.png, id=1102, 687.56876pt x 229.85875pt>
+ [87 <./Figures/Figure33.png>]
+<Figures/Figure35.png, id=1126, 687.56876pt x 229.85875pt>
 File: Figures/Figure35.png Graphic file (type png)
 
 <use Figures/Figure35.png>
 Package pdftex.def Info: Figures/Figure35.png used on input line 88.
 (pdftex.def)             Requested size: 398.33858pt x 133.16733pt.
-) [86 <./Figures/Figure34.png (PNG copy)> <./Figures/Figure35.png (PNG copy)>]
+) [88 <./Figures/Figure34.png (PNG copy)> <./Figures/Figure35.png (PNG copy)>]
 \openout2 = `Chapters/ReconfiguracioMonitors.aux'.
 
  (./Chapters/ReconfiguracioMonitors.tex
@@ -3201,7 +3248,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
  []
 
 1: section
-[87
+[89
 
 
 
@@ -3215,14 +3262,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
-<Figures/Figure36.png, id=1116, 773.13844pt x 247.67531pt>
+<Figures/Figure36.png, id=1139, 773.13844pt x 247.67531pt>
 File: Figures/Figure36.png Graphic file (type png)
 
 <use Figures/Figure36.png>
 Package pdftex.def Info: Figures/Figure36.png used on input line 33.
 (pdftex.def)             Requested size: 398.33858pt x 127.609pt.
 
-<Figures/Figure37.png, id=1117, 1003.75pt x 312.16624pt>
+<Figures/Figure37.png, id=1140, 1003.75pt x 312.16624pt>
 File: Figures/Figure37.png Graphic file (type png)
 
 <use Figures/Figure37.png>
@@ -3237,8 +3284,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
  []
 
-[88 <./Figures/Figure36.png> <./Figures/Figure37.png>]
-<Figures/dashboard1.png, id=1124, 884.55469pt x 236.38312pt>
+[90 <./Figures/Figure36.png> <./Figures/Figure37.png>]
+<Figures/dashboard1.png, id=1147, 884.55469pt x 236.38312pt>
 File: Figures/dashboard1.png Graphic file (type png)
 
 <use Figures/dashboard1.png>
@@ -3247,13 +3294,13 @@ Package pdftex.def Info: Figures/dashboard1.png used on input line 61.
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
 
-<Figures/dashboard2.png, id=1125, 883.04906pt x 178.41656pt>
+<Figures/dashboard2.png, id=1148, 883.04906pt x 178.41656pt>
 File: Figures/dashboard2.png Graphic file (type png)
 
 <use Figures/dashboard2.png>
 Package pdftex.def Info: Figures/dashboard2.png used on input line 69.
 (pdftex.def)             Requested size: 398.33858pt x 80.48271pt.
- [89 <./Figures/dashboard1.png>]
+ [91 <./Figures/dashboard1.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
@@ -3273,14 +3320,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
-<Figures/tfg1.png, id=1133, 411.03563pt x 236.38312pt>
+<Figures/tfg1.png, id=1156, 411.03563pt x 236.38312pt>
 File: Figures/tfg1.png Graphic file (type png)
  <use Figures/tfg1.png>
 Package pdftex.def Info: Figures/tfg1.png used on input line 85.
 (pdftex.def)             Requested size: 398.33858pt x 229.08214pt.
 
-[90 <./Figures/dashboard2.png>]
-<Figures/tfg2.png, id=1138, 406.51875pt x 168.63pt>
+[92 <./Figures/dashboard2.png>]
+<Figures/tfg2.png, id=1161, 406.51875pt x 168.63pt>
 File: Figures/tfg2.png Graphic file (type png)
  <use Figures/tfg2.png>
 Package pdftex.def Info: Figures/tfg2.png used on input line 93.
@@ -3290,8 +3337,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
-[91 <./Figures/tfg1.png> <./Figures/tfg2.png>]
-<Figures/tfg3.png, id=1144, 408.77719pt x 170.88844pt>
+[93 <./Figures/tfg1.png> <./Figures/tfg2.png>]
+<Figures/tfg3.png, id=1168, 408.77719pt x 170.88844pt>
 File: Figures/tfg3.png Graphic file (type png)
  <use Figures/tfg3.png>
 Package pdftex.def Info: Figures/tfg3.png used on input line 103.
@@ -3301,23 +3348,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
-<Figures/tfg4.png, id=1146, 258.21469pt x 88.83188pt>
+<Figures/tfg4.png, id=1170, 258.21469pt x 88.83188pt>
 File: Figures/tfg4.png Graphic file (type png)
  <use Figures/tfg4.png>
 Package pdftex.def Info: Figures/tfg4.png used on input line 113.
 (pdftex.def)             Requested size: 227.62204pt x 78.31053pt.
 )
-[92 <./Figures/tfg3.png> <./Figures/tfg4.png>] [93]
+[94 <./Figures/tfg3.png> <./Figures/tfg4.png>] [95]
 \openout2 = `Chapters/Conclusions.aux'.
 
- (./Chapters/Conclusions.tex [94
+ (./Chapters/Conclusions.tex [96
 
 
 
 ]
 Cap\'{\i }tol 12.
 1: section
-[95]
+[97]
 Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
@@ -3327,7 +3374,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
-[96]
+[98]
 Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
@@ -3347,19 +3394,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
-[97]
+[99]
 Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-) [98]
+) [100]
 \openout2 = `Appendices/AppendixA.aux'.
 
  (./Appendices/AppendixA.tex
 Ap\`endix A.
 )
 1: section
-[99
+[101
 
 
 
@@ -3381,7 +3428,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 306.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 306.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 306.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CDB0DD18CE2267212A725F274091109B;14117.
+(rerunfilecheck)             Checksum: EF9F3ADE203289B03932098FA2F45256;14122.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -3394,10 +3441,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31513 strings out of 493304
- 629768 string characters out of 6139872
- 769257 words of memory out of 5000000
- 34138 multiletter control sequences out of 15000+600000
+ 31543 strings out of 493304
+ 630345 string characters out of 6139872
+ 770536 words of memory out of 5000000
+ 34154 multiletter control sequences out of 15000+600000
  43504 words of font info for 76 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  59i,20n,83p,10398b,2209s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3413,10 +3460,10 @@ re/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/palatino/uplri8a.pfb>
-Output written on main.pdf (109 pages, 2465674 bytes).
+Output written on main.pdf (111 pages, 2471386 bytes).
 PDF statistics:
- 1295 PDF objects out of 1440 (max. 8388607)
- 1104 compressed objects within 12 object streams
- 314 named destinations out of 1000 (max. 500000)
- 887 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1321 PDF objects out of 1440 (max. 8388607)
+ 1127 compressed objects within 12 object streams
+ 325 named destinations out of 1000 (max. 500000)
+ 902 words of extra memory for PDF output out of 10000 (max. 10000000)
 

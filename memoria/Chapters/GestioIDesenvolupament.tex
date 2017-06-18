@@ -14,13 +14,22 @@ Abans d'entrar en els detalls del projecte, necessitem definir sota quins criter
 
 Les necessitats i requisits específics del projecte aniran fortament relacionades amb la recerca i l’avenç del propi transcurs del projecte. Si bé els objectius específics queden clars, les tasques a desenvolupar aniran evolucionant dinàmicament. Per aquesta raó, en aquest cas serà adequat seguir una metodologia de desenvolupament àgil. I, en concret, es seguirà una simplificació de la metodologia Kanban. \\
 
-En base als requisits establerts inicialment durant la planificació del projecte, i al llarg del seu transcurs, s’aniran generant una sèrie de tasques que s’afegiran a un backlog o to-do list; és a dir, el conjunt de tasques amb la mínima granularitat que aporti valor al projecte com a producte entregable. D’acord a les necessitats, s’aplicarà una priorització, i aquestes tasques s’aniran afegint com a tasques realitzant o en progrés. Conforme aquestes tasques es completin, s’afegiran al llistat de tasques realitzades o done, mantenint així un control dels requisits que s’estan satisfent i el seu grau de completesa. \\
+En base als requisits establerts inicialment durant la planificació del projecte, i al llarg del seu transcurs, s’aniran generant una sèrie de tasques que seguiran el següent \textit{workflow}:
+
+\begin{enumerate}
+\item \textbf{To do}. Identificat com el \textit{backlog} del projecte, anirem definint les tasques a realitzar conforme aquestes es vagin identificant.
+\item \textbf{Analysis}. Un cop identificades les tasques, la primera fase per cadascuna d'elles seran les relacionades amb disseny i anàlisi des del punt de vista de requisits i de disseny software.
+\item \textbf{Development}. Finalitzat l'anàlisi de la tasca, es procedeix a la seva implementació.
+\item \textbf{Test}. Validació del component o tasques realitzades segons els seus requisits funcionals.
+\item \textbf{Deploy}. Desplegament a l'entorn de producció (per aquest projecte, servidor localitzat a un dels \textit{partners} del projecte) i prova del component en aquell mateix desplegament.
+\item \textbf{Done}. Estat de finalització del desenvolupament d'aquella tasca. En aquest punt la seva validació ha finalitzat.
+\end{enumerate}
 
 \begin{figure}
 \centering
 \includegraphics[width=8cm]{Figures/Figure3}
 \decoRule
-\caption[Simplificació de la metodologia Kanban]{Simplificació de la metodologia Kanban}
+\caption[Imatge representativa de la metodologia Kanban]{Imatge representativa de la metodologia Kanban}
 \label{fig:Figura3}
 \end{figure}
 
@@ -37,7 +46,7 @@ Per definir les necessitats de recursos per satisfer la realització del project
 
 \noindent \textbf{\large Recursos humans}\\
 
-\noindent Pel domini de nostre projecte, basat en 1 desenvolupador principal i 2 gestors de projecte (1 director + 1 co-director), considerarem les seves hores de treball com recursos humans. Estimarem, i considerant els següents aspectes:
+\noindent Pel domini de nostre projecte, basat en 1 desenvolupador principal (estudiant), considerarem les seves hores de treball com recursos humans. Estimarem, i considerant els següents aspectes:
 
 \begin{itemize}
 \item El TFG es correspon a 18 ECTS (3 crèdits ECTS GEP + 15 crèdits ECTS TFG)
@@ -45,7 +54,7 @@ Per definir les necessitats de recursos per satisfer la realització del project
 \item Durada aproximada TFG = 22 setmanes
 \end{itemize}
 
-Podem estimar, per tant, pel cas del desenvolupador (alumne) una dedicació d’unes \textbf{24 hores} a la setmana. Pel cas dels gestors, farem una estimació aproximada de \textbf{50 hores} en total per part dels dos rols, com a tasques de suport.\\
+Podem estimar, per tant, 30 hores/ECTS * 18 ECTS / 22 setmanes = 25 hores aproximadament de desenvolupament setmanal del TFG.\\
 
 \noindent \textbf{\large Recursos materials}\\
 
@@ -173,45 +182,45 @@ Per simplificar al màxim l’estudi dels costos i, alhora, clarificar i estudia
 \label{PressupostActivitats}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrr}
-\hline \textbf{ACTIVITAT}                           & {\color[HTML]{000000} \textbf{HORES TOTALS}} & {\color[HTML]{000000} \textbf{DEVELOPER}} & {\color[HTML]{000000} \textbf{DIRECTOR}} & {\color[HTML]{000000} \textbf{CODIRECTOR}} & {\color[HTML]{000000} \textbf{COST TOTAL}} \\ \hline
-{\color[HTML]{000000} \textbf{Planificació}} & {\color[HTML]{000000} \textbf{149}}          & {\color[HTML]{000000} \textbf{125}}            & {\color[HTML]{000000} \textbf{12}}       & {\color[HTML]{000000} \textbf{12}}         & {\color[HTML]{000000} \textbf{2475,00\euro}} \\
+\hline \textbf{ACTIVITAT}                           & {\color[HTML]{000000} \textbf{HORES TOTALS}} & {\color[HTML]{000000} \textbf{DEVELOPER}} & {\color[HTML]{000000} \textbf{COST TOTAL}} \\ \hline
+{\color[HTML]{000000} \textbf{Planificació}} & {\color[HTML]{000000} \textbf{149}}          & {\color[HTML]{000000} \textbf{125}}         & {\color[HTML]{000000} \textbf{2475,00\euro}} \\
 \hline
-Abast i context                              & 30                                           & 25                                             & 2,5                                      & 2,5                                        & 500,00\euro                                        \\
-Planificació                                 & 12                                           & 10                                             & 1                                        & 1                                          & 200,00\euro                                        \\
-Gestió econòmica i sostenibilitat            & 12                                           & 10                                             & 1                                        & 1                                          & 200,00\euro                                        \\
-Requisits d'especialitat                     & 12                                           & 10                                             & 1                                        & 1                                          & 200,00\euro                                        \\
-Recerca de la temàtica                       & 38                                           & 30                                             & 4                                        & 4                                          & 650,00\euro                                        \\
-Eines de desenvolupament                     & 20                                           & 20                                             & 0                                        & 0                                          & 300,00\euro                                        \\
-Definir casos d'ús                           & 25                                           & 20                                             & 2,5                                      & 2,5                                        & 425,00\euro                                        \\
+Abast i context                              & 30                                           & 25                                             & 500,00\euro                                        \\
+Planificació                                 & 12                                           & 10                                            & 200,00\euro                                        \\
+Gestió econòmica i sostenibilitat            & 12                                           & 10                                             & 200,00\euro                                        \\
+Requisits d'especialitat                     & 12                                           & 10                                              & 200,00\euro                                        \\
+Recerca de la temàtica                       & 38                                           & 30                                             & 650,00\euro                                        \\
+Eines de desenvolupament                     & 20                                           & 20                                             & 300,00\euro                                        \\
+Definir casos d'ús                           & 25                                           & 20                                            & 425,00\euro                                        \\
 \hline
-\textbf{Disseny}                             & \textbf{102}                                 & \textbf{88}                                    & \textbf{4}                               & \textbf{10}                                & \textbf{1670,00\euro}                              \\
+\textbf{Disseny}                             & \textbf{102}                                 & \textbf{88}                                   & \textbf{1670,00\euro}                              \\
 \hline
-Entorn de configuració                       & 15                                           & 15                                             & 0                                        & 0                                          & 225,00\euro                                        \\
-Arquitectura software                        & 32                                           & 25                                             & 2                                        & 5                                          & 550,00\euro                                        \\
-Criteris d'autoadaptabilitat                 & 25                                           & 20                                             & 2                                        & 3                                          & 425,00\euro                                        \\
-Integració continuada                        & 20                                           & 18                                             & 0                                        & 2                                          & 320,00\euro                                       \\
-Documentació memòria                         & 10                                           & 10                                             & 0                                        & 0                                          & 150,00\euro                                        \\
+Entorn de configuració                       & 15                                           & 15                                            & 225,00\euro                                        \\
+Arquitectura software                        & 32                                           & 25                                           & 550,00\euro                                        \\
+Criteris d'autoadaptabilitat                 & 25                                           & 20                                            & 425,00\euro                                        \\
+Integració continuada                        & 20                                           & 18                                             & 320,00\euro                                       \\
+Documentació memòria                         & 10                                           & 10                                           & 150,00\euro                                        \\
 \hline
-\textbf{Implementació}                       & \textbf{203}                                 & \textbf{186}                                   & \textbf{0}                               & \textbf{17}                                & \textbf{3215,00\euro}                              \\
+\textbf{Implementació}                       & \textbf{203}                                 & \textbf{186}                                 & \textbf{3215,00\euro}                              \\
 \hline
-Implementació arquitectura genèrica                       & 30                                           & 26                                             & 0                                        & 4                                          & 490,00\euro                                        \\
-Implementació monitors                       & 70                                           & 65                                             & 0                                        & 5                                          & 1100,00\euro                                        \\
-Implementació sistema d'adaptabilitat                      & 50                                           & 45                                             &0                                        & 5                                          & 800,00\euro                                        \\
-Integració sistemes                      & 20                                           & 20                                             & 0                                        & 0                                          & 300,00\euro                                        \\
-Implementació dashboard                      & 33                                           & 30                                             & 0                                        & 3                                          & 525,00\euro                                        \\
-Documentació de components                   & 15                                           & 15                                             & 0                                        & 0                                          & 225,00\euro                                        \\
-Ampliació del sistema                        & 15                                           & 15                                             & 0                                        & 0                                          & 225,00\euro                                        \\
-Documentació memòria                         & 10                                           & 10                                             & 0                                        & 0                                          & 150,00\euro                                        \\
+Implementació arquitectura genèrica                       & 30                                           & 26                                           & 490,00\euro                                        \\
+Implementació monitors                       & 70                                           & 65                                            & 1100,00\euro                                        \\
+Implementació sistema d'adaptabilitat                      & 50                                           & 45                                           & 800,00\euro                                        \\
+Integració sistemes                      & 20                                           & 20                                             & 300,00\euro                                        \\
+Implementació dashboard                      & 33                                           & 30                                           & 525,00\euro                                        \\
+Documentació de components                   & 15                                           & 15                                             & 225,00\euro                                        \\
+Ampliació del sistema                        & 15                                           & 15                                              & 225,00\euro                                        \\
+Documentació memòria                         & 10                                           & 10                                            & 150,00\euro                                        \\
 \hline
-\textbf{Fase final}                          & \textbf{85}                                  & \textbf{75}                                    & \textbf{4}                               & \textbf{6}                                 & \textbf{1375,00\euro}                              \\
+\textbf{Fase final}                          & \textbf{85}                                  & \textbf{75}                                 & \textbf{1375,00\euro}                              \\
 \hline
-Finalització tasques                         & 10                                           & 10                                             & 0                                        & 0                                          & 150,00\euro                                        \\
-Testing                                      & 19                                           & 15                                             & 2                                        & 2                                          & 325,00\euro                                        \\
-Comprovació satisfacció                      & 14                                           & 10                                             & 2                                        & 2                                          & 250,00\euro                                        \\
-FInalització memòria                         & 25                                           & 25                                             & 0                                        & 0                                          & 375,00\euro                                        \\
-Preparació defensa final                     & 17                                           & 15                                             & 0                                        & 2                                          & 275,00\euro                                        \\
+Finalització tasques                         & 10                                           & 10                                          & 150,00\euro                                        \\
+Testing                                      & 19                                           & 15                                           & 325,00\euro                                        \\
+Comprovació satisfacció                      & 14                                           & 10                                           & 250,00\euro                                        \\
+FInalització memòria                         & 25                                           & 25                                          & 375,00\euro                                        \\
+Preparació defensa final                     & 17                                           & 15                                          & 275,00\euro                                        \\
 \hline
-\textbf{Total}                               & \textbf{539}                                 & \textbf{474}                                   & \textbf{20}                              & \textbf{45}                                & \textbf{8735,00\euro}       \\
+\textbf{Total}                               & \textbf{539}                                 & \textbf{474}                                & \textbf{8735,00\euro}       \\
 \hline                      
 \end{tabular}}
 \caption{Costos directes}

@@ -31,13 +31,13 @@ En base a l’objectiu general prèviament establert, cal definir una sèrie d�
 
 \begin{itemize}
 \item[] \textbf{OBJ1.} Definir una planificació pel desenvolupament del projecte en funció dels requisits.
-\item[] \textbf{OBJ2.} Dissenyar una arquitectura software adequada a les necessitats.
+\item[] \textbf{OBJ2.} Dissenyar una arquitectura software adequada a les necessitats (sistema autoadaptable, heterogeni i distribuït).
 \item[] \textbf{OBJ3.} Implementar el sistema de monitoratge.
 \item[] \textbf{OBJ4.} Implementar el sistema d'adaptació dels monitors.
-\item[] \textbf{OBJ5.} Generació d’un producte final usable, que pugui ser desplegable i reproduïble en format demo.
+\item[] \textbf{OBJ5.} Generació d’un producte final usable, que pugui ser desplegable (segons els criteris de distribució) i validat per un escenari d'ús específic.
 \item[] \textbf{OBJ6.} Configurar i definir l’entorn de desenvolupament i d’ús del sistema.
-\item[] \textbf{OBJ7.} Assegurar qualitat i fiabilitat mitjançant els criteris definits.
-\item[] \textbf{OBJ8.} Seguir una metodologia de desenvolupament i testing del sistema.
+\item[] \textbf{OBJ7.} Assegurar la qualitat i fiabilitat del sistema mitjançant la validació dels components i del sistema integrat.
+\item[] \textbf{OBJ8.} Seguir una metodologia de desenvolupament i validació del sistema.
 \item[] \textbf{OBJ9.} Definir una sèrie de casos d’ús per mostrar la usabilitat i comportament real del sistema.
 \item[] \textbf{OBJ10.} Documentar i justificar l’evolució del projecte.
 \end{itemize}
@@ -56,8 +56,13 @@ Els objectius específics prèviament identificats ens donen una visió acurada 
 \item Realitzar una recerca bibliogràfica (basada en l’estat de l’art) per assentar les bases i el context del desenvolupament del projecte.
 \item Dissenyar, implementar i documentar un disseny arquitectònic software que satisfaci l’objectiu general i els tres criteris (autoadaptabilitat, heterogeneïtat i distribució) del nostre sistema de monitoratge.
 \item Dissenyar, implementar i documentar el sistema d'adaptabilitat dels monitors i realitzar la integració amb els mateixos.
-\item Definir una sèrie de casos d'ús (mínim de 3 escenaris) que ens permetin validar les funcionalitats del sistema amb exemples mitjançant l'execució real.
-\item Dissenyar i implementar un dashboard que permeti visualitzar l'activitat del sistema de monitoratge i adaptabilitat.
+\item Definir un cas d'ús o escenari que ens permeti validar les funcionalitats del sistema amb exemples mitjançant l'execució real.
+\item Dissenyar i implementar un \textit{dashboard} que permeti visualitzar l'activitat del sistema d'adaptabilitat.
 \end{itemize}
 
-Aquests punts estableixen el mínim del que podríem considerar com a necessari per considerar que s’han assolit els objectius esmentats a l’apartat 3 d’aquest document. Tot i així, podem preveure la possibiltiat de permetre’ns augmentar les perspectives, i gràcies a l’ús d’una metodologia àgil (veure apartat 5.1. Metodologia de treball), augmentar l’abast del projecte, amb aspectes com incrementar el nombre de monitors implementats, o augmentar les funcionalitats del dashboard. En qualsevol cas, aquests aspectes serien un afegit secundari que únicament tindrà sentit contemplar amb el transcurs del projecte.
+Per contra, cal especificar quines parts no considerarem com a part de l'abast del projecte:
+
+\begin{itemize}
+\item El desenvolupament d'un sistema de presa de decisions i anàlisi (\textbf{\textit{A}nalize} dins el cicle \textit{MAPE-k}); assumirem que la responsabilitat d'aquest component serà assumida per sistemes tercers, que es comunicaran amb el nostre sistema generat
+\item Reconfiguracions i adaptacions complexes. Per assegurar la viabilitat del projecte i una validació satisfactòria, establirem un cas d'ús bàsic que ens permeti validar els components, i a arrel d'aquest escenari, es plantejarà com a desenvolupament futur l'extensió d'aquestes reconfiguracions. Tot i així, en tot moment el disseny del sistema anirà orientat a suportar aquests casos més complexos, per assegurar el potencial del sistema.
+\end{itemize}

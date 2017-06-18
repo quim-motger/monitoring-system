@@ -157,7 +157,7 @@ Davant aquest fet, i per evitar forçar un format específic del paràmetre de c
 \label{fig:Figura6}
 \end{figure}
 
-Donats aquests detalls podem utilitzar l'arquitectura genèrica proposada anteriorment per extendre la implementació del monitor de Twitter. Aquesta arquitectura i els components implementats es troben definits a la figura ~\ref{fig:Figura6}, on podem veure aquells components reutilitzats de l'arquitectura genèrica remarcats en groc, per poder fer una comparativa ràpida sobre les classes i components que ha calgut implementar per poder definir un monitor:
+Donats aquests detalls podem utilitzar l'arquitectura genèrica proposada anteriorment per extendre la implementació del monitor de Twitter. Aquesta arquitectura i els components implementats es troben definits a la figura ~\ref{fig:Figura6}, on podem veure aquells components reutilitzats de l'arquitectura genèrica, per poder fer una comparativa ràpida sobre les classes i components que ha calgut implementar per poder definir un monitor:
 
 \begin{itemize}
 \item \textbf{TwitterMonitoringParams.} Subclasse de la classe abstracta \textit{MonitoringParams} que hereta per una banda els atributs comuns a tots els monitors (\textit{kafkaEndpoint, toolName, kafkaTopic} i \textit{timeSlot}) i per altra banda en defineix dos nous: la \textit{keywordExpression} i un llistat d'\textit{accounts}.
@@ -278,6 +278,59 @@ De forma anàloga a l'exposició com a servei del monitor de Twitter, cal dissen
 Tot i que el paràmetre de \textit{toolName} ja l'havíem vist en l'anterior monitor, ja que és necessari per la instanciació de la \textit{tool} utilitzant el patró reflexió, en aquest cas cobra una especial importància, ja que al disposar d'un conjunt de \textit{tools} podem utilitzar els noms d'aquestes per configurar el monitor; en aquest cas, amb les \textit{tools} de \textbf{GooglePlay} i \textbf{AppTweak}.\\
 
 \subsubsection{App Store Monitor}
+
+El segon monitor dins el tipus de monitoratge de \textit{Market Places} és un monitor de l'\textbf{App Store}, la botiga d'aplicacions per sistemes operatius mòbils iOS. Des d'un punt de vista conceptual, la premisa és la mateixa que en el cas anterior: obtenir dades en temps real de les \textit{reviews} que es realitzen sobre una aplicació en concret.\\
+
+Per aquest monitor desenvoluparem també dues \textit{tools} diferents:
+
+\begin{itemize}
+\item \textbf{ITunes-RSS}. \textit{Tool} oficial d'Apple que permet obtenir, en format JSON, dades sobre les darreres \textit{reviews} publicades sobre una aplicació específica, identificada pel que anomenarem \textit{appId}. La limitació principal d'aquesta eina és que només permet obtenir les darreres 500 \textit{reviews} publicades. Per tant, tot i que sabem que el volum de dades sempre estarà controlat sota uns mínims, cal contemplar la possibilitat que durant el \textit{timeslot} definit el nombre de \textit{reviews} sigui major que aquest límit. En aquest cas, estaríem perdent dades de monitoratge,,ja que la implementació d'aquesta eina consisteix principalment en la crida periòdica a aquesta API i obtenció de les \textit{reviews} publicades durant el darrer cicle de monitoratge. Aquesta \textit{tool} permet obtenir les \textit{reviews} ordenades temporalment, per tant la cerca, com amb les eines de Google Play, serà prou eficient. Per contra al límit de \textit{reviews}, no presenta límits de comunicacions alhora o intents de comunicació per hora.
+\item \textbf{AppStore-AppTweak}. Utilitza la mateixa eina que Google Play, publicada com a API REST, amb la possibilitat de demanar dades d'aquesta segona botiga d'aplicacions. El funcionament intern és similar al ja explicat per GooglePlay-AppTweak; però cal considerar diferències tècniques en aspectes com el format de les dades obtingudes.
+\end{itemize}
+
+També de forma similar al monitor de Google Play, necessitem definir l'únic paràmetre que serà necessari per la configuració de la \textit{tool}:
+
+\begin{itemize}
+\item \textbf{appId} - identificador únic d'una aplicació publicada a l'AppStore (anàleg a l'identificador de Google Play, però en format numèric)
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=14cm]{Figures/appstore}
+\decoRule
+\caption[Arquitectura software del monitor de l'AppStore]{Arquitectura software del monitor de l'AppStore}
+\label{fig:appstore}
+\end{figure}
+
+A la figura ~\ref{fig:appstore} veiem la representació de l'arquitectura estesa respecte la genèrica per la implementació d'aquest monitor:
+
+\begin{itemize}
+\item \textbf{AppstoreMonitoringParams.} Subclasse de la classe abstracta \textit{MonitoringParams} que hereta els atributs comuns a tots els monitors, i afegeix com a atribut particular del monitor un string \textit{appId}.
+\item \textbf{AppStoreParserConfiguration.} Implementació de la interfície que defineix la transformació del format d'entrada del monitor (JSONObject) a la instància de \textit{AppstoreMonitoringParams}.
+\item \textbf{AppStoreMonitoringData.} Implementació de la interfície que defineix la transformació de les dades recollides al format JSON de sortida. En aquest cas hem d'afegir la consideració prèviament introduïda sobre la variabilitat de les dades entre les dues \textit{tools}. 
+\item \textbf{ITunes-RSS}. Implementació de \textit{ToolInterface} que utilitza el RSS de Apple. El funcionament intern es similar al d'altres \textit{tools} que utilitzen una API per obtenir les dades: un cop iniciat el cicle de monitoratge, i mitjançant un \textit{Timer} executat com a \textit{thread} en segon pla, el monitor s'espera el temps definit pel \textit{timeslot} i, un cop finalitzat, realitza una crida HTTP per obtenir les dades en format JSON per després "parsejar-les". La lògica interna d'aquesta \textit{tool} és relativament més senzilla que la de l'API de Google Play, ja que aquesta segona utilitza un sistema de paginació, mentre que la \textit{tool} RSS de iTunes retorna totes les dades amb una sola crida. Això es deu a la limitació de 500 \textit{reviews}, que assegura que el \textit{payload} retornat per la crida no excedirà una mida específica. 
+\item \textbf{AppTweak}. Implementació de \textit{ToolInterface} que utilitza l'API de AppTweak. El funcionament tècnic és el mateix que el ja explicat per Google Play.
+\end{itemize}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=14cm]{Figures/appstore-dades}
+\decoRule
+\caption[Exemple dades de sortida generades pel monitor de AppStore]{Exemple dades de sortida generades pel monitor de AppStore}
+\label{fig:appstore-dades}
+\end{figure}
+
+\noindent{\large{\textbf{Exposició com a servei REST}}}\\
+
+De forma anàloga a l'exposició com a servei del monitor de Twitter i Google Play, cal dissenyar i implementar un servei REST per desplegar les funcionalitats del monitor de App Store. La figura ~\ref{fig:Figura14} mostra un exemple d'un possible objecte JSON de configuració del monitor.\\
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=11cm]{Figures/appstore-conf}
+\decoRule
+\caption[Exemple JSON de configuració del monitor de AppStore]{Exemple JSON de configuració del monitor de AppStore}
+\label{fig:appstore-conf}
+\end{figure}
 
 \section{Monitor Manager}
 
