@@ -16,6 +16,238 @@
   {}
 \endgroup
 
+\entry{mapek1}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Arcaini}{A.}%
+     {Paolo}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Riccobene}{R.}%
+     {Elvinia}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Scandurra}{S.}%
+     {Patrizia}{P.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {IEEE Press}%
+  }
+  \strng{namehash}{APRESP1}
+  \strng{fullhash}{APRESP1}
+  \field{sortinit}{A}
+  \field{booktitle}{Proceedings of the 10th International Symposium on Software
+  Engineering for Adaptive and Self-Managing Systems}
+  \field{pages}{13\bibrangedash 23}
+  \field{title}{Modeling and Analyzing MAPE-K Feedback Loops for
+  Self-adaptation}
+  \verb{url}
+  \verb http://dl.acm.org/citation.cfm?id=2821357.2821362
+  \endverb
+  \list{location}{1}{%
+    {Florence, Italy}%
+  }
+  \field{year}{2015}
+  \warn{\item Can't use 'location' + 'address'}
+\endentry
+
+\entry{horizon}{online}{}
+  \field{sortinit}{H}
+  \field{title}{{Horizon 2020} EU Framework Programme Research and Innovation}
+  \verb{url}
+  \verb https://ec.europa.eu/programmes/horizon2020/
+  \endverb
+  \field{urlday}{30}
+  \field{urlmonth}{04}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{mapek2}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Iglesia}{I.}%
+     {Didac Gil De~La}{D.~G. D.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Weyns}{W.}%
+     {Danny}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ACM}%
+  }
+  \keyw{Formal templates, MAPE-K, self-adaptation}
+  \strng{namehash}{IDGDLWD1}
+  \strng{fullhash}{IDGDLWD1}
+  \field{sortinit}{I}
+  \verb{doi}
+  \verb 10.1145/2724719
+  \endverb
+  \field{issn}{1556-4665}
+  \field{number}{3}
+  \field{pages}{15:1\bibrangedash 15:31}
+  \field{title}{MAPE-K Formal Templates to Rigorously Design Behaviors for
+  Self-Adaptive Systems}
+  \verb{url}
+  \verb http://doi.acm.org/10.1145/2724719
+  \endverb
+  \field{volume}{10}
+  \list{location}{1}{%
+    {New York, NY, USA}%
+  }
+  \field{journaltitle}{ACM Trans. Auton. Adapt. Syst.}
+  \field{month}{09}
+  \field{year}{2015}
+\endentry
+
+\entry{kanban2}{online}{}
+  \field{sortinit}{K}
+  \field{title}{{Kanban vs Scrum}}
+  \verb{url}
+  \verb http://www.agileweboperations.com/scrum-vs-kanban
+  \endverb
+  \field{urlday}{29}
+  \field{urlmonth}{03}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{nashville}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Karsai}{K.}%
+     {Gabor}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ledeczi}{L.}%
+     {Akos}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Peceli}{P.}%
+     {Janos Sztipanovits~Gabor}{J.~S.~G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Simon}{S.}%
+     {Gyula}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kovacshazy}{K.}%
+     {Tamas}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{KG+1}
+  \strng{fullhash}{KGLAPJSGSGKT1}
+  \field{sortinit}{K}
+  \field{title}{An Approach to Self-adaptive Software Based on Supervisory
+  Control}
+  \field{journaltitle}{Self-Adaptive Software: Applications (IWSAS)}
+  \field{year}{2001}
+\endentry
+
+\entry{kanban1}{online}{}
+  \field{sortinit}{L}
+  \field{title}{{La metodología Kanban}}
+  \verb{url}
+  \verb https://es.atlassian.com/agile/kanban
+  \endverb
+  \field{urlday}{29}
+  \field{urlmonth}{03}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{ibm}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Li}{L.}%
+     {Ying}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sun}{S.}%
+     {Kewei}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Qiu}{Q.}%
+     {Jie}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chen}{C.}%
+     {Ying}{Y.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LY+1}
+  \strng{fullhash}{LYSKQJCY1}
+  \field{sortinit}{L}
+  \field{title}{Self-reconfiguration of service-based systems: A case study for
+  service level agreements and resource optimization.}
+  \field{journaltitle}{International Conference on Web Services}
+  \field{year}{2005}
+\endentry
+
+\entry{ects}{online}{}
+  \field{sortinit}{L}
+  \field{title}{Los créditos europeos (ECTS)}
+  \verb{url}
+  \verb http://portal.uned.es/portal/page?_pageid=355,3138322&_dad=portal
+  \endverb
+  \field{urlday}{19}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{supersede}{online}{}
+  \field{sortinit}{S}
+  \field{title}{{SUPERSEDE} - at a glance}
+  \verb{url}
+  \verb https://www.supersede.eu/project/supersede-at-a-glance/
+  \endverb
+  \field{urlday}{30}
+  \field{urlmonth}{04}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{tfg}{online}{}
+  \field{sortinit}{T}
+  \field{title}{Treball de Fi de Grau}
+  \verb{url}
+  \verb https://www.fib.upc.edu/ca/estudis/graus/grau-en-enginyeria-informatica
+  \verb /treball-de-fi-de-grau
+  \endverb
+  \field{urlday}{19}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{napols}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Venticinque}{V.}%
+     {Salvatore}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{VS1}
+  \strng{fullhash}{VS1}
+  \field{sortinit}{V}
+  \field{title}{Agent based services for negotiation, monitoring and
+  reconfiguration of cloud resources.}
+  \field{journaltitle}{European Research Activities in Cloud Computing}
+  \field{year}{2012}
+\endentry
+
 \lossort
 \endlossort
 

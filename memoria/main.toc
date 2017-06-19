@@ -32,16 +32,16 @@
 \contentsline {section}{\numberline {7.1}Monitors}{33}{section.55}
 \contentsline {subsection}{\numberline {7.1.1}Especificacions t\IeC {\`e}cniques i funcionals}{34}{subsection.59}
 \contentsline {subsection}{\numberline {7.1.2}Disseny i arquitectura gen\IeC {\`e}rica}{37}{subsection.67}
-\contentsline {subsection}{\numberline {7.1.3}Implementaci\IeC {\'o} de monitors}{39}{subsection.69}
+\contentsline {subsection}{\numberline {7.1.3}Implementaci\IeC {\'o} de monitors}{38}{subsection.69}
 \contentsline {subsubsection}{Twitter Monitor}{39}{section*.70}
 \contentsline {subsubsection}{Google Play Monitor}{42}{section*.76}
-\contentsline {subsubsection}{App Store Monitor}{46}{section*.82}
+\contentsline {subsubsection}{App Store Monitor}{47}{section*.82}
 \contentsline {section}{\numberline {7.2}Monitor Manager}{49}{section.86}
-\contentsline {subsection}{\numberline {7.2.1}Especificacions t\IeC {\`e}cniques i funcionals}{51}{subsection.90}
-\contentsline {subsection}{\numberline {7.2.2}Disseny i implementaci\IeC {\'o}}{53}{subsection.95}
+\contentsline {subsection}{\numberline {7.2.1}Especificacions t\IeC {\`e}cniques i funcionals}{50}{subsection.90}
+\contentsline {subsection}{\numberline {7.2.2}Disseny i implementaci\IeC {\'o}}{52}{subsection.95}
 \contentsline {section}{\numberline {7.3}Orchestrator}{53}{section.97}
 \contentsline {subsection}{\numberline {7.3.1}Especificacions t\IeC {\`e}cniques i funcionals}{54}{subsection.98}
-\contentsline {subsection}{\numberline {7.3.2}Disseny i implementaci\IeC {\'o}}{57}{subsection.104}
+\contentsline {subsection}{\numberline {7.3.2}Disseny i implementaci\IeC {\'o}}{56}{subsection.104}
 \contentsline {chapter}{\numberline {8}Modelatge UML de configuracions dels monitors}{59}{chapter.106}
 \contentsline {section}{\numberline {8.1}Requisits del modelatge}{59}{section.107}
 \contentsline {section}{\numberline {8.2}Disseny de models UML}{60}{section.113}
@@ -83,3 +83,4 @@
 \contentsline {section}{\numberline {12.3}Avaluaci\IeC {\'o} general}{99}{section.211}
 \contentsline {chapter}{\numberline {A}Frequently Asked Questions}{101}{appendix.212}
 \contentsline {section}{\numberline {A.1}How do I change the colors of links?}{101}{section.213}
+\contentsline {chapter}{Bibliografia}{103}{appendix*.214}
