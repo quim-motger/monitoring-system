@@ -16,107 +16,6 @@
   {}
 \endgroup
 
-\entry{mapek1}{inproceedings}{}
-  \name{author}{3}{}{%
-    {{}%
-     {Arcaini}{A.}%
-     {Paolo}{P.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Riccobene}{R.}%
-     {Elvinia}{E.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Scandurra}{S.}%
-     {Patrizia}{P.}%
-     {}{}%
-     {}{}}%
-  }
-  \list{publisher}{1}{%
-    {IEEE Press}%
-  }
-  \strng{namehash}{APRESP1}
-  \strng{fullhash}{APRESP1}
-  \field{sortinit}{A}
-  \field{booktitle}{Proceedings of the 10th International Symposium on Software
-  Engineering for Adaptive and Self-Managing Systems}
-  \field{pages}{13\bibrangedash 23}
-  \field{title}{Modeling and Analyzing MAPE-K Feedback Loops for
-  Self-adaptation}
-  \verb{url}
-  \verb http://dl.acm.org/citation.cfm?id=2821357.2821362
-  \endverb
-  \list{location}{1}{%
-    {Florence, Italy}%
-  }
-  \field{year}{2015}
-  \warn{\item Can't use 'location' + 'address'}
-\endentry
-
-\entry{horizon}{online}{}
-  \field{sortinit}{H}
-  \field{title}{{Horizon 2020} EU Framework Programme Research and Innovation}
-  \verb{url}
-  \verb https://ec.europa.eu/programmes/horizon2020/
-  \endverb
-  \field{urlday}{30}
-  \field{urlmonth}{04}
-  \field{urlyear}{2017}
-\endentry
-
-\entry{mapek2}{article}{}
-  \name{author}{2}{}{%
-    {{}%
-     {Iglesia}{I.}%
-     {Didac Gil De~La}{D.~G. D.~L.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Weyns}{W.}%
-     {Danny}{D.}%
-     {}{}%
-     {}{}}%
-  }
-  \list{publisher}{1}{%
-    {ACM}%
-  }
-  \keyw{Formal templates, MAPE-K, self-adaptation}
-  \strng{namehash}{IDGDLWD1}
-  \strng{fullhash}{IDGDLWD1}
-  \field{sortinit}{I}
-  \verb{doi}
-  \verb 10.1145/2724719
-  \endverb
-  \field{issn}{1556-4665}
-  \field{number}{3}
-  \field{pages}{15:1\bibrangedash 15:31}
-  \field{title}{MAPE-K Formal Templates to Rigorously Design Behaviors for
-  Self-Adaptive Systems}
-  \verb{url}
-  \verb http://doi.acm.org/10.1145/2724719
-  \endverb
-  \field{volume}{10}
-  \list{location}{1}{%
-    {New York, NY, USA}%
-  }
-  \field{journaltitle}{ACM Trans. Auton. Adapt. Syst.}
-  \field{month}{09}
-  \field{year}{2015}
-\endentry
-
-\entry{kanban2}{online}{}
-  \field{sortinit}{K}
-  \field{title}{{Kanban vs Scrum}}
-  \verb{url}
-  \verb http://www.agileweboperations.com/scrum-vs-kanban
-  \endverb
-  \field{urlday}{29}
-  \field{urlmonth}{03}
-  \field{urlyear}{2017}
-\endentry
-
 \entry{nashville}{article}{}
   \name{author}{5}{}{%
     {{}%
@@ -147,22 +46,26 @@
   }
   \strng{namehash}{KG+1}
   \strng{fullhash}{KGLAPJSGSGKT1}
-  \field{sortinit}{K}
   \field{title}{An Approach to Self-adaptive Software Based on Supervisory
   Control}
   \field{journaltitle}{Self-Adaptive Software: Applications (IWSAS)}
   \field{year}{2001}
 \endentry
 
-\entry{kanban1}{online}{}
-  \field{sortinit}{L}
-  \field{title}{{La metodología Kanban}}
-  \verb{url}
-  \verb https://es.atlassian.com/agile/kanban
-  \endverb
-  \field{urlday}{29}
-  \field{urlmonth}{03}
-  \field{urlyear}{2017}
+\entry{napols}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Venticinque}{V.}%
+     {Salvatore}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{VS1}
+  \strng{fullhash}{VS1}
+  \field{title}{Agent based services for negotiation, monitoring and
+  reconfiguration of cloud resources.}
+  \field{journaltitle}{European Research Activities in Cloud Computing}
+  \field{year}{2012}
 \endentry
 
 \entry{ibm}{article}{}
@@ -190,26 +93,13 @@
   }
   \strng{namehash}{LY+1}
   \strng{fullhash}{LYSKQJCY1}
-  \field{sortinit}{L}
   \field{title}{Self-reconfiguration of service-based systems: A case study for
   service level agreements and resource optimization.}
   \field{journaltitle}{International Conference on Web Services}
   \field{year}{2005}
 \endentry
 
-\entry{ects}{online}{}
-  \field{sortinit}{L}
-  \field{title}{Los créditos europeos (ECTS)}
-  \verb{url}
-  \verb http://portal.uned.es/portal/page?_pageid=355,3138322&_dad=portal
-  \endverb
-  \field{urlday}{19}
-  \field{urlmonth}{06}
-  \field{urlyear}{2017}
-\endentry
-
 \entry{supersede}{online}{}
-  \field{sortinit}{S}
   \field{title}{{SUPERSEDE} - at a glance}
   \verb{url}
   \verb https://www.supersede.eu/project/supersede-at-a-glance/
@@ -219,8 +109,114 @@
   \field{urlyear}{2017}
 \endentry
 
+\entry{horizon}{online}{}
+  \field{title}{{Horizon 2020} EU Framework Programme Research and Innovation}
+  \verb{url}
+  \verb https://ec.europa.eu/programmes/horizon2020/
+  \endverb
+  \field{urlday}{30}
+  \field{urlmonth}{04}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{mapek1}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Arcaini}{A.}%
+     {Paolo}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Riccobene}{R.}%
+     {Elvinia}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Scandurra}{S.}%
+     {Patrizia}{P.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {IEEE Press}%
+  }
+  \strng{namehash}{APRESP1}
+  \strng{fullhash}{APRESP1}
+  \field{booktitle}{Proceedings of the 10th International Symposium on Software
+  Engineering for Adaptive and Self-Managing Systems}
+  \field{pages}{13\bibrangedash 23}
+  \field{title}{Modeling and Analyzing MAPE-K Feedback Loops for
+  Self-adaptation}
+  \verb{url}
+  \verb http://dl.acm.org/citation.cfm?id=2821357.2821362
+  \endverb
+  \list{location}{1}{%
+    {Florence, Italy}%
+  }
+  \field{year}{2015}
+  \warn{\item Can't use 'location' + 'address'}
+\endentry
+
+\entry{mapek2}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Iglesia}{I.}%
+     {Didac Gil De~La}{D.~G. D.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Weyns}{W.}%
+     {Danny}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ACM}%
+  }
+  \keyw{Formal templates, MAPE-K, self-adaptation}
+  \strng{namehash}{IDGDLWD1}
+  \strng{fullhash}{IDGDLWD1}
+  \verb{doi}
+  \verb 10.1145/2724719
+  \endverb
+  \field{issn}{1556-4665}
+  \field{number}{3}
+  \field{pages}{15:1\bibrangedash 15:31}
+  \field{title}{MAPE-K Formal Templates to Rigorously Design Behaviors for
+  Self-Adaptive Systems}
+  \verb{url}
+  \verb http://doi.acm.org/10.1145/2724719
+  \endverb
+  \field{volume}{10}
+  \list{location}{1}{%
+    {New York, NY, USA}%
+  }
+  \field{journaltitle}{ACM Trans. Auton. Adapt. Syst.}
+  \field{month}{09}
+  \field{year}{2015}
+\endentry
+
+\entry{kanban1}{online}{}
+  \field{title}{{La metodología Kanban}}
+  \verb{url}
+  \verb https://es.atlassian.com/agile/kanban
+  \endverb
+  \field{urlday}{29}
+  \field{urlmonth}{03}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{kanban2}{online}{}
+  \field{title}{{Kanban vs Scrum}}
+  \verb{url}
+  \verb http://www.agileweboperations.com/scrum-vs-kanban
+  \endverb
+  \field{urlday}{29}
+  \field{urlmonth}{03}
+  \field{urlyear}{2017}
+\endentry
+
 \entry{tfg}{online}{}
-  \field{sortinit}{T}
   \field{title}{Treball de Fi de Grau}
   \verb{url}
   \verb https://www.fib.upc.edu/ca/estudis/graus/grau-en-enginyeria-informatica
@@ -231,21 +227,270 @@
   \field{urlyear}{2017}
 \endentry
 
-\entry{napols}{article}{}
+\entry{ects}{online}{}
+  \field{title}{Los créditos europeos (ECTS)}
+  \verb{url}
+  \verb http://portal.uned.es/portal/page?_pageid=355,3138322&_dad=portal
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{chaos}{article}{}
+  \true{moreauthor}
   \name{author}{1}{}{%
     {{}%
-     {Venticinque}{V.}%
-     {Salvatore}{S.}%
+     {GROUP}{G.}%
+     {STANDISH}{S.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{VS1}
-  \strng{fullhash}{VS1}
-  \field{sortinit}{V}
-  \field{title}{Agent based services for negotiation, monitoring and
-  reconfiguration of cloud resources.}
-  \field{journaltitle}{European Research Activities in Cloud Computing}
-  \field{year}{2012}
+  \strng{namehash}{GS+1}
+  \strng{fullhash}{GS+1}
+  \field{title}{CHAOS manifesto 2013}
+  \field{journaltitle}{The Standish Group International. EUA}
+  \field{year}{2011}
+\endentry
+
+\entry{github}{online}{}
+  \field{title}{GitHub}
+  \verb{url}
+  \verb https://github.com/
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{java}{online}{}
+  \field{title}{Java Platform Standard Edition 8 Documentation}
+  \verb{url}
+  \verb http://docs.oracle.com/javase/8/docs/
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{eclipse}{online}{}
+  \field{title}{Eclipse IDE for Java Developers (Neon 4.6.2)}
+  \verb{url}
+  \verb http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/n
+  \verb eonr
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{emt}{online}{}
+  \field{title}{Eclipse Modeling Tools (Neon 4.6.2)}
+  \verb{url}
+  \verb http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/neon3
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{gradle}{online}{}
+  \field{title}{Gradle Release Notes}
+  \verb{url}
+  \verb https://docs.gradle.org/2.13/release-notes.html
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{spring}{online}{}
+  \field{title}{Spring framework}
+  \verb{url}
+  \verb https://projects.spring.io/spring-framework/
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{uml}{online}{}
+  \field{title}{UML2 EMF-based implementation}
+  \verb{url}
+  \verb https://eclipse.org/modeling/mdt/?project=uml2
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{papyrus}{online}{}
+  \field{title}{Papyrus Modeling environment}
+  \verb{url}
+  \verb https://eclipse.org/papyrus/
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{sql}{online}{}
+  \field{title}{MySQL 5.6 Reference Manual}
+  \verb{url}
+  \verb https://dev.mysql.com/doc/refman/5.6/en/
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{kafka}{online}{}
+  \field{title}{Apache Kafka streaming platform}
+  \verb{url}
+  \verb https://kafka.apache.org/intro
+  \endverb
+  \field{urlday}{26}
+  \field{urlmonth}{03}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{reflection}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Forman}{F.}%
+     {Ira~R.}{I.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Forman}{F.}%
+     {Nate}{N.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FIRFN1}
+  \strng{fullhash}{FIRFN1}
+  \field{title}{Java Reflection in Action}
+  \field{year}{2005}
+\endentry
+
+\entry{twitter4j}{online}{}
+  \field{title}{Twitter4J}
+  \verb{url}
+  \verb http://twitter4j.org/en/index.html
+  \endverb
+  \field{urlday}{28}
+  \field{urlmonth}{03}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{twitter-stream}{online}{}
+  \field{title}{{Twitter Development Documentation.} Streaming APIs}
+  \verb{url}
+  \verb https://dev.twitter.com/streaming/overview
+  \endverb
+  \field{urlday}{28}
+  \field{urlmonth}{03}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{googleplay}{online}{}
+  \field{title}{Google Play Developer API - Reviews}
+  \verb{url}
+  \verb https://developers.google.com/android-publisher/api-ref/reviews
+  \endverb
+  \field{urlday}{28}
+  \field{urlmonth}{03}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{apptweak}{online}{}
+  \field{title}{apptweak - API Documentation or App Store and Google Play
+  Store}
+  \verb{url}
+  \verb https://apptweak.io/api
+  \endverb
+  \field{urlday}{28}
+  \field{urlmonth}{03}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{rss}{online}{}
+  \field{title}{Monitoring Reviews on the App Store}
+  \verb{url}
+  \verb https://developer.apple.com/library/content/documentation/LanguagesUtil
+  \verb ities/Conceptual/iTunesConnect_Guide/Chapters/ImprovingCustomersExperie
+  \verb nce.html#//apple_ref/doc/uid/TP40011225-CH27-SW1
+  \endverb
+  \field{urlday}{28}
+  \field{urlmonth}{03}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{base}{online}{}
+  \field{title}{UML2 Class Diagrams: an Agile Introduction}
+  \verb{url}
+  \verb http://www.agilemodeling.com/artifacts/classDiagram.htm
+  \endverb
+  \field{urlday}{18}
+  \field{urlmonth}{04}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{fm}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Pablo~Trinidad}{P.~T.}%
+     {Antonio Ruiz-Cortes Sergio Segura Miguel~Toro}{A.~R.-C. S. S. M.~T.}%
+     {}{}%
+     {David~Benavides}{D.~B.}}%
+  }
+  \strng{namehash}{PTDBARCSSMT1}
+  \strng{fullhash}{PTDBARCSSMT1}
+  \field{title}{Explanations for Agile Feature Models}
+  \field{journaltitle}{Journal of Systems and Software}
+  \field{year}{2008}
+\endentry
+
+\entry{vql}{online}{}
+  \field{title}{Viatra Query User documentaiton - Query Language}
+  \verb{url}
+  \verb https://wiki.eclipse.org/VIATRA/Query/UserDocumentation/QueryLanguage
+  \endverb
+  \field{urlday}{03}
+  \field{urlmonth}{04}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{profile}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Fuentes}{F.}%
+     {Lidia}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vallecillo}{V.}%
+     {Antonio}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FLVA1}
+  \strng{fullhash}{FLVA1}
+  \field{pages}{6\bibrangedash 11}
+  \field{title}{Una introducci{\'o}n a los perfiles UML}
+  \field{volume}{168}
+  \field{journaltitle}{Nov{\'a}tica}
+  \field{year}{2004}
+\endentry
+
+\entry{jpa}{online}{}
+  \field{title}{Developing a Spring Framework MVC application step-by-step}
+  \verb{url}
+  \verb https://docs.spring.io/docs/Spring-MVC-step-by-step/
+  \endverb
+  \field{urlday}{21}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
 \endentry
 
 \lossort
