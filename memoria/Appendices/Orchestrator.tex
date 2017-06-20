@@ -1,0 +1,245 @@
+% Appendix Template
+
+\chapter{Orchestrator API} % Main appendix title
+
+\label{Orchestrator} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
+
+\section{Supersede Orchestrator API}\label{supersede-orchestrator-api}
+
+\subsection{Monitor types
+{[}/monitoring/MonitorTypes{]}}\label{monitor-types-monitoringmonitortypes}
+
+\subsubsection{List all monitor types
+{[}GET{]}}\label{list-all-monitor-types-get}
+
+\begin{itemize}
+
+\item
+  Response 200 (application/json)
+
+\begin{verbatim}
+[
+	{
+  		"id": 1,
+  		"name": "SocialNetworks",
+ 		"createdAt": "2017-03-11 04:09:30.97"
+	},
+	{
+		"id": 1,
+		"name": "MarketPlaces",
+		"createdAt": "2017-03-11 04:09:30.97"
+	}
+]
+\end{verbatim}
+\end{itemize}
+
+
+\subsubsection{Insert a monitor type
+{[}POST{]}}\label{insert-a-monitor-type-post}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+  "name": "SocialNetworks"
+}
+\end{verbatim}
+\item
+  Response 201 (application/json)
+
+\begin{verbatim}
+{
+  "id": 1,
+  "name": "SocialNetworks",
+  "createdAt": "2017-03-11 04:09:30.97"
+}
+\end{verbatim}
+\end{itemize}
+
+\subsection{Monitor types
+{[}/monitoring/MonitorTypes/\{monitor-type-name\}{]}}\label{monitor-types-monitoringmonitortypesmonitor-type-name}
+
+\subsubsection{Get a single monitor type
+{[}GET{]}}\label{get-a-single-monitor-type-get}
+
+\begin{itemize}
+\item
+  Response 200 (application/json)
+
+\begin{verbatim}
+{
+  "id": 1,
+  "name": "SocialNetworks",
+  "createdAt": "2017-03-11 04:09:30.97"
+}
+\end{verbatim}
+\end{itemize}
+
+\subsubsection{Delete a monitor type
+{[}DELETE{]}}\label{delete-a-monitor-type-delete}
+
+\subsection{Monitor tools
+{[}/monitoring/MonitorTypes/\{monitor-type-name\}/Tools{]}}\label{monitor-tools-monitoringmonitortypesmonitor-type-nametools}
+
+\subsubsection{Insert monitor tool for a monitor type
+{[}POST{]}}\label{insert-monitor-tool-for-a-monitor-type-post}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+  "name": "TwitterAPI-2",
+  "monitorName": "TwitterAPI"
+}
+\end{verbatim}
+\item
+  Response 201 (application/json)
+
+\begin{verbatim}
+{
+  "id": 6,
+  "name": "TwitterAPI-2",
+  "monitorTypeId": 1,
+  "monitorName": "TwitterAPI",
+  "createdAt": "2017-03-11 04:09:30.97"
+}
+\end{verbatim}
+\end{itemize}
+
+\subsection{Monitor tools
+{[}/monitoring/MonitorTypes/\{monitor-type-name\}/Tools/\{monitor-tool-name\}{]}}\label{monitor-tools-monitoringmonitortypesmonitor-type-nametoolsmonitor-tool-name}
+
+\subsubsection{Get a single monitor tool for a monitor type
+{[}GET{]}}\label{get-a-single-monitor-tool-for-a-monitor-type-get}
+
+\begin{itemize}
+\item
+   Response 200 (application/json)
+
+\begin{verbatim}
+{
+  "id": 6,
+  "name": "TwitterAPI-2",
+  "monitorTypeId": 1,
+  "monitorName": "TwitterAPI",
+  "createdAt": "2017-03-11 04:09:30.97"
+}
+\end{verbatim}
+\end{itemize}
+
+\subsubsection{Delete a monitor tool for a monitor type
+{[}DELETE{]}}\label{delete-a-monitor-tool-for-a-monitor-type-delete}
+
+\subsection{Monitor configurations
+{[}/monitoring/MonitorTypes/\{monitor-type-name\}/Tools/\{monitor-tool-name\}/ToolConfigurations{]}}\label{monitor-configurations-monitoringmonitortypesmonitor-type-nametoolsmonitor-tool-nametoolconfigurations}
+
+\subsubsection{Create a monitor configuration for a monitor type and a
+monitoring tool
+{[}POST{]}}\label{create-a-monitor-configuration-for-a-monitor-type-and-a-monitoring-tool-post}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+  "kafkaEndpoint":"http://localhost:9092",
+  "keywordExpression":"keyword1 AND keyword2",
+  "kafkaTopic":"olympicGamesTwitterMonitoring",
+  "state":"active",
+  "timeSlot":"300",
+  "configSender":"WP4",
+  "timeStamp":"2017-03-11 04:09:30.97"
+}
+\end{verbatim}
+\item
+  Response 201 (application/json)
+
+\begin{verbatim}
+{
+  "id": 6,
+  "monitorToolId": 1,
+  "configSender": "WP4",
+  "timeStamp": "Sat June 08 02:16:57 2016",
+  "timeSlot": "300",
+  "kafkaEndpoint": "http://localhost:9092",
+  "kafkaTopic": "olympicGamesTwitterMonitoring",
+  "state": "active",
+  "keywordExpression": "keyword1 AND keyword2",
+  "createdAt": "2017-03-11 04:09:30.97"
+}
+\end{verbatim}
+\end{itemize}
+
+\subsection{Monitor configurations
+{[}/monitoring/MonitorTypes/\{monitor-type-name\}/Tools/\{monitor-tool-name\}/ToolConfigurations/\{tool-configuration-id\}{]}}\label{monitor-configurations-monitoringmonitortypesmonitor-type-nametoolsmonitor-tool-nametoolconfigurationstool-configuration-id}
+
+\subsubsection{Get a single monitor configuration for a monitor type and
+a monitoring tool
+{[}GET{]}}\label{get-a-single-monitor-configuration-for-a-monitor-type-and-a-monitoring-tool-get}
+
+\begin{itemize}
+\item
+  Response 201 (application/json)
+
+\begin{verbatim}
+{
+  "id": 6,
+  "monitorToolId": 1,
+  "configSender": "WP4",
+  "timeStamp": "Sat June 08 02:16:57 2016",
+  "timeSlot": "300",
+  "kafkaEndpoint": "http://localhost:9092",
+  "kafkaTopic": "olympicGamesTwitterMonitoring",
+  "state": "active",
+  "keywordExpression": "keyword1 AND keyword2",
+  "createdAt": "2017-03-11 04:09:30.97"
+}
+\end{verbatim}
+\end{itemize}
+
+\subsubsection{Update a monitor configuration for a monitor type and a
+monitoring tool
+{[}PUT{]}}\label{update-a-monitor-configuration-for-a-monitor-type-and-a-monitoring-tool-put}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+  "kafkaEndpoint":"http://localhost:9092",
+  "keywordExpression":"keyword1 AND keyword2",
+  "kafkaTopic":"olympicGamesTwitterMonitoring",
+  "state":"active",
+  "timeSlot":"100",
+  "configSender":"WP4",
+  "timeStamp":"2017-03-11 04:09:30.97"
+}
+\end{verbatim}
+\item
+  Response 200 (application/json)
+
+\begin{verbatim}
+{
+  "id": 7,
+  "monitorToolId": 1,
+  "configSender": "WP4",
+  "timeStamp": "Sat June 08 02:16:57 2016",
+  "timeSlot": "100",
+  "kafkaEndpoint": "http://localhost:9092",
+  "kafkaTopic": "olympicGamesTwitterMonitoring",
+  "state": "active",
+  "keywordExpression": "keyword1 AND keyword2",
+  "createdAt": "2017-03-11 04:09:30.97"
+}
+\end{verbatim}
+\end{itemize}
+
+\subsubsection{Delete a monitor configuration for a monitor type and a
+monitoring tool
+{[}DELETE{]}}\label{delete-a-monitor-configuration-for-a-monitor-type-and-a-monitoring-tool-delete}

@@ -98,7 +98,15 @@ A partir d'aquestes dades podem procedir al disseny de la base de dades del repo
 \item \textbf{\textit{Concrete table inheritance.}} Definir una taula per cada tipus de model i replicar els atributs comuns.
 \end{itemize}
 
-En el nostre cas, optarem per l'opció \textit{concrete table inheritance}. La raó principal d'aquesta opció és que, tot i compartir la major part de les dades, les entitats de models amb tipus diferents mai tindrà sentit contemplar-les conjuntament. És a dir: qualsevol lectura o modificació de models es farà sobre un model (o conjunt de models) d'un tipus específic, mai sobre models de forma genèrica (no tindrà sentit concebir l'entitat \textit{Model} abstracta). Si considerem la segona opció, veiem que seria molt ineficient, ja que caldria fer \textit{joins} internes per obtenir les dades els models, i per la mateixa raó que la ja esmentada sabem que seria un cost innecessari. Per tant, optarem per definir una taula per cada tipus, mantenint així la independència de les metadades entre models. A l'apèndix ~\ref{AppendixA} podem veure el disseny proposat de la base de dades, d'acord als 6 tipus de models definits.\\
+En el nostre cas, optarem per l'opció \textit{concrete table inheritance}. La raó principal d'aquesta opció és que, tot i compartir la major part de les dades, les entitats de models amb tipus diferents mai tindrà sentit contemplar-les conjuntament. És a dir: qualsevol lectura o modificació de models es farà sobre un model (o conjunt de models) d'un tipus específic, mai sobre models de forma genèrica (no tindrà sentit concebir l'entitat \textit{Model} abstracta). Si considerem la segona opció, veiem que seria molt ineficient, ja que caldria fer \textit{joins} internes per obtenir les dades els models, i per la mateixa raó que la ja esmentada sabem que seria un cost innecessari. Per tant, optarem per definir una taula per cada tipus, mantenint així la independència de les metadades entre models. A la figura ~\ref{fig:modelrepository} podem veure el disseny proposat de la base de dades, d'acord als 7 tipus de models definits.\\
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=14cm]{Figures/modelrepositorydb}
+\decoRule
+\caption{Disseny de la base de dades del Model Repository Manager}
+\label{fig:modelrepository}
+\end{figure}
 
 D'aquesta manera, la identificació d'un model queda definida per \textbf{id + ModelType}, el primer com a atribut explícit de metadades i el segon com a metadada implícita derivada de la taula en la qual emmagatzemem el model.
 
@@ -137,7 +145,7 @@ Amb aquest domini podem procedir a implementar el controlador i, posteriorment, 
 \label{fig:Figura27}
 \end{figure}
 
-A l'apèndix ~\ref{AppendixA} es troba definida l'API utilitzada per la integració d'aquest component.
+A l'apèndix ~\ref{ModelRepositoryManager} es troba definida l'API utilitzada per la integració d'aquest component.
 
 \subsection{Model Repository Client}
 
@@ -145,7 +153,7 @@ Aquest subcomponent del Model Repository s'encarrega d'actuar de pont entre el M
 
 \subsubsection{Disseny i implementació}
 
-Des d'un punt de vista de \textbf{disseny}, aquest component defineix una interfície \textit{IModelRepository} que defineix, per una banda, els mètodes CRUD per cadascun dels 6 tipus de models existents al sistema. Addicionalment, defineix mètodes de cerca més complexos en base a les metadades dels models. Aquests mètodes seran els que ens permetran executar les adaptacions de forma automatitzada, sense necessitat de definir models específics, a mode de l'exemple introduït anteriorment sobre la cerca de la darrera configuració computada. D'aquests mètodes, ens interessaran especialment els següents:
+Des d'un punt de vista de \textbf{disseny}, aquest component defineix una interfície \textit{IModelRepository} que defineix, per una banda, els mètodes CRUD per cadascun dels 7 tipus de models existents al sistema. Addicionalment, defineix mètodes de cerca més complexos en base a les metadades dels models. Aquests mètodes seran els que ens permetran executar les adaptacions de forma automatitzada, sense necessitat de definir models específics, a mode de l'exemple introduït anteriorment sobre la cerca de la darrera configuració computada. D'aquests mètodes, ens interessaran especialment els següents:
 
 \begin{figure}
 \centering

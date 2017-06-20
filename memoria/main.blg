@@ -14,9 +14,13 @@ A level-1 auxiliary file: Chapters/SistemaAdaptabilitat.aux
 A level-1 auxiliary file: Chapters/DissenyDashboard.aux
 A level-1 auxiliary file: Chapters/ReconfiguracioMonitors.aux
 A level-1 auxiliary file: Chapters/Conclusions.aux
-A level-1 auxiliary file: Appendices/APIs.aux
+A level-1 auxiliary file: Appendices/TwitterMonitor.aux
+A level-1 auxiliary file: Appendices/GooglePlayMonitor.aux
+A level-1 auxiliary file: Appendices/AppStoreMonitor.aux
+A level-1 auxiliary file: Appendices/MonitorManager.aux
 A level-1 auxiliary file: Appendices/OrchestratorDB.aux
-A level-1 auxiliary file: Appendices/ModelRepositoryDB.aux
+A level-1 auxiliary file: Appendices/Orchestrator.aux
+A level-1 auxiliary file: Appendices/ModelRepositoryManager.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -215,7 +219,7 @@ Too many commas in name 1 of "Pablo Trinidad, David Benavides, Antonio Ruiz-Cort
 while executing---line 2659 of file biblatex.bst
 You've used 34 entries,
             6047 wiz_defined-function locations,
-            1281 strings with 12503 characters,
+            1285 strings with 12636 characters,
 and the built_in function-call counts, 97712 in all, are:
 = -- 2485
 > -- 7371

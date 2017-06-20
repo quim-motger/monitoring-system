@@ -1,0 +1,87 @@
+% Appendix Template
+
+\chapter{App Store Monitor API} % Main appendix title
+
+\label{AppStoreMonitor} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
+
+\section{AppStoreMonitor}\label{appstoremonitor}
+
+\subsection{Monitor {[}/configuration{]}}\label{monitor-configuration}
+
+\subsubsection{Create a new configuration for this monitor
+{[}POST{]}}\label{create-a-new-configuration-for-this-monitor-post}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+    "AppStoreConfProf": {
+        "toolName": "AppTweak",
+        "timeSlot": "30",
+        "kafkaEndpoint": "http://localhost:9092",
+        "kafkaTopic": "MarketPlace",
+        "appId": "567630281"
+    }
+}
+\end{verbatim}
+\item
+  Response (application/json)
+
+  \begin{itemize}
+  \item
+    Body
+
+\begin{verbatim}
+{
+    "AppStoreConfProfResult":{
+        "idConf":"1",
+        "status":"success"
+    }
+}
+\end{verbatim}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Configuration
+{[}/configuration/\{id\}{]}}\label{configuration-configurationid}
+
+\subsubsection{Updates an existing configuration
+{[}PUT{]}}\label{updates-an-existing-configuration-put}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+    "AppStoreConfProf": {
+        "toolName": "AppTweak",
+        "timeSlot": "60",
+        "kafkaEndpoint": "http://localhost:9092",
+        "kafkaTopic": "MarketPlace",
+        "appId": "567630281"
+    }
+}
+\end{verbatim}
+\item
+  Response (application/json)
+
+  \begin{itemize}
+  \item
+    Body
+
+\begin{verbatim}
+{
+    "AppStoreConfProfResult":{
+        "idConf":"1",
+        "status":"success"
+    }
+}
+\end{verbatim}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Deletes a configuration instance
+{[}DELETE{]}}\label{deletes-a-configuration-instance-delete}

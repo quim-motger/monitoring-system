@@ -180,7 +180,7 @@ Cal destacar que gràcies al disseny de l'arquitectura proposada anteriorment pe
 
 \noindent{\large{\textbf{Exposició com a servei REST}}}\\
 
-El següent pas d'acord amb les necessitats tècniques per la integració és exposar el monitor i les seves funcionalitats com un servei web RESTful. D'aquesta manera, mitjançant la documentació d'una API per accedir a les diferents operacions d'alta, baixa i modificació d'un procés de monitoratge, podem integrar els monitors al IF del projecte SUPERSEDE i permetre així el seu accés a través de la plataforma d'integració. En aquest sentit l'ús de JSON com a format de comunicació d'entrada i sortida ens facilita la seva exposició com a servei web, que utilitzarà també el format JSON com a \textit{payload} per fer les crides. La documentació de l'API del monitor de Twitter es pot trobar a l'apèndix ~\ref{AppendixA}, on podem trobar en detall les peticions REST implementades, així com el format dels \textit{inputs} i \textit{outputs} de cadascuna de les crides.\\
+El següent pas d'acord amb les necessitats tècniques per la integració és exposar el monitor i les seves funcionalitats com un servei web RESTful. D'aquesta manera, mitjançant la documentació d'una API per accedir a les diferents operacions d'alta, baixa i modificació d'un procés de monitoratge, podem integrar els monitors al IF del projecte SUPERSEDE i permetre així el seu accés a través de la plataforma d'integració. En aquest sentit l'ús de JSON com a format de comunicació d'entrada i sortida ens facilita la seva exposició com a servei web, que utilitzarà també el format JSON com a \textit{payload} per fer les crides. La documentació de l'API del monitor de Twitter es pot trobar a l'apèndix ~\ref{TwitterMonitor}, on podem trobar en detall les peticions REST implementades, així com el format dels \textit{inputs} i \textit{outputs} de cadascuna de les crides.\\
 
 Per tal de poder concebre com funcionaria la comunicació amb el monitor per iniciar una nova instància de monitoratge, la figura ~\ref{fig:Figura8} mostra un exemple d'objecte JSON utilitzat.
 
@@ -275,7 +275,7 @@ De forma anàloga a l'exposició com a servei del monitor de Twitter, cal dissen
 \label{fig:Figura14}
 \end{figure}
 
-Tot i que el paràmetre de \textit{toolName} ja l'havíem vist en l'anterior monitor, ja que és necessari per la instanciació de la \textit{tool} utilitzant el patró reflexió, en aquest cas cobra una especial importància, ja que al disposar d'un conjunt de \textit{tools} podem utilitzar els noms d'aquestes per configurar el monitor; en aquest cas, amb les \textit{tools} de \textbf{GooglePlay} i \textbf{AppTweak}.\\
+Tot i que el paràmetre de \textit{toolName} ja l'havíem vist en l'anterior monitor, ja que és necessari per la instanciació de la \textit{tool} utilitzant el patró reflexió, en aquest cas cobra una especial importància, ja que al disposar d'un conjunt de \textit{tools} podem utilitzar els noms d'aquestes per configurar el monitor; en aquest cas, amb les \textit{tools} de \textbf{GooglePlay} i \textbf{AppTweak}. A l'apèndix ~\ref{GooglePlayMonitor} es troba el disseny de l'API d'aquest monitor.\\
 
 \subsubsection{App Store Monitor}
 
@@ -322,7 +322,7 @@ A la figura ~\ref{fig:appstore} veiem la representació de l'arquitectura estesa
 
 \noindent{\large{\textbf{Exposició com a servei REST}}}\\
 
-De forma anàloga a l'exposició com a servei del monitor de Twitter i Google Play, cal dissenyar i implementar un servei REST per desplegar les funcionalitats del monitor de App Store. La figura ~\ref{fig:appstore-dades} mostra un exemple d'un possible objecte JSON de configuració del monitor.\\
+De forma anàloga a l'exposició com a servei del monitor de Twitter i Google Play, cal dissenyar i implementar un servei REST per desplegar les funcionalitats del monitor de App Store. La figura ~\ref{fig:appstore-dades} mostra un exemple d'un possible objecte JSON de configuració del monitor. A l'apèndix ~\ref{AppStoreMonitor} es troba el disseny de l'API d'aquest monitor.\\
 
 \begin{figure}[!h]
 \centering
@@ -379,7 +379,7 @@ En aquest punt cal decidir si aquesta informació l'afegim de forma implícita a
 \label{fig:Figura15}
 \end{figure}
 
-En aquest sentit aprofitarem la necessitat d'exposició dels components com a serveis RESTful per, mitjançant el propi disseny de la API que implementarà el Monitor Manager, definir aquest paràmetre. En el  disseny d'aquesta API, present a l'apèndix ~\ref{AppendixA}, proposem com a paràmetre dins la URL de les 3 crides a implementar (creació, modificació i eliminació) el propi identificador del monitor. Així, exemplificant la crida per crear una configuració sobre el monitor de Twitter, podem veure a la figura ~\ref{fig:Figura15} la URL que defineix el recurs per realitzar aquesta operació (on \textit{monitorName} és el paràmetre de la URL que identifica el monitor a redireccionar), així com un exemple de JSON que rebrà. Com es pot apreciar, aquest presenta els mateixos camps que el JSON definit als monitors.\\
+En aquest sentit aprofitarem la necessitat d'exposició dels components com a serveis RESTful per, mitjançant el propi disseny de la API que implementarà el Monitor Manager, definir aquest paràmetre. En el  disseny d'aquesta API, present a l'apèndix ~\ref{MonitorManager}, proposem com a paràmetre dins la URL de les 3 crides a implementar (creació, modificació i eliminació) el propi identificador del monitor. Així, exemplificant la crida per crear una configuració sobre el monitor de Twitter, podem veure a la figura ~\ref{fig:Figura15} la URL que defineix el recurs per realitzar aquesta operació (on \textit{monitorName} és el paràmetre de la URL que identifica el monitor a redireccionar), així com un exemple de JSON que rebrà. Com es pot apreciar, aquest presenta els mateixos camps que el JSON definit als monitors.\\
 
 Amb aquestes dades d'entrada, el Monitor Manager ja és capaç de realitzar la redirecció al monitor corresponent.\\
 
@@ -519,8 +519,8 @@ Sense entrar en molt detall en els aspectes d'implementació de les especificaci
 
 \begin{itemize}
 \item Disseny dels controladors de domini, definits a la figura ~\ref{fig:orchestrator}
-\item Disseny de l'esquema de la \textbf{base de dades}, definit a l'apèndix ~\ref{AppendixA}
-\item Disseny de l\textbf{API RESTful}, definit a l'apèndix ~\ref{AppendixA}
+\item Disseny de l'esquema de la \textbf{base de dades}, definit a l'apèndix ~\ref{OrchestratorDB}
+\item Disseny de l\textbf{API RESTful}, definit a l'apèndix ~\ref{Orchestrator}
 \end{itemize}
 
 Degut a que el comportament i els detalls específics no són d'especial interés pel domini d'aquest projecte, no s'entrarà amb més detall en la informació referent a la implementació tècnica, que s'ha realitzat seguint les instruccions i els requisits tècnics específics del component Orchestrator genèric implementat per \textit{partners} del projecte SUPERSEDE.

@@ -1,0 +1,218 @@
+% Appendix Template
+
+\chapter{Model Repository Manager API} % Main appendix title
+
+\label{ModelRepositoryManager} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
+
+\section{Model Repository Manager}\label{model-repository-manager}
+
+\subsection{Model type
+{[}/models/\{modelType\}\{?systemId, status, name, url, authorId, creationDate, lastModificationDate, fileExtension, relativePath\}{]}}\label{model-type-modelsmodeltypesystemidstatusnameurlauthoridcreationdatelastmodificationdatefileextensionrelativepath}
+
+\subsubsection{Get model instances for a given modelType
+{[}GET{]}}\label{get-model-instances-for-a-given-modeltype-get}
+
+\begin{itemize}
+\item
+  Parameters
+
+  \begin{itemize}
+  \item
+    systemId (optional) - A valid systemId
+  \item
+    status (optional) - A valid status
+  \item
+    name (optional) - The model name
+  \item
+    url (optional) - The model url
+  \item
+    authorId (optional) - The authorId of the model
+  \item
+    creationDate (optional) - The creation date of the model
+  \item
+    lastModificationDate (optional) - The last modification date of the
+    model
+  \item
+    fileExtension (optional) - The file extension of the model
+  \item
+    relativePath (optional) - The relative path where the model is
+    stored
+  \item
+    featureId (optional) - The featureId of the Aspect model (only valid
+    for this model type)
+  \item
+    status (optional) - The status of the Base model (only valid for
+    this model type)
+  \end{itemize}
+\item
+  Response 200 (application/json)
+
+\begin{verbatim}
+[
+    {
+        "id":"2",
+        "name":"MonitoringBaseModel",
+        "authorId":"zavala",
+        "creationDate":"2016-09-30 01:25:37.0",
+        "lastModificationDate":"2016-09-30 01:25:37.0",
+        "fileExtension":".uml",
+        "systemId":"MonitoringReconfiguration",
+        "featureId":"GooglePlay",
+        "relativePath": "repository/models",
+        "modelContent":"StringOfModelFileContent",
+        "dependencies": [
+            {
+                "modelType": "PatternModel",
+                "number": "1"
+            }
+        ]
+    }
+]
+\end{verbatim}
+\end{itemize}
+
+\subsection{Model type
+{[}/models/\{modelType\}{]}}\label{model-type-modelsmodeltype}
+
+\subsubsection{Create new model instances of a given model type
+{[}POST{]}}\label{create-new-model-instances-of-a-given-model-type-post}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+    "sender": "Adapter",
+    "timeStamp": "2016-10-20T20:10:30:201",
+    "modelInstances": [
+        {
+            "name": "googleplay_api_googleplay_tool",
+            "authorId": "zavala",
+            "creationDate": "2016-10-13 12:54:21.0",
+            "lastModificationDate": "2016-10-20 16:22:01.0",
+            "fileExtension": ".aspect",
+            "systemId": "MonitoringReconfiguration",
+            "featureId": "GooglePlay",
+            "relativePath": "repository/models",
+            "modelContent":"StringOfModelFileContent",
+            "dependencies": [
+                {
+                    "modelType": "PatternModel",
+                    "number": "1"
+                }
+            ]
+        }
+    ]
+}
+\end{verbatim}
+\item
+  Response 201 (application/json)
+
+  \begin{verbatim}
+  [
+        {
+            "id": "2"
+            "name": "googleplay_api_googleplay_tool",
+            "authorId": "zavala",
+            "creationDate": "2016-10-13 12:54:21.0",
+            "lastModificationDate": "2016-10-20 16:22:01.0",
+            "fileExtension": ".aspect",
+            "systemId": "MonitoringReconfiguration",
+            "featureId": "GooglePlay",
+            "relativePath": "repository/models",
+            "modelContent":"StringOfModelFileContent",
+            "dependencies": [
+                {
+                    "modelType": "PatternModel",
+                    "number": "1"
+                }
+            ]
+        }
+    ]
+  \end{verbatim}
+\end{itemize}
+
+\subsection{Model instance
+{[}/models/\{modelType\}/\{modelId\}{]}}\label{model-instance-modelsmodeltypemodelid}
+
+\subsubsection{Get a model instance by id and modelType
+{[}GET{]}}\label{get-a-model-instance-by-id-and-modeltype-get}
+
+\begin{itemize}
+\item
+  Response 200 (application/json)
+
+\begin{verbatim}
+{
+    "id":"2",
+    "name":"googleplay_api_googleplay_tool",
+    "authorId":"zavala",
+    "creationDate":"2016-09-30 01:25:37.0",
+    "lastModificationDate":"2016-09-30 01:25:37.0",
+    "fileExtension":".aspect",
+    "systemId":"MonitoringReconfiguration",
+    "featureId":"GooglePlay",
+    "relativePath": "repository/models",
+    "modelContent":"StringOfModelFileContent",
+    "dependencies": [
+        {
+            "modelType": "PatternModel",
+            "number": "1"
+        }
+    ]        
+}
+\end{verbatim}
+\end{itemize}
+
+\subsubsection{Update an existing model instance
+{[}PUT{]}}\label{update-an-existing-model-instance-put}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+    "sender": "Adapter",
+    "timeStamp": "2016-10-20T20:10:30:201",
+    "values": {
+        "authorId": "marc",
+        "featureId": "GooglePlay_API",
+        "dependencies": [
+            {
+                "modelType": "PatternModel",
+                "number": "2"
+            }
+        ]  
+    }
+}
+\end{verbatim}
+\item
+  Response 200 (application/json)
+
+\begin{verbatim}
+{
+    "id":"2",
+    "name":"googleplay_api_googleplay_tool",
+    "url":"http://...",
+    "authorId":"marc",
+    "creationDate":"2016-09-30 01:25:37.0",
+    "lastModificationDate":"2016-09-30 01:25:37.0",
+    "fileExtension":".aspect",
+    "systemId":"MonitoringReconfiguration",
+    "featureId":"GooglePlay_API",
+    "relativePath": "repository/models",
+    "modelContent":"StringOfModelFileContent",
+    "dependencies": [
+        {
+            "modelType": "PatternModel",
+            "number": "2"
+        }
+    ]
+}
+\end{verbatim}
+\end{itemize}
+
+\subsubsection{Delete a model instance
+{[}DELETE{]}}\label{delete-a-model-instance-delete}

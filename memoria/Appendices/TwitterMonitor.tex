@@ -1,0 +1,89 @@
+% Appendix Template
+
+\chapter{Twitter Monitor API} % Main appendix title
+
+\label{TwitterMonitor} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
+
+\section{TwitterMonitor}\label{twittermonitor}
+
+\subsection{Monitor {[}/configuration{]}}\label{monitor-configuration}
+
+\subsubsection{Create a new configuration for this monitor
+{[}POST{]}}\label{create-a-new-configuration-for-this-monitor-post}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+    "SocialNetworksMonitoringConfProf": {
+        "toolName": "TwitterAPI",
+        "timeSlot": "30",
+        "kafkaEndpoint": "http://localhost:9092",
+        "kafkaTopic": "tweeterMonitoring",
+        "keywordExpression": "(tweet OR follow) AND (me)",
+        "accounts": ["QuimMotger"]
+    }
+}
+\end{verbatim}
+\item
+  Response (application/json)
+
+  \begin{itemize}
+  \item
+    Body
+
+\begin{verbatim}
+{
+    "SocialNetworksMonitoringConfProfResult":{
+        "idConf":"1",
+        "status":"success"
+    }
+}
+\end{verbatim}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Configuration
+{[}/configuration/\{id\}{]}}\label{configuration-configurationid}
+
+\subsubsection{Updates an existing configuration
+{[}PUT{]}}\label{updates-an-existing-configuration-put}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+    "SocialNetworksMonitoringConfProf": {
+        "toolName": "TwitterAPI",
+        "timeSlot": "60",
+        "kafkaEndpoint": "http://localhost:9092",
+        "kafkaTopic": "tweeterMonitoring",
+        "keywordExpression": "(tweet OR follow) AND (me)",
+        "accounts": ["QuimMotger"]
+    }
+}
+\end{verbatim}
+\item
+  Response (application/json)
+
+  \begin{itemize}
+  \item
+    Body
+
+\begin{verbatim}
+{
+    "SocialNetworksMonitoringConfProfResult":{
+        "idConf":"1",
+        "status":"success"
+    }
+}
+\end{verbatim}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Deletes a configuration instance
+{[}DELETE{]}}

@@ -1,0 +1,84 @@
+% Appendix Template
+
+\chapter{Monitor Manager API} % Main appendix title
+
+\label{MonitorManager} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
+
+\section{MonitorManager}\label{monitormanager}
+
+\subsection{Monitor
+{[}/\{monitorName\}/configuration{]}}\label{monitor-monitornameconfiguration}
+
+\subsubsection{Create a new monitor configuration
+{[}POST{]}}\label{create-a-new-monitor-configuration-post}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+    "SocialNetworks": {
+        "toolName": "TwitterAPI",
+        "timeSlot": "30",
+        "kafkaEndpoint": "http://localhost:9092",
+        "kafkaTopic": "tweeterMonitoring",
+        "keywordExpression": "(olympics) AND (streaming)"
+    }
+}
+\end{verbatim}
+\item
+  Response (application/json)
+
+  \begin{itemize}
+  \item
+    Body
+
+\begin{verbatim}
+{
+    "idConf": "1"
+    "status": "success"
+}
+\end{verbatim}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Monitor Configuration
+{[}/\{monitorName\}/configuration/\{confId\}{]}}\label{monitor-configuration-monitornameconfigurationconfid}
+
+\subsubsection{Updates an existing configuration
+{[}PUT{]}}\label{updates-an-existing-configuration-put}
+
+\begin{itemize}
+\item
+  Request (application/json)
+
+\begin{verbatim}
+{
+    "SocialNetworks": {
+        "toolName": "TwitterAPI",
+        "timeSlot": "60",
+        "kafkaEndpoint": "http://localhost:9092",
+        "kafkaTopic": "tweeterMonitoring",
+        "keywordExpression": "(olympics) AND (streaming)"
+    }
+}
+\end{verbatim}
+\item
+  Response (application/json)
+
+  \begin{itemize}
+  \item
+    Body
+
+\begin{verbatim}
+{
+    "idConf": "1"
+    "status": "success"
+}
+\end{verbatim}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Deletes a configuration instance
+{[}DELETE{]}}\label{deletes-a-configuration-instance-delete}
