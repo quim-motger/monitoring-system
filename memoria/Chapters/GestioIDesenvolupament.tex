@@ -362,13 +362,19 @@ Procedim a fer un anàlisi de les 3 dimensions de la sostenibilitat en referènc
 
 \noindent La dimensió econòmica està satisfactòriament treballada gràcies al pressupost prèviament exposat, basat en dades objectives i específiques (p.e., activitats reals a realitzar durant el projecte), que inclou despeses materials i humanes. Aquests costos i temps de dedicació inclouen aspectes crítics tals com possibles desviacions i imprevistos, i una assignació proporcional dels recursos assignats a la rellevància de cada tasca. Es tracta d’un projecte realitzat amb el cost mínim, però suficient (tenint en compte sempre que és necessari afegir extres per desviacions), garantint la seva satisfacció però sense despeses innecessàries, el que garanteix la seva viabilitat econòmica.\\
 
+L'assignació i necessitat de recursos (físics i humans) s'ha mantingut força estable. Tot i així, en alguns casos ha calgut el reajustament de dedicació a tasques. Addicionalment, el projecte planteja un treball futur potencial amb una certa estimació baixa, però podrien produir-se noves necessitats (p.e. requisits que requereixin noves validacions) que afectin a la viabilitat del projecte, a nivells baixos però en qualsevol cas necessaris a tenir en compte.\\
+
 \noindent \textbf{\large Dimensió social}\\
 
-\noindent L’objectiu principal del treball és aprofundir en el control de qualitat i monitoritatge de sistemes software mitjançant el desenvolupament de software lliure reaprofitable. Tal i com vam veure a l’entregable 1 (a l’apartat Estat de l’art), existeix marge d’investigació i treball en aquest àmbit, i l’àmplia gama de serveis software poden extreure un cert benefici en base als avenços (o si més no, la recerca i síntesi) que aquest projecte pugui aportar. Des del punt de vista dels desenvolupadors (usuaris reals d’aquest projecte, ja que seran els que l’utilitzaran), aportem noves eines i facilitem criteris d’autoadaptabilitat per monitors de control de qualitat. També, però, tindrà conseqüències en els usuaris dels sistemes monitorats, ja que la recol·lecció de dades d’aquests està orientada a la millora de la qualitat dels serveis oferts per aquests sistemes. Aquest és un aspecte que cada vegada requereix més profunditat, motiu pel qual podem considerar l’existència d’una necessitat dins el mercat actual. Podem considerar que no existeixen col·lectius afectats negativament.\\
+\noindent L’objectiu principal del treball és aprofundir en el control de qualitat i monitoratge de sistemes software mitjançant el desenvolupament de software lliure reaprofitable. Tal i com vam veure a l’entregable 1 (a l’apartat Estat de l’art), existeix marge d’investigació i treball en aquest àmbit, i l’àmplia gama de serveis software poden extreure un cert benefici en base als avenços (o si més no, la recerca i síntesi) que aquest projecte pugui aportar. Des del punt de vista dels desenvolupadors (usuaris reals d’aquest projecte, ja que seran els que l’utilitzaran), aportem noves eines i facilitem criteris d’autoadaptabilitat per monitors de control de qualitat. També, però, tindrà conseqüències en els usuaris dels sistemes monitorats, ja que la recol·lecció de dades d’aquests està orientada a la millora de la qualitat dels serveis oferts per aquests sistemes. Aquest és un aspecte que cada vegada requereix més profunditat, motiu pel qual podem considerar l’existència d’una necessitat dins el mercat actual. Podem considerar que no existeixen col·lectius afectats negativament.\\
+
+Finalitzat el projecte, i tal i com es comentarà al \textit{Capítol 12. Conclusions}, ja es troba en un punt on aquest està sent reaprofitat per altres desenvolupadors del propi projecte SUPERSEDE. Per tant, els \textit{stakeholders} identificats (com p.e. els desenvolupadors) ja estan aprofitant les conseqüències d'impacte que suposa el desenvolupament d'aquest TFG, motiu pel qual podem considerar-ho un èxit. Per contra, no sembla viable plantejar-se escenaris on aquest projecte pugui afectar-los de forma negativa, ja que el camp d'estudi no està orientat de forma específica a un sector on es puguin produir impactes negatius.\\
 
 \noindent \textbf{\large Dimensió ambiental}\\
 
 \noindent Els recursos plantejats tant pel desenvolupament del projecte com el consum necessari per la seva vida útil són mínims, i inclouen únicament aquells derivats del manteniment d’un sistema software. No existirà contaminació destacada més allà de la generada pel consum d’electricitat del dispositiu portàtil a utilitzar pel desenvolupament del projecte o la impressió de papers (que es limitarà al mínim necessari). Es tracta, a més, d’un projecte que té per objectiu ser reaprofitat per tercers projectes (plantejant estructures, arquitectures, monitors, etc. reaprofitables).\\
+
+Amb el projecte realitzat podem garantir que els criteris de satisfacció ambiental s'han mantingut a nivells òptims. No s'han consumit més recursos físics dels que han estat necessaris, i s'han mantingut als mínims desitjats. Tot i que l'impacte ambiental des d'un punt de vista de millora o optimització a l'estat de l'art actual no és altament considerable, si que és cert que l'eficiència de l'arquitectura i la proposta de sistema permet una generalització i reutilització; en conseqüència, pot comportar reducció de destinació de recursos a desenvolupament que aquest sistema ofereix. En qualsevol cas, no es presenten escenaris on l'empremta ecològica pogués augmentar.\\
 
 \noindent \textbf{\large Matriu de sostenibilitat}\\
 
@@ -379,10 +385,17 @@ Procedim a fer un anàlisi de les 3 dimensions de la sostenibilitat en referènc
 \label{MatriuSostenibilitat}
 %\resizebox{\textwidth}{!}{%
 \begin{tabular}{lccc}
-\hline \textbf{Sostenibilitat}                           &  \textbf{Econòmica} & \textbf{Social}                           &  \textbf{Ambiental} \\
+\hline \textbf{Sostenibilitat}                           &  \textbf{PPP} & \textbf{Vida social}                           &  \textbf{Riscs} \\
 \hline
-\textbf{Planificació} & 9 & 8 & 7 \\
+\textbf{Ambiental} & 7 & 12 & 0 \\
 \hline            
+\textbf{Econòmica} & 9 & 16 & -5 \\
+\hline
+\textbf{Social} & 8 & 18 & 0 \\
+\hline
+\textbf{Rang de sostenibilitat} & 24 & 46 & -5 \\
+\hline
+\textbf{Total} & \multicolumn{3}{c}{65}
 \end{tabular}%}
 \caption{Matriu de sostenibilitat}
 \end{table}
@@ -390,7 +403,7 @@ Procedim a fer un anàlisi de les 3 dimensions de la sostenibilitat en referènc
 Podem considerar, juntament amb la informació prèviament exposada, les següents justificacions:
 
 \begin{itemize}
-\item \textbf{Dimensió econòmica}. S’assoleixen satisfactòriament criteris econòmics amb rigor i detall (basat en pressupost) i es presenta informació verídica en quant a costos, optimitzats per un ajustament adequat.
-\item \textbf{Dimensió social}. Tot i que l’impacte pot no ser especialment destacable, sí que té un mercat profitós i aporta beneficis dins el seu sector que el fan un projecte positiu des del punt de vista social.
+\item \textbf{Dimensió econòmica}. S’assoleixen satisfactòriament criteris econòmics amb rigor i detall (basat en pressupost) i es presenta informació verídica en quant a costos, optimitzats per un ajustament adequat, amb una baixa possibilitat de detecció de riscos a tenir en compte.
+\item \textbf{Dimensió social}. Tot i que l’impacte positiu pot no ser especialment destacable, sí que té un mercat profitós i aporta beneficis dins el seu sector que el fan un projecte positiu des del punt de vista social.
 \item \textbf{Dimensió ambiental}. No aporta un benefici destacable directe però sí que assoleix els criteris d’eficiència ambiental en quant al consum de recursos o l’empremta ecològica del projecte, que podrà ser reutilitzat per projectes tercers.
 \end{itemize}

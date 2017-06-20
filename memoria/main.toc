@@ -22,71 +22,66 @@
 \contentsline {subsection}{\numberline {4.4.1}Estimaci\IeC {\'o} pressupost\IeC {\`a}ria}{18}{subsection.38}
 \contentsline {subsection}{\numberline {4.4.2}Control de gesti\IeC {\'o}}{20}{subsection.44}
 \contentsline {subsection}{\numberline {4.4.3}Sostenibilitat econ\IeC {\`o}mica, social i ambiental}{21}{subsection.45}
-\contentsline {chapter}{\numberline {5}Visi\IeC {\'o} general del sistema}{23}{chapter.47}
-\contentsline {section}{\numberline {5.1}Disseny del sistema}{24}{section.48}
-\contentsline {section}{\numberline {5.2}Integraci\IeC {\'o} de components}{27}{section.50}
-\contentsline {chapter}{\numberline {6}Entorn de desenvolupament}{29}{chapter.51}
-\contentsline {section}{\numberline {6.1}Tecnologies utilitzades}{29}{section.52}
-\contentsline {section}{\numberline {6.2}Implementaci\IeC {\'o} i artefactes generats}{30}{section.53}
-\contentsline {chapter}{\numberline {7}Sistema de monitoratge}{33}{chapter.54}
-\contentsline {section}{\numberline {7.1}Monitors}{33}{section.55}
-\contentsline {subsection}{\numberline {7.1.1}Especificacions t\IeC {\`e}cniques i funcionals}{34}{subsection.59}
-\contentsline {subsection}{\numberline {7.1.2}Disseny i arquitectura gen\IeC {\`e}rica}{37}{subsection.67}
-\contentsline {subsection}{\numberline {7.1.3}Implementaci\IeC {\'o} de monitors}{38}{subsection.69}
-\contentsline {subsubsection}{Twitter Monitor}{39}{section*.70}
-\contentsline {subsubsection}{Google Play Monitor}{42}{section*.76}
-\contentsline {subsubsection}{App Store Monitor}{47}{section*.82}
-\contentsline {section}{\numberline {7.2}Monitor Manager}{49}{section.86}
-\contentsline {subsection}{\numberline {7.2.1}Especificacions t\IeC {\`e}cniques i funcionals}{50}{subsection.90}
-\contentsline {subsection}{\numberline {7.2.2}Disseny i implementaci\IeC {\'o}}{52}{subsection.95}
-\contentsline {section}{\numberline {7.3}Orchestrator}{53}{section.97}
-\contentsline {subsection}{\numberline {7.3.1}Especificacions t\IeC {\`e}cniques i funcionals}{54}{subsection.98}
-\contentsline {subsection}{\numberline {7.3.2}Disseny i implementaci\IeC {\'o}}{56}{subsection.104}
-\contentsline {chapter}{\numberline {8}Modelatge UML de configuracions dels monitors}{59}{chapter.106}
-\contentsline {section}{\numberline {8.1}Requisits del modelatge}{59}{section.107}
-\contentsline {section}{\numberline {8.2}Disseny de models UML}{60}{section.113}
-\contentsline {subsection}{\numberline {8.2.1}Base Model}{60}{subsection.114}
-\contentsline {subsection}{\numberline {8.2.2}Features}{61}{subsection.116}
-\contentsline {subsubsection}{Feature Model}{62}{section*.117}
-\contentsline {subsubsection}{Feature Configuration}{63}{section*.119}
-\contentsline {subsection}{\numberline {8.2.3}Advice Model}{63}{subsection.121}
-\contentsline {subsection}{\numberline {8.2.4}Pattern Model}{64}{subsection.122}
-\contentsline {subsection}{\numberline {8.2.5}Profile Model}{65}{subsection.124}
-\contentsline {subsection}{\numberline {8.2.6}Aspect Model}{65}{subsection.126}
-\contentsline {chapter}{\numberline {9}Sistema d'adaptabilitat}{69}{chapter.128}
-\contentsline {section}{\numberline {9.1}Model Repository}{69}{section.129}
-\contentsline {subsection}{\numberline {9.1.1}Especificacions t\IeC {\`e}cniques i funcionals}{69}{subsection.130}
-\contentsline {subsection}{\numberline {9.1.2}Model Repository Manager}{71}{subsection.135}
-\contentsline {subsubsection}{Disseny de la base de dades}{71}{section*.138}
-\contentsline {subsubsection}{Disseny i implementaci\IeC {\'o}}{73}{section*.139}
-\contentsline {subsection}{\numberline {9.1.3}Model Repository Client}{75}{subsection.147}
-\contentsline {subsubsection}{Disseny i implementaci\IeC {\'o}}{75}{section*.148}
-\contentsline {section}{\numberline {9.2}Model Adapter}{77}{section.150}
-\contentsline {subsection}{\numberline {9.2.1}Especificacions t\IeC {\`e}cniques i funcionals}{77}{subsection.151}
-\contentsline {subsection}{\numberline {9.2.2}Disseny i implementaci\IeC {\'o}}{77}{subsection.156}
-\contentsline {section}{\numberline {9.3}Components auxiliars}{79}{section.160}
-\contentsline {subsection}{\numberline {9.3.1}Model Query}{80}{subsection.161}
-\contentsline {subsection}{\numberline {9.3.2}Enactor}{81}{subsection.163}
-\contentsline {section}{\numberline {9.4}Adapter}{81}{section.165}
-\contentsline {subsection}{\numberline {9.4.1}Especificacions t\IeC {\`e}cniques i funcionals}{82}{subsection.166}
-\contentsline {subsection}{\numberline {9.4.2}Disseny i implementaci\IeC {\'o}}{83}{subsection.184}
-\contentsline {chapter}{\numberline {10}Dashboard}{85}{chapter.187}
-\contentsline {section}{\numberline {10.1}An\IeC {\`a}lisi de requisits}{85}{section.188}
-\contentsline {section}{\numberline {10.2}Disseny de la interf\IeC {\'\i }cie}{85}{section.189}
-\contentsline {section}{\numberline {10.3}Implementaci\IeC {\'o}}{87}{section.192}
-\contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{89}{chapter.195}
-\contentsline {section}{\numberline {11.1}Presentaci\IeC {\'o} de cas d'\IeC {\'u}s}{89}{section.196}
-\contentsline {section}{\numberline {11.2}Execuci\IeC {\'o} de la reconfiguraci\IeC {\'o}}{91}{section.201}
-\contentsline {chapter}{\numberline {12}Conclusions}{95}{chapter.208}
-\contentsline {section}{\numberline {12.1}Justificaci\IeC {\'o} de l'assoliment de compet\IeC {\`e}ncies}{95}{section.209}
-\contentsline {section}{\numberline {12.2}Avaluaci\IeC {\'o} del potencial del producte generat}{96}{section.210}
-\contentsline {section}{\numberline {12.3}Avaluaci\IeC {\'o} general}{97}{section.211}
-\contentsline {chapter}{\numberline {A}Twitter Monitor API}{99}{appendix.212}
-\contentsline {chapter}{\numberline {B}Appendix Title Here}{101}{appendix.213}
-\contentsline {chapter}{\numberline {C}Appendix Title Here}{103}{appendix.214}
-\contentsline {chapter}{\numberline {D}Appendix Title Here}{105}{appendix.215}
-\contentsline {chapter}{\numberline {E}Appendix Title Here}{107}{appendix.216}
-\contentsline {chapter}{\numberline {F}Appendix Title Here}{109}{appendix.217}
-\contentsline {chapter}{\numberline {G}Appendix Title Here}{111}{appendix.218}
-\contentsline {chapter}{\numberline {H}Appendix Title Here}{113}{appendix.219}
-\contentsline {chapter}{Bibliografia}{115}{appendix*.220}
+\contentsline {chapter}{\numberline {5}Visi\IeC {\'o} general del sistema}{25}{chapter.47}
+\contentsline {section}{\numberline {5.1}Disseny del sistema}{26}{section.48}
+\contentsline {section}{\numberline {5.2}Integraci\IeC {\'o} de components}{29}{section.50}
+\contentsline {chapter}{\numberline {6}Entorn de desenvolupament}{31}{chapter.51}
+\contentsline {section}{\numberline {6.1}Tecnologies utilitzades}{31}{section.52}
+\contentsline {section}{\numberline {6.2}Implementaci\IeC {\'o} i artefactes generats}{32}{section.53}
+\contentsline {chapter}{\numberline {7}Sistema de monitoratge}{35}{chapter.54}
+\contentsline {section}{\numberline {7.1}Monitors}{35}{section.55}
+\contentsline {subsection}{\numberline {7.1.1}Especificacions t\IeC {\`e}cniques i funcionals}{36}{subsection.59}
+\contentsline {subsection}{\numberline {7.1.2}Disseny i arquitectura gen\IeC {\`e}rica}{39}{subsection.67}
+\contentsline {subsection}{\numberline {7.1.3}Implementaci\IeC {\'o} de monitors}{40}{subsection.69}
+\contentsline {subsubsection}{Twitter Monitor}{41}{section*.70}
+\contentsline {subsubsection}{Google Play Monitor}{44}{section*.76}
+\contentsline {subsubsection}{App Store Monitor}{49}{section*.82}
+\contentsline {section}{\numberline {7.2}Monitor Manager}{51}{section.86}
+\contentsline {subsection}{\numberline {7.2.1}Especificacions t\IeC {\`e}cniques i funcionals}{52}{subsection.90}
+\contentsline {subsection}{\numberline {7.2.2}Disseny i implementaci\IeC {\'o}}{54}{subsection.95}
+\contentsline {section}{\numberline {7.3}Orchestrator}{55}{section.97}
+\contentsline {subsection}{\numberline {7.3.1}Especificacions t\IeC {\`e}cniques i funcionals}{56}{subsection.98}
+\contentsline {subsection}{\numberline {7.3.2}Disseny i implementaci\IeC {\'o}}{58}{subsection.104}
+\contentsline {chapter}{\numberline {8}Modelatge UML de configuracions dels monitors}{61}{chapter.106}
+\contentsline {section}{\numberline {8.1}Requisits del modelatge}{61}{section.107}
+\contentsline {section}{\numberline {8.2}Disseny de models UML}{62}{section.113}
+\contentsline {subsection}{\numberline {8.2.1}Base Model}{62}{subsection.114}
+\contentsline {subsection}{\numberline {8.2.2}Features}{63}{subsection.116}
+\contentsline {subsubsection}{Feature Model}{64}{section*.117}
+\contentsline {subsubsection}{Feature Configuration}{65}{section*.119}
+\contentsline {subsection}{\numberline {8.2.3}Advice Model}{65}{subsection.121}
+\contentsline {subsection}{\numberline {8.2.4}Pattern Model}{66}{subsection.122}
+\contentsline {subsection}{\numberline {8.2.5}Profile Model}{67}{subsection.124}
+\contentsline {subsection}{\numberline {8.2.6}Aspect Model}{67}{subsection.126}
+\contentsline {chapter}{\numberline {9}Sistema d'adaptabilitat}{71}{chapter.128}
+\contentsline {section}{\numberline {9.1}Model Repository}{71}{section.129}
+\contentsline {subsection}{\numberline {9.1.1}Especificacions t\IeC {\`e}cniques i funcionals}{71}{subsection.130}
+\contentsline {subsection}{\numberline {9.1.2}Model Repository Manager}{73}{subsection.135}
+\contentsline {subsubsection}{Disseny de la base de dades}{73}{section*.138}
+\contentsline {subsubsection}{Disseny i implementaci\IeC {\'o}}{75}{section*.139}
+\contentsline {subsection}{\numberline {9.1.3}Model Repository Client}{77}{subsection.147}
+\contentsline {subsubsection}{Disseny i implementaci\IeC {\'o}}{77}{section*.148}
+\contentsline {section}{\numberline {9.2}Model Adapter}{79}{section.150}
+\contentsline {subsection}{\numberline {9.2.1}Especificacions t\IeC {\`e}cniques i funcionals}{79}{subsection.151}
+\contentsline {subsection}{\numberline {9.2.2}Disseny i implementaci\IeC {\'o}}{79}{subsection.156}
+\contentsline {section}{\numberline {9.3}Components auxiliars}{81}{section.160}
+\contentsline {subsection}{\numberline {9.3.1}Model Query}{82}{subsection.161}
+\contentsline {subsection}{\numberline {9.3.2}Enactor}{83}{subsection.163}
+\contentsline {section}{\numberline {9.4}Adapter}{83}{section.165}
+\contentsline {subsection}{\numberline {9.4.1}Especificacions t\IeC {\`e}cniques i funcionals}{84}{subsection.166}
+\contentsline {subsection}{\numberline {9.4.2}Disseny i implementaci\IeC {\'o}}{85}{subsection.184}
+\contentsline {chapter}{\numberline {10}Dashboard}{87}{chapter.187}
+\contentsline {section}{\numberline {10.1}An\IeC {\`a}lisi de requisits}{87}{section.188}
+\contentsline {section}{\numberline {10.2}Disseny de la interf\IeC {\'\i }cie}{87}{section.189}
+\contentsline {section}{\numberline {10.3}Implementaci\IeC {\'o}}{89}{section.192}
+\contentsline {chapter}{\numberline {11}Validaci\IeC {\'o} del sistema}{91}{chapter.195}
+\contentsline {section}{\numberline {11.1}Presentaci\IeC {\'o} de cas d'\IeC {\'u}s}{91}{section.196}
+\contentsline {section}{\numberline {11.2}Execuci\IeC {\'o} de la reconfiguraci\IeC {\'o}}{93}{section.201}
+\contentsline {chapter}{\numberline {12}Conclusions}{97}{chapter.208}
+\contentsline {section}{\numberline {12.1}Justificaci\IeC {\'o} de l'assoliment de compet\IeC {\`e}ncies}{97}{section.209}
+\contentsline {section}{\numberline {12.2}Avaluaci\IeC {\'o} del potencial del producte generat}{98}{section.210}
+\contentsline {section}{\numberline {12.3}Avaluaci\IeC {\'o} general}{99}{section.211}
+\contentsline {chapter}{\numberline {A}Documentaci\IeC {\'o} APIs}{101}{appendix.212}
+\contentsline {chapter}{\numberline {B}Appendix Title Here}{103}{appendix.213}
+\contentsline {chapter}{\numberline {C}Appendix Title Here}{105}{appendix.214}
+\contentsline {chapter}{Bibliografia}{107}{appendix*.215}
