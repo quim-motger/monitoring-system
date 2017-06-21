@@ -6,9 +6,36 @@
 
 Com a cloenda pel desenvolupament d'aquest projecte, aquest darrer capítol pretén recollir una avaluació general del producte generat, la feina desenvolupada, el seu potencial i en definitiva, resumir tots els aspectes que engloben el desenvolupament d'un TFG d'aquestes característiques.
 
+\section{Justificació de l'assoliment dels objectius}
+
+En primer lloc, procedim a la validació dels objectius presentada en la planificació d'aquest projecte.
+
+\begin{itemize}
+\item[OBJ1.] \textbf{Definir una planificació pel desenvolupament del projecte en funció dels requisits.}
+\subitem Aquest objectiu va ser satisfet i avaluat durant el curs de GEP, on es van identificar tant els requisits del projecte com la seva planificació. En aquesta memòria, al \textit{Capítol 4. Gestió i desenvolupament} s'inclouen: les fases i tasques del projecte, el diagrama de \textit{Gantt} del desenvolupament d'aquest, el pressupost i la previsió de desviacions i alternatives queden reflectides i justificades amb suficient nivell de detall.
+\item[OBJ2.] \textbf{ Dissenyar una arquitectura software adequada a les necessitats (sistema autoadaptable, heterogeni i distribuït).}
+\subitem Objectiu satisfet i justificat al \textit{Capítol 7. Sistema de monitoratge}, on s'introdueix la proposta d'una arquitectura per la implementació de monitors \textbf{heterogènia}, i es valida mitjançant la implementació d'alguns monitors d'exemple, i els capítols \textit{8. Modelatge UML de configuracions dels monitors} i \textit{9. Sistema d'adaptabilitat}, on primerament es proposa el modelatge del sistema de monitoratge, per a continuació descriure com utilitzar-lo per l'\textbf{adaptabilitat} i reconfiguració dels monitors. El disseny de cada component de forma separada per permetre el seu desplegament de forma independent, i la seva integració mitjançant l'eina IF, garanteixen la seva capacitat de \textbf{distribució}.
+\item[OBJ3.] \textbf{Implementar el sistema de monitoratge.}
+\subitem Explicat amb detall al \textit{Capítol 7. Sistema de monitoratge}, on es descriu des del disseny de l'arquitectura genèrica fins a 3 monitors implementats per validar i provar l'arquitectura, així com els components de gestió Monitor Manager i Orchestrator.
+\item[OBJ4.] \textbf{Implementar el sistema d'adaptació dels monitors.}
+\subitem Explicat amb detall al \textit{Capítol 9. Sistema d'adaptabilitat}, on es descriu com en el cas anterior tant el disseny com la implementació de cadascun dels components: Model Repository, Adapter i Model Adapter
+\item[OBJ5.] \textbf{Generació d’un producte final usable, que pugui ser desplegable (segons els criteris de distribució) i validat per un escenari d'ús específic.}
+\subitem Al \textit{Capítol 11. Validació del sistema} es descriu un cas d'ús específic, així com la seva execució, per validar la usabilitat del sistema. Tot i així, al llarg del desenvolupament, es justifica mitjançant el disseny i la implementació la correctesa dels components implementats.
+\item[OBJ6.] \textbf{Configurar i definir l’entorn de desenvolupament i d’ús del sistema.}
+\subitem Necessari pel desenvolupament, s'introdueix per una banda les tecnologies bàsiques i els components amb els quals s'ha treballat al \textit{Capítol 6. Entorn de desenvolupament}, i al llarg dels següents capítols es descriuen els passos realitzats per desenvolupar i desplegar al nostre sistema cadascun dels components.
+\item[OBJ7.] \textbf{Assegurar la qualitat i fiabilitat del sistema mitjançant la validació dels components i del sistema integrat.}
+\subitem Cada component s'ha provat i validat independentment, i addicionalment s'ha afegit una validació d'un cas d'ús específic per garantir no només l'execució satisfactòria dels components de forma aïllada, sinó també la de la seva execució de forma integrada al sistema.
+\item[OBJ8.] \textbf{Seguir una metodologia de desenvolupament i validació del sistema.}
+\subitem La descripció de la metodologia de desenvolupament, així com la inclusió del diagrama de \textit{Gantt}, i la validació del sistema al \textit{Capítol 11}, són alguns dels resultats generals del seguiment i validació del desenvolupament del projecte.
+\item[OBJ9.] \textbf{Definir un cas d’ús per mostrar la usabilitat i comportament real del sistema.}
+\subitem El \textit{Capítol 11} està destinat exclusivament a aquest objectiu: es defineix un entorn específic, uns models i unes configuracions reals, i s'executa l'algorisme d'adaptabilitat sencer, des del punt de sol·licitud d'adaptació fins la validació dels canvis reals a la pròpia execució de monitoratge.
+\item[OBJ10.] \textbf{Documentar i justificar l’evolució del projecte.}
+\subitem Aquesta memòria, així com els anteriors entregables (Fita Inicial i Fita de seguiment) són documents que garanteixen l'assoliment d'aquest objectiu, i permeten analitzar l'evolució del projecte i les tasques realitzades com a part d'aquest.
+\end{itemize}
+
 \section{Justificació de l'assoliment de competències}
 
-Com a part de la planificació del projecte i el curs de GEP, es van definir una sèrie de competències que es treballarien en aquest projecte en diferents graus. Un cop finalitzat el seu desenvolupament, hem d'assegurar no només la satisfacció dels objectius (plantejada al \textit{Capítol 11. Validació del sistema}), sinó també d'aquestes competències i el seu treball amb el màxim rigor possible.
+Com a part de la planificació del projecte i el curs de GEP, es van definir una sèrie de competències que es treballarien en aquest projecte en diferents graus. Un cop finalitzat el seu desenvolupament, hem d'assegurar no només la satisfacció dels objectius, sinó també d'aquestes competències i el seu treball amb el màxim rigor possible.
 
 \begin{enumerate}
 \item [CES1.1.] \textbf{Desenvolupar, mantenir i avaluar sistemes i serveis software complexos i/o crítics. [En profunditat]}
@@ -16,7 +43,7 @@ Com a part de la planificació del projecte i el curs de GEP, es van definir una
 \item [CES1.2.] \textbf{Donar solució a problemes d'integració en funció de les estratègies, dels estàndards i de les tecnologies disponibles. [En profunditat]}
 \subitem La integració i comunicació d'aquests components s'ha dissenyat i desenvolupat al llarg del projecte. La necessitat de disposar d'un sistema distribuït ens ha presentat la necessitat de donar solució a la integració de components, d'una banda a través de la necessitat del component d'integració utilitzat (IF), i d'altra banda el disseny i implementació de la lògica necessària a cada component per ser exposat com a servei i poder ser així integrat a IF.
 \item [CES1.3.] \textbf{Identificar, avaluar i gestionar els riscos potencials associats a la construcció de software que es poguessin presentar. [Bastant]}
-\subitem Especialment treballada durant la planificació del projecte, i utilitzada durant el seu desenvolupament, la gestió i planificació temporal s'ha adaptat a les petites desviacions que s'han anat patint al llarg del desenvolupament.
+\subitem Especialment treballada durant la planificació del projecte, i utilitzada durant el seu desenvolupament, la gestió i planificació temporal s'ha adaptat a les petites desviacions que s'han anat patint al llarg del desenvolupament. En aquesta mateixa memòria s'inclou al \textit{Capítol 4. Gestió i desenvolupament} la previsió i pla d'acció d'aquests riscos.
 \item [CES1.5.] \textbf{Especificar, dissenyar, implementar i avaluar bases de dades.  [Bastant]}
 \subitem Components com l'Orchestrator o el Model Repository Manager han necessitat l'especificació, el disseny, la implementació i l'avaluació de bases de dades relacionals. Aquestes tasques s'han realitzat d'acord a les necessitats de cada component.
 \item [CES1.7.] \textbf{Controlar la qualitat i dissenyar proves en la producció de software. [En profunditat]}
@@ -47,10 +74,10 @@ En resum, podem satisfer que per una banda s'ha resolt una problemàtica especí
 
 \section{Avaluació general}
 
-Davant els punts anteriorment exposats, es pot garantir no només la satisfacció dels objectius propis del projecte, sinó també els objectius des d'un punt de vista didàctic com a projecte que representa la cloenda dels estudis del Grau en Enginyeria Informàtica.\\
+Davant els punts anteriorment exposats, es pot garantir no només la satisfacció dels objectius propis del projecte, sinó també els objectius des d'un punt de vista didàctic com a projecte que representa la cloenda dels estudis del GEI.\\
 
-Aquest projecte ha suposat, a títol personal, una de les primeres experiències en el desenvolupament d'un projecte amb implicacions reals, entenent aquest desenvolupament com el transcurs en la seva totalitat: des del plantejament de les necessitats i requisits fins la seva validació, passant pel disseny software i la implementació dels components especificats. Com a futur professional de l'enginyeria del software, l'oportunitat de participar en aquestes fases d'un projecte i veure la seva evolució aporta un gran valor personal i professional, que serveix de perfecte tancament dels estudis mitjançant l'assoliment i validació final dels coneixements adquirits durant el transcurs del grau.\\
+Aquest projecte ha suposat, a títol personal, una de les primeres experiències en el desenvolupament d'un projecte amb implicacions reals, entenent aquest desenvolupament com el transcurs en la seva totalitat: des del plantejament dels requisits fins la seva validació, passant pel disseny software i la implementació dels components. Com a futur professional de l'enginyeria del software, l'oportunitat de participar en aquestes fases d'un projecte i veure la seva evolució aporta un gran valor personal i professional, que serveix de perfecte tancament dels estudis mitjançant l'assoliment i validació final dels coneixements adquirits durant el transcurs del grau.\\
 
-Addicionalment aquest projecte ha suposat no només una consolidació dels coneixements adquirits, sinó també un aprenentatge de tecnologies o conceptes que altrament és probable que no hagués tractat. Degut a la gran variabilitat de requisits tècnics dels diferents components del projecte, ha estat necessari afrontar reptes variats que en alguns casos han suposat dedicar hores d'aprenentatge (com, p.e., el disseny d'un \textit{front-end} amb un \textit{framework} específic). Aquest és un punt essencial que, a més, reflexa perfectament la realitat del món laboral dins el sector de l'enginyeria informàtica: la constant necessitat de renovació i aprenentatge en funció de les circumstàncies del moment.\\
+Addicionalment aquest projecte ha suposat no només una consolidació dels coneixements adquirits, sinó també un aprenentatge de tecnologies o conceptes que altrament és probable que no hagués tractat. Degut a la gran variabilitat de requisits tècnics dels diferents components del projecte, ha estat necessari afrontar reptes variats que en alguns casos han suposat dedicar hores d'aprenentatge. Aquest és un punt essencial que, a més, reflexa perfectament la realitat del món laboral dins el sector de l'enginyeria informàtica: la constant necessitat de renovació i aprenentatge en funció de les circumstàncies del moment.\\
 
-En definitiva les sensacions al finalitzar aquest projecte són altament satisfactòries. Consolidant els coneixements interioritzats durant els 4 anys d'aquest grau, produeix una gran motivació veure d'una banda les habilitats i coneixements adquirits, i d'altra banda el potencial coneixement encara per adquirir i desenvolupar, ja sigui en altres entorns acadèmics o en el món laboral. És el moment de tancar el darrer capítol d'aquesta memòria i, amb sort, començar a escriure'n molts més allà on el futur professional em condueixi. \\
+En definitiva les sensacions al finalitzar aquest projecte són altament satisfactòries. Consolidant els coneixements interioritzats durant els 4 anys d'aquest grau, produeix una gran motivació veure les habilitats i coneixements adquirits, així com el potencial coneixement encara per adquirir i desenvolupar. És el moment de tancar el darrer capítol d'aquesta memòria i, amb sort, començar a escriure'n molts més allà on el futur professional em condueixi. \\

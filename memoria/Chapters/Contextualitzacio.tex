@@ -2,34 +2,7 @@
 
 \label{Contextualitzacio}
 
-\section{Presentació i justificació de la temàtica}
-
-En les darreres dècades els sistemes software han evolucionat fins al punt d'esdevenir elements clau i imprescindibles de les activitats primàries de qualsevol empresa, organització o institució. La gestió de la informació, els protocols i controls de seguretat, els processos de negoci, etc., són els reptes als quals els \textit{Chief Information Officers} (CIO) de moltes empreses s'han d'enfrontar. Aquests reptes i els seus resultats depenen, en gran mesura, del comportament dels sistemes software que entren en joc dins aquestes activitats. Addicionalment, la quantitat de productes software exposats com a serveis o aplicacions mòbils ha incrementat dràsticament. Fet que deriva en el sorgiment d'una gran varietat de contexts i entorns d'execució entre els grans volums d'usuaris que aquests sistemes poden tenir. \\
-
-És per aquest motiu que eventualment ha anat prenent força un concepte basat en l'estudi i control de qualitat dels sistemes software: el monitoratge. Com a part de la vida professional d'un enginyer de software, la supervisió i control dels components i sistemes amb els què treballa és un concepte clau amb el qual, d'una forma o altra, ha d'estar familiaritzat. Però el problema que plantegem aquí va més enllà: després del repte de monitorar els sistemes, ens hem de plantejar com dissenyar, gestionar i adaptar aquest monitoratge.\\
-
-Els reptes que aquestes tasques plantegen i que aquest projecte treballa són diversos. Entre d'altres, cal valorar el disseny i les característiques tècniques dels monitors, la seva configuració i la capacitat d'adaptabilitat. En relació amb aquest últim aspecte, també cal valorar com s'emmagatzemen i es gestionen els detalls relacionats amb la configuració dels monitors, i establir interaccions de la manera més genèrica possible per facilitar l'extensibilitat.\\
-
-Tal i com veurem més endavant a l'apartat \textit{2.3. Estat de l'art}, existeix una àmplia recerca que actualment treballa i desenvolupa projectes en relació a aquest àmbit. El potencial d'estudi que ofereix resulta d'un alt interès a causa de la possibilitat de recerca i síntesi i als diferents aspectes i criteris sobre els quals es pot treballar.\\
-
-Així, tant com estudiant com a futur professional del sector de l'enginyeria del software, es poden contemplar diversos criteris per treballar en aquesta temàtica:
-\begin{itemize}
-\item Un aprofundiment en els coneixements de l'enginyeria i els sistemes software
-\item Treball i recerca en conceptes de control de qualitat, fiabilitat i millora de l'experiència de l'usuari
-\item Possibilitat de col·laborar i aprofundir en un tema de recerca d'actualitat dins l'enginyeria de serveis i els sistemes d'informació
-\item Plantejament d'un projecte complet que pugui servir a tercers interessats en l'estudi de sistemes de monitoratge autoadaptatius
-\end{itemize}  
-
-\section{Identificació dels stakeholders}
-
-Les diferents fases que engloben aquest projecte deriven en l'obtenció d'un producte final, orientat a la seva aplicació pràctica. Com a tal, els documents generats i els components dissenyats i implementats esdevenen productes propis dins el context del monitoratge de sistemes software. Com a tals, aspectes que s'exposaran al llarg d'aquest document (el disseny i implementació d'una arquitectura genèrica pels monitors, la gestió de les configuracions, etc.) poden resultar d'utilitat per a agents externs a la pròpia autoria del projecte.\\
-
-Podem considerar, per tant, que podrà ser una eina d’interès pels principals stakeholders, que vindrien a ser:
-\begin{itemize}
-\item \textbf{Desenvolupadors i enginyers software}. Aquells agents al càrrec del control de qualitat de sistemes softwares de diverses naturaleses. Els conceptes treballats, el plantejament de problemàtiques, i el producte generat, poden aportar valor de qualitat al sector treballant, per una banda, en la síntesi i recopilació de la informació actual, i per altra banda, aportant propostes i solucions pròpies basades en l’experiència del desenvolupament del projecte.
-\item \textbf{Gestors de projecte i experts en Sistemes d'Informació}. La gestió de la informació, el tractament i el seu potencial poden resultar afectats gràcies a la capacitat de recol·lecció de dades del sistema de monitoratge, així com els criteris de revisió i control de qualitat, que permeten analitzar i obtenir informació fiable.
-\item \textbf{Usuaris finals dels sistemes monitorats}. De forma indirecta, es veuran afectats degut a les conseqüències del monitoratge dut a terme per aquest sistema de monitoratge o d’altres derivats dels conceptes treballats al llarg d’aquest projecte.
-\end{itemize}
+Abans d'entrar a definir quines seran les tasque si objectius específics d'aquest projecte, plantegem una breu aproximació al context del projecte, analitzant l'estat de l'art de l'àrea d'estudi.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -62,9 +35,22 @@ Partint d'aquest punt, aquest document estableix les premisses del monitoratge i
 
 La documentació i bibliografia referent als sistemes software autoadaptables i als sistemes de supervisió i monitoratge és molt àmplia. Tot i així, si focalitzem la recerca a la problemàtica a resoldre, és a dir, l’autoadaptabilitat i reconfiguració dels sistemes de monitoratge, no trobem un treball tan profunditzat i específic com en el cas prèviament explicat.\\
 
-En alguns documents, com per exemple el ja esmentat \cite{napols}, es mencionen criteris del disseny de la capa de supervisió, entre els quals entren en joc, p.e., factors com la previsió d’errors a la capa de l’aplicatiu principal, o ve esdeveniments/disparadors inesperats. I, com és lògic, una reacció i canvis per part del sistema de monitoratge. \\
+En alguns documents, com per exemple el ja esmentat \cite{napols}, es mencionen criteris del disseny de la capa de supervisió, entre els quals entren en joc, p.e., factors com la previsió d’errors a la capa de l’aplicatiu principal, o ve esdeveniments/disparadors inesperats. I, com és lògic, una reacció i canvis per part del sistema de monitoratge. Aquest plantejament es fa des del punt de vista dels sistemes software monitorats, però no des del punt de vista dels propis sistemes de monitoratge. En el nostre cas, caldrà plantejar-nos com podem fer que el nostre sistema sigui el més flexible i adaptable en temps real possible. I, addicional, com podem dissenyar el sistema per tal de disposar en tot moment de dades reals sobre l'execució i el comportament d'aquest.\\
 
-En altres documents, tals com \cite{ibm}, es defineixen models autònoms d’autoadaptabilitat i reconfiguració autònoma, basats en tècniques de detecció d’esdeveniments i canvis en el propi sistema. Conceptes com l’anàlisi de l’estat del sistema, el monitoratge i l’execució d’una reconfiguració entren en joc dins d’aquest pla.
+En altres documents, tals com \cite{ibm}, es defineixen models autònoms d’autoadaptabilitat i reconfiguració autònoma, basats en tècniques de detecció d’esdeveniments i canvis en el propi sistema. Conceptes com l’anàlisi de l’estat del sistema, el monitoratge i l’execució d’una reconfiguració entren en joc dins d’aquest pla. El concepte de "reconfiguració" serà un dels principals que tractarem en el nostre projecte, entenent-la com la modificació en temps real d'un procés de monitoratge d'un monitor, amb l'objectiu de millorar la seva activitat de control de qualitat.\\
+
+Una aproximació interessant és analitzada i desenvolupada a \cite{heterogeneous}. En aquesta publicació es treballen a fons 2 aspectes principals. Per una banda, la necessitat de concebre el monitoratge des d'un punt de vista heterogeni per tal que l'estudi i les propostes en aquest àmbit puguin ser reaprofitables el màxim possible. Però un segon aspecte interessant es tracta en aquest document: la modelació, mitjançant llenguatge formalitzat, de les directives d'adaptacions dels sistemes de monitoratge. En concret, es planteja utilitzar regles de monitoratge basades en llenguatge OCL (\textit{Object Constraint Language}). La premisa és senzilla: mitjançant la formalització de regles o directives que es puguin gestionar de forma dinàmica, el sistema és capaç de reaccionar de forma automàtica a les violacions de certes restriccions d'integritat, per tal d'accionar de forma completament autònoma i reconfigurar el monitoratge (o els sistemes softwares monitorats) sota aquests criteris).\\
+
+Davant els conceptes presentats en aquests treballs, sorgeix la pregunta: com es pot presentar una proposta que suposi una millora, o si més no un avenç, respecte l'estat de l'art actual? El propòsit d'aquest TFG és unificar els punts forts de diversos d'aquests projectes o recerques per realitzar una proposta unificada que satisfaci tots els criteris òptims destacats anteriorment. Aquests punts inclouen:
+
+\begin{itemize}
+\item El disseny i implementació d'un sistema composat per \textbf{dos subsistemes integrats}: un sistema de monitoratge i un sistema d'adaptabilitat, on el segon actuï sobre el primer
+\item El plantejament d'una proposta de disseny prou àmplia com per poder garantir la seva \textbf{heterogeneïtat}, independentment d'aspectes relacionats als monitors com la tecnologia o l'àrea monitorada
+\item El disseny i implementació de components de forma totalment distribuïda i independentment, aportant no només flexibilitat i desacoblament en el desplegament físic, sinó també llibertat de reaprofitament i extensió del sistema
+\item La proposta d'un sistema de gestió de l'adaptabilitat mitjançant un llenguatge formal, que vagi més enllà de la modelació de directives de canvi proposada a \cite{heterogeneous} i permeti un control màxim del sistema, del seu estat actual, i la gestió de diferents propostes de reconfiguració més personalitzables
+\end{itemize}
+
+A tot això, cal afegir la importància de destacar que aquest projecte, si bé té per objectiu la generació d'un producte final aplicable i reutilitzable per altres components, està especialment orientat a la recerca i a ser en sí mateix una proposta d'aproximacions diverses a la resolució de diversos problemes. Per tant, per a què suposi encara un impacte major en l'estat de l'art de la temàtica, tots els components i documentació generats seran publicats sota llicències de software lliure, amb l'objectiu que aquests puguin ser explotats i desenvolupats en treball futur, ja sigui sota responsabilitat del propi autor com per altres desenvolupadors.
 
 %-----------------------------------
 %	SUBSECTION 2
@@ -95,7 +81,7 @@ Dins aquest cicle de vida, orientat al control de qualitat dels sitemes software
 
 La figura ~\ref{fig:Figura2} resumeix aquest cicle de vida i les característiques del context de les seves fases. Tal i com es pot observar, la principal font de dades amb les quals aquest control de qualitat es nodreix es l'experiència de l'usuari final, el context on s'executa aquesta aplicació o sistema i les dades generades del propi ús i funcionament del sistema. És, per tant, un aspecte clau l'obtenció de \textbf{dades en execució real}, que seran les que ens permetin aplicar aquest cicle regularment. Regularitat que serà crucial per satisfer l'objectiu d'anàlisi de la qualitat del sistema: només amb dades actuals i constants serem capaços de conèixer l'activitat real del nostre sistema i actuar en conseqüència.\\
 
-Aquest cicle de vida no és més que una descripció del cicle \textit{MAPE-k} \cite{mapek1}\cite{mapek2}, un cicle de vida del software orientat a la retroalimentació i adaptació de l'activitat classificat en aquestes quatre fases: \textit{\textbf{M}onitoring}, \textit{\textbf{A}nalysis}, \textit{\textbf{P}lan} i \textit{\textbf{E}nactment}.
+Aquest cicle de vida no és més que una descripció del cicle \textit{MAPE-k} \cite{mapek1}\cite{mapek2}, un cicle de vida del software orientat a la retroalimentació i adaptació de l'activitat classificat en aquestes quatre fases: \textit{\textbf{M}onitoring}, \textit{\textbf{A}nalysis}, \textit{\textbf{P}lan} i \textit{\textbf{E}nactment}.\\
 
 En aquest context identifiquem per tant 4 sectors o subsistemes amb un objectiu específic que, integrats, serveixen a un propòsit genèric. Si ens plantegem com encaixa aquest model dins el nostre tema d'estudi (és a dir, l'adaptabilitat dels sistemes de monitoratge) podem establir una relació directa amb les fases de \textbf{col·lecció} de dades i \textbf{adaptació}. Dins aquesta primera fase de col·lecció, necessitem definir un sistema capaç d'obtenir aquestes dades, en funció dels sistemes a controlar i de l'interès que tinguem sobre aquests sistemes. Aquest sistema de \textbf{monitoratge} estarà compost per un conjunt definit de monitors, encarregats de recollir aquesta informació. Per altra banda, si volem dotar a aquest sistema de monitoratge d'adaptabilitat, i per tant, garantir un control de qualitat sobre aquests monitors, necessitem establir un sistema que gestioni l'activitat dels monitors i defineixi adaptacions a aplicar sobre aquests monitors.\\
 

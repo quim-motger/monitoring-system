@@ -4,10 +4,47 @@
 
 \label{Introduccio} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-El present document consisteix en la memòria del Treball de Final de Grau (TFG) del Grau en Enginyeria Informàtica titulat \textit{Sistema de monitoratge autoadaptable, heterogeni i distribuït}. Com a projecte realitzat a la cloenda dels estudis de grau, el desenvolupament i presentació d'aquest projecte tenen dos objectius principals.\\
+El present document consisteix en la memòria del Treball de Final de Grau (TFG) del Grau en Enginyeria Informàtica titulat \textit{Sistema de monitoratge autoadaptable, heterogeni i distribuït}. Aquest TFG s'ha realitzat com a part dels estudis en l'especialitat d'Enginyeria del Software, i per tant els coneixements i les tasques aquí resumits s'emmarquen en els conceptes d'aquesta àrea.
 
-En primer lloc, la consolidació dels coneixements adquirits durant el transcurs del grau. Aquests coneixements engloben des de la qüestió tècnica i específica de la matèria, amb especial èmfasi en els conceptes i aprenentatges relacionats amb l'especialitat d'Enginyeria del Software (tals com el disseny de components software), fins a aspectes relacionats amb la gestió, realització i documentació de projectes complets, pràctics i funcionals, dels quals aquest TFG n'és un exemple. Al llarg dels capítols que composen aquesta memòria, la justificació, explicació i demostració de les tasques realitzades i els conceptes tractats s'exposen amb la rigurositat adequada a un document acadèmic d'aquesta categoria, demostrant l'assoliment d'aquests coneixements amb la major claredat possible.\\
+\section{Motivació del projecte}
 
-Per altra banda, aquest projecte pretèn presentar-se com un treball d'investigació, recerca i desenvolupament amb valor propi, dins d'un àmbit i context determinats, amb un objectiu pràctic i aplicable. Més enllà del caire acadèmic, els productes i resultats generats com a conseqüència de la realització d'aquest projecte (components software, disseny i implementació de sistemes, documentació, etc.) esdevenen elements amb valor propi, amb expectatives d'ús  i possibilitats d'expansió dins del seu propi context.\\
+Com a projecte realitzat a la cloenda dels estudis de grau, el desenvolupament i presentació d'aquest projecte tenen dos objectius principals.\\
 
-Per tal de satisfer aquests dos objectius, aquest projecte presenta el següent propòsit: dissenyar, implementar, gestionar, testejar, validar i mantenir un sistema de monitoratge que satisfaci els criteris d'autoadaptabilitat, heterogeneïtat i distribució (conceptes que s'aprofundiran més endavant). Sota aquesta temàtica, i amb les consideracions prèviament establertes, s'assoliran tant l'objectiu de consolidació de coneixements com la generació d'uns resultats que puguin ser presentats pel seu valor propi i independent.
+En primer lloc, la consolidació dels coneixements adquirits durant el transcurs del grau. Aquests coneixements engloben des de la qüestió tècnica i específica de la matèria, amb especial èmfasi en els conceptes i aprenentatges relacionats amb l'especialitat d'Enginyeria del Software (tals com el disseny de components software), fins a aspectes relacionats amb la gestió, realització i documentació de projectes complets, pràctics i funcionals, dels quals aquest TFG n'és un exemple. Al llarg dels capítols que componen aquesta memòria, la justificació, explicació i demostració de les tasques realitzades i els conceptes tractats s'exposen amb la rigorositat adequada a un document acadèmic d'aquesta categoria, demostrant l'assoliment d'aquests coneixements amb la major claredat possible.\\
+
+Per altra banda, aquest projecte pretén presentar-se com un treball d'investigació, recerca i desenvolupament amb valor propi, dins d'un àmbit i context determinats, amb un objectiu pràctic i aplicable. Més enllà del caire acadèmic, els productes i resultats generats com a conseqüència de la realització d'aquest projecte (components software, disseny i implementació de sistemes, documentació, etc.) esdevenen elements amb valor propi, amb expectatives d'ús  i possibilitats d'expansió dins del seu propi context.\\
+
+Per tal de satisfer aquests dos objectius, aquest projecte presenta el següent propòsit: dissenyar, implementar, gestionar, testejar, validar i mantenir un sistema de monitoratge que satisfaci els criteris d'autoadaptabilitat, heterogeneïtat i distribució (conceptes que s'aprofundiran més endavant). Sota aquesta temàtica, i amb les consideracions prèviament establertes, s'assoliran tant l'objectiu de consolidació de coneixements com la generació d'uns resultats que puguin ser presentats pel seu valor propi i independent.\\
+
+Per tal d'entendre bé aquest plantejament de propòsit general del projecte, a continuació detallarem una breu definició de les bases de l'àrea de treball sobre la qual aquest projecte n'és un desenvolupament.
+
+\section{Àrea d'estudi i justificació de la temàtica}
+
+En les darreres dècades els sistemes software han evolucionat fins al punt d'esdevenir elements clau i imprescindibles de les activitats primàries de qualsevol empresa, organització o institució. La gestió de la informació, els protocols i controls de seguretat, els processos de negoci, etc., són els reptes als quals els \textit{Chief Information Officers} (CIO) de moltes empreses s'han d'enfrontar. Aquests reptes i els seus resultats depenen, en gran mesura, del comportament dels sistemes software que entren en joc dins aquestes activitats. Addicionalment, la quantitat de productes software exposats com a serveis o aplicacions mòbils ha incrementat dràsticament. Fet que deriva en el sorgiment d'una gran varietat de contexts i entorns d'execució entre els grans volums d'usuaris que aquests sistemes poden tenir. \\
+
+És per aquest motiu que eventualment ha anat prenent força un concepte basat en l'estudi i control de qualitat dels sistemes software: el monitoratge. Com a part de la vida professional d'un enginyer de software, la supervisió i control dels components i sistemes amb els què treballa és un concepte clau amb el qual, d'una forma o altra, ha d'estar familiaritzat. Però el problema que plantegem aquí va més enllà: després del repte de monitorar els sistemes, ens hem de plantejar com dissenyar, gestionar i adaptar aquest monitoratge.\\
+
+Els reptes que aquestes tasques plantegen i que aquest projecte treballa són diversos. Entre d'altres, cal valorar el disseny i les característiques tècniques dels monitors, la seva configuració i la capacitat d'adaptabilitat. En relació amb aquest últim aspecte, també cal valorar com s'emmagatzemen i es gestionen els detalls relacionats amb la configuració dels monitors, i establir interaccions de la manera més genèrica possible per facilitar l'extensibilitat.\\
+
+Existeix una àmplia recerca que actualment treballa i desenvolupa projectes en relació a aquest àmbit. El potencial d'estudi que ofereix resulta d'un alt interès a causa de la possibilitat de recerca i síntesi i als diferents aspectes i criteris sobre els quals es pot treballar.\\
+
+Així, tant com estudiant com a futur professional del sector de l'enginyeria del software, es poden contemplar diversos criteris per treballar en aquesta temàtica:
+\begin{itemize}
+\item Un aprofundiment en els coneixements de l'enginyeria i els sistemes software
+\item Treball i recerca en conceptes de control de qualitat, fiabilitat i millora de l'experiència de l'usuari
+\item Possibilitat de col·laborar i aprofundir en un tema de recerca d'actualitat dins l'enginyeria de serveis i els sistemes d'informació
+\item Plantejament d'un projecte complet que pugui servir a tercers interessats en l'estudi de sistemes de monitoratge autoadaptatius
+\end{itemize}  
+
+\section{Identificació de potencials stakeholders}
+
+Les diferents fases que engloben aquest projecte deriven en l'obtenció d'un producte final, orientat a la seva aplicació pràctica. Com a tal, els documents generats i els components dissenyats i implementats esdevenen productes propis dins el context del monitoratge de sistemes software. Com a tals, aspectes que s'exposaran al llarg d'aquest document (el disseny i implementació d'una arquitectura genèrica pels monitors, la gestió de les configuracions, etc.) poden resultar d'utilitat per a agents externs a la pròpia autoria del projecte.\\
+
+Podem considerar, per tant, que podrà ser una eina d’interès pels principals stakeholders, que vindrien a ser:
+\begin{itemize}
+\item \textbf{Desenvolupadors i enginyers software}. Aquells agents al càrrec del control de qualitat de sistemes softwares de diverses naturaleses. Els conceptes treballats, el plantejament de problemàtiques, i el producte generat, poden aportar valor de qualitat al sector treballant, per una banda, en la síntesi i recopilació de la informació actual, i per altra banda, aportant propostes i solucions pròpies basades en l’experiència del desenvolupament del projecte.
+\item \textbf{Gestors de projecte i experts en Sistemes d'Informació}. La gestió de la informació, el tractament i el seu potencial poden resultar afectats gràcies a la capacitat de recol·lecció de dades del sistema de monitoratge, així com els criteris de revisió i control de qualitat, que permeten analitzar i obtenir informació fiable.
+\item \textbf{Usuaris finals dels sistemes monitorats}. De forma indirecta, es veuran afectats degut a les conseqüències del monitoratge dut a terme per aquest sistema de monitoratge o d’altres derivats dels conceptes treballats al llarg d’aquest projecte.
+\end{itemize}
+
+En definitiva, podem concloure que l'àrea de treball del projecte té potencial per ser d'interès i tenir una reaprofitabilitat, factor clau que explotarem al llarg del disseny i desenvolupament d'aquest projecte. 

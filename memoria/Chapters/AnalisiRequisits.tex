@@ -13,7 +13,7 @@ En primer lloc, establim de nou la premisa d'aquest projecte: el \textbf{disseny
 \item Un \textbf{sistema d'adaptabilitat} que permeti adaptar l'activitat del sistema de monitoratge.
 \end{itemize}
 
-El component clau de l'activitat del monitoratge és el que anomenem \textbf{monitor}. Un monitor no és més que un component software (independentment de la seva naturalesa o la tecnologia amb la qual està desenvolupat) que interactua amb un component software i col·lecciona informació relacionada amb la seva activitat, tal i com s'explica al \textit{Capítol 2.2. Estat de l'art}. Per tal de generar un sistema de monitoratge dins el nostre projecte, haurem de tenir en compte diversos factors.\\
+El component clau de l'activitat del monitoratge és el que anomenem \textbf{monitor}. Un monitor no és més que un component software (independentment de la seva naturalesa o la tecnologia amb la qual està desenvolupat) que interactua amb un component software i col·lecciona informació relacionada amb la seva activitat, tal i com s'explica al \textit{Capítol 2.1. Estat de l'art}. Per tal de generar un sistema de monitoratge dins el nostre projecte, haurem de tenir en compte diversos factors.\\
 
 En primer lloc, necessitarem definir una \textbf{arquitectura genèrica} que ens permeti definir l'estructura i arquitectura bàsica dels monitors que inclourem al nostre projecte. D'aquesta manera, mitjançant criteris que s'estudiaran més endavant, el nostre sistema disposarà d'un component genèric a partir del qual podrem generar \textbf{monitors específics}, independentment de la seva activitat en termes específics. Així, garantit la característica d'\textbf{heterogeneïtat}, el nostre sistema permetrà la seva extensió mitjançant la implementació de nous monitors que es puguin integrar al sistema.\\
 
@@ -50,7 +50,7 @@ Primerament, comencem per explicar els components que formen el \textbf{sistema 
 \item \textbf{\textit{Action}}. Procés de la informació i transformació de la mateixa d'acord amb el monitor corresponent.
 \item \textbf{\textit{Output}}. Informació/paràmetres de configuració transformats i orientats al monitor corresponent. 
 \end{itemize}
-\item \textbf{Orchestrator.} Aquest document forma part del context del projecte SUPERSEDE. Dins aquest projecte (presentat al capítol \textit{2.2.1. Projecte SUPERSEDE}), aquest component és el punt d'integració entre el subsistema d'adaptació de sistemes software i el subsistema de col·lecció i anàl·lisi de dades, i actua com a \textit{orquestrador} en un sentit de "pont" redireccional. En el marc del nostre projecte, que s'inclou a SUPERSEDE, aquest component actuarà com a punt entre el subsistema d'adaptació i el sistema de monitoratge
+\item \textbf{Orchestrator.} Aquest document forma part del context del projecte SUPERSEDE. Dins aquest projecte (presentat al capítol \textit{2.2. Projecte SUPERSEDE}), aquest component és el punt d'integració entre el subsistema d'adaptació de sistemes software i el subsistema de col·lecció i anàl·lisi de dades, i actua com a \textit{orquestrador} en un sentit de "pont" redireccional. En el marc del nostre projecte, que s'inclou a SUPERSEDE, aquest component actuarà com a punt entre el subsistema d'adaptació i el sistema de monitoratge
 \begin{itemize}
 \item \textbf{\textit{Input}}. Informació/paràmetres de configuració d'un procés de monitoratge per a un monitor específic.
 \item \textbf{\textit{Action}}. Procés de la informació i transformació de la mateixa d'acord amb el propòsit del nostre sistema (configuració de monitors).

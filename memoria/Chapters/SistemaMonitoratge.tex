@@ -294,14 +294,6 @@ També de forma similar al monitor de Google Play, necessitem definir l'únic pa
 \item \textbf{appId} - identificador únic d'una aplicació publicada a l'AppStore (anàleg a l'identificador de Google Play, però en format numèric)
 \end{itemize}
 
-\begin{figure}
-\centering
-\includegraphics[width=14cm]{Figures/appstore}
-\decoRule
-\caption[Arquitectura software del monitor de l'AppStore]{Arquitectura software del monitor de l'AppStore}
-\label{fig:appstore}
-\end{figure}
-
 A la figura ~\ref{fig:appstore} veiem la representació de l'arquitectura estesa respecte la genèrica per la implementació d'aquest monitor:
 
 \begin{itemize}
@@ -312,7 +304,21 @@ A la figura ~\ref{fig:appstore} veiem la representació de l'arquitectura estesa
 \item \textbf{AppTweak}. Implementació de \textit{ToolInterface} que utilitza l'API de AppTweak. El funcionament tècnic és el mateix que el ja explicat per Google Play.
 \end{itemize}
 
-\begin{figure}[!h]
+\begin{figure}
+\centering
+\includegraphics[width=14cm]{Figures/appstore}
+\decoRule
+\caption[Arquitectura software del monitor de l'AppStore]{Arquitectura software del monitor de l'AppStore}
+\label{fig:appstore}
+\end{figure}
+
+\noindent{\large{\textbf{Exposició com a servei REST}}}\\
+
+De forma anàloga a l'exposició com a servei del monitor de Twitter i Google Play, cal dissenyar i implementar un servei REST per desplegar les funcionalitats del monitor de App Store.\\
+
+La figura ~\ref{fig:appstore-dades} mostra un exemple d'un possible objecte JSON de configuració del monitor. A l'apèndix ~\ref{AppStoreMonitor} es troba el disseny de l'API d'aquest monitor.\\
+
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=14cm]{Figures/appstore-dades}
 \decoRule
@@ -320,11 +326,7 @@ A la figura ~\ref{fig:appstore} veiem la representació de l'arquitectura estesa
 \label{fig:appstore-dades}
 \end{figure}
 
-\noindent{\large{\textbf{Exposició com a servei REST}}}\\
-
-De forma anàloga a l'exposició com a servei del monitor de Twitter i Google Play, cal dissenyar i implementar un servei REST per desplegar les funcionalitats del monitor de App Store. La figura ~\ref{fig:appstore-dades} mostra un exemple d'un possible objecte JSON de configuració del monitor. A l'apèndix ~\ref{AppStoreMonitor} es troba el disseny de l'API d'aquest monitor.\\
-
-\begin{figure}[!h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=11cm]{Figures/appstore-conf}
 \decoRule
@@ -506,6 +508,8 @@ Només en un cas necessitem afegir més informació, que serà pels dos casos a 
 \noindent El comportament intern de l'Orchestrator serà relativament senzill, ja que únicament necessita contemplar l'actualització de metadades i el processament de les peticions realitzades per redirigir-les, si s'escau, al monitor corresponent.\\
 
 Considerant primer \textbf{l'actualització de metadades}, l'Orchestrator actualitzarà d'acord a l'operació executada modificacions a la base de dades d'acord amb \textbf{creació}, \textbf{actualització} i eliminació de les entitats prèviament definides. En cas que es tracti d'operacions de lectura, només caldrà accedir a la base de dades i llegir les dades associades a la petició realitzada. Aquest aspecte de l'acció interna el considerarem trivial, ja que es tracta únicament de modificacions associades a una BDD relacional (veure més endavant a \textit{Implementació del Orchestrator}), i no resulta d'especial interès per la finalitat del nostre projecte.\\
+
+El potencial de l'anàlisi de metadades queda fora de l'abast d'aquest projecte.\\
 
 \noindent \textbf{\large Redirecció de peticions}\\
 

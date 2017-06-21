@@ -99,6 +99,55 @@
   \field{year}{2005}
 \endentry
 
+\entry{heterogeneous}{inproceedings}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Ehlers}{E.}%
+     {Jens}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hoorn}{H.}%
+     {Andre}{A.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Waller}{W.}%
+     {Jan}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hasselbring}{H.}%
+     {Wilhelm}{W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ACM}%
+  }
+  \keyw{adaptive monitoring, anomaly detection, failure diagnosis}
+  \strng{namehash}{EJ+1}
+  \strng{fullhash}{EJHAvWJHW1}
+  \field{booktitle}{Proceedings of the 8th ACM International Conference on
+  Autonomic Computing}
+  \verb{doi}
+  \verb 10.1145/1998582.1998628
+  \endverb
+  \field{isbn}{978-1-4503-0607-2}
+  \field{pages}{197\bibrangedash 200}
+  \field{series}{ICAC '11}
+  \field{title}{Self-adaptive Software System Monitoring for Performance
+  Anomaly Localization}
+  \verb{url}
+  \verb http://doi.acm.org/10.1145/1998582.1998628
+  \endverb
+  \list{location}{1}{%
+    {Karlsruhe, Germany}%
+  }
+  \field{year}{2011}
+  \warn{\item Can't use 'location' + 'address'}
+\endentry
+
 \entry{supersede}{online}{}
   \field{title}{{SUPERSEDE} - at a glance}
   \verb{url}

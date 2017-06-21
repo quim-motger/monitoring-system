@@ -217,45 +217,45 @@ Too many commas in name 1 of "Pablo Trinidad, David Benavides, Antonio Ruiz-Cort
 while executing---line 2659 of file biblatex.bst
 Too many commas in name 1 of "Pablo Trinidad, David Benavides, Antonio Ruiz-Cortes, Sergio Segura, Miguel Toro" for entry fm
 while executing---line 2659 of file biblatex.bst
-You've used 34 entries,
+You've used 35 entries,
             6047 wiz_defined-function locations,
-            1285 strings with 12636 characters,
-and the built_in function-call counts, 97712 in all, are:
-= -- 2485
-> -- 7371
-< -- 772
-+ -- 6109
-- -- 5990
-* -- 3530
-:= -- 9042
+            1296 strings with 13047 characters,
+and the built_in function-call counts, 101673 in all, are:
+= -- 2673
+> -- 7488
+< -- 808
++ -- 6158
+- -- 6030
+* -- 3854
+:= -- 9261
 add.period$ -- 0
-call.type$ -- 34
-change.case$ -- 157
+call.type$ -- 35
+change.case$ -- 186
 chr.to.int$ -- 616
-cite$ -- 66
-duplicate$ -- 9679
-empty$ -- 9814
-format.name$ -- 593
-if$ -- 17106
+cite$ -- 68
+duplicate$ -- 10134
+empty$ -- 10223
+format.name$ -- 676
+if$ -- 17983
 int.to.chr$ -- 0
-int.to.str$ -- 46
+int.to.str$ -- 50
 missing$ -- 0
-newline$ -- 492
-num.names$ -- 396
-pop$ -- 10544
+newline$ -- 539
+num.names$ -- 460
+pop$ -- 10861
 preamble$ -- 1
-purify$ -- 192
+purify$ -- 226
 quote$ -- 0
-skip$ -- 3880
+skip$ -- 4099
 stack$ -- 0
-substring$ -- 2798
-swap$ -- 2943
-text.length$ -- 644
+substring$ -- 2946
+swap$ -- 3118
+text.length$ -- 664
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 1280
+type$ -- 1318
 warning$ -- 0
-while$ -- 674
+while$ -- 694
 width$ -- 0
-write$ -- 457
+write$ -- 503
 (There were 90 error messages)

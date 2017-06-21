@@ -97,6 +97,14 @@ En alguns casos, i especialment considerant l'expansió i futur treball a partir
 
 Per aquest motiu, tot i que no serà el cas d'estudi d'aquest projecte, cal introduir el concepte d'\textit{Advice Model}. Aquests models seran, dins el nostre context, diagrames de classes i instàncies en UML que modelen una secció del nostre sistema, com per exemple noves configuracions per a un monitor. La seva característica principal és que, a diferència dels \textit{Base Model}, que representen una modelació d'un estat del sistema, aquests defineixen variacions, punts de variabilitat que es poden afegir, eliminar o substituir al \textit{Base Model} original (més endavant veurem en què consisteixen aquestes modificacions). A la figura ~\ref{fig:advice} podem veure un exemple aplicable al nostre context: una representació de dues propostes de noves configuracions de monitoratge que es podrien afegir al sistema.
 
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{Figures/advice}
+\decoRule
+\caption{Exemple d'Advice Model del sistema de monitoratge}
+\label{fig:advice}
+\end{figure}
+
 \subsection{Pattern Model}
 
 Aquesta modificació d'atributs, però, únicament ens està definint una acció genèrica. És a dir, la semàntica que podem desprendre d'una \textit{Feature Configuration} és simplement la definició d'una proposta general per les configuracions dels monitors. El problema, però, està en que la \textit{Feature Configuration} defineix tot el conjunt del sistema (en aquest cas, tots els atributs de tots els monitors), però no ens dona cap informació sobre quines instàncies del \textit{Base Model} cal aplicar aquests canvis. És a dir: suposem que al \textit{Base Model} de la figura ~\ref{fig:Figura16} volem actualitzar el \textit{timeSlot} de la instància \textit{OlympicGamesTwitterMonitor}, però no de la instància \textit{OlympicGamesMarketPlacesMonitor}.\\
@@ -135,7 +143,7 @@ Aquest tipus de model es tracta d'un tipus de document dissenyat i implementat p
 
 \begin{itemize}
 \item \textbf{FeatureId}. Referencia la \textit{feature} d'un \textit{Feature Model} sobre la qual descriu una adaptació específica.
-\item \textbf{Pointucts}. Llistat de punts on s'han d'aplicar canvis per aquella reconfiguració. Per cada \textit{pointcut} que definim, s'especifica:
+\item \textbf{Pointcuts}. Llistat de punts on s'han d'aplicar canvis per aquella reconfiguració. Per cada \textit{pointcut} que definim, s'especifica:
 \begin{itemize}
 \item \textbf{Pattern}. El \textit{pattern} utilitzat per buscar dinàmicament els elements al diagrama UML
 \item \textbf{Role}. El rol o \textit{stereotype} amb el qual s'etiquetaran aquests elements
@@ -152,7 +160,7 @@ Aquest tipus de model es tracta d'un tipus de document dissenyat i implementat p
 \end{itemize}
 \end{itemize}
 
-A la figura ~\ref{fig:aspect} podem veure un exemple de model d'adaptabilitat amb els paràmetres anteriorment definits. En aquest cas, l'operació a aplicar és \textit{Update}, ja que serà la que ens interessarà pel cas d'estudi.
+A la figura ~\ref{fig:aspect} podem veure un exemple de model d'adaptabilitat amb els paràmetres anteriorment definits. En aquest cas, l'operació a aplicar és \textit{Update}, ja que serà la que ens interessarà pel cas d'estudi.\\
 
 Aquesta es tracta d'una aproximació genèrica inicial als models d'adaptabilitat. Per entendre el seu funcionament exacte i aprofundir en la sintaxi i les seves implicacions, en el següent capítol descriurem l'algorisme d'adaptabilitat i reconfiguració de monitors per entendre precisament com aquesta adaptació funciona amb els nostres models.\\
 
@@ -160,6 +168,6 @@ Aquesta es tracta d'una aproximació genèrica inicial als models d'adaptabilita
 \centering
 \includegraphics[width=11cm]{Figures/Figure38}
 \decoRule
-\caption{Exemple de Pattern Model del sistema de monitoratge}
+\caption{Exemple d'Adaptability Model del sistema de monitoratge}
 \label{fig:aspect}
 \end{figure}

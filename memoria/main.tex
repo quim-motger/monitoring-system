@@ -190,18 +190,37 @@ table
 El monitoratge consisteix en la tècnica d'observació i control dels sistemes software amb l'objectiu de garantir la seva fiabilitat, la qualitat del servei (Quality of Service, QoS), la seguretat i altres característiques dels sistemes software pròpies de la seva execució en temps real. El monitoratge proporciona, entre d'altres resultats, la informació que permet a un sistema software auto-adaptable modificar la seva execució davant la violació d'uns certs valors sobre aquestes característiques, tals com per exemple un increment elevat del temps de resposta d'un sistema o la detecció d'un nombre elevat d'errors per unitat de temps. De la mateixa manera, els sistemes de monitoratge (com a sistemes software que són) requereixen també poder adaptar la seva execució per satisfer la seva fiabilitat. En aquest context, com podem dotar a un sistema de monitoratge de capacitats auto-adaptables?\\
 
 En base a aquesta premisa, aquest Treball de Final de Grau consisteix en el disseny i implementació d'un sistema de monitoratge autoadaptable, heterogeni i distribuït que integra un conjunt de monitors de naturalesa diversa i permet, mitjançant la gestió i adaptació de diagrames UML, la seva reconfiguració de forma automàtica. La proposta i el desenvolupament plantejats en aquest projecte es validen mitjançant casos d'ús reals i, en especial èmfasi, amb la seva integració dins el marc de SUPERSEDE, un projecte del programa Horizon 2020 enfocat a la gestió del cicle de vida dels serveis software i les aplicacions, amb l'objectiu de millorar l'experiència final de l'usuari en l'ús d'aquests sistemes.\\
-
 \end{Abstracte}
+
+\begin{Abstract}
+\addchaptertocentry{Abstract} % Add the abstract to the table of contents
+Software monitoring is the technique of controlling and observing real time behavior of software systems. Its main purpose is to achieve and to guarantee features such as reliability, Quality of Service (QoS), security and other characteristics related with the activity execution of this applications or software components. Monitoring produces and manages the information necessary to allow a self-adaptive software system to automatically adapt when there is a violation of some expected values on those characteristics. These include, i.e., an unusual increase of a software system response time, or exceeding a number of errors per time unit. However, for a monitoring system to be reliable, it has to be self-adaptive as well. In this case, how can we provide self-adaptive capabilities to a monitoring system?\\
+
+This project consists on the design and the implementation of a self-adaptive heterogeneous and distributed monitoring system that integrates different monitors of different nature and provides the functionality to automatically reconfigure them according to some criteria. This automatic adaptation will be performed by managing and supplying UML models describing the current monitoring system status and other possible configurations to be reconfigured with. The development presented in this project will be validated through real use cases, with special emphasis on the SUPERSEDE project, a research project of the Horizon 2020 program. This project is addressed to the management of the software services and applications life cycle, with the main purpose of improving the final user experience in the use of these systems.
+\end{Abstract}
 
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
 
-%\begin{acknowledgements}
-%\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
-%The acknowledgments and the people to thank go here, don't forget to include your project advisor\ldots
-%\end{acknowledgements}
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+Vull agraïr aquest treball a totes aquelles persones que de forma indirecta o directa han fet possible la seva realització.\\
+
+Al professorat de la Facultat d'Informàtica de Barcelona, i en especial al professorat del departament d'Enginyeria de Serveis i Sistemes d'Informació, per la seva dedicació personal i professional i la seva implicació amb l'alumnat.\\
+
+A en Xavier Franch, director del TFG, per haver-me donat l'oportunitat de col·laborar en aquest projecte i créixer com a professional del sector de l'enginyeria del software.\\
+
+A en Marc Oriol, co-director del TFG, per la seva constant ajuda i implicació en el desenvolupament del projecte.\\
+
+Als meus companys de la universitat, per fer que el transcurs del treball, així com el de tot el grau, hagi estat més fàcil i agradable gràcies al seu companyerisme.\\
+
+I a la meva família, que han estat un pilar fonamental gràcies al qual he pogut satisfer els objectius proposats tant en l'àmbit acadèmic com personal.\\
+
+A tots vosaltres, gràcies. 
+
+\end{acknowledgements}
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
@@ -281,6 +300,7 @@ En base a aquesta premisa, aquest Treball de Final de Grau consisteix en el diss
 \include{Chapters/SistemaAdaptabilitat}
 \include{Chapters/DissenyDashboard}
 \include{Chapters/ReconfiguracioMonitors}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 \include{Chapters/Conclusions}
 
 %----------------------------------------------------------------------------------------
@@ -292,6 +312,7 @@ En base a aquesta premisa, aquest Treball de Final de Grau consisteix en el diss
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
+
 \include{Appendices/TwitterMonitor}
 \include{Appendices/GooglePlayMonitor}
 \include{Appendices/AppStoreMonitor}
@@ -299,6 +320,9 @@ En base a aquesta premisa, aquest Treball de Final de Grau consisteix en el diss
 \include{Appendices/OrchestratorDB}
 \include{Appendices/Orchestrator}
 \include{Appendices/ModelRepositoryManager}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{5}}
+
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
